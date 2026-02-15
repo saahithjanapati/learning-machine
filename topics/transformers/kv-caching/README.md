@@ -13,10 +13,11 @@
 - `practice/`
   - `kv_cache_exercise.py` (single-head baseline)
   - `kv_cache_exercise_batched_multihead.py` (batched multi-head)
+- `curriculum/`
+  - `0-to-1-plan.md`
 - `lessons/`
   - Session logs and summaries
 
 ## Latest Session
 
 - `lessons/2026-02-15-kv-caching-session-01.md`
-

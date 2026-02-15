@@ -1,3 +1,14 @@
 __pycache__/
 *.pyc
 .DS_Store
+
+# Local secrets/env vars
+.env
+.env.*
+!.env.example
+
+# Raw source uploads are local-only (not committed).
+materials/inbox/*
+!materials/inbox/.gitkeep
+materials/archive/*
+!materials/archive/.gitkeep

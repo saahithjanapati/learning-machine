@@ -1,0 +1,58 @@
+# Learning Skill Help
+
+## Quick Start
+
+Ask:
+- "show startup menu"
+- "what can I do here?"
+- "show recent topics and ask me what to resume"
+
+This prints:
+- intro message,
+- available actions,
+- most recently reviewed topics,
+- resume prompt.
+
+## Skill Mapping
+
+- startup + resume -> `learning-startup-resume`
+- topic creation/merge/reindex/reorg -> `topic-tree-manager`
+- materials to markdown/curriculum -> `materials-to-curriculum`
+- session generation/adaptation -> `adaptive-session-tutor`
+- skill create/split/merge -> `skill-catalog-manager`
+
+## Natural-Language Commands
+
+1. Show help/start options
+- "show startup help"
+- "show options"
+
+2. Show startup intro + recent topics
+- "show startup intro and recent topics"
+
+3. List recent reviewed topics
+- "list my recent topics"
+
+4. Rebuild topic index and skill tree
+- "reindex topics and regenerate the skill tree"
+
+5. Regenerate source trace map
+- "regenerate the source map"
+
+6. Run post-ingest maintenance
+- "run post-ingest maintenance"
+- "sync processed materials"
+
+7. Generate reorganization report
+- "generate a topic reorganization report"
+
+8. Create a new hierarchical topic
+- "create a topic transformers/attention/rope"
+
+9. Merge topics (dry-run first)
+- "dry-run merge transformers/rope into transformers/attention/rope"
+- then: "apply that merge"
+
+## Internal Note
+
+The assistant may use `scripts/learning_cli.py` internally, but the user should not need to run scripts manually.
