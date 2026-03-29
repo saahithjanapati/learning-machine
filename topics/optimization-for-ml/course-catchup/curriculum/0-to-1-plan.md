@@ -10,7 +10,7 @@ Path: `topics/optimization-for-ml/course-catchup`
 
 ## Purpose
 
-Bridge from backlog to active-class readiness in about 3 weeks, using the transcribed lecture sequence as the canonical source.
+Bridge from backlog to active-class readiness in about 5 weeks, using the transcribed lecture sequence as the canonical source.
 
 ## Source Transcript Sequence
 
@@ -25,6 +25,13 @@ Bridge from backlog to active-class readiness in about 3 weeks, using the transc
 9. `materials/processed/optimization-for-ml/Feb12-projected-subgradient.md`
 10. `materials/processed/optimization-for-ml/Feb17_Optimiality_Conditions.md`
 11. `materials/processed/optimization-for-ml/Feb19_stoch_gd.md`
+12. `materials/processed/optimization-for-ml/Feb17+24_proximal_gd.md`
+13. `materials/processed/optimization-for-ml/Feb24_proximal_gd_examples.md`
+14. `materials/processed/optimization-for-ml/March10_LP_Duality.md`
+15. `materials/processed/optimization-for-ml/March12_Part1_LagrangianFunction.md`
+16. `materials/processed/optimization-for-ml/March12_Part2_SaddlePoints_Minimax_Slater.md`
+17. `materials/processed/optimization-for-ml/March17_KKT.md`
+18. `materials/processed/optimization-for-ml/March19_Newton_method.md`
 
 ## Weekly Plan
 
@@ -46,6 +53,18 @@ Bridge from backlog to active-class readiness in about 3 weeks, using the transc
 - Session 9: Projection operators and projected subgradient updates for constrained problems.
 - Deliverable: method-selection worksheet (GD vs subgradient vs projected subgradient).
 
+4. Week 4: Proximal, duality, and KKT bridge
+- Session 10: Proximal operator intuition, composite objectives, and proximal-gradient updates.
+- Session 11: LP duality and Lagrangian construction from constrained primal form.
+- Session 12: Slater, saddle points, and KKT as the bridge between primal and dual reasoning.
+- Deliverable: one-page duality/KKT derivation map.
+
+5. Week 5: Newton method and assessment-driven cleanup
+- Session 13: Newton step derivation, local quadratic model, and convergence tradeoffs.
+- Session 14: Use graded homework and quiz artifacts to isolate proof, algebra, and timed-recall gaps.
+- Session 15: Mixed cumulative review spanning first-order, proximal, duality, and KKT topics.
+- Deliverable: final remediation checklist tied to graded errors and unresolved lecture topics.
+
 ## Session Format
 
 - Start (10-15 min): recap previous transcript concepts in plain language.
@@ -64,4 +83,10 @@ Bridge from backlog to active-class readiness in about 3 weeks, using the transc
 
 - Weekly error log (conceptual mistakes + corrected reasoning).
 - Formula sheet that grows with each session.
-- Readiness score (0-3) per module: notation, convexity, GD, non-smooth/constrained.
+- Readiness score (0-3) per module: notation, convexity, GD, non-smooth/constrained, proximal/duality/KKT, Newton.
+
+## Assessment Artifacts For Gap Mining
+
+- Homework prompts: `materials/processed/optimization-for-ml/HW1_prompt.md`, `materials/processed/optimization-for-ml/HW3_prompt.md`
+- Graded homeworks: `materials/processed/optimization-for-ml/HW1_graded_submission.md`, `materials/processed/optimization-for-ml/HW2_graded_submission.md`
+- Graded quizzes: `materials/processed/optimization-for-ml/Quiz1_graded_submission.md`, `materials/processed/optimization-for-ml/Quiz2_graded_submission.md`, `materials/processed/optimization-for-ml/Quiz3_graded_submission.md`

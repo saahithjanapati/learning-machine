@@ -19,8 +19,8 @@ Lecture flow:
 10. `Feb19_stoch_gd`: SGD setup, step-size effects, core rates.
 
 Quiz evidence:
-- Quiz 1 (`submission_385380809`): foundations/convexity/normal-cone proof precision gaps.
-- Quiz 2 (`submission_391256496`): rate-statement precision + subgradient definition details.
+- Quiz 1 (`Quiz1_graded_submission`): foundations/convexity/normal-cone proof precision gaps.
+- Quiz 2 (`Quiz2_graded_submission`): rate-statement precision + subgradient definition details.
 
 ## 2) Foundations and Problem Formulation (Jan 13)
 

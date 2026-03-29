@@ -1,4 +1,4 @@
-# submission_391256496
+# Quiz 2 (Graded Submission)
 
 Source: `materials/archive/submission_391256496.pdf`
 Duplicate equivalents: `submission_391256496.pdf`

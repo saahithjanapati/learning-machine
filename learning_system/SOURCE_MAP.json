@@ -21,24 +21,56 @@
           "source_materials": [
             "materials/processed/optimization-for-ml/Feb10_subgradient-method.md",
             "materials/processed/optimization-for-ml/Feb12-projected-subgradient.md",
+            "materials/processed/optimization-for-ml/Feb17+24_proximal_gd.md",
+            "materials/processed/optimization-for-ml/Feb17_Optimiality_Conditions.md",
+            "materials/processed/optimization-for-ml/Feb19_stoch_gd.md",
+            "materials/processed/optimization-for-ml/Feb24_proximal_gd_examples.md",
             "materials/processed/optimization-for-ml/Feb5_subgradients.md",
+            "materials/processed/optimization-for-ml/HW1_graded_submission.md",
+            "materials/processed/optimization-for-ml/HW1_prompt.md",
+            "materials/processed/optimization-for-ml/HW2_graded_submission.md",
+            "materials/processed/optimization-for-ml/HW3_prompt.md",
             "materials/processed/optimization-for-ml/Jan13_Intro.md",
             "materials/processed/optimization-for-ml/Jan13_Logistics.md",
             "materials/processed/optimization-for-ml/Jan15_ConvexSets.md",
             "materials/processed/optimization-for-ml/Jan20_ConvexFunctions.md",
             "materials/processed/optimization-for-ml/Jan27_matrix_norms.md",
-            "materials/processed/optimization-for-ml/Jan29_GD.md"
+            "materials/processed/optimization-for-ml/Jan29_GD.md",
+            "materials/processed/optimization-for-ml/March10_LP_Duality.md",
+            "materials/processed/optimization-for-ml/March12_Part1_LagrangianFunction.md",
+            "materials/processed/optimization-for-ml/March12_Part2_SaddlePoints_Minimax_Slater.md",
+            "materials/processed/optimization-for-ml/March17_KKT.md",
+            "materials/processed/optimization-for-ml/March19_Newton_method.md",
+            "materials/processed/optimization-for-ml/Quiz1_graded_submission.md",
+            "materials/processed/optimization-for-ml/Quiz2_graded_submission.md",
+            "materials/processed/optimization-for-ml/Quiz3_graded_submission.md"
           ],
           "source_pdfs": [
             "materials/archive/Feb10_subgradient-method.pdf",
             "materials/archive/Feb12-projected-subgradient.pdf",
+            "materials/archive/Feb17+24_proximal_gd.pdf",
+            "materials/archive/Feb17_Optimiality_Conditions.pdf",
+            "materials/archive/Feb19_stoch_gd.pdf",
+            "materials/archive/Feb24_proximal_gd_examples.pdf",
             "materials/archive/Feb5_subgradients.pdf",
             "materials/archive/Jan13_Intro.pdf",
             "materials/archive/Jan13_Logistics.pdf",
             "materials/archive/Jan15_ConvexSets.pdf",
             "materials/archive/Jan20_ConvexFunctions.pdf",
             "materials/archive/Jan27_matrix_norms.pdf",
-            "materials/archive/Jan29_GD.pdf"
+            "materials/archive/Jan29_GD.pdf",
+            "materials/archive/March10_LP_Duality.pdf",
+            "materials/archive/March12_Part1_LagrangianFunction.pdf",
+            "materials/archive/March12_Part2_SaddlePoints_Minimax_Slater.pdf",
+            "materials/archive/March17_KKT.pdf",
+            "materials/archive/March19_Newton_method.pdf",
+            "materials/archive/S26_10_725_HW1_optimization_ml.pdf",
+            "materials/archive/S26_10_725_HW3_Student.pdf",
+            "materials/archive/submission_385380809.pdf",
+            "materials/archive/submission_385591771.pdf",
+            "materials/archive/submission_391256496.pdf",
+            "materials/archive/submission_392216540.pdf",
+            "materials/archive/submission_400400482.pdf"
           ],
           "transcript_anchors": [],
           "unresolved_source_materials": []
@@ -81,28 +113,56 @@
           "source_materials": [
             "materials/processed/optimization-for-ml/Feb10_subgradient-method.md",
             "materials/processed/optimization-for-ml/Feb12-projected-subgradient.md",
+            "materials/processed/optimization-for-ml/Feb17+24_proximal_gd.md",
             "materials/processed/optimization-for-ml/Feb17_Optimiality_Conditions.md",
             "materials/processed/optimization-for-ml/Feb19_stoch_gd.md",
+            "materials/processed/optimization-for-ml/Feb24_proximal_gd_examples.md",
             "materials/processed/optimization-for-ml/Feb5_subgradients.md",
+            "materials/processed/optimization-for-ml/HW1_graded_submission.md",
+            "materials/processed/optimization-for-ml/HW1_prompt.md",
+            "materials/processed/optimization-for-ml/HW2_graded_submission.md",
+            "materials/processed/optimization-for-ml/HW3_prompt.md",
             "materials/processed/optimization-for-ml/Jan13_Intro.md",
             "materials/processed/optimization-for-ml/Jan13_Logistics.md",
             "materials/processed/optimization-for-ml/Jan15_ConvexSets.md",
             "materials/processed/optimization-for-ml/Jan20_ConvexFunctions.md",
             "materials/processed/optimization-for-ml/Jan27_matrix_norms.md",
-            "materials/processed/optimization-for-ml/Jan29_GD.md"
+            "materials/processed/optimization-for-ml/Jan29_GD.md",
+            "materials/processed/optimization-for-ml/March10_LP_Duality.md",
+            "materials/processed/optimization-for-ml/March12_Part1_LagrangianFunction.md",
+            "materials/processed/optimization-for-ml/March12_Part2_SaddlePoints_Minimax_Slater.md",
+            "materials/processed/optimization-for-ml/March17_KKT.md",
+            "materials/processed/optimization-for-ml/March19_Newton_method.md",
+            "materials/processed/optimization-for-ml/Quiz1_graded_submission.md",
+            "materials/processed/optimization-for-ml/Quiz2_graded_submission.md",
+            "materials/processed/optimization-for-ml/Quiz3_graded_submission.md"
           ],
           "source_pdfs": [
             "materials/archive/Feb10_subgradient-method.pdf",
             "materials/archive/Feb12-projected-subgradient.pdf",
+            "materials/archive/Feb17+24_proximal_gd.pdf",
             "materials/archive/Feb17_Optimiality_Conditions.pdf",
             "materials/archive/Feb19_stoch_gd.pdf",
+            "materials/archive/Feb24_proximal_gd_examples.pdf",
             "materials/archive/Feb5_subgradients.pdf",
             "materials/archive/Jan13_Intro.pdf",
             "materials/archive/Jan13_Logistics.pdf",
             "materials/archive/Jan15_ConvexSets.pdf",
             "materials/archive/Jan20_ConvexFunctions.pdf",
             "materials/archive/Jan27_matrix_norms.pdf",
-            "materials/archive/Jan29_GD.pdf"
+            "materials/archive/Jan29_GD.pdf",
+            "materials/archive/March10_LP_Duality.pdf",
+            "materials/archive/March12_Part1_LagrangianFunction.pdf",
+            "materials/archive/March12_Part2_SaddlePoints_Minimax_Slater.pdf",
+            "materials/archive/March17_KKT.pdf",
+            "materials/archive/March19_Newton_method.pdf",
+            "materials/archive/S26_10_725_HW1_optimization_ml.pdf",
+            "materials/archive/S26_10_725_HW3_Student.pdf",
+            "materials/archive/submission_385380809.pdf",
+            "materials/archive/submission_385591771.pdf",
+            "materials/archive/submission_391256496.pdf",
+            "materials/archive/submission_392216540.pdf",
+            "materials/archive/submission_400400482.pdf"
           ],
           "transcript_anchors": [],
           "unresolved_source_materials": []
@@ -514,6 +574,42 @@
       "ingest_report": "materials/processed/optimization-for-ml/_INGEST_REPORT.md"
     },
     {
+      "transcript_path": "materials/processed/optimization-for-ml/HW1_graded_submission.md",
+      "root_topic": "optimization-for-ml",
+      "source_pdf": "materials/archive/submission_385591771.pdf",
+      "duplicate_equivalents": [
+        "submission_385591771.pdf"
+      ],
+      "ingest_report": "materials/processed/optimization-for-ml/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/optimization-for-ml/HW1_prompt.md",
+      "root_topic": "optimization-for-ml",
+      "source_pdf": "materials/archive/S26_10_725_HW1_optimization_ml.pdf",
+      "duplicate_equivalents": [
+        "S26_10_725_HW1_optimization_ml.pdf"
+      ],
+      "ingest_report": "materials/processed/optimization-for-ml/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/optimization-for-ml/HW2_graded_submission.md",
+      "root_topic": "optimization-for-ml",
+      "source_pdf": "materials/archive/submission_392216540.pdf",
+      "duplicate_equivalents": [
+        "submission_392216540.pdf"
+      ],
+      "ingest_report": "materials/processed/optimization-for-ml/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/optimization-for-ml/HW3_prompt.md",
+      "root_topic": "optimization-for-ml",
+      "source_pdf": "materials/archive/S26_10_725_HW3_Student.pdf",
+      "duplicate_equivalents": [
+        "S26_10_725_HW3_Student.pdf"
+      ],
+      "ingest_report": "materials/processed/optimization-for-ml/_INGEST_REPORT.md"
+    },
+    {
       "transcript_path": "materials/processed/optimization-for-ml/Jan13_Intro.md",
       "root_topic": "optimization-for-ml",
       "source_pdf": "materials/archive/Jan13_Intro.pdf",
@@ -613,16 +709,7 @@
       "ingest_report": "materials/processed/optimization-for-ml/_INGEST_REPORT.md"
     },
     {
-      "transcript_path": "materials/processed/optimization-for-ml/S26_10_725_HW1_optimization_ml.md",
-      "root_topic": "optimization-for-ml",
-      "source_pdf": "materials/archive/S26_10_725_HW1_optimization_ml.pdf",
-      "duplicate_equivalents": [
-        "S26_10_725_HW1_optimization_ml.pdf"
-      ],
-      "ingest_report": "materials/processed/optimization-for-ml/_INGEST_REPORT.md"
-    },
-    {
-      "transcript_path": "materials/processed/optimization-for-ml/submission_385380809.md",
+      "transcript_path": "materials/processed/optimization-for-ml/Quiz1_graded_submission.md",
       "root_topic": "optimization-for-ml",
       "source_pdf": "materials/archive/submission_385380809.pdf",
       "duplicate_equivalents": [
@@ -631,13 +718,58 @@
       "ingest_report": "materials/processed/optimization-for-ml/_INGEST_REPORT.md"
     },
     {
-      "transcript_path": "materials/processed/optimization-for-ml/submission_391256496.md",
+      "transcript_path": "materials/processed/optimization-for-ml/Quiz2_graded_submission.md",
       "root_topic": "optimization-for-ml",
       "source_pdf": "materials/archive/submission_391256496.pdf",
       "duplicate_equivalents": [
         "submission_391256496.pdf"
       ],
       "ingest_report": "materials/processed/optimization-for-ml/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/optimization-for-ml/Quiz3_graded_submission.md",
+      "root_topic": "optimization-for-ml",
+      "source_pdf": "materials/archive/submission_400400482.pdf",
+      "duplicate_equivalents": [
+        "submission_400400482.pdf"
+      ],
+      "ingest_report": "materials/processed/optimization-for-ml/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probabilistic-graphical-models/HW1_graded_submission.md",
+      "root_topic": "probabilistic-graphical-models",
+      "source_pdf": "materials/archive/submission_388360398.pdf",
+      "duplicate_equivalents": [
+        "submission_388360398.pdf"
+      ],
+      "ingest_report": "materials/processed/probabilistic-graphical-models/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probabilistic-graphical-models/HW1_prompt.md",
+      "root_topic": "probabilistic-graphical-models",
+      "source_pdf": "materials/archive/S2610708_HW1_Final_prob_graph_model.pdf",
+      "duplicate_equivalents": [
+        "S2610708_HW1_Final_prob_graph_model.pdf"
+      ],
+      "ingest_report": "materials/processed/probabilistic-graphical-models/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probabilistic-graphical-models/HW2_graded_submission.md",
+      "root_topic": "probabilistic-graphical-models",
+      "source_pdf": "materials/archive/submission_397239545.pdf",
+      "duplicate_equivalents": [
+        "submission_397239545.pdf"
+      ],
+      "ingest_report": "materials/processed/probabilistic-graphical-models/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probabilistic-graphical-models/HW3_prompt.md",
+      "root_topic": "probabilistic-graphical-models",
+      "source_pdf": "materials/archive/S26_10708_HW3_2__1_.pdf",
+      "duplicate_equivalents": [
+        "S26_10708_HW3_2__1_.pdf"
+      ],
+      "ingest_report": "materials/processed/probabilistic-graphical-models/_INGEST_REPORT.md"
     },
     {
       "transcript_path": "materials/processed/probabilistic-graphical-models/Lecture_1_intro.md",
@@ -704,15 +836,6 @@
         "Lecture_9_MCMC_intro (1).pdf",
         "Lecture_9_MCMC_intro (2).pdf",
         "Lecture_9_MCMC_intro.pdf"
-      ],
-      "ingest_report": "materials/processed/probabilistic-graphical-models/_INGEST_REPORT.md"
-    },
-    {
-      "transcript_path": "materials/processed/probabilistic-graphical-models/S2610708_HW1_Final_prob_graph_model.md",
-      "root_topic": "probabilistic-graphical-models",
-      "source_pdf": "materials/archive/S2610708_HW1_Final_prob_graph_model.pdf",
-      "duplicate_equivalents": [
-        "S2610708_HW1_Final_prob_graph_model.pdf"
       ],
       "ingest_report": "materials/processed/probabilistic-graphical-models/_INGEST_REPORT.md"
     }

@@ -98,6 +98,27 @@ def _next_available_path(dst: Path) -> Path:
         idx += 1
 
 
+def _same_file_content(path_a: Path, path_b: Path, chunk_size: int = 1024 * 1024) -> bool:
+    """Compare file contents without loading both files fully into memory."""
+    try:
+        if path_a.stat().st_size != path_b.stat().st_size:
+            return False
+    except OSError:
+        return False
+
+    try:
+        with path_a.open("rb") as file_a, path_b.open("rb") as file_b:
+            while True:
+                chunk_a = file_a.read(chunk_size)
+                chunk_b = file_b.read(chunk_size)
+                if chunk_a != chunk_b:
+                    return False
+                if not chunk_a:
+                    return True
+    except OSError:
+        return False
+
+
 def _topic_rel_from_input(topic_input: str) -> Path:
     topic_input = topic_input.strip().strip("/")
     if topic_input.startswith("topics/"):

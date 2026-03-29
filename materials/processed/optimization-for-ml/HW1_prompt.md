@@ -1,4 +1,4 @@
-# S26_10_725_HW1_optimization_ml
+# Homework 1: Optimization for Machine Learning
 
 Source: `materials/archive/S26_10_725_HW1_optimization_ml.pdf`
 Duplicate equivalents: `S26_10_725_HW1_optimization_ml.pdf`

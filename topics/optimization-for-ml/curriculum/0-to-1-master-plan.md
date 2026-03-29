@@ -19,6 +19,11 @@ You are currently behind and close to 0 familiarity with course content.
 - `Jan27_matrix_norms.md`: SVD, singular values, matrix norm properties and convexity.
 - `Jan29_GD.md`: gradient-descent derivations, step-size behavior, convergence-condition framing.
 - `Feb5_subgradients.md`, `Feb10_subgradient-method.md`, `Feb12-projected-subgradient.md`: subgradients, method mechanics, constrained projections.
+- `Feb17_Optimiality_Conditions.md` and `Feb19_stoch_gd.md`: optimality conditions, KKT framing, stochastic-gradient dynamics, and rate intuition.
+- `Feb17+24_proximal_gd.md` and `Feb24_proximal_gd_examples.md`: proximal operators, composite objectives, and worked proximal-gradient updates.
+- `March10_LP_Duality.md`, `March12_Part1_LagrangianFunction.md`, `March12_Part2_SaddlePoints_Minimax_Slater.md`, `March17_KKT.md`: LP duality, Lagrangian dual construction, saddle-point and Slater conditions, and KKT systems.
+- `March19_Newton_method.md`: second-order local models, Newton updates, and when quadratic information changes the optimization regime.
+- `materials/processed/optimization-for-ml/HW1_prompt.md`, `materials/processed/optimization-for-ml/HW3_prompt.md`, `materials/processed/optimization-for-ml/HW1_graded_submission.md`, `materials/processed/optimization-for-ml/HW2_graded_submission.md`, `materials/processed/optimization-for-ml/Quiz1_graded_submission.md`, `materials/processed/optimization-for-ml/Quiz2_graded_submission.md`, `materials/processed/optimization-for-ml/Quiz3_graded_submission.md`: assignment and quiz artifacts for gap mining, proof rigor review, and exam-oriented remediation.
 
 ## 0 -> 1 Definition
 
@@ -72,3 +77,23 @@ By the end, you should be able to:
 - Gate 2: derive GD update and explain step-size consequences
 - Gate 3: compute subgradients for standard nonsmooth functions
 - Gate 4: implement projected subgradient on a constrained toy problem
+
+## Extended Course Coverage
+
+1. Proximal and composite optimization
+- source transcripts: `Feb17+24_proximal_gd.md`, `Feb24_proximal_gd_examples.md`
+- outcome: derive proximal-gradient updates and reason about operator-based fixes for non-smooth composite terms
+
+2. Duality and optimality conditions
+- source transcripts: `March10_LP_Duality.md`, `March12_Part1_LagrangianFunction.md`, `March12_Part2_SaddlePoints_Minimax_Slater.md`, `March17_KKT.md`
+- outcome: derive dual objectives, interpret Slater and saddle-point conditions, and solve KKT systems with clear case analysis
+
+3. Newton and second-order methods
+- source transcript: `March19_Newton_method.md`
+- outcome: derive Newton steps, explain local quadratic modeling, and contrast second-order convergence behavior with first-order methods
+
+## Assessment And Feedback Corpus
+
+- Problem statements: `materials/processed/optimization-for-ml/HW1_prompt.md`, `materials/processed/optimization-for-ml/HW3_prompt.md`
+- Graded feedback artifacts: `materials/processed/optimization-for-ml/HW1_graded_submission.md`, `materials/processed/optimization-for-ml/HW2_graded_submission.md`, `materials/processed/optimization-for-ml/Quiz1_graded_submission.md`, `materials/processed/optimization-for-ml/Quiz2_graded_submission.md`, `materials/processed/optimization-for-ml/Quiz3_graded_submission.md`
+- Use these artifacts to mine recurring rigor gaps, formula-recall slips, and timed-reasoning errors for future review sessions

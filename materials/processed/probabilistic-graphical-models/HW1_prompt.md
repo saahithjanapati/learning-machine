@@ -1,4 +1,4 @@
-# S2610708_HW1_Final_prob_graph_model
+# Homework 1: Introduction of Graphical Models and Exact Inference
 
 Source: `materials/archive/S2610708_HW1_Final_prob_graph_model.pdf`
 Duplicate equivalents: `S2610708_HW1_Final_prob_graph_model.pdf`

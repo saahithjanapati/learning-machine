@@ -1,7 +1,7 @@
 # Optimization Notes Full-PDF Ingest Report
 
 Model: `mixed (legacy gemini-3-flash-preview + local-pymupdf)`
-Files: 21
+Files: 25
 
 ## Files
 
@@ -23,6 +23,10 @@ Files: 21
 - `March12_Part2_SaddlePoints_Minimax_Slater.pdf` -> `March12_Part2_SaddlePoints_Minimax_Slater.md` (finish: `STOP`)
 - `March17_KKT.pdf` -> `March17_KKT.md` (finish: `STOP`)
 - `March19_Newton_method.pdf` -> `March19_Newton_method.md` (finish: `STOP`)
-- `S26_10_725_HW1_optimization_ml.pdf` -> `S26_10_725_HW1_optimization_ml.md` (finish: `COMPLETE`)
-- `submission_385380809.pdf` -> `submission_385380809.md` (finish: `STOP`)
-- `submission_391256496.pdf` -> `submission_391256496.md` (finish: `STOP`)
+- `S26_10_725_HW1_optimization_ml.pdf` -> `HW1_prompt.md` (finish: `COMPLETE`)
+- `S26_10_725_HW3_Student.pdf` -> `HW3_prompt.md` (finish: `STOP`)
+- `submission_385380809.pdf` -> `Quiz1_graded_submission.md` (finish: `STOP`)
+- `submission_385591771.pdf` -> `HW1_graded_submission.md` (finish: `STOP`)
+- `submission_391256496.pdf` -> `Quiz2_graded_submission.md` (finish: `STOP`)
+- `submission_392216540.pdf` -> `HW2_graded_submission.md` (finish: `MIXED`)
+- `submission_400400482.pdf` -> `Quiz3_graded_submission.md` (finish: `STOP`)

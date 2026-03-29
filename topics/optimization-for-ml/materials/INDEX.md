@@ -21,9 +21,24 @@ Source transcripts live in: `materials/processed/optimization-for-ml/`
 - Optimality + stochastic optimization
   - `materials/processed/optimization-for-ml/Feb17_Optimiality_Conditions.md`
   - `materials/processed/optimization-for-ml/Feb19_stoch_gd.md`
+- Proximal + composite optimization
+  - `materials/processed/optimization-for-ml/Feb17+24_proximal_gd.md`
+  - `materials/processed/optimization-for-ml/Feb24_proximal_gd_examples.md`
+- Duality + KKT
+  - `materials/processed/optimization-for-ml/March10_LP_Duality.md`
+  - `materials/processed/optimization-for-ml/March12_Part1_LagrangianFunction.md`
+  - `materials/processed/optimization-for-ml/March12_Part2_SaddlePoints_Minimax_Slater.md`
+  - `materials/processed/optimization-for-ml/March17_KKT.md`
+- Second-order methods
+  - `materials/processed/optimization-for-ml/March19_Newton_method.md`
 
 - Homework (problem sets)
-  - `materials/processed/optimization-for-ml/S26_10_725_HW1_optimization_ml.md`
+  - `materials/processed/optimization-for-ml/HW1_prompt.md`
+  - `materials/processed/optimization-for-ml/HW3_prompt.md`
+- Graded homeworks / feedback artifacts
+  - `materials/processed/optimization-for-ml/HW1_graded_submission.md`
+  - `materials/processed/optimization-for-ml/HW2_graded_submission.md`
 - Quizzes (graded submissions)
-  - `materials/processed/optimization-for-ml/submission_385380809.md` (Quiz 1)
-  - `materials/processed/optimization-for-ml/submission_391256496.md` (Quiz 2)
+  - `materials/processed/optimization-for-ml/Quiz1_graded_submission.md`
+  - `materials/processed/optimization-for-ml/Quiz2_graded_submission.md`
+  - `materials/processed/optimization-for-ml/Quiz3_graded_submission.md`
