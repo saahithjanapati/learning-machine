@@ -15,7 +15,7 @@ For a new assistant instance, load files in this order:
 Registry note:
 - `AGENTS.md` is the public skill registry.
 - `AGENT.md` is background repo context, not the skill registry.
-- `.agents/skills/` contains the native Codex-discoverable mirrors of the public skills.
+- `.agents/skills/` contains the native Codex-discoverable public skills.
 
 Then load topic-specific files as needed:
 - `topics/<root>/<topic>/README.md`
@@ -24,4 +24,4 @@ Then load topic-specific files as needed:
 - `topics/<root>/<topic>/practice/*`
 
 For startup UX:
-- invoke `learning-startup-resume` (source: `skills/learning-startup-resume/SKILL.md`, native mirror: `.agents/skills/learning-startup-resume/SKILL.md`)
+- invoke `learning-startup-resume` from `.agents/skills/learning-startup-resume/SKILL.md`

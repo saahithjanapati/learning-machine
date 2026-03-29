@@ -21,7 +21,6 @@ import argparse
 from collections import defaultdict
 from dataclasses import dataclass
 from datetime import date
-import hashlib
 import json
 from pathlib import Path
 import re
@@ -31,8 +30,8 @@ from typing import Iterable
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 TOPICS_DIR = REPO_ROOT / "topics"
-SKILLS_DIR = REPO_ROOT / "skills"
-NATIVE_SKILLS_DIR = REPO_ROOT / ".agents" / "skills"
+PUBLIC_SKILLS_DIR = REPO_ROOT / ".agents" / "skills"
+INTERNAL_SKILLS_DIR = REPO_ROOT / "skills"
 LEARNING_SYSTEM_DIR = REPO_ROOT / "learning_system"
 LESSON_INDEX_PATH = LEARNING_SYSTEM_DIR / "LESSON_INDEX.md"
 TOPIC_INDEX_PATH = LEARNING_SYSTEM_DIR / "TOPIC_INDEX.md"
@@ -86,25 +85,6 @@ def _normalize_material_stem(name: str) -> str:
     """Normalize a source/transcript stem, collapsing duplicate suffixes like ' (1)'."""
     base = re.sub(r"\s*\(\d+\)$", "", name.strip())
     return _normalize_slug(base)
-
-
-def _file_sha256(path: Path) -> str:
-    digest = hashlib.sha256()
-    with path.open("rb") as fh:
-        while True:
-            chunk = fh.read(1024 * 1024)
-            if not chunk:
-                break
-            digest.update(chunk)
-    return digest.hexdigest()
-
-
-def _same_file_content(path_a: Path, path_b: Path) -> bool:
-    if not path_a.exists() or not path_b.exists():
-        return False
-    if path_a.stat().st_size != path_b.stat().st_size:
-        return False
-    return _file_sha256(path_a) == _file_sha256(path_b)
 
 
 def _next_available_path(dst: Path) -> Path:
@@ -193,21 +173,21 @@ def _parse_agents_skill_registry() -> tuple[list[SkillRegistryEntry], list[str]]
 
 
 def _discover_skill_files() -> list[SkillFileRecord]:
-    if not SKILLS_DIR.exists():
-        return []
-
     records: list[SkillFileRecord] = []
-    for path in sorted(SKILLS_DIR.rglob("SKILL.md")):
-        rel_path = path.relative_to(REPO_ROOT).as_posix()
-        front_matter = _parse_front_matter(path)
-        records.append(
-            SkillFileRecord(
-                name=front_matter.get("name", path.parent.name),
-                description=front_matter.get("description", ""),
-                rel_path=rel_path,
-                visibility=front_matter.get("visibility", "public").lower(),
+    for root in (PUBLIC_SKILLS_DIR, INTERNAL_SKILLS_DIR):
+        if not root.exists():
+            continue
+        for path in sorted(root.rglob("SKILL.md")):
+            rel_path = path.relative_to(REPO_ROOT).as_posix()
+            front_matter = _parse_front_matter(path)
+            records.append(
+                SkillFileRecord(
+                    name=front_matter.get("name", path.parent.name),
+                    description=front_matter.get("description", ""),
+                    rel_path=rel_path,
+                    visibility=front_matter.get("visibility", "public").lower(),
+                )
             )
-        )
     return records
 
 
@@ -249,24 +229,7 @@ def _audit_skill_catalog() -> dict:
                 f"Registered skill name does not match SKILL.md front matter: {entry.name} != {front_name}"
             )
 
-        native_skill_path = NATIVE_SKILLS_DIR / entry.name / "SKILL.md"
-        if not native_skill_path.exists():
-            errors.append(
-                f"Public skill is not mirrored for native Codex discovery: {entry.name} (.agents/skills/{entry.name}/SKILL.md)"
-            )
-        else:
-            native_front_matter = _parse_front_matter(native_skill_path)
-            native_name = native_front_matter.get("name", native_skill_path.parent.name)
-            if native_name != entry.name:
-                errors.append(
-                    f"Native skill mirror name does not match registry: {entry.name} != {native_name}"
-                )
-            elif not _same_file_content(full_path, native_skill_path):
-                warnings.append(
-                    f"Native skill mirror differs from source for {entry.name}: {native_skill_path.relative_to(REPO_ROOT).as_posix()}"
-                )
-
-        expected_rel_path = f"skills/{entry.name}/SKILL.md"
+        expected_rel_path = f".agents/skills/{entry.name}/SKILL.md"
         if entry.rel_path != expected_rel_path:
             warnings.append(
                 f"Public skill path is non-canonical for {entry.name}: {entry.rel_path} (expected {expected_rel_path})"
@@ -279,9 +242,9 @@ def _audit_skill_catalog() -> dict:
             internal_records.append(record)
             if record.name in seen_names:
                 errors.append(f"Internal skill should not be publicly registered: {record.name}")
-            if (NATIVE_SKILLS_DIR / record.name / "SKILL.md").exists():
+            if record.rel_path.startswith(".agents/skills/"):
                 errors.append(
-                    f"Internal skill should not be mirrored for native Codex discovery: {record.name}"
+                    f"Internal skill should not live under .agents/skills: {record.name}"
                 )
             continue
 
@@ -291,7 +254,7 @@ def _audit_skill_catalog() -> dict:
                 f"Public skill file exists but is not registered in AGENTS.md: {record.name} ({record.rel_path})"
             )
 
-        expected_rel_path = f"skills/{record.name}/SKILL.md"
+        expected_rel_path = f".agents/skills/{record.name}/SKILL.md"
         if record.rel_path != expected_rel_path:
             warnings.append(
                 f"Skill file path is non-canonical for {record.name}: {record.rel_path} (expected {expected_rel_path})"
@@ -312,8 +275,8 @@ def _audit_skill_catalog() -> dict:
 
 
 def _render_skill_catalog_report(audit: dict) -> str:
-    native_mirror_count = sum(
-        1 for entry in audit["registered"] if (NATIVE_SKILLS_DIR / entry.name / "SKILL.md").exists()
+    public_skill_count = sum(
+        1 for entry in audit["registered"] if (PUBLIC_SKILLS_DIR / entry.name / "SKILL.md").exists()
     )
     lines = [
         "# Skill Catalog Report",
@@ -325,7 +288,7 @@ def _render_skill_catalog_report(audit: dict) -> str:
         f"- Catalog status: {'PASS' if not audit['errors'] else 'FAIL'}",
         f"- Public skills registered in `AGENTS.md`: {len(audit['registered'])}",
         f"- Skill files discovered on disk: {len(audit['discovered'])}",
-        f"- Native Codex mirrors in `.agents/skills`: {native_mirror_count}",
+        f"- Public skills in `.agents/skills`: {public_skill_count}",
         f"- Internal skill files: {len(audit['internal_records'])}",
         f"- Errors: {len(audit['errors'])}",
         f"- Warnings: {len(audit['warnings'])}",
@@ -340,12 +303,12 @@ def _render_skill_catalog_report(audit: dict) -> str:
     else:
         lines.append("- None.")
 
-    lines.extend(["", "## Native Codex Mirrors", ""])
+    lines.extend(["", "## Public Skill Files", ""])
     if audit["registered"]:
         for entry in audit["registered"]:
-            native_rel_path = f".agents/skills/{entry.name}/SKILL.md"
-            status = "present" if (NATIVE_SKILLS_DIR / entry.name / "SKILL.md").exists() else "missing"
-            lines.append(f"- `{entry.name}` -> `{native_rel_path}` ({status})")
+            public_rel_path = f".agents/skills/{entry.name}/SKILL.md"
+            status = "present" if (PUBLIC_SKILLS_DIR / entry.name / "SKILL.md").exists() else "missing"
+            lines.append(f"- `{entry.name}` -> `{public_rel_path}` ({status})")
     else:
         lines.append("- None.")
 
@@ -1206,7 +1169,7 @@ def _build_parser() -> argparse.ArgumentParser:
 
     p_audit_skills = sub.add_parser(
         "audit-skills",
-        help="Audit the public skill registry against skills/ and optionally write a report.",
+        help="Audit the public skill registry against .agents/skills/ and optionally write a report.",
     )
     p_audit_skills.add_argument(
         "--write-report",

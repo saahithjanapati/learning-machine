@@ -49,8 +49,7 @@ Use natural-language requests instead of running scripts directly.
 
 Public skills:
 - `AGENTS.md` is the canonical public skill registry.
-- Public skill source files live under `skills/`.
-- Public skills are mirrored under `.agents/skills/` so native Codex discovery and `$skill-name` invocation work.
+- Public skill files live under `.agents/skills/` so native Codex discovery and `$skill-name` invocation work.
 - If a skill file exists under `skills/` but is not listed in `AGENTS.md`, treat it as internal and do not rely on it showing up as a public skill.
 
 - `learning-startup-resume`

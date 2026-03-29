@@ -21,18 +21,18 @@ Use this skill when user asks:
 - what behavior should stay outside it?
 
 2. Create/update skill files:
-- add or modify `skills/<skill-name>/SKILL.md`
+- add or modify `.agents/skills/<skill-name>/SKILL.md` for public skills
 - keep trigger description specific
 - keep instructions concise and action-oriented
-- mark helper-only skills with `visibility: internal`
+- keep helper-only internal skills outside `.agents/skills/` and mark them with `visibility: internal`
 
 3. Update registration:
 - treat `AGENTS.md` as the canonical public skill registry
-- mirror every public skill under `.agents/skills/<skill-name>/`
+- store every public skill under `.agents/skills/<skill-name>/`
 - maintain only public skill list entries there
 - keep file paths accurate
 - do not register internal/composite helper skills in `AGENTS.md`
-- do not mirror internal/composite helper skills under `.agents/skills/`
+- do not place internal/composite helper skills under `.agents/skills/`
 
 4. Validate overlap:
 - check for duplicate trigger domains

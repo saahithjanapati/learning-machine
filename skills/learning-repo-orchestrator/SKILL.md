@@ -11,6 +11,7 @@ Do not advertise it in `AGENTS.md` while the narrower public skills exist.
 Route direct user requests to the leaf skills instead:
 - startup/recent/resume -> `learning-startup-resume`
 - topic creation/reindex/reorg/merge -> `topic-tree-manager`
+Those public leaf skills live under `.agents/skills/`.
 
 This skill provides a user-facing natural-language interface for repository maintenance and startup UX.
 The user should not need to run Python commands directly.
