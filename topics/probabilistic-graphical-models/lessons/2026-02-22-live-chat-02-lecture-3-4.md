@@ -65,7 +65,7 @@ In chain $A-B-C$ (undirected), does conditioning on $B$ make $A$ and $C$ indepen
 ## Response 4
 
 User asked:
-> can you actually ground the live chat as a lesson/walkthrough of the concepts in /Users/saahithjanapati/Desktop/learning/materials/processed/probabilistic-graphical-models/Lecture_3_4_undirected.md
+> can you actually ground the live chat as a lesson/walkthrough of the concepts in /Users/saahithjanapati/Desktop/learning-machine/materials/processed/probabilistic-graphical-models/Lecture_3_4_undirected.md
 
 Assistant response:
 Yes. From now on, this chat will follow the lecture file order directly.

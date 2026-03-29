@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Gemini-based PDF ingestor for the learning repository.
+Gemini-based PDF ingestor for Learning Machine.
 
 Examples:
   python scripts/gemini_ingest.py --root optimization-for-ml

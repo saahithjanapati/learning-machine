@@ -4,8 +4,8 @@
 
 This file links and organizes the full summaries for the two lectures:
 
-- [Feb 17 Full Summary: Optimality Conditions](/Users/saahithjanapati/Desktop/learning/topics/optimization-for-ml/lessons/2026-02-26-feb17-optimality-conditions-full-summary.md)
-- [Feb 19 Full Summary: SGD](/Users/saahithjanapati/Desktop/learning/topics/optimization-for-ml/lessons/2026-02-26-feb19-sgd-full-summary.md)
+- [Feb 17 Full Summary: Optimality Conditions](/Users/saahithjanapati/Desktop/learning-machine/topics/optimization-for-ml/lessons/2026-02-26-feb17-optimality-conditions-full-summary.md)
+- [Feb 19 Full Summary: SGD](/Users/saahithjanapati/Desktop/learning-machine/topics/optimization-for-ml/lessons/2026-02-26-feb19-sgd-full-summary.md)
 
 Primary source transcripts:
 - `materials/processed/optimization-for-ml/Feb17_Optimiality_Conditions.md`

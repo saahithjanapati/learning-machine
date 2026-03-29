@@ -1,6 +1,6 @@
 ---
 name: topic-tree-manager
-description: Manage hierarchical topics and repo structure for this learning repo. Use for topic creation, reindexing, reorg reports, and topic merges; do not use for startup navigation or skill-catalog edits.
+description: Manage hierarchical topics and repo structure for Learning Machine. Use for topic creation, reindexing, reorg reports, and topic merges; do not use for startup navigation or skill-catalog edits.
 ---
 
 # Topic Tree Manager

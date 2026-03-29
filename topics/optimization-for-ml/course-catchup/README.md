@@ -1,6 +1,6 @@
 # Topic: course-catchup
 
-Path: `topics/optimizationforml/course-catchup`
+Path: `topics/optimization-for-ml/course-catchup`
 
 ## Scope
 

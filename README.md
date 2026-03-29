@@ -1,4 +1,4 @@
-# Learning Repository
+# Learning Machine
 
 This repo is organized so you can:
 - `Learn`: read lesson summaries and concept notes by topic.
@@ -22,6 +22,8 @@ This repo is organized so you can:
 
 ## Current Topic Coverage
 
+- `topics/optimization-for-ml`
+- `topics/probabilistic-graphical-models`
 - `topics/transformers/kv-caching`
 
 ## Workflow (Recommended)
@@ -69,6 +71,17 @@ Examples:
 - "audit the repo skills and fix the catalog"
 
 The assistant executes maintenance actions internally.
+
+## Source Of Truth
+
+Use these files as the primary references instead of duplicating policy across many notes:
+
+- `AGENTS.md`: public skill registry and routing boundaries
+- `learning_system/LOAD_ORDER.md`: startup context loading order
+- `learning_system/CONTENT_ROUTING.md`: topic path and artifact placement rules
+- `learning_system/CURRICULUM_WORKFLOW.md`: ingest -> curriculum -> lesson workflow
+
+If repo skills do not appear in the Codex skill picker immediately after changes, start a new chat or restart Codex so it re-scans `.agents/skills/`.
 
 ## Self-Directed Learning Controls
 

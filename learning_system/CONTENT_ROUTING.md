@@ -17,6 +17,20 @@ Use this when new materials are uploaded.
 - `topic`: short slug (example: `kv-caching`, `bayes-rule`)
 - `root`: domain or class name
 
+## Artifact Placement Rules
+
+- Use `topics/<root>/` for root-wide or course-wide artifacts only:
+  - survey notes
+  - cross-topic curricula
+  - root-level lessons spanning multiple subtopics
+  - shared materials for the entire root
+- Use `topics/<root>/<topic>/` for topic-specific artifacts:
+  - `curriculum/`
+  - `lessons/`
+  - `practice/`
+- When both a root folder and a leaf topic could fit, prefer the leaf topic unless the material clearly spans multiple children.
+- Avoid mixing the same lesson stream across both levels.
+
 ## Routing Examples
 
 - "This PDF is for CS229 lecture 3"
@@ -24,6 +38,12 @@ Use this when new materials are uploaded.
 
 - "This is for my own transformers study"
   - `topics/transformers/attention/...`
+
+- "This note compares several optimization subtopics"
+  - `topics/optimization-for-ml/...`
+
+- "This exercise is only about belief propagation"
+  - `topics/probabilistic-graphical-models/inference-and-belief-propagation/...`
 
 ## Similar Topic Matching
 

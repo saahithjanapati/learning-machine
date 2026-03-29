@@ -1,0 +1,7 @@
+interface:
+  display_name: "Materials To Curriculum"
+  short_description: "Convert uploaded materials into markdown curricula, lesson plans, and tracked learning artifacts."
+  default_prompt: "Convert these learning materials into markdown and build a curriculum for the topic."
+
+policy:
+  allow_implicit_invocation: true

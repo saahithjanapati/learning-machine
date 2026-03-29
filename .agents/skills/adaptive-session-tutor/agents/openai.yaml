@@ -1,0 +1,7 @@
+interface:
+  display_name: "Adaptive Session Tutor"
+  short_description: "Run adaptive learn, practice, or mixed tutoring sessions based on the learner's goals and history."
+  default_prompt: "Teach me this topic in mixed mode and adapt the session as I respond."
+
+policy:
+  allow_implicit_invocation: true

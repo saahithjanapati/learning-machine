@@ -1,0 +1,7 @@
+interface:
+  display_name: "Topic Tree Manager"
+  short_description: "Create topics, reindex the topic tree, generate reorg reports, and dry-run merges."
+  default_prompt: "Reindex the topic tree and show any reorganization issues."
+
+policy:
+  allow_implicit_invocation: true

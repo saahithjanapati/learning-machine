@@ -1,6 +1,6 @@
 # Topic: foundations-intro
 
-Path: `topics/optimizationforml/foundations-intro`
+Path: `topics/optimization-for-ml/foundations-intro`
 
 ## Scope
 

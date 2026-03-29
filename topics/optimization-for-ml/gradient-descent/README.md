@@ -1,6 +1,6 @@
 # Topic: gradient-descent
 
-Path: `topics/optimizationforml/gradient-descent`
+Path: `topics/optimization-for-ml/gradient-descent`
 
 ## Scope
 

@@ -3,6 +3,7 @@
 `AGENTS.md` is the canonical public skill registry for discoverable skills.
 If a skill is not listed there, treat it as internal-only.
 Public skills live under `.agents/skills/`, so native Codex invocation such as `$learning-startup-resume` should work.
+If they do not appear in the current session, start a new chat or restart Codex so it re-scans repo skills.
 
 ## Quick Start
 

@@ -1,0 +1,7 @@
+interface:
+  display_name: "Learning Startup Resume"
+  short_description: "Show startup options, recent topics, and resume suggestions for Learning Machine."
+  default_prompt: "Show the Learning Machine startup menu, recent topics, and a resume suggestion."
+
+policy:
+  allow_implicit_invocation: true

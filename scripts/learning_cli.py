@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Learning repo helper CLI.
+Learning Machine helper CLI.
 
 Examples:
   python scripts/learning_cli.py --help
@@ -1102,7 +1102,7 @@ def cmd_post_ingest(args: argparse.Namespace) -> None:
 
 def _build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
-        description="Learning repo helper CLI for startup, indexing, and topic maintenance."
+        description="Learning Machine helper CLI for startup, indexing, and topic maintenance."
     )
     sub = parser.add_subparsers(dest="command", required=True)
 

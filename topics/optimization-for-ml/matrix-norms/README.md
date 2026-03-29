@@ -1,6 +1,6 @@
 # Topic: matrix-norms
 
-Path: `topics/optimizationforml/matrix-norms`
+Path: `topics/optimization-for-ml/matrix-norms`
 
 ## Scope
 

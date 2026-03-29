@@ -1,0 +1,7 @@
+interface:
+  display_name: "Skill Catalog Manager"
+  short_description: "Audit and reorganize Learning Machine's public skill catalog and discoverability boundaries."
+  default_prompt: "Audit the repo skills and fix any catalog or discoverability issues."
+
+policy:
+  allow_implicit_invocation: true

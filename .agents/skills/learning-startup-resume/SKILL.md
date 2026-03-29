@@ -1,6 +1,6 @@
 ---
 name: learning-startup-resume
-description: Startup and navigation skill for this learning repo. Use only for help-style onboarding, recent topics, and resume requests; do not use it for topic mutations or skill-catalog edits.
+description: Startup and navigation skill for Learning Machine. Use only for help-style onboarding, recent topics, and resume requests; do not use it for topic mutations or skill-catalog edits.
 ---
 
 # Learning Startup Resume

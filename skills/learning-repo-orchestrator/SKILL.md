@@ -1,6 +1,6 @@
 ---
 name: learning-repo-orchestrator
-description: Internal composite helper for the learning repo. Use only when a higher-level router needs one repo-maintenance entry point; prefer the narrower public skills for direct user requests.
+description: Internal composite helper for Learning Machine. Use only when a higher-level router needs one repo-maintenance entry point; prefer the narrower public skills for direct user requests.
 visibility: internal
 ---
 

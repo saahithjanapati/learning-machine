@@ -2,7 +2,8 @@
 
 This file is the compact memory for new assistant instances.
 Use `learning_system/LOAD_ORDER.md` for full startup loading sequence.
-Use `AGENTS.md` as the canonical public skill registry; treat `AGENT.md` as background context only.
+Use `AGENTS.md` as the canonical public skill registry.
+Use `learning_system/REPO_CONTEXT.md` for fuller background repo context.
 Public skills live in `.agents/skills/` for native Codex discovery.
 
 ## User Preferences
@@ -93,6 +94,7 @@ When using colors in markdown output (equations, spans, callouts, or legends):
 - `topics/optimization-for-ml`
 - `topics/probabilistic-graphical-models`
 
-## Current Active Lesson (Local Day: 2026-02-22)
+## Latest Logged Lesson Snapshot
 
-- `topics/probabilistic-graphical-models/lessons/2026-02-22-live-chat-02-lecture-3-4.md`
+- Use `learning_system/LESSON_INDEX.md` as the source of truth for recency.
+- Latest logged lesson entry: `topics/optimization-for-ml/lessons/2026-02-26-live-chat-all-topics-cumulative.md`
