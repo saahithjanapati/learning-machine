@@ -13,8 +13,11 @@ Canonical topic paths and aliases used for matching new requests.
 | course-catchup | probabilistic-graphical-models | `topics/probabilistic-graphical-models/course-catchup` |  |
 | directed-graphical-models | probabilistic-graphical-models | `topics/probabilistic-graphical-models/directed-graphical-models` |  |
 | foundations-probability | probabilistic-graphical-models | `topics/probabilistic-graphical-models/foundations-probability` |  |
+| generative-adversarial-networks | probabilistic-graphical-models | `topics/probabilistic-graphical-models/generative-adversarial-networks` |  |
 | gnns-and-pgms | probabilistic-graphical-models | `topics/probabilistic-graphical-models/gnns-and-pgms` |  |
 | inference-and-belief-propagation | probabilistic-graphical-models | `topics/probabilistic-graphical-models/inference-and-belief-propagation` |  |
 | mcmc | probabilistic-graphical-models | `topics/probabilistic-graphical-models/mcmc` |  |
+| score-matching-and-energy-based-models | probabilistic-graphical-models | `topics/probabilistic-graphical-models/score-matching-and-energy-based-models` |  |
 | undirected-graphical-models | probabilistic-graphical-models | `topics/probabilistic-graphical-models/undirected-graphical-models` |  |
+| variational-inference-and-em | probabilistic-graphical-models | `topics/probabilistic-graphical-models/variational-inference-and-em` |  |
 | kv-caching | transformers | `topics/transformers/kv-caching` | key-value cache, key value caching, transformer cache |

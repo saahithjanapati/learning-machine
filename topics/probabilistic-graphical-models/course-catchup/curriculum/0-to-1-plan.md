@@ -21,6 +21,13 @@ Reach lecture-following readiness from near zero background by moving through th
 5. `materials/processed/probabilistic-graphical-models/Lecture_6_7_beliefprop.md`
 6. `materials/processed/probabilistic-graphical-models/Lecture_8_GNNs.md`
 7. `materials/processed/probabilistic-graphical-models/Lecture_9_MCMC_intro.md`
+8. `materials/processed/probabilistic-graphical-models/Lecture_13_variational.md`
+9. `materials/processed/probabilistic-graphical-models/Lecture_15_EM.md`
+10. `materials/processed/probabilistic-graphical-models/Lecture_17_GAN.md`
+11. `materials/processed/probabilistic-graphical-models/Lecture_18_applications.md`
+12. `materials/processed/probabilistic-graphical-models/Lecture_19_scorematching.md`
+
+Note: current repo coverage is non-contiguous in lecture numbering; `Lectures 10-12`, `14`, and `16` are not currently present in `materials/processed/`.
 
 ## Weekly Plan
 
@@ -36,11 +43,23 @@ Reach lecture-following readiness from near zero background by moving through th
 - Session 6: Belief propagation on trees, then loopy caveats.
 - Deliverable: worked message-passing examples and elimination-order notes.
 
-3. Week 3: Approximate inference and modern bridge
-- Session 7: MCMC motivation, stationary distributions, MH and Gibbs mechanics.
-- Session 8: GNN message passing and links/differences versus PGM inference.
-- Session 9: Integration session with mixed graph, inference, and sampling questions.
-- Deliverable: model-selection guide (exact inference, BP, MCMC, GNN framing).
+3. Week 3: Graph bridge plus sampling
+- Session 7: GNN message passing and links/differences versus PGM inference.
+- Session 8: MCMC motivation, stationary distributions, MH and Gibbs mechanics.
+- Session 9: Integration session on graph structure plus approximate sampling.
+- Deliverable: model-selection guide (exact inference, BP, GNN framing, MCMC).
+
+4. Week 4: Variational approximations and latent-variable learning
+- Session 10: Gibbs variational principle, mean-field, and Bethe / local-polytope ideas.
+- Session 11: ELBO viewpoint for latent-variable posteriors.
+- Session 12: EM and variational EM, with Gaussian-mixture intuition.
+- Deliverable: one-page ELBO / EM comparison sheet.
+
+5. Week 5: Modern generative-modeling branch
+- Session 13: GAN training, discriminator-distance intuition, and failure modes.
+- Session 14: Conditional / application-driven GANs (AC-GAN, SRGAN, Pix2Pix).
+- Session 15: Score matching, denoising score matching, and Langevin-style sampling.
+- Deliverable: comparison grid for MCMC vs variational inference vs GANs vs score matching.
 
 ## Session Format
 
@@ -55,9 +74,11 @@ Reach lecture-following readiness from near zero background by moving through th
 - Gate B: Answer conditional-independence queries with graph-based justifications.
 - Gate C: Execute tree BP message updates and explain inference outputs.
 - Gate D: Explain when/why MCMC is needed and describe MH/Gibbs steps clearly.
+- Gate E: Explain ELBO and EM in one coherent latent-variable-learning story.
+- Gate F: Contrast adversarial and score-based generative training at a high level.
 
 ## Outputs to Track
 
 - Weekly misconception tracker (graph semantics, CI, inference, sampling).
 - Growing formula-and-algorithm sheet.
-- Readiness score (0-3) per module: directed, undirected, exact inference, approximate inference.
+- Readiness score (0-3) per module: directed, undirected, exact inference, MCMC, variational/EM, adversarial/score-based generative modeling.

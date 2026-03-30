@@ -2,6 +2,10 @@
 
 Source transcripts live in: `materials/processed/probabilistic-graphical-models/`
 
+Current processed lecture coverage in this repo:
+- present: `Lecture 1`, `Lecture 2`, `Lecture 3/4`, `Lecture 5`, `Lecture 6/7`, `Lecture 8`, `Lecture 9`, `Lecture 13`, `Lecture 15`, `Lecture 17`, `Lecture 18`, `Lecture 19`
+- not currently present here: `Lectures 10-12`, `14`, and `16`
+
 ## Mapping
 
 - Intro + probability recap
@@ -18,6 +22,15 @@ Source transcripts live in: `materials/processed/probabilistic-graphical-models/
   - `materials/processed/probabilistic-graphical-models/Lecture_8_GNNs.md`
 - Sampling / MCMC intro
   - `materials/processed/probabilistic-graphical-models/Lecture_9_MCMC_intro.md`
+- Variational inference / relaxations
+  - `materials/processed/probabilistic-graphical-models/Lecture_13_variational.md`
+- Variational latent-variable learning / EM
+  - `materials/processed/probabilistic-graphical-models/Lecture_15_EM.md`
+- GANs and adversarial generation
+  - `materials/processed/probabilistic-graphical-models/Lecture_17_GAN.md`
+  - `materials/processed/probabilistic-graphical-models/Lecture_18_applications.md`
+- Score matching / energy-based models
+  - `materials/processed/probabilistic-graphical-models/Lecture_19_scorematching.md`
 
 - Homework (problem sets)
   - `materials/processed/probabilistic-graphical-models/HW1_prompt.md`

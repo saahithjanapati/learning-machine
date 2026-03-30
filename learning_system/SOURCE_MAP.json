@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_on": "2026-03-28",
+  "generated_on": "2026-03-30",
   "generated_by": "scripts/learning_cli.py source-map",
   "roots": [
     {
@@ -275,7 +275,7 @@
       "root_topic": "probabilistic-graphical-models",
       "processed_material_dir": "materials/processed/probabilistic-graphical-models",
       "materials_index_path": "topics/probabilistic-graphical-models/materials/INDEX.md",
-      "topic_count": 8,
+      "topic_count": 11,
       "topics": [
         {
           "topic_path": "topics/probabilistic-graphical-models",
@@ -287,6 +287,11 @@
             "topics/probabilistic-graphical-models/curriculum/0-to-1-master-plan.md"
           ],
           "source_materials": [
+            "materials/processed/probabilistic-graphical-models/Lecture_13_variational.md",
+            "materials/processed/probabilistic-graphical-models/Lecture_15_EM.md",
+            "materials/processed/probabilistic-graphical-models/Lecture_17_GAN.md",
+            "materials/processed/probabilistic-graphical-models/Lecture_18_applications.md",
+            "materials/processed/probabilistic-graphical-models/Lecture_19_scorematching.md",
             "materials/processed/probabilistic-graphical-models/Lecture_1_intro.md",
             "materials/processed/probabilistic-graphical-models/Lecture_2_directed.md",
             "materials/processed/probabilistic-graphical-models/Lecture_3_4_undirected.md",
@@ -296,6 +301,11 @@
             "materials/processed/probabilistic-graphical-models/Lecture_9_MCMC_intro.md"
           ],
           "source_pdfs": [
+            "materials/archive/Lecture_13_variational.pdf",
+            "materials/archive/Lecture_15_EM.pdf",
+            "materials/archive/Lecture_17_GAN.pdf",
+            "materials/archive/Lecture_18_applications.pdf",
+            "materials/archive/Lecture_19_scorematching.pdf",
             "materials/archive/probabilistic graphical models/Lecture_1_intro (1).pdf",
             "materials/archive/probabilistic graphical models/Lecture_2_directed (1).pdf",
             "materials/archive/probabilistic graphical models/Lecture_3_4_undirected (1).pdf",
@@ -317,6 +327,11 @@
             "topics/probabilistic-graphical-models/course-catchup/curriculum/0-to-1-plan.md"
           ],
           "source_materials": [
+            "materials/processed/probabilistic-graphical-models/Lecture_13_variational.md",
+            "materials/processed/probabilistic-graphical-models/Lecture_15_EM.md",
+            "materials/processed/probabilistic-graphical-models/Lecture_17_GAN.md",
+            "materials/processed/probabilistic-graphical-models/Lecture_18_applications.md",
+            "materials/processed/probabilistic-graphical-models/Lecture_19_scorematching.md",
             "materials/processed/probabilistic-graphical-models/Lecture_1_intro.md",
             "materials/processed/probabilistic-graphical-models/Lecture_2_directed.md",
             "materials/processed/probabilistic-graphical-models/Lecture_3_4_undirected.md",
@@ -326,6 +341,11 @@
             "materials/processed/probabilistic-graphical-models/Lecture_9_MCMC_intro.md"
           ],
           "source_pdfs": [
+            "materials/archive/Lecture_13_variational.pdf",
+            "materials/archive/Lecture_15_EM.pdf",
+            "materials/archive/Lecture_17_GAN.pdf",
+            "materials/archive/Lecture_18_applications.pdf",
+            "materials/archive/Lecture_19_scorematching.pdf",
             "materials/archive/probabilistic graphical models/Lecture_1_intro (1).pdf",
             "materials/archive/probabilistic graphical models/Lecture_2_directed (1).pdf",
             "materials/archive/probabilistic graphical models/Lecture_3_4_undirected (1).pdf",
@@ -382,6 +402,32 @@
             "Early overview of Gibbs/Metropolis-Hastings and mixing-time considerations.",
             "Positioning of inference tasks (sampling, marginals, partition functions) as computationally hard.",
             "Core notation and probabilistic language used in later model-specific lectures."
+          ],
+          "unresolved_source_materials": []
+        },
+        {
+          "topic_path": "topics/probabilistic-graphical-models/generative-adversarial-networks",
+          "root_topic": "probabilistic-graphical-models",
+          "topic_key": "generative-adversarial-networks",
+          "readme_path": "topics/probabilistic-graphical-models/generative-adversarial-networks/README.md",
+          "curriculum_path": "topics/probabilistic-graphical-models/generative-adversarial-networks/curriculum/0-to-1-plan.md",
+          "curriculum_paths": [
+            "topics/probabilistic-graphical-models/generative-adversarial-networks/curriculum/0-to-1-plan.md"
+          ],
+          "source_materials": [
+            "materials/processed/probabilistic-graphical-models/Lecture_17_GAN.md",
+            "materials/processed/probabilistic-graphical-models/Lecture_18_applications.md"
+          ],
+          "source_pdfs": [
+            "materials/archive/Lecture_17_GAN.pdf",
+            "materials/archive/Lecture_18_applications.pdf"
+          ],
+          "transcript_anchors": [
+            "GAN intuition as jointly learning a generator and a discriminator-defined notion of distance.",
+            "DC-GAN minimax objective and its Jensen-Shannon interpretation.",
+            "WGAN reformulation, critic strength, and stability tradeoffs.",
+            "Mode collapse, vanishing gradients, and discriminator-capacity tension.",
+            "Conditional GANs, AC-GANs, SRGAN, and Pix2Pix as concrete applications."
           ],
           "unresolved_source_materials": []
         },
@@ -460,6 +506,30 @@
           "unresolved_source_materials": []
         },
         {
+          "topic_path": "topics/probabilistic-graphical-models/score-matching-and-energy-based-models",
+          "root_topic": "probabilistic-graphical-models",
+          "topic_key": "score-matching-and-energy-based-models",
+          "readme_path": "topics/probabilistic-graphical-models/score-matching-and-energy-based-models/README.md",
+          "curriculum_path": "topics/probabilistic-graphical-models/score-matching-and-energy-based-models/curriculum/0-to-1-plan.md",
+          "curriculum_paths": [
+            "topics/probabilistic-graphical-models/score-matching-and-energy-based-models/curriculum/0-to-1-plan.md"
+          ],
+          "source_materials": [
+            "materials/processed/probabilistic-graphical-models/Lecture_19_scorematching.md"
+          ],
+          "source_pdfs": [
+            "materials/archive/Lecture_19_scorematching.pdf"
+          ],
+          "transcript_anchors": [
+            "Likelihood training of EBMs and the partition-function-gradient bottleneck.",
+            "Score function `nabla_x log p(x)` and the core score-matching objective.",
+            "Integration-by-parts trick that removes the unknown data-score term.",
+            "Sliced and denoising score matching as computational / robustness variants.",
+            "Langevin and annealed Langevin dynamics for sampling from learned score fields."
+          ],
+          "unresolved_source_materials": []
+        },
+        {
           "topic_path": "topics/probabilistic-graphical-models/undirected-graphical-models",
           "root_topic": "probabilistic-graphical-models",
           "topic_key": "undirected-graphical-models",
@@ -480,6 +550,32 @@
             "Markov random field definition via conditional independence/global Markov property.",
             "Hammersley-Clifford theorem linking Markov properties and clique-potential factorization.",
             "Moralization bridge from directed to undirected structures for independence reasoning."
+          ],
+          "unresolved_source_materials": []
+        },
+        {
+          "topic_path": "topics/probabilistic-graphical-models/variational-inference-and-em",
+          "root_topic": "probabilistic-graphical-models",
+          "topic_key": "variational-inference-and-em",
+          "readme_path": "topics/probabilistic-graphical-models/variational-inference-and-em/README.md",
+          "curriculum_path": "topics/probabilistic-graphical-models/variational-inference-and-em/curriculum/0-to-1-plan.md",
+          "curriculum_paths": [
+            "topics/probabilistic-graphical-models/variational-inference-and-em/curriculum/0-to-1-plan.md"
+          ],
+          "source_materials": [
+            "materials/processed/probabilistic-graphical-models/Lecture_13_variational.md",
+            "materials/processed/probabilistic-graphical-models/Lecture_15_EM.md"
+          ],
+          "source_pdfs": [
+            "materials/archive/Lecture_13_variational.pdf",
+            "materials/archive/Lecture_15_EM.pdf"
+          ],
+          "transcript_anchors": [
+            "Gibbs variational principle as an optimization formula for `log Z`.",
+            "Mean-field inner relaxations solved with coordinate ascent / CAVI.",
+            "Outer relaxations via the local polytope, Bethe entropy, and Bethe free energy.",
+            "ELBO decomposition `log p(x) = ELBO + KL(q || p(z|x))`.",
+            "EM as the exact-posterior E-step limit, with GMM and LDA-style examples."
           ],
           "unresolved_source_materials": []
         }
@@ -768,6 +864,51 @@
       "source_pdf": "materials/archive/S26_10708_HW3_2__1_.pdf",
       "duplicate_equivalents": [
         "S26_10708_HW3_2__1_.pdf"
+      ],
+      "ingest_report": "materials/processed/probabilistic-graphical-models/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probabilistic-graphical-models/Lecture_13_variational.md",
+      "root_topic": "probabilistic-graphical-models",
+      "source_pdf": "materials/archive/Lecture_13_variational.pdf",
+      "duplicate_equivalents": [
+        "Lecture_13_variational.pdf"
+      ],
+      "ingest_report": "materials/processed/probabilistic-graphical-models/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probabilistic-graphical-models/Lecture_15_EM.md",
+      "root_topic": "probabilistic-graphical-models",
+      "source_pdf": "materials/archive/Lecture_15_EM.pdf",
+      "duplicate_equivalents": [
+        "Lecture_15_EM.pdf"
+      ],
+      "ingest_report": "materials/processed/probabilistic-graphical-models/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probabilistic-graphical-models/Lecture_17_GAN.md",
+      "root_topic": "probabilistic-graphical-models",
+      "source_pdf": "materials/archive/Lecture_17_GAN.pdf",
+      "duplicate_equivalents": [
+        "Lecture_17_GAN.pdf"
+      ],
+      "ingest_report": "materials/processed/probabilistic-graphical-models/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probabilistic-graphical-models/Lecture_18_applications.md",
+      "root_topic": "probabilistic-graphical-models",
+      "source_pdf": "materials/archive/Lecture_18_applications.pdf",
+      "duplicate_equivalents": [
+        "Lecture_18_applications.pdf"
+      ],
+      "ingest_report": "materials/processed/probabilistic-graphical-models/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probabilistic-graphical-models/Lecture_19_scorematching.md",
+      "root_topic": "probabilistic-graphical-models",
+      "source_pdf": "materials/archive/Lecture_19_scorematching.pdf",
+      "duplicate_equivalents": [
+        "Lecture_19_scorematching.pdf"
       ],
       "ingest_report": "materials/processed/probabilistic-graphical-models/_INGEST_REPORT.md"
     },
