@@ -1,10 +1,11 @@
 # Optimization Notes Full-PDF Ingest Report
 
 Model: `mixed (legacy gemini-3-flash-preview + local-pymupdf)`
-Files: 25
+Files: 27
 
 ## Files
 
+- `April2_MomentumBasedOptimization.pdf` -> `April2_MomentumBasedOptimization.md` (finish: `FALLBACK`)
 - `Feb10_subgradient-method.pdf` -> `Feb10_subgradient-method.md` (finish: `STOP`)
 - `Feb12-projected-subgradient.pdf` -> `Feb12-projected-subgradient.md` (finish: `STOP`)
 - `Feb17+24_proximal_gd.pdf` -> `Feb17+24_proximal_gd.md` (finish: `STOP`)
@@ -23,6 +24,7 @@ Files: 25
 - `March12_Part2_SaddlePoints_Minimax_Slater.pdf` -> `March12_Part2_SaddlePoints_Minimax_Slater.md` (finish: `STOP`)
 - `March17_KKT.pdf` -> `March17_KKT.md` (finish: `STOP`)
 - `March19_Newton_method.pdf` -> `March19_Newton_method.md` (finish: `STOP`)
+- `March31_ICA.pdf` -> `March31_ICA.md` (finish: `FALLBACK`)
 - `S26_10_725_HW1_optimization_ml.pdf` -> `HW1_prompt.md` (finish: `COMPLETE`)
 - `S26_10_725_HW3_Student.pdf` -> `HW3_prompt.md` (finish: `STOP`)
 - `submission_385380809.pdf` -> `Quiz1_graded_submission.md` (finish: `STOP`)

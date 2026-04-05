@@ -31,6 +31,10 @@ Source transcripts live in: `materials/processed/optimization-for-ml/`
   - `materials/processed/optimization-for-ml/March17_KKT.md`
 - Second-order methods
   - `materials/processed/optimization-for-ml/March19_Newton_method.md`
+- Independent component analysis
+  - `materials/processed/optimization-for-ml/March31_ICA.md`
+- Momentum and adaptive optimization
+  - `materials/processed/optimization-for-ml/April2_MomentumBasedOptimization.md`
 
 - Homework (problem sets)
   - `materials/processed/optimization-for-ml/HW1_prompt.md`

@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_on": "2026-03-30",
+  "generated_on": "2026-04-04",
   "generated_by": "scripts/learning_cli.py source-map",
   "roots": [
     {
@@ -606,6 +606,15 @@
   ],
   "transcripts": [
     {
+      "transcript_path": "materials/processed/optimization-for-ml/April2_MomentumBasedOptimization.md",
+      "root_topic": "optimization-for-ml",
+      "source_pdf": "materials/archive/April2_MomentumBasedOptimization.pdf",
+      "duplicate_equivalents": [
+        "April2_MomentumBasedOptimization.pdf"
+      ],
+      "ingest_report": "materials/processed/optimization-for-ml/_INGEST_REPORT.md"
+    },
+    {
       "transcript_path": "materials/processed/optimization-for-ml/Feb10_subgradient-method.md",
       "root_topic": "optimization-for-ml",
       "source_pdf": "materials/archive/Feb10_subgradient-method.pdf",
@@ -805,6 +814,15 @@
       "ingest_report": "materials/processed/optimization-for-ml/_INGEST_REPORT.md"
     },
     {
+      "transcript_path": "materials/processed/optimization-for-ml/March31_ICA.md",
+      "root_topic": "optimization-for-ml",
+      "source_pdf": "materials/archive/March31_ICA.pdf",
+      "duplicate_equivalents": [
+        "March31_ICA.pdf"
+      ],
+      "ingest_report": "materials/processed/optimization-for-ml/_INGEST_REPORT.md"
+    },
+    {
       "transcript_path": "materials/processed/optimization-for-ml/Quiz1_graded_submission.md",
       "root_topic": "optimization-for-ml",
       "source_pdf": "materials/archive/submission_385380809.pdf",
@@ -979,6 +997,20 @@
         "Lecture_9_MCMC_intro.pdf"
       ],
       "ingest_report": "materials/processed/probabilistic-graphical-models/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/scale-labs-papers-2025-2026/brief.md",
+      "root_topic": "scale-labs-papers-2025-2026",
+      "source_pdf": null,
+      "duplicate_equivalents": [],
+      "ingest_report": null
+    },
+    {
+      "transcript_path": "materials/processed/scale-labs-papers-2025-2026/paper_summaries.md",
+      "root_topic": "scale-labs-papers-2025-2026",
+      "source_pdf": null,
+      "duplicate_equivalents": [],
+      "ingest_report": null
     }
   ],
   "unresolved_source_materials": []
