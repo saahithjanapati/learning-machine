@@ -1,6 +1,6 @@
 # Content Routing
 
-Use this when new materials are uploaded.
+Use this when new materials are uploaded or linked.
 
 ## Routing Modes
 
@@ -16,6 +16,7 @@ Use this when new materials are uploaded.
 
 - `topic`: short slug (example: `kv-caching`, `bayes-rule`)
 - `root`: domain or class name
+- `source_type`: `file` or `url`
 
 ## Artifact Placement Rules
 
@@ -35,6 +36,9 @@ Use this when new materials are uploaded.
 
 - "This PDF is for CS229 lecture 3"
   - `topics/cs229/gradient-descent/...`
+
+- "Add this article URL under AI agents"
+  - `topics/ai/effective-agents/...`
 
 - "This is for my own transformers study"
   - `topics/transformers/attention/...`

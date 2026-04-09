@@ -9,7 +9,7 @@ Skill files may still exist under `skills/` for internal composition, but they s
 ### Public skills
 - learning-startup-resume: Startup help menu, recent-topic listing, and resume flow. (file: `.agents/skills/learning-startup-resume/SKILL.md`)
 - topic-tree-manager: Topic creation, reindexing, reorg reporting, and topic merge workflows. (file: `.agents/skills/topic-tree-manager/SKILL.md`)
-- materials-to-curriculum: Convert uploaded materials to markdown and build curriculum/lesson plans. (file: `.agents/skills/materials-to-curriculum/SKILL.md`)
+- materials-to-curriculum: Convert uploaded materials or provided links to markdown and build curriculum/lesson plans. (file: `.agents/skills/materials-to-curriculum/SKILL.md`)
 - adaptive-session-tutor: Learner-directed adaptive tutoring (`learn`/`practice`/`mixed` + in-depth mode). (file: `.agents/skills/adaptive-session-tutor/SKILL.md`)
 - markdown-live-chat: Create or continue lesson live-chat transcripts and mirror the actual conversation into a markdown file. (file: `.agents/skills/markdown-live-chat/SKILL.md`)
 - skill-catalog-manager: Audit, create, split, merge, and reorganize the repo skill catalog itself. (file: `.agents/skills/skill-catalog-manager/SKILL.md`)
@@ -17,7 +17,7 @@ Skill files may still exist under `skills/` for internal composition, but they s
 ### Routing rules
 - Startup help, recent topics, and resume requests -> `learning-startup-resume`
 - Topic creation, reindexing, reorg reports, and topic merges -> `topic-tree-manager`
-- Material ingestion, PDF conversion, curriculum building -> `materials-to-curriculum`
+- Material ingestion, PDF conversion, website/article link scraping, and curriculum building -> `materials-to-curriculum`
 - Learn/practice/mixed tutoring sessions and deep dives -> `adaptive-session-tutor`
 - Live chat transcript creation/continuation, markdown chat requests, or requests to mirror chat contents into an `.md` file -> `markdown-live-chat`
 - Skill audit, skill creation, skill splitting/merging, and catalog cleanup -> `skill-catalog-manager`

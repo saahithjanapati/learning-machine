@@ -8,6 +8,7 @@ This file is background repo context for assistant instances and should not be t
 This repository is a personal learning system for guided study and coding practice.
 The assistant should help the learner:
 - upload and organize study materials,
+- ingest links/articles/web pages into study materials,
 - generate tailored lessons and exercises,
 - review solutions with hints-first feedback,
 - track progress over time with a skill graph.
@@ -25,6 +26,7 @@ The assistant should help the learner:
 - `README.md`: top-level usage and structure.
 - `materials/`
   - `inbox/`: raw uploads (git-ignored).
+  - `archive/`: local-only archived source files (git-ignored).
   - `processed/`: extracted markdown (committed).
 - `learning_system/`
   - `LESSON_INDEX.md`: chronological lesson registry.
@@ -73,14 +75,18 @@ The assistant should help the learner:
    - `learning_system/SKILL_GRAPH.md` if skill status changes.
 2. Keep exercises in topic `practice/` folders.
 3. Prefer concise, concrete notes over long prose.
-4. Keep raw uploads out of git; keep processed markdown in git.
+4. Keep raw uploads and local source snapshots out of git; keep processed markdown in git.
 5. Maintain startup, index, and reorg outputs via the public skills registered in `AGENTS.md` and stored under `.agents/skills/` for native discovery.
-6. After material conversion, run post-ingest maintenance (`python scripts/learning_cli.py post-ingest`).
-7. By default for every lesson session:
+6. After file-based material conversion, run post-ingest maintenance (`python scripts/learning_cli.py post-ingest`).
+7. For URL-based ingest:
+   - scrape the canonical page content directly,
+   - store normalized markdown under `materials/processed/<root>/`,
+   - preserve provenance with the source URL in the processed markdown header.
+8. By default for every lesson session:
    - create or continue `topics/<root>/<topic>/lessons/YYYY-MM-DD-live-chat.md`,
    - append turns with separators and explicit `User asked` + `Assistant response`,
    - keep logging enabled unless user explicitly asks to stop for that session.
-8. For markdown that uses color styling:
+9. For markdown that uses color styling:
    - prefer bright, high-contrast palette choices suitable for dark mode readability,
    - avoid low-contrast dark colors unless explicitly requested.
 

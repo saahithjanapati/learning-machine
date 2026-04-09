@@ -1,10 +1,14 @@
 # Skill Tree
 
-Last generated: 2026-03-30
+Last generated: 2026-04-08
 
 Hierarchical topic tree discovered from `topics/` paths.
 
 ```text
+├─ ai
+│  └─ effective-agents
+├─ interviews
+│  └─ ml-system-design
 ├─ optimization-for-ml
 │  ├─ convex-sets-and-functions
 │  ├─ course-catchup

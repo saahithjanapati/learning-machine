@@ -1,8 +1,72 @@
 {
   "schema_version": "1.0",
-  "generated_on": "2026-04-04",
+  "generated_on": "2026-04-08",
   "generated_by": "scripts/learning_cli.py source-map",
   "roots": [
+    {
+      "root_topic": "ai",
+      "processed_material_dir": "materials/processed/ai",
+      "materials_index_path": null,
+      "topic_count": 1,
+      "topics": [
+        {
+          "topic_path": "topics/ai/effective-agents",
+          "root_topic": "ai",
+          "topic_key": "effective-agents",
+          "readme_path": "topics/ai/effective-agents/README.md",
+          "curriculum_path": "topics/ai/effective-agents/curriculum/0-to-1-plan.md",
+          "curriculum_paths": [
+            "topics/ai/effective-agents/curriculum/0-to-1-plan.md"
+          ],
+          "source_materials": [
+            "materials/processed/ai/building-effective-agents.md"
+          ],
+          "source_pdfs": [
+            "https://www.anthropic.com/engineering/building-effective-agents"
+          ],
+          "transcript_anchors": [
+            "Distinction between workflows and agents.",
+            "Simpler-is-better decision rule and the latency/cost tradeoff.",
+            "Production workflow patterns: prompt chaining, routing, parallelization, orchestrator-workers, evaluator-optimizer.",
+            "Conditions for when autonomous agents are justified.",
+            "Tooling guidance: transparency, tool documentation, and ground-truth feedback loops."
+          ],
+          "unresolved_source_materials": []
+        }
+      ]
+    },
+    {
+      "root_topic": "interviews",
+      "processed_material_dir": "materials/processed/interviews",
+      "materials_index_path": null,
+      "topic_count": 1,
+      "topics": [
+        {
+          "topic_path": "topics/interviews/ml-system-design",
+          "root_topic": "interviews",
+          "topic_key": "ml-system-design",
+          "readme_path": "topics/interviews/ml-system-design/README.md",
+          "curriculum_path": "topics/interviews/ml-system-design/curriculum/0-to-1-plan.md",
+          "curriculum_paths": [
+            "topics/interviews/ml-system-design/curriculum/0-to-1-plan.md"
+          ],
+          "source_materials": [
+            "materials/processed/interviews/system_design.md"
+          ],
+          "source_pdfs": [
+            "materials/archive/system_design.txt"
+          ],
+          "transcript_anchors": [
+            "Problem framing: novelty types, business goal alignment, success metrics.",
+            "Corpus understanding: source quality, metadata, duplication, bias, and sensitive content.",
+            "Mining loop: embeddings, retrieval, novelty/OOD methods, clustering, and active learning.",
+            "Annotation system: guidelines, reviewer flow, agreement checks, and abstain handling.",
+            "Taxonomy and evaluation: label-space evolution, slice metrics, and downstream validation."
+          ],
+          "unresolved_source_materials": []
+        }
+      ]
+    },
     {
       "root_topic": "optimization-for-ml",
       "processed_material_dir": "materials/processed/optimization-for-ml",
@@ -605,6 +669,20 @@
     }
   ],
   "transcripts": [
+    {
+      "transcript_path": "materials/processed/ai/building-effective-agents.md",
+      "root_topic": "ai",
+      "source_pdf": "https://www.anthropic.com/engineering/building-effective-agents",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/interviews/system_design.md",
+      "root_topic": "interviews",
+      "source_pdf": "materials/archive/system_design.txt",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/interviews/_INGEST_REPORT.md"
+    },
     {
       "transcript_path": "materials/processed/optimization-for-ml/April2_MomentumBasedOptimization.md",
       "root_topic": "optimization-for-ml",

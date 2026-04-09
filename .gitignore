@@ -12,3 +12,7 @@ materials/inbox/*
 !materials/inbox/.gitkeep
 materials/archive/*
 !materials/archive/.gitkeep
+
+# Local-only generated assets for interactive sessions.
+.local/
+local-assets/

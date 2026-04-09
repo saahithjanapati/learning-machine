@@ -1,6 +1,6 @@
 ---
 name: materials-to-curriculum
-description: Ingest uploaded learning materials (especially PDFs), convert to markdown, and produce topic curriculum + lesson plans. Use when the user uploads class/topic materials and wants structured lessons.
+description: Ingest uploaded learning materials or provided links, convert them to markdown, and produce topic curriculum + lesson plans. Use when the user uploads class/topic materials or shares URLs and wants structured lessons.
 ---
 
 # Materials To Curriculum
@@ -9,6 +9,7 @@ description: Ingest uploaded learning materials (especially PDFs), convert to ma
 
 Use this skill when user asks:
 - "convert this PDF to markdown"
+- "ingest this link / URL / website"
 - "build lessons from these materials"
 - "create a 0-1 curriculum from uploads"
 
@@ -18,26 +19,37 @@ Use this skill when user asks:
 - default: `topics/<root>/<topic>/...`
 - if class-specific, set `<root>` to class name.
 
-2. Convert PDF to markdown (assistant-run, user does not run scripts):
-- use Gemini API as primary converter,
-- strategy:
-  - attempt whole-PDF conversion first,
-  - if truncated/failure, fallback to chunked conversion,
+2. Convert source material to markdown (assistant-run, user does not run scripts):
+- for PDFs:
+  - use Gemini API as primary converter,
+  - strategy:
+    - attempt whole-PDF conversion first,
+    - if truncated/failure, fallback to chunked conversion,
+- for websites/articles/URLs:
+  - fetch the canonical page content directly,
+  - scrape only the content needed for learning use,
+  - preserve provenance with the canonical URL, title, and publish date when available,
+  - prefer a structured summary/extract in markdown over raw HTML dumps,
 - save extracted markdown to:
-  - `materials/processed/<source-name>.md`
+  - `materials/processed/<root>/<source-name>.md`
 - math formatting policy for markdown output (Obsidian/MathJax compatible):
   - inline math must use `$...$`
   - display equations must use `$$...$$` on separate lines
   - never wrap equations in backticks
   - preserve LaTeX commands and symbols (`\\frac`, `\\sum`, `\\mathbb{R}`, `\\nabla`, etc.)
 
-3. Archive processed source files:
-- move processed files from `materials/inbox/` to `materials/archive/`
-- keep archive uncommitted
-- keep transcript `Source:` paths aligned with archive location
-- run post-ingest maintenance automatically after every successful conversion:
-  - `python scripts/learning_cli.py post-ingest`
-- do not wait for a separate user request to archive after conversion
+3. Preserve provenance:
+- for local source files:
+  - move processed files from `materials/inbox/` to `materials/archive/`
+  - keep archive uncommitted
+  - keep transcript `Source:` paths aligned with archive location
+  - run post-ingest maintenance automatically after every successful conversion:
+    - `python scripts/learning_cli.py post-ingest`
+  - do not wait for a separate user request to archive after conversion
+- for links/URLs:
+  - keep the transcript `Source:` as the canonical URL
+  - include site/title/publish metadata near the top of the processed markdown when available
+  - if a local snapshot is saved for debugging, keep it in local-only storage and do not require it for committed provenance
 
 4. Build curriculum and session plan using templates:
 - `learning_system/templates/CURRICULUM_TEMPLATE.md`
@@ -51,4 +63,5 @@ Use this skill when user asks:
 ## Git Policy
 
 - Raw uploads in `materials/inbox/` and `materials/archive/` remain uncommitted.
+- Local snapshots of fetched web pages remain uncommitted.
 - Processed markdown in `materials/processed/` is committed.

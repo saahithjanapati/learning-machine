@@ -1,6 +1,6 @@
 # Curriculum Workflow (0 -> 1)
 
-This workflow supports the "upload materials -> tailored lessons -> tracked progress" loop.
+This workflow supports the "upload materials or share links -> tailored lessons -> tracked progress" loop.
 
 ## Step 0: Handle In-Depth Requests
 
@@ -15,14 +15,21 @@ If learner asks how to start:
 
 ## Step 1: Ingest Source Materials
 
-1. Put source files in `materials/inbox/`.
-2. Ask the assistant to convert PDFs to markdown.
-3. Store extracted text in `materials/processed/`.
-4. Run post-ingest maintenance (automatic after conversion):
+1. Accept either:
+   - source files in `materials/inbox/`, or
+   - canonical links/URLs supplied directly by the learner.
+2. Ask the assistant to convert the source into markdown.
+   - PDFs: convert the document contents.
+   - URLs: scrape the article/page contents and normalize them into learning-friendly markdown.
+3. Store extracted text in `materials/processed/<root>/`.
+4. Preserve provenance:
+   - file sources -> archive from `materials/inbox/` to `materials/archive/`
+   - URL sources -> keep canonical URL in the processed markdown `Source:` header
+5. Run post-ingest maintenance after file-based conversion:
    - `python scripts/learning_cli.py post-ingest`
    - archives processed source files from `materials/inbox/` to `materials/archive/`
    - rewrites transcript source headers and refreshes `learning_system/SOURCE_MAP.json`
-5. Route the material:
+6. Route the material:
    - unified: `topics/<root>/<topic>/...`
    - for class-specific materials, use class name as `<root>`
 
@@ -46,7 +53,7 @@ Curriculum should define:
 After creating/updating curricula:
 - regenerate `learning_system/SOURCE_MAP.json`
 - ensure each topic entry resolves to processed transcript markdown paths
-- ensure transcript headers map back to original PDFs for provenance
+- ensure transcript headers map back to original source files or canonical URLs for provenance
 
 ## Step 3: Generate Session Lesson Plan
 

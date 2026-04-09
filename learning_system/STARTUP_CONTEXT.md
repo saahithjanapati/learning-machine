@@ -31,7 +31,9 @@ Public skills live in `.agents/skills/` for native Codex discovery.
 ## Material Handling Rules
 
 - Raw uploads go in `materials/inbox/` and are not committed.
+- User-provided links can be ingested directly without requiring an inbox file.
 - After successful processing, move source files to `materials/archive/` (also not committed).
+- For URL-based ingest, keep the canonical URL in the processed markdown `Source:` header instead of creating a required archive file.
 - Processed markdown goes in `materials/processed/` and is committed.
 - Post-ingest maintenance should run automatically after conversions (`scripts/learning_cli.py post-ingest`).
 
