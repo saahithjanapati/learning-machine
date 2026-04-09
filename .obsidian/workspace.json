@@ -35,12 +35,14 @@
             "id": "5b3cdf17f0405a19",
             "type": "leaf",
             "state": {
-              "type": "release-notes",
+              "type": "markdown",
               "state": {
-                "currentVersion": "1.12.7"
+                "file": "topics/interviews/ml-system-design/lessons/2026-04-07-live-chat-quiz.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-book-up",
-              "title": "Release Notes 1.12.7"
+              "icon": "lucide-file",
+              "title": "2026-04-07-live-chat-quiz"
             }
           }
         ],
@@ -101,7 +103,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 481.5026054382324
+    "width": 279.5
   },
   "right": {
     "id": "5cabd87a7ea33faf",
@@ -208,6 +210,24 @@
   },
   "active": "5b3cdf17f0405a19",
   "lastOpenFiles": [
+    "materials/processed/ai/building-effective-agents.md",
+    "materials/processed/ai/_INGEST_REPORT.md",
+    "materials/processed/ai",
+    "topics/ai/effective-agents/lessons/2026-04-08-bootstrapping-roadmap.md",
+    "topics/ai/effective-agents/materials/INDEX.md",
+    "topics/ai/effective-agents/materials",
+    "topics/ai/effective-agents/curriculum/0-to-1-plan.md",
+    "topics/ai/effective-agents/practice",
+    "topics/ai/effective-agents/lessons",
+    "topics/ai/effective-agents/curriculum",
+    "topics/ai/effective-agents/README.md",
+    "topics/ai/effective-agents",
+    "topics/ai",
+    "local-assets/quiz-plots/metrics-quiz-01.png",
+    "local-assets/quiz-plots",
+    "local-assets",
+    "topics/interviews/ml-system-design/lessons/2026-04-07-live-chat-quiz.md",
+    "topics/interviews/ml-system-design/lessons/2026-04-07-bootstrapping-roadmap.md",
     "topics/optimization-for-ml/lessons/2026-03-31-hw3-live-chat-problem-4.md",
     "topics/optimization-for-ml/lessons/2026-03-31-hw3-live-chat-problem-3.md",
     "topics/optimization-for-ml/lessons/2026-03-28-hw3-topics-interactive-study-guide.md",
@@ -217,15 +237,6 @@
     "materials/processed/scale-labs-papers-2025-2026/paper_summaries.md",
     "topics/optimization-for-ml/lessons/2026-03-28-hw3-live-chat-problem-1.md",
     "materials/processed/scale-labs-papers-2025-2026/papers.json",
-    "materials/archive/scale-labs-papers-2025-2026/pdfs/01-02-2025_toolcomp-a-multi-tool-reasoning-and-process-supervision-benchmark.pdf",
-    "materials/archive/scale-labs-papers-2025-2026/pdfs/01-23-2025_humanitys-last-exam.pdf",
-    "materials/archive/scale-labs-papers-2025-2026/pdfs/01-29-2025_multichallenge.pdf",
-    "materials/archive/scale-labs-papers-2025-2026/pdfs/02-10-2025_projecttest.pdf",
-    "materials/archive/scale-labs-papers-2025-2026/pdfs/02-11-2025_j2.pdf",
-    "materials/archive/scale-labs-papers-2025-2026/pdfs/02-13-2025_enigma_eval.pdf",
-    "materials/archive/scale-labs-papers-2025-2026/pdfs/03-05-2025_mask.pdf",
-    "materials/archive/scale-labs-papers-2025-2026/pdfs/03-08-2025_cfpd.pdf",
-    "materials/archive/scale-labs-papers-2025-2026/pdfs/03-14-2025_rerank_beyond_relevance.pdf",
     "topics/probabilistic-graphical-models/lessons/2026-03-30-late-course-module-map.md",
     "topics/probabilistic-graphical-models/score-matching-and-energy-based-models/curriculum/0-to-1-plan.md",
     "topics/probabilistic-graphical-models/score-matching-and-energy-based-models/README.md",
@@ -236,14 +247,6 @@
     "topics/probabilisticgraphicalmodels/variational-inference-and-em/curriculum/0-to-1-plan.md",
     "topics/probabilisticgraphicalmodels/variational-inference-and-em/README.md",
     "materials/processed/probabilistic-graphical-models/Lecture_19_scorematching.md",
-    "materials/processed/probabilistic-graphical-models/Lecture_18_applications.md",
-    "materials/processed/probabilistic-graphical-models/Lecture_17_GAN.md",
-    "materials/processed/probabilistic-graphical-models/Lecture_15_EM.md",
-    "materials/processed/probabilistic-graphical-models/Lecture_13_variational.md",
-    "topics/probabilistic-graphical-models/undirected-graphical-models/curriculum/0-to-1-plan.md",
-    "topics/optimization-for-ml/curriculum/0-to-1-master-plan.md",
-    "topics/optimization-for-ml/lessons/2026-02-26-ultra-deep-study-guide-worked-problems.md",
-    "materials/processed/probabilistic-graphical-models/HW2_graded_submission.md",
     "materials/archive/local-figures/normal-cone-2d-illustration.png",
     "materials/archive/local-figures/cone-polar-duality.png",
     "materials/archive/local-figures/cone-orthant-normal-tangent.png",
@@ -252,7 +255,6 @@
     "materials/archive/local-figures/ve-eliminate-x-concrete.png",
     "materials/archive/local-figures/ve-order-star-intuition.png",
     "materials/archive/local-figures/pgm-dgm-vs-ugm-intuition.png",
-    "materials/archive/local-figures/projection-geometry-right-angle.png",
-    "materials/archive/local-figures/projection-geometry-contradiction.png"
+    "materials/archive/local-figures/projection-geometry-right-angle.png"
   ]
 }
