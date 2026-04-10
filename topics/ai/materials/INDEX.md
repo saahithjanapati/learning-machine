@@ -15,3 +15,6 @@ Policy:
 - `materials/processed/ai/a-diff-tool-for-ai-finding-behavioral-differences-in-new-models.md`
 - `materials/processed/ai/text-is-the-universal-interface.md`
 - `materials/processed/ai/the-hot-mess-of-ai-how-does-misalignment-scale-with-model-intelligence-and-task-complexity.md`
+- `materials/processed/ai/vibe-physics-the-ai-grad-student.md`
+- `materials/processed/ai/bloom-an-open-source-tool-for-automated-behavioral-evaluations.md`
+- `materials/processed/ai/machines-of-faithful-obedience.md`
