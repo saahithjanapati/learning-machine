@@ -10,6 +10,7 @@ Policy:
 
 ## Processed Sources
 
+- `materials/processed/ai/trustworthy-agents-in-practice.md`
 - `materials/processed/ai/building-effective-agents.md`
 - `materials/processed/ai/why-we-are-excited-about-confessions.md`
 - `materials/processed/ai/a-diff-tool-for-ai-finding-behavioral-differences-in-new-models.md`
