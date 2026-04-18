@@ -579,10 +579,10 @@ That closes the gap between pre-Quiz-2 fundamentals and post-Quiz-2 methods.
 
 ## Sources Used
 
-- `materials/processed/optimization-for-ml/Jan13_Intro.md`
-- `materials/processed/optimization-for-ml/Jan13_Logistics.md`
-- `materials/processed/optimization-for-ml/Jan15_ConvexSets.md`
-- `materials/processed/optimization-for-ml/Jan20_ConvexFunctions.md`
-- `materials/processed/optimization-for-ml/Jan27_matrix_norms.md`
-- `topics/optimization-for-ml/materials/INDEX.md`
-- `topics/optimization-for-ml/lessons/2026-02-17-quiz-2-cheat-sheet.md`
+- [materials/processed/optimization-for-ml/Jan13_Intro.md](../../../materials/processed/optimization-for-ml/Jan13_Intro.md)
+- [materials/processed/optimization-for-ml/Jan13_Logistics.md](../../../materials/processed/optimization-for-ml/Jan13_Logistics.md)
+- [materials/processed/optimization-for-ml/Jan15_ConvexSets.md](../../../materials/processed/optimization-for-ml/Jan15_ConvexSets.md)
+- [materials/processed/optimization-for-ml/Jan20_ConvexFunctions.md](../../../materials/processed/optimization-for-ml/Jan20_ConvexFunctions.md)
+- [materials/processed/optimization-for-ml/Jan27_matrix_norms.md](../../../materials/processed/optimization-for-ml/Jan27_matrix_norms.md)
+- [topics/optimization-for-ml/materials/INDEX.md](../materials/INDEX.md)
+- [topics/optimization-for-ml/lessons/2026-02-17-quiz-2-cheat-sheet.md](2026-02-17-quiz-2-cheat-sheet.md)

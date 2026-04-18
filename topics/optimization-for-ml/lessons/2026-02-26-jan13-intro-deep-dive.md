@@ -2,7 +2,7 @@
 
 ## Expository Deep Dive: Introduction and Problem Formulation
 
-Source transcript: `materials/processed/optimization-for-ml/Jan13_Intro.md`
+Source transcript: [materials/processed/optimization-for-ml/Jan13_Intro.md](../../../materials/processed/optimization-for-ml/Jan13_Intro.md)
 
 ## How to read this lesson
 

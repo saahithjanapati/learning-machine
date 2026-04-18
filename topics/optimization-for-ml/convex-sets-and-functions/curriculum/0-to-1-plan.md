@@ -5,7 +5,7 @@ Topic Path: `topics/optimization-for-ml/convex-sets-and-functions`
 ## Source Trace
 
 - Canonical manifest: `learning_system/SOURCE_MAP.json`
-- Topic locator: `topics/optimization-for-ml/convex-sets-and-functions/curriculum/0-to-1-plan.md`
+- Topic locator: [topics/optimization-for-ml/convex-sets-and-functions/curriculum/0-to-1-plan.md](0-to-1-plan.md)
 - Transcript links: see source sections in this curriculum.
 
 ## Outcome
@@ -14,8 +14,8 @@ By the end of this topic, you should be able to determine whether sets and funct
 
 ## Source Materials
 
-- `materials/processed/optimization-for-ml/Jan15_ConvexSets.md`
-- `materials/processed/optimization-for-ml/Jan20_ConvexFunctions.md`
+- [materials/processed/optimization-for-ml/Jan15_ConvexSets.md](../../../../materials/processed/optimization-for-ml/Jan15_ConvexSets.md)
+- [materials/processed/optimization-for-ml/Jan20_ConvexFunctions.md](../../../../materials/processed/optimization-for-ml/Jan20_ConvexFunctions.md)
 
 ## Transcript Anchors
 

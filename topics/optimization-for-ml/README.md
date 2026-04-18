@@ -17,6 +17,6 @@ Catch up from near-zero and reach problem-solving fluency in core convex optimiz
 
 ## Core Files
 
-- Master curriculum: `topics/optimization-for-ml/curriculum/0-to-1-master-plan.md`
-- Materials index: `topics/optimization-for-ml/materials/INDEX.md`
-- First catch-up lesson: `topics/optimization-for-ml/lessons/2026-02-15-catchup-lesson-01.md`
+- Master curriculum: [topics/optimization-for-ml/curriculum/0-to-1-master-plan.md](curriculum/0-to-1-master-plan.md)
+- Materials index: [topics/optimization-for-ml/materials/INDEX.md](materials/INDEX.md)
+- First catch-up lesson: [topics/optimization-for-ml/lessons/2026-02-15-catchup-lesson-01.md](lessons/2026-02-15-catchup-lesson-01.md)

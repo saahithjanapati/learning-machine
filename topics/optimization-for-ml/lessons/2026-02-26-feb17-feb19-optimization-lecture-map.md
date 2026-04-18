@@ -8,8 +8,8 @@ This file links and organizes the full summaries for the two lectures:
 - [Feb 19 Full Summary: SGD](/Users/saahithjanapati/Desktop/learning-machine/topics/optimization-for-ml/lessons/2026-02-26-feb19-sgd-full-summary.md)
 
 Primary source transcripts:
-- `materials/processed/optimization-for-ml/Feb17_Optimiality_Conditions.md`
-- `materials/processed/optimization-for-ml/Feb19_stoch_gd.md`
+- [materials/processed/optimization-for-ml/Feb17_Optimiality_Conditions.md](../../../materials/processed/optimization-for-ml/Feb17_Optimiality_Conditions.md)
+- [materials/processed/optimization-for-ml/Feb19_stoch_gd.md](../../../materials/processed/optimization-for-ml/Feb19_stoch_gd.md)
 
 ## 1) Concept Bridge (Why These Two Lectures Belong Together)
 

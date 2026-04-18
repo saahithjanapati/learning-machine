@@ -4,12 +4,12 @@
 
 This live chat is for one-question-at-a-time review of:
 
-- `topics/optimization-for-ml/lessons/2026-04-12-quiz-4-study-guide-newton-ica-adaptive-methods.md`
-- `materials/processed/optimization-for-ml/March24_SDP.md`
-- `materials/processed/optimization-for-ml/March26_Newton_method.md`
-- `materials/processed/optimization-for-ml/March31_April2_ICA.md`
-- `materials/processed/optimization-for-ml/April7_MomentumBasedOptimization.md`
-- `materials/processed/optimization-for-ml/April7_EXTRA_AcceleratedGD_Theory.md`
+- [topics/optimization-for-ml/lessons/2026-04-12-quiz-4-study-guide-newton-ica-adaptive-methods.md](2026-04-12-quiz-4-study-guide-newton-ica-adaptive-methods.md)
+- [materials/processed/optimization-for-ml/March24_SDP.md](../../../materials/processed/optimization-for-ml/March24_SDP.md)
+- [materials/processed/optimization-for-ml/March26_Newton_method.md](../../../materials/processed/optimization-for-ml/March26_Newton_method.md)
+- [materials/processed/optimization-for-ml/March31_April2_ICA.md](../../../materials/processed/optimization-for-ml/March31_April2_ICA.md)
+- [materials/processed/optimization-for-ml/April7_MomentumBasedOptimization.md](../../../materials/processed/optimization-for-ml/April7_MomentumBasedOptimization.md)
+- [materials/processed/optimization-for-ml/April7_EXTRA_AcceleratedGD_Theory.md](../../../materials/processed/optimization-for-ml/April7_EXTRA_AcceleratedGD_Theory.md)
 
 ## Session Controls
 

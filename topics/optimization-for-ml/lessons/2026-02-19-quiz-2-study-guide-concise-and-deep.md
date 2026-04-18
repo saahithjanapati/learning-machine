@@ -4,19 +4,19 @@ Date: `2026-02-19`
 Goal: one fast review doc before a ~25-minute quiz (T/F, MCQ, short answer)
 
 Scope mined from your materials:
-- `materials/processed/optimization-for-ml/Jan29_GD.md`
-- `materials/processed/optimization-for-ml/Feb5_subgradients.md`
-- `materials/processed/optimization-for-ml/Feb10_subgradient-method.md`
-- `materials/processed/optimization-for-ml/Feb12-projected-subgradient.md`
-- `topics/optimization-for-ml/lessons/2026-02-15-quiz-2-core-concepts.md`
-- `topics/optimization-for-ml/lessons/2026-02-16-quiz-2-mini-textbook.md`
-- `topics/optimization-for-ml/lessons/2026-02-17-quiz-2-cheat-sheet.md`
-- `topics/optimization-for-ml/lessons/2026-02-17-quiz-2-class-bridge-notes.md`
-- `topics/optimization-for-ml/lessons/2026-02-17-quiz-2-gap-audit.md`
-- `topics/optimization-for-ml/lessons/2026-02-17-quiz-2-problem-set-01.md`
-- `topics/optimization-for-ml/lessons/2026-02-17-session-recap-quiz2-interactive.md`
-- `topics/optimization-for-ml/lessons/2026-02-17-session-recap-quiz2-review-02.md`
-- `topics/optimization-for-ml/lessons/2026-02-17-live-chat-02-review.md`
+- [materials/processed/optimization-for-ml/Jan29_GD.md](../../../materials/processed/optimization-for-ml/Jan29_GD.md)
+- [materials/processed/optimization-for-ml/Feb5_subgradients.md](../../../materials/processed/optimization-for-ml/Feb5_subgradients.md)
+- [materials/processed/optimization-for-ml/Feb10_subgradient-method.md](../../../materials/processed/optimization-for-ml/Feb10_subgradient-method.md)
+- [materials/processed/optimization-for-ml/Feb12-projected-subgradient.md](../../../materials/processed/optimization-for-ml/Feb12-projected-subgradient.md)
+- [topics/optimization-for-ml/lessons/2026-02-15-quiz-2-core-concepts.md](2026-02-15-quiz-2-core-concepts.md)
+- [topics/optimization-for-ml/lessons/2026-02-16-quiz-2-mini-textbook.md](2026-02-16-quiz-2-mini-textbook.md)
+- [topics/optimization-for-ml/lessons/2026-02-17-quiz-2-cheat-sheet.md](2026-02-17-quiz-2-cheat-sheet.md)
+- [topics/optimization-for-ml/lessons/2026-02-17-quiz-2-class-bridge-notes.md](2026-02-17-quiz-2-class-bridge-notes.md)
+- [topics/optimization-for-ml/lessons/2026-02-17-quiz-2-gap-audit.md](2026-02-17-quiz-2-gap-audit.md)
+- [topics/optimization-for-ml/lessons/2026-02-17-quiz-2-problem-set-01.md](2026-02-17-quiz-2-problem-set-01.md)
+- [topics/optimization-for-ml/lessons/2026-02-17-session-recap-quiz2-interactive.md](2026-02-17-session-recap-quiz2-interactive.md)
+- [topics/optimization-for-ml/lessons/2026-02-17-session-recap-quiz2-review-02.md](2026-02-17-session-recap-quiz2-review-02.md)
+- [topics/optimization-for-ml/lessons/2026-02-17-live-chat-02-review.md](2026-02-17-live-chat-02-review.md)
 
 Note on scope: recent session logs marked SGD as not central for this quiz; focus is GD/rates, subgradients, projected methods, optimality/KKT.
 

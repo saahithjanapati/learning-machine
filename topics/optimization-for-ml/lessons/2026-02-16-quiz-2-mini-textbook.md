@@ -1397,9 +1397,9 @@ What this section gets you:
 
 ## References (Course Transcripts You Already Have)
 
-- GD: `materials/processed/optimization-for-ml/Jan29_GD.md`
-- Subgradients: `materials/processed/optimization-for-ml/Feb5_subgradients.md`
-- Subgradient method: `materials/processed/optimization-for-ml/Feb10_subgradient-method.md`
-- Projected subgradient: `materials/processed/optimization-for-ml/Feb12-projected-subgradient.md`
+- GD: [materials/processed/optimization-for-ml/Jan29_GD.md](../../../materials/processed/optimization-for-ml/Jan29_GD.md)
+- Subgradients: [materials/processed/optimization-for-ml/Feb5_subgradients.md](../../../materials/processed/optimization-for-ml/Feb5_subgradients.md)
+- Subgradient method: [materials/processed/optimization-for-ml/Feb10_subgradient-method.md](../../../materials/processed/optimization-for-ml/Feb10_subgradient-method.md)
+- Projected subgradient: [materials/processed/optimization-for-ml/Feb12-projected-subgradient.md](../../../materials/processed/optimization-for-ml/Feb12-projected-subgradient.md)
 
 Note: We have not yet ingested transcripts for the course lectures titled "Optimality Conditions" and "Stochastic Gradient". This mini-textbook covers the standard versions that nearly all optimization courses teach. If you have those PDFs, ingesting them will let us match the instructor’s exact notation and emphasis.

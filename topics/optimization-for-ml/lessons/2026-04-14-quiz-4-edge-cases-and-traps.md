@@ -4,7 +4,7 @@ This note covers the remaining lower-probability but still plausible quiz topics
 
 The main study guide should still be your primary review source:
 
-- `topics/optimization-for-ml/lessons/2026-04-12-quiz-4-study-guide-newton-ica-adaptive-methods.md`
+- [topics/optimization-for-ml/lessons/2026-04-12-quiz-4-study-guide-newton-ica-adaptive-methods.md](2026-04-12-quiz-4-study-guide-newton-ica-adaptive-methods.md)
 
 Use this note as a final pass for the small things that are easy to miss.
 

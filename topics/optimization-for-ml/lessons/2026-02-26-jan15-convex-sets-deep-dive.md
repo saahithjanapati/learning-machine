@@ -2,7 +2,7 @@
 
 ## Expository Deep Dive: Convex Sets and Geometric Thinking
 
-Source transcript: `materials/processed/optimization-for-ml/Jan15_ConvexSets.md`
+Source transcript: [materials/processed/optimization-for-ml/Jan15_ConvexSets.md](../../../materials/processed/optimization-for-ml/Jan15_ConvexSets.md)
 
 ## How to read this lesson
 

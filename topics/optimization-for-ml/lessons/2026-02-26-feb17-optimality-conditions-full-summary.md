@@ -2,7 +2,7 @@
 
 ## Full Lecture Summary: Optimality Conditions, Projection, and LASSO
 
-Source transcript: `materials/processed/optimization-for-ml/Feb17_Optimiality_Conditions.md`
+Source transcript: [materials/processed/optimization-for-ml/Feb17_Optimiality_Conditions.md](../../../materials/processed/optimization-for-ml/Feb17_Optimiality_Conditions.md)
 
 ## 1) Core Problem
 

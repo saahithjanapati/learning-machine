@@ -2,7 +2,7 @@
 
 ## Expository Deep Dive: Stochastic Gradient Descent (SGD)
 
-Source transcript: `materials/processed/optimization-for-ml/Feb19_stoch_gd.md`
+Source transcript: [materials/processed/optimization-for-ml/Feb19_stoch_gd.md](../../../materials/processed/optimization-for-ml/Feb19_stoch_gd.md)
 
 ## How to read this lesson
 

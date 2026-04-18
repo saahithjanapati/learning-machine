@@ -5,7 +5,7 @@ Topic Path: `topics/optimization-for-ml/matrix-norms`
 ## Source Trace
 
 - Canonical manifest: `learning_system/SOURCE_MAP.json`
-- Topic locator: `topics/optimization-for-ml/matrix-norms/curriculum/0-to-1-plan.md`
+- Topic locator: [topics/optimization-for-ml/matrix-norms/curriculum/0-to-1-plan.md](0-to-1-plan.md)
 - Transcript links: see source sections in this curriculum.
 
 ## Outcome
@@ -14,7 +14,7 @@ By the end of this topic, you should be able to compute and compare key vector/m
 
 ## Source Materials
 
-- `materials/processed/optimization-for-ml/Jan27_matrix_norms.md`
+- [materials/processed/optimization-for-ml/Jan27_matrix_norms.md](../../../../materials/processed/optimization-for-ml/Jan27_matrix_norms.md)
 
 ## Transcript Anchors
 

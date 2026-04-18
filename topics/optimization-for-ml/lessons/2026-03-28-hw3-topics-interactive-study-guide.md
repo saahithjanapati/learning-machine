@@ -1,20 +1,20 @@
 # Optimization for ML - Homework 3 Interactive Study Guide
 
-Source prompt: `materials/processed/optimization-for-ml/HW3_prompt.md`
+Source prompt: [materials/processed/optimization-for-ml/HW3_prompt.md](../../../materials/processed/optimization-for-ml/HW3_prompt.md)
 
 Companion live chat:
-- `topics/optimization-for-ml/lessons/2026-03-28-hw3-live-chat-problem-1.md`
+- [topics/optimization-for-ml/lessons/2026-03-28-hw3-live-chat-problem-1.md](2026-03-28-hw3-live-chat-problem-1.md)
 
 Primary lecture links:
-- `materials/processed/optimization-for-ml/Feb17+24_proximal_gd.md`
-- `materials/processed/optimization-for-ml/Feb19_stoch_gd.md`
-- `materials/processed/optimization-for-ml/March10_LP_Duality.md`
-- `materials/processed/optimization-for-ml/March12_Part1_LagrangianFunction.md`
-- `materials/processed/optimization-for-ml/March12_Part2_SaddlePoints_Minimax_Slater.md`
-- `materials/processed/optimization-for-ml/March17_KKT.md`
-- `materials/processed/optimization-for-ml/Jan15_ConvexSets.md`
-- `materials/processed/optimization-for-ml/Jan20_ConvexFunctions.md`
-- `materials/processed/optimization-for-ml/Jan27_matrix_norms.md`
+- [materials/processed/optimization-for-ml/Feb17+24_proximal_gd.md](../../../materials/processed/optimization-for-ml/Feb17+24_proximal_gd.md)
+- [materials/processed/optimization-for-ml/Feb19_stoch_gd.md](../../../materials/processed/optimization-for-ml/Feb19_stoch_gd.md)
+- [materials/processed/optimization-for-ml/March10_LP_Duality.md](../../../materials/processed/optimization-for-ml/March10_LP_Duality.md)
+- [materials/processed/optimization-for-ml/March12_Part1_LagrangianFunction.md](../../../materials/processed/optimization-for-ml/March12_Part1_LagrangianFunction.md)
+- [materials/processed/optimization-for-ml/March12_Part2_SaddlePoints_Minimax_Slater.md](../../../materials/processed/optimization-for-ml/March12_Part2_SaddlePoints_Minimax_Slater.md)
+- [materials/processed/optimization-for-ml/March17_KKT.md](../../../materials/processed/optimization-for-ml/March17_KKT.md)
+- [materials/processed/optimization-for-ml/Jan15_ConvexSets.md](../../../materials/processed/optimization-for-ml/Jan15_ConvexSets.md)
+- [materials/processed/optimization-for-ml/Jan20_ConvexFunctions.md](../../../materials/processed/optimization-for-ml/Jan20_ConvexFunctions.md)
+- [materials/processed/optimization-for-ml/Jan27_matrix_norms.md](../../../materials/processed/optimization-for-ml/Jan27_matrix_norms.md)
 
 ## What this file is for
 

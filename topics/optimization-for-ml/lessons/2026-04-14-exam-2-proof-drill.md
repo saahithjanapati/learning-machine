@@ -2,11 +2,11 @@
 
 Source calibration:
 
-- `materials/processed/optimization-for-ml/submission_393376523.md`
-- `materials/processed/optimization-for-ml/HW1_graded_submission.md`
-- `materials/processed/optimization-for-ml/HW2_graded_submission.md`
-- `materials/processed/optimization-for-ml/HW3_prompt.md`
-- `topics/optimization-for-ml/lessons/2026-04-14-exam-2-study-guide-feb19-apr14.md`
+- [materials/processed/optimization-for-ml/submission_393376523.md](../../../materials/processed/optimization-for-ml/submission_393376523.md)
+- [materials/processed/optimization-for-ml/HW1_graded_submission.md](../../../materials/processed/optimization-for-ml/HW1_graded_submission.md)
+- [materials/processed/optimization-for-ml/HW2_graded_submission.md](../../../materials/processed/optimization-for-ml/HW2_graded_submission.md)
+- [materials/processed/optimization-for-ml/HW3_prompt.md](../../../materials/processed/optimization-for-ml/HW3_prompt.md)
+- [topics/optimization-for-ml/lessons/2026-04-14-exam-2-study-guide-feb19-apr14.md](2026-04-14-exam-2-study-guide-feb19-apr14.md)
 
 ## Why This Note Exists
 

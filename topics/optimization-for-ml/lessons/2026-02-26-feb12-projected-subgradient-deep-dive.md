@@ -2,7 +2,7 @@
 
 ## Expository Deep Dive: Projected Subgradient for Constrained Convex Problems
 
-Source transcript: `materials/processed/optimization-for-ml/Feb12-projected-subgradient.md`
+Source transcript: [materials/processed/optimization-for-ml/Feb12-projected-subgradient.md](../../../materials/processed/optimization-for-ml/Feb12-projected-subgradient.md)
 
 ## How to read this lesson
 

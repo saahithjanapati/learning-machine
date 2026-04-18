@@ -5,7 +5,7 @@ Path: `topics/optimization-for-ml/course-catchup`
 ## Source Trace
 
 - Canonical manifest: `learning_system/SOURCE_MAP.json`
-- Topic locator: `topics/optimization-for-ml/course-catchup/curriculum/0-to-1-plan.md`
+- Topic locator: [topics/optimization-for-ml/course-catchup/curriculum/0-to-1-plan.md](0-to-1-plan.md)
 - Transcript links: see source sections in this curriculum.
 
 ## Purpose
@@ -14,24 +14,24 @@ Bridge from backlog to active-class readiness in about 5 weeks, using the transc
 
 ## Source Transcript Sequence
 
-1. `materials/processed/optimization-for-ml/Jan13_Intro.md`
-2. `materials/processed/optimization-for-ml/Jan13_Logistics.md`
-3. `materials/processed/optimization-for-ml/Jan15_ConvexSets.md`
-4. `materials/processed/optimization-for-ml/Jan20_ConvexFunctions.md`
-5. `materials/processed/optimization-for-ml/Jan27_matrix_norms.md`
-6. `materials/processed/optimization-for-ml/Jan29_GD.md`
-7. `materials/processed/optimization-for-ml/Feb5_subgradients.md`
-8. `materials/processed/optimization-for-ml/Feb10_subgradient-method.md`
-9. `materials/processed/optimization-for-ml/Feb12-projected-subgradient.md`
-10. `materials/processed/optimization-for-ml/Feb17_Optimiality_Conditions.md`
-11. `materials/processed/optimization-for-ml/Feb19_stoch_gd.md`
-12. `materials/processed/optimization-for-ml/Feb17+24_proximal_gd.md`
-13. `materials/processed/optimization-for-ml/Feb24_proximal_gd_examples.md`
-14. `materials/processed/optimization-for-ml/March10_LP_Duality.md`
-15. `materials/processed/optimization-for-ml/March12_Part1_LagrangianFunction.md`
-16. `materials/processed/optimization-for-ml/March12_Part2_SaddlePoints_Minimax_Slater.md`
-17. `materials/processed/optimization-for-ml/March17_KKT.md`
-18. `materials/processed/optimization-for-ml/March19_Newton_method.md`
+1. [materials/processed/optimization-for-ml/Jan13_Intro.md](../../../../materials/processed/optimization-for-ml/Jan13_Intro.md)
+2. [materials/processed/optimization-for-ml/Jan13_Logistics.md](../../../../materials/processed/optimization-for-ml/Jan13_Logistics.md)
+3. [materials/processed/optimization-for-ml/Jan15_ConvexSets.md](../../../../materials/processed/optimization-for-ml/Jan15_ConvexSets.md)
+4. [materials/processed/optimization-for-ml/Jan20_ConvexFunctions.md](../../../../materials/processed/optimization-for-ml/Jan20_ConvexFunctions.md)
+5. [materials/processed/optimization-for-ml/Jan27_matrix_norms.md](../../../../materials/processed/optimization-for-ml/Jan27_matrix_norms.md)
+6. [materials/processed/optimization-for-ml/Jan29_GD.md](../../../../materials/processed/optimization-for-ml/Jan29_GD.md)
+7. [materials/processed/optimization-for-ml/Feb5_subgradients.md](../../../../materials/processed/optimization-for-ml/Feb5_subgradients.md)
+8. [materials/processed/optimization-for-ml/Feb10_subgradient-method.md](../../../../materials/processed/optimization-for-ml/Feb10_subgradient-method.md)
+9. [materials/processed/optimization-for-ml/Feb12-projected-subgradient.md](../../../../materials/processed/optimization-for-ml/Feb12-projected-subgradient.md)
+10. [materials/processed/optimization-for-ml/Feb17_Optimiality_Conditions.md](../../../../materials/processed/optimization-for-ml/Feb17_Optimiality_Conditions.md)
+11. [materials/processed/optimization-for-ml/Feb19_stoch_gd.md](../../../../materials/processed/optimization-for-ml/Feb19_stoch_gd.md)
+12. [materials/processed/optimization-for-ml/Feb17+24_proximal_gd.md](../../../../materials/processed/optimization-for-ml/Feb17+24_proximal_gd.md)
+13. [materials/processed/optimization-for-ml/Feb24_proximal_gd_examples.md](../../../../materials/processed/optimization-for-ml/Feb24_proximal_gd_examples.md)
+14. [materials/processed/optimization-for-ml/March10_LP_Duality.md](../../../../materials/processed/optimization-for-ml/March10_LP_Duality.md)
+15. [materials/processed/optimization-for-ml/March12_Part1_LagrangianFunction.md](../../../../materials/processed/optimization-for-ml/March12_Part1_LagrangianFunction.md)
+16. [materials/processed/optimization-for-ml/March12_Part2_SaddlePoints_Minimax_Slater.md](../../../../materials/processed/optimization-for-ml/March12_Part2_SaddlePoints_Minimax_Slater.md)
+17. [materials/processed/optimization-for-ml/March17_KKT.md](../../../../materials/processed/optimization-for-ml/March17_KKT.md)
+18. [materials/processed/optimization-for-ml/March19_Newton_method.md](../../../../materials/processed/optimization-for-ml/March19_Newton_method.md)
 
 ## Weekly Plan
 
@@ -87,6 +87,6 @@ Bridge from backlog to active-class readiness in about 5 weeks, using the transc
 
 ## Assessment Artifacts For Gap Mining
 
-- Homework prompts: `materials/processed/optimization-for-ml/HW1_prompt.md`, `materials/processed/optimization-for-ml/HW3_prompt.md`
-- Graded homeworks: `materials/processed/optimization-for-ml/HW1_graded_submission.md`, `materials/processed/optimization-for-ml/HW2_graded_submission.md`
-- Graded quizzes: `materials/processed/optimization-for-ml/Quiz1_graded_submission.md`, `materials/processed/optimization-for-ml/Quiz2_graded_submission.md`, `materials/processed/optimization-for-ml/Quiz3_graded_submission.md`
+- Homework prompts: [materials/processed/optimization-for-ml/HW1_prompt.md](../../../../materials/processed/optimization-for-ml/HW1_prompt.md), [materials/processed/optimization-for-ml/HW3_prompt.md](../../../../materials/processed/optimization-for-ml/HW3_prompt.md)
+- Graded homeworks: [materials/processed/optimization-for-ml/HW1_graded_submission.md](../../../../materials/processed/optimization-for-ml/HW1_graded_submission.md), [materials/processed/optimization-for-ml/HW2_graded_submission.md](../../../../materials/processed/optimization-for-ml/HW2_graded_submission.md)
+- Graded quizzes: [materials/processed/optimization-for-ml/Quiz1_graded_submission.md](../../../../materials/processed/optimization-for-ml/Quiz1_graded_submission.md), [materials/processed/optimization-for-ml/Quiz2_graded_submission.md](../../../../materials/processed/optimization-for-ml/Quiz2_graded_submission.md), [materials/processed/optimization-for-ml/Quiz3_graded_submission.md](../../../../materials/processed/optimization-for-ml/Quiz3_graded_submission.md)

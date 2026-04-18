@@ -7,7 +7,7 @@ Use with [[2026-04-14-exam-2-section-02-proximal-gradient]].
 - [[#Core Setup]]
 - [[#Core Definitions]]
 - [[#Key Interpretations]]
-- [[#Rate To Remember]]
+- [[#Rates and Quantities]]
 - [[#Proof Logic To Memorize]]
 - [[#Likely Exam Traps]]
 
@@ -39,11 +39,18 @@ $$
 - Stationarity is expressed as $G_\eta(x)=0$.
 - The actual step added to the iterate is $-\eta G_\eta(x)$.
 
-## Rate To Remember
-- If $g$ is $\beta$-smooth and $\alpha$-strongly convex, with $\eta=1/\beta$ and $\kappa=\beta/\alpha$,
-$$
-\|x^k-x^*\|^2\le (1-1/\kappa)^k\|x^0-x^*\|^2.
-$$
+## Rates and Quantities
+
+| Setting | Assumptions | Step size | Quantity controlled | Full inequality | Rate shorthand |
+| --- | --- | --- | --- | --- | --- |
+| Pure proximal step ($g=0$) | $h$ convex | any $\eta>0$ | one-step decrease in $h$ | $h(x^{t+1}) \le h(x^t)-\eta\|G_\eta(x^t)\|^2$ | monotone descent |
+| Prox-GD descent lemma | $g$ convex and $\beta$-smooth, $h$ convex | $\eta\le 1/\beta$ | one-step decrease in $f$ | $f(x-\eta G_\eta(x)) \le f(x)-\frac{\eta}{2}\|G_\eta(x)\|^2$ | monotone descent |
+| Convex proximal gradient | $g$ convex and $\beta$-smooth, $h$ convex | $\eta=1/\beta$ | $f(x^k)-f(x^*)$ | $f(x^k)-f(x^*) \le \frac{\beta}{2k}\|x^0-x^*\|^2$ | $O(1/k)$ |
+| Strongly convex proximal gradient | $g$ $\alpha$-strongly convex and $\beta$-smooth, $h$ convex | $\eta=1/\beta$ | $\|x^k-x^*\|^2$ | $\|x^k-x^*\|^2 \le (1-\alpha/\beta)^k\|x^0-x^*\|^2 = (1-1/\kappa)^k\|x^0-x^*\|^2$ | linear convergence |
+
+- The convex theorem controls function-value error.
+- The strongly convex theorem here is written as a contraction in squared distance to the optimizer.
+- The first two rows are one-step descent statements, not long-horizon $k$-step rates.
 
 ## Proof Logic To Memorize
 - Apply smoothness to $g$.

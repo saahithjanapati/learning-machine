@@ -554,9 +554,9 @@ Rate headlines:
 
 ## References (Your Transcribed Notes)
 
-- GD: `materials/processed/optimization-for-ml/Jan29_GD.md`
-- Subgradients: `materials/processed/optimization-for-ml/Feb5_subgradients.md`
-- Subgradient method: `materials/processed/optimization-for-ml/Feb10_subgradient-method.md`
-- Projected subgradient: `materials/processed/optimization-for-ml/Feb12-projected-subgradient.md`
+- GD: [materials/processed/optimization-for-ml/Jan29_GD.md](../../../materials/processed/optimization-for-ml/Jan29_GD.md)
+- Subgradients: [materials/processed/optimization-for-ml/Feb5_subgradients.md](../../../materials/processed/optimization-for-ml/Feb5_subgradients.md)
+- Subgradient method: [materials/processed/optimization-for-ml/Feb10_subgradient-method.md](../../../materials/processed/optimization-for-ml/Feb10_subgradient-method.md)
+- Projected subgradient: [materials/processed/optimization-for-ml/Feb12-projected-subgradient.md](../../../materials/processed/optimization-for-ml/Feb12-projected-subgradient.md)
 
 Note: We still do not have your course-specific transcripts for lectures titled "Optimality Conditions" and "Stochastic Gradient". This guide uses standard optimization formulations; once those PDFs are ingested, I can align notation and proof style exactly to your class.

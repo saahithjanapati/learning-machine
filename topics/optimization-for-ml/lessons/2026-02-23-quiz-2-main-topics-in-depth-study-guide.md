@@ -316,12 +316,12 @@ Answer each in one sentence or one formula.
 
 ## Sources Used
 
-- `learning_system/PROGRESS_LOG.md`
-- `learning_system/SKILL_GRAPH.md`
-- `topics/optimization-for-ml/lessons/2026-02-17-quiz-2-gap-audit.md`
-- `topics/optimization-for-ml/lessons/2026-02-17-quiz-2-cheat-sheet.md`
-- `topics/optimization-for-ml/lessons/2026-02-17-quiz-2-class-bridge-notes.md`
-- `topics/optimization-for-ml/lessons/2026-02-17-session-recap-quiz2-interactive.md`
-- `topics/optimization-for-ml/lessons/2026-02-17-session-recap-quiz2-review-02.md`
-- `topics/optimization-for-ml/lessons/2026-02-19-quiz-2-study-guide-concise-and-deep.md`
-- `topics/optimization-for-ml/lessons/2026-02-19-chat-clarification-smoothness-descent.md`
+- [learning_system/PROGRESS_LOG.md](../../../learning_system/PROGRESS_LOG.md)
+- [learning_system/SKILL_GRAPH.md](../../../learning_system/SKILL_GRAPH.md)
+- [topics/optimization-for-ml/lessons/2026-02-17-quiz-2-gap-audit.md](2026-02-17-quiz-2-gap-audit.md)
+- [topics/optimization-for-ml/lessons/2026-02-17-quiz-2-cheat-sheet.md](2026-02-17-quiz-2-cheat-sheet.md)
+- [topics/optimization-for-ml/lessons/2026-02-17-quiz-2-class-bridge-notes.md](2026-02-17-quiz-2-class-bridge-notes.md)
+- [topics/optimization-for-ml/lessons/2026-02-17-session-recap-quiz2-interactive.md](2026-02-17-session-recap-quiz2-interactive.md)
+- [topics/optimization-for-ml/lessons/2026-02-17-session-recap-quiz2-review-02.md](2026-02-17-session-recap-quiz2-review-02.md)
+- [topics/optimization-for-ml/lessons/2026-02-19-quiz-2-study-guide-concise-and-deep.md](2026-02-19-quiz-2-study-guide-concise-and-deep.md)
+- [topics/optimization-for-ml/lessons/2026-02-19-chat-clarification-smoothness-descent.md](2026-02-19-chat-clarification-smoothness-descent.md)

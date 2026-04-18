@@ -2,17 +2,17 @@
 
 Scope based on lecture materials:
 
-- `materials/processed/optimization-for-ml/March24_SDP.md`
-- `materials/processed/optimization-for-ml/March26_Newton_method.md`
-- `materials/processed/optimization-for-ml/March31_April2_ICA.md`
-- `materials/processed/optimization-for-ml/April7_MomentumBasedOptimization.md`
-- `materials/processed/optimization-for-ml/April7_EXTRA_AcceleratedGD_Theory.md`
+- [materials/processed/optimization-for-ml/March24_SDP.md](../../../materials/processed/optimization-for-ml/March24_SDP.md)
+- [materials/processed/optimization-for-ml/March26_Newton_method.md](../../../materials/processed/optimization-for-ml/March26_Newton_method.md)
+- [materials/processed/optimization-for-ml/March31_April2_ICA.md](../../../materials/processed/optimization-for-ml/March31_April2_ICA.md)
+- [materials/processed/optimization-for-ml/April7_MomentumBasedOptimization.md](../../../materials/processed/optimization-for-ml/April7_MomentumBasedOptimization.md)
+- [materials/processed/optimization-for-ml/April7_EXTRA_AcceleratedGD_Theory.md](../../../materials/processed/optimization-for-ml/April7_EXTRA_AcceleratedGD_Theory.md)
 
 Calibration based on prior quizzes:
 
-- `materials/processed/optimization-for-ml/Quiz1_graded_submission.md`
-- `materials/processed/optimization-for-ml/Quiz2_graded_submission.md`
-- `materials/processed/optimization-for-ml/Quiz3_graded_submission.md`
+- [materials/processed/optimization-for-ml/Quiz1_graded_submission.md](../../../materials/processed/optimization-for-ml/Quiz1_graded_submission.md)
+- [materials/processed/optimization-for-ml/Quiz2_graded_submission.md](../../../materials/processed/optimization-for-ml/Quiz2_graded_submission.md)
+- [materials/processed/optimization-for-ml/Quiz3_graded_submission.md](../../../materials/processed/optimization-for-ml/Quiz3_graded_submission.md)
 
 ## Expected quiz style
 

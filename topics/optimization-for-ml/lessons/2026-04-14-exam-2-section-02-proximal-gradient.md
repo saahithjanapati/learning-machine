@@ -2,6 +2,7 @@
 
 ## Table of Contents
 
+- [[#2.05 Proximal-Gradient Summary Table]]
 - [[#2.00 Where This Topic Came From in the Course]]
 - [[#2.0 Why Proximal Gradient Exists]]
 - [[#2.1 Three Ways to Motivate the Update]]
@@ -42,6 +43,24 @@
 - [[#2.11 How This Section Connects to Homework 3]]
 - [[#2.12 Exam-Facing Checklist]]
 - [[#2.13 Common Traps]]
+
+## 2.05 Proximal-Gradient Summary Table
+
+| Setting                           | Assumptions                                                 | Step size         | Quantity controlled      | Full inequality                                                                   | Rate shorthand     |
+| --------------------------------- | ----------------------------------------------------------- | ----------------- | ------------------------ | --------------------------------------------------------------------------------- | ------------------ |
+| Pure proximal step ($g=0$)        | $h$ convex                                                  | any $\eta>0$      | one-step decrease in $h$ | $h(x^{t+1}) \le h(x^t)-\eta\|G_\eta(x^t)\|^2$                                     | monotone descent   |
+| Prox-GD descent lemma             | $g$ convex and $\beta$-smooth, $h$ convex                   | $\eta\le 1/\beta$ | one-step decrease in $f$ | $f(x-\eta G_\eta(x)) \le f(x)-\frac{\eta}{2}\|G_\eta(x)\|^2$                      | monotone descent   |
+| Convex proximal gradient          | $g$ convex and $\beta$-smooth, $h$ convex                   | $\eta=1/\beta$    | $f(x^k)-f(x^*)$          | $f(x^k)-f(x^*) \le \frac{\beta}{2k}\|x^0-x^*\|^2$                                 | $O(1/k)$           |
+| Strongly convex proximal gradient | $g$ $\alpha$-strongly convex and $\beta$-smooth, $h$ convex | $\eta=1/\beta$    | $\|x^k-x^*\|^2$          | $\|x^k-x^*\|^2 \le (1-\alpha/\beta)^k\|x^0-x^*\|^2 = (1-1/\kappa)^k\|x^0-x^*\|^2$ | linear convergence |
+
+This is the short table worth memorizing.
+
+Two things matter just as much as the rates themselves:
+
+- which assumptions are needed for each line
+- what quantity is actually being controlled
+
+That is why the table separates one-step descent statements from $k$-step convergence rates.
 
 
 ## 2.00 Where This Topic Came From in the Course
@@ -295,6 +314,7 @@ So the algorithm is:
 
 1. take a usual gradient step for $g$
 2. correct that proposal by solving the prox problem for $h$
+
 
 ### 2.1.2 As a Generalization of Projected Gradient Descent
 
@@ -696,17 +716,285 @@ h(x^{t+1})
 h(x^*)-\eta \|G_\eta(x^t)\|^2+G_\eta(x^t)^T(x^t-x^*).
 $$
 
-This is one of the best intuition-building examples in the unit:
+These lemmas are not especially complicated once you know the optimality condition for the proximal operator. The whole proof comes from one key fact:
 
-- arbitrary subgradients do not usually give a clean descent lemma
-- the proximal step does
+if
+$$
+u=\operatorname{prox}_{\eta,h}(v),
+$$
+then
+$$
+\frac{1}{\eta}(v-u)\in \partial h(u).
+$$
 
-This is why the method is more powerful than plain subgradient descent when the structure matches.
+That fact says the proximal step does not just produce a new point. It also gives you a valid subgradient of $h$ at the new point.
 
-The important intuition here is:
+That is the reason the descent lemma works so cleanly.
 
-- a random subgradient of a nonsmooth function can point in a "legal" direction without being a useful descent direction
-- the prox point is chosen by solving a minimization problem, so it already contains descent information
+#### Step 1: Rewrite the Update Using the Gradient Mapping
+
+When $g=0$, the update is
+
+$$
+x^{t+1}=\operatorname{prox}_{\eta,h}(x^t).
+$$
+
+The gradient mapping becomes
+
+$$
+G_\eta(x^t)
+=
+\frac{1}{\eta}(x^t-x^{t+1}).
+$$
+
+So the actual step is
+
+$$
+x^t-x^{t+1}=\eta G_\eta(x^t).
+$$
+
+This identity is used repeatedly below.
+
+#### Step 2: Use Proximal Optimality
+
+Take the general proximal optimality statement
+
+$$
+u=\operatorname{prox}_{\eta,h}(v)
+\quad \Longrightarrow \quad
+\frac{1}{\eta}(v-u)\in \partial h(u).
+$$
+
+Now substitute
+
+- original version: $u=\operatorname{prox}_{\eta,h}(v)$
+- new version: $x^{t+1}=\operatorname{prox}_{\eta,h}(x^t)$
+- substitution being made: $v \mapsto x^t$ and $u \mapsto x^{t+1}$
+
+This gives
+
+$$
+\frac{1}{\eta}(x^t-x^{t+1})\in \partial h(x^{t+1}).
+$$
+
+Now use the identity from Step 1:
+
+- original version:
+$$
+\frac{1}{\eta}(x^t-x^{t+1})\in \partial h(x^{t+1})
+$$
+- new version:
+$$
+G_\eta(x^t)\in \partial h(x^{t+1})
+$$
+- substitution being made:
+$$
+\frac{1}{\eta}(x^t-x^{t+1}) = G_\eta(x^t)
+$$
+
+So the gradient mapping is actually a subgradient of $h$ at the new point $x^{t+1}$.
+
+That is the core structural fact in this proof.
+
+#### Step 3: Recall the Subgradient Inequality
+
+If $s\in \partial h(y)$, then for every $z$,
+
+$$
+h(z)\ge h(y)+s^T(z-y).
+$$
+
+Rearranging,
+
+$$
+h(y)\le h(z)-s^T(z-y).
+$$
+
+We will use this with
+
+$$
+y=x^{t+1},
+\qquad
+s=G_\eta(x^t),
+$$
+
+because Step 2 showed that
+
+$$
+G_\eta(x^t)\in \partial h(x^{t+1}).
+$$
+
+So for any comparison point $z$,
+
+$$
+h(x^{t+1})\le h(z)-G_\eta(x^t)^T(z-x^{t+1}).
+$$
+
+This one line is the starting point for both descent lemmas.
+
+#### Step 4: Prove the First Descent Lemma
+
+Choose the comparison point
+
+$$
+z=x^t.
+$$
+
+Then the general inequality from Step 3 becomes
+
+- original version:
+$$
+h(x^{t+1})\le h(z)-G_\eta(x^t)^T(z-x^{t+1})
+$$
+- new version:
+$$
+h(x^{t+1})\le h(x^t)-G_\eta(x^t)^T(x^t-x^{t+1})
+$$
+- substitution being made:
+$$
+z \mapsto x^t
+$$
+
+Now substitute the step identity from Step 1:
+
+- original version:
+$$
+h(x^{t+1})\le h(x^t)-G_\eta(x^t)^T(x^t-x^{t+1})
+$$
+- new version:
+$$
+h(x^{t+1})\le h(x^t)-G_\eta(x^t)^T(\eta G_\eta(x^t))
+$$
+- substitution being made:
+$$
+x^t-x^{t+1} = \eta G_\eta(x^t)
+$$
+
+Now simplify the inner product:
+
+$$
+G_\eta(x^t)^T(\eta G_\eta(x^t))
+=
+\eta \|G_\eta(x^t)\|^2.
+$$
+
+So we obtain
+
+$$
+h(x^{t+1})\le h(x^t)-\eta \|G_\eta(x^t)\|^2.
+$$
+
+That is the first descent lemma.
+
+The meaning is simple: each proximal step reduces the function value by at least a multiple of the squared gradient-mapping norm.
+
+#### Step 5: Prove the More General Inequality
+
+Now return to the same starting point from Step 3, but choose a general comparison point $z=x^*$:
+
+- original version:
+$$
+h(x^{t+1})\le h(z)-G_\eta(x^t)^T(z-x^{t+1})
+$$
+- new version:
+$$
+h(x^{t+1})\le h(x^*)-G_\eta(x^t)^T(x^*-x^{t+1})
+$$
+- substitution being made:
+$$
+z \mapsto x^*
+$$
+
+The term $x^*-x^{t+1}$ is not yet in the form we want. Split it by adding and subtracting $x^t$:
+
+- original version:
+$$
+x^*-x^{t+1}
+$$
+- new version:
+$$
+(x^*-x^t)+(x^t-x^{t+1})
+$$
+- substitution being made:
+$$
+x^*-x^{t+1}=(x^*-x^t)+(x^t-x^{t+1})
+$$
+
+Insert this into the inequality:
+
+$$
+h(x^{t+1})
+\le
+h(x^*)
+-G_\eta(x^t)^T\big((x^*-x^t)+(x^t-x^{t+1})\big).
+$$
+
+Distribute the inner product:
+
+$$
+h(x^{t+1})
+\le
+h(x^*)
+-G_\eta(x^t)^T(x^*-x^t)
+-G_\eta(x^t)^T(x^t-x^{t+1}).
+$$
+
+Now rewrite the two terms separately.
+
+For the first one,
+
+$$
+-G_\eta(x^t)^T(x^*-x^t)
+=
+G_\eta(x^t)^T(x^t-x^*).
+$$
+
+For the second one, use Step 1 again:
+
+- original version:
+$$
+-G_\eta(x^t)^T(x^t-x^{t+1})
+$$
+- new version:
+$$
+-G_\eta(x^t)^T(\eta G_\eta(x^t))
+$$
+- substitution being made:
+$$
+x^t-x^{t+1}=\eta G_\eta(x^t)
+$$
+
+and then
+
+$$
+-G_\eta(x^t)^T(\eta G_\eta(x^t))
+=
+-\eta \|G_\eta(x^t)\|^2.
+$$
+
+Putting everything together,
+
+$$
+h(x^{t+1})
+\le
+h(x^*)
+-\eta \|G_\eta(x^t)\|^2
++
+G_\eta(x^t)^T(x^t-x^*).
+$$
+
+That is the second inequality.
+
+#### Step 6: Why This Matters
+
+This example is one of the best intuition-building pieces in the proximal-gradient unit:
+
+- arbitrary subgradients do not usually give such a clean descent statement
+- the proximal step does, because it comes from minimizing a regularized objective
+
+So the proximal map is doing more than taking a "legal" nonsmooth step. It is producing a point whose associated subgradient automatically carries descent information.
+
+That is why proximal methods are much better behaved than plain subgradient descent when the problem has the right composite structure.
 
 ## 2.4 Important Proximal Examples
 
@@ -937,13 +1225,178 @@ $$
 \|x-y\|.
 $$
 
-The proof uses:
+The first inequality is actually the more important one. It is stronger than ordinary nonexpansiveness and is often called **firm nonexpansiveness**.
 
-1. the prox optimality condition at both points
-2. monotonicity of the subdifferential of a convex function
-3. algebra plus Cauchy-Schwarz
+The proof is not long, but it uses several ideas in sequence. So it helps to slow it down.
 
-This is useful because it tells you the prox operator is stable and projection-like.
+#### Step 1: Name the Two Prox Points
+
+Let
+
+$$
+u=\operatorname{prox}_{\eta,h}(x),
+\qquad
+v=\operatorname{prox}_{\eta,h}(y).
+$$
+
+We want to compare $u$ and $v$ in terms of $x$ and $y$.
+
+So the target inequality becomes
+
+$$
+\|u-v\|^2\le \langle x-y,u-v\rangle.
+$$
+
+#### Step 2: Write the Prox Optimality Condition at Both Points
+
+From proximal optimality,
+
+$$
+\frac{1}{\eta}(x-u)\in \partial h(u),
+\qquad
+\frac{1}{\eta}(y-v)\in \partial h(v).
+$$
+
+This means that the vectors
+
+$$
+s_u:=\frac{1}{\eta}(x-u),
+\qquad
+s_v:=\frac{1}{\eta}(y-v)
+$$
+
+are valid subgradients of $h$ at $u$ and $v$, respectively.
+
+#### Step 3: Use Monotonicity of the Subdifferential
+
+For a convex function, the subdifferential is monotone. That means:
+
+if $s_u\in \partial h(u)$ and $s_v\in \partial h(v)$, then
+
+$$
+\langle s_u-s_v,u-v\rangle \ge 0.
+$$
+
+Now substitute the specific subgradients from Step 2.
+
+- original version:
+$$
+\langle s_u-s_v,u-v\rangle \ge 0
+$$
+- new version:
+$$
+\left\langle \frac{1}{\eta}(x-u)-\frac{1}{\eta}(y-v),\,u-v\right\rangle \ge 0
+$$
+- substitution being made:
+$$
+s_u=\frac{1}{\eta}(x-u),
+\qquad
+s_v=\frac{1}{\eta}(y-v)
+$$
+
+Factor out $\frac{1}{\eta}$:
+
+$$
+\frac{1}{\eta}\left\langle (x-u)-(y-v),\,u-v\right\rangle \ge 0.
+$$
+
+Since $\eta>0$, multiplying by $\eta$ does not change the sign:
+
+$$
+\left\langle (x-u)-(y-v),\,u-v\right\rangle \ge 0.
+$$
+
+#### Step 4: Regroup the Difference
+
+Now simplify the first vector:
+
+- original version:
+$$
+(x-u)-(y-v)
+$$
+- new version:
+$$
+(x-y)-(u-v)
+$$
+- substitution being made:
+$$
+(x-u)-(y-v)=x-u-y+v=(x-y)-(u-v)
+$$
+
+So the inequality becomes
+
+$$
+\langle (x-y)-(u-v),\,u-v\rangle \ge 0.
+$$
+
+#### Step 5: Expand the Inner Product
+
+Distribute the inner product:
+
+$$
+\langle x-y,u-v\rangle - \langle u-v,u-v\rangle \ge 0.
+$$
+
+Now use
+
+$$
+\langle u-v,u-v\rangle = \|u-v\|^2.
+$$
+
+So we get
+
+$$
+\langle x-y,u-v\rangle - \|u-v\|^2 \ge 0.
+$$
+
+Rearrange:
+
+$$
+\|u-v\|^2 \le \langle x-y,u-v\rangle.
+$$
+
+That is exactly the firm nonexpansiveness inequality.
+
+#### Step 6: Derive Ordinary Nonexpansiveness
+
+Now apply Cauchy-Schwarz to the right-hand side:
+
+$$
+\langle x-y,u-v\rangle
+\le
+\|x-y\|\,\|u-v\|.
+$$
+
+Combining this with the previous inequality gives
+
+$$
+\|u-v\|^2
+\le
+\|x-y\|\,\|u-v\|.
+$$
+
+Now there are two cases:
+
+- if $u=v$, then the inequality $\|u-v\|\le \|x-y\|$ is automatic
+- if $u\ne v$, divide both sides by $\|u-v\|$
+
+So in either case,
+
+$$
+\|u-v\|\le \|x-y\|.
+$$
+
+That is the usual nonexpansiveness statement.
+
+#### Step 7: Why This Is Stronger Than It Looks
+
+It is easy to read this as just a technical bound, but it is structurally important:
+
+- the prox operator does not amplify perturbations in the input
+- it behaves like projection onto a convex set
+- the stronger inequality with $\|u-v\|^2$ on the left is what makes many later proofs work cleanly
+
+So the real takeaway is not just "prox is stable." It is that convexity gives the proximal map a very rigid geometric structure.
 
 ## 2.6 Fixed Points, Optimality, and Why $G_\eta(x)=0$ Matters
 
@@ -1204,6 +1657,69 @@ Now use convexity of $g$:
 
 $$
 g(x)\le g(z)+\nabla g(x)^T(x-z).
+$$
+
+This is the first-order convexity inequality applied at the point $x$ and compared against the arbitrary point $z$.
+
+The role of this line is very specific: the previous smoothness bound still contains the term $g(x)$, but eventually we want everything written relative to the comparison point $z$.
+
+So we are going to replace the $g(x)$ in
+
+$$
+g(y)\le g(x)-\eta \nabla g(x)^T G_\eta(x)+\frac{\beta \eta^2}{2}\|G_\eta(x)\|^2
+$$
+
+by an upper bound for $g(x)$.
+
+Write the previous line as
+
+- original version:
+$$
+g(y)\le g(x)-\eta \nabla g(x)^T G_\eta(x)+\frac{\beta \eta^2}{2}\|G_\eta(x)\|^2
+$$
+- new ingredient:
+$$
+g(x)\le g(z)+\nabla g(x)^T(x-z)
+$$
+- substitution being made:
+$$
+g(x)\mapsto g(z)+\nabla g(x)^T(x-z)
+$$
+
+Why is this allowed? Because if a quantity is bounded above by something else, then anywhere that quantity appears on the right-hand side of an inequality, we can replace it by that upper bound and the inequality still remains true.
+
+In symbols, if
+
+$$
+A\le B+C
+$$
+
+and also
+
+$$
+B\le D,
+$$
+
+then automatically
+
+$$
+A\le D+C.
+$$
+
+That is exactly the move being used here, with
+
+$$
+A=g(y),
+\qquad
+B=g(x),
+\qquad
+C=-\eta \nabla g(x)^T G_\eta(x)+\frac{\beta \eta^2}{2}\|G_\eta(x)\|^2,
+$$
+
+and
+
+$$
+D=g(z)+\nabla g(x)^T(x-z).
 $$
 
 So

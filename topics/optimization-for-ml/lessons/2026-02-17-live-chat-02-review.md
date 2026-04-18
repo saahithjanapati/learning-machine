@@ -426,11 +426,11 @@ Assistant response:
 Completed. I updated learning-system tracking to include all current-day optimization progress (local day: 2026-02-17), not just the latest exchange.
 
 Updated artifacts:
-- `learning_system/LESSON_INDEX.md`
-- `learning_system/PROGRESS_LOG.md`
-- `learning_system/SKILL_GRAPH.md`
-- `learning_system/STARTUP_CONTEXT.md`
-- `topics/optimization-for-ml/lessons/2026-02-17-session-recap-quiz2-review-02.md`
+- [learning_system/LESSON_INDEX.md](../../../learning_system/LESSON_INDEX.md)
+- [learning_system/PROGRESS_LOG.md](../../../learning_system/PROGRESS_LOG.md)
+- [learning_system/SKILL_GRAPH.md](../../../learning_system/SKILL_GRAPH.md)
+- [learning_system/STARTUP_CONTEXT.md](../../../learning_system/STARTUP_CONTEXT.md)
+- [topics/optimization-for-ml/lessons/2026-02-17-session-recap-quiz2-review-02.md](2026-02-17-session-recap-quiz2-review-02.md)
 
 Coverage included in updates:
 - mini-textbook refinement progress
@@ -2345,13 +2345,13 @@ User asked:
 Assistant response:
 Done. I reviewed both class transcripts and lesson artifacts, identified remaining holes, and generated two new files:
 
-- Gap audit: `topics/optimization-for-ml/lessons/2026-02-17-quiz-2-gap-audit.md`
-- Cheat sheet: `topics/optimization-for-ml/lessons/2026-02-17-quiz-2-cheat-sheet.md`
+- Gap audit: [topics/optimization-for-ml/lessons/2026-02-17-quiz-2-gap-audit.md](2026-02-17-quiz-2-gap-audit.md)
+- Cheat sheet: [topics/optimization-for-ml/lessons/2026-02-17-quiz-2-cheat-sheet.md](2026-02-17-quiz-2-cheat-sheet.md)
 
 I also indexed this in system trackers:
-- `learning_system/LESSON_INDEX.md`
-- `learning_system/PROGRESS_LOG.md`
-- `learning_system/SKILL_GRAPH.md`
+- [learning_system/LESSON_INDEX.md](../../../learning_system/LESSON_INDEX.md)
+- [learning_system/PROGRESS_LOG.md](../../../learning_system/PROGRESS_LOG.md)
+- [learning_system/SKILL_GRAPH.md](../../../learning_system/SKILL_GRAPH.md)
 
 Main remaining holes flagged:
 - occasional rate swap ($O(1/T)$ vs $O(1/\sqrt{T})$)
@@ -2594,7 +2594,7 @@ Completed. I added a dedicated class-bridge note with:
 - class-language memorize list.
 
 File:
-- `topics/optimization-for-ml/lessons/2026-02-17-quiz-2-class-bridge-notes.md`
+- [topics/optimization-for-ml/lessons/2026-02-17-quiz-2-class-bridge-notes.md](2026-02-17-quiz-2-class-bridge-notes.md)
 
 ---
 
@@ -2950,7 +2950,7 @@ It does appear in your transcript here:
 - `materials/processed/optimization-for-ml/Feb10_subgradient-method.md:211`
 
 And we added it explicitly to your bridge notes:
-- `topics/optimization-for-ml/lessons/2026-02-17-quiz-2-class-bridge-notes.md`
+- [topics/optimization-for-ml/lessons/2026-02-17-quiz-2-class-bridge-notes.md](2026-02-17-quiz-2-class-bridge-notes.md)
 
 This is exactly the type of "class framing vs simplified framing" gap we wanted to catch.
 

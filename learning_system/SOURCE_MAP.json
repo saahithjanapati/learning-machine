@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_on": "2026-04-14",
+  "generated_on": "2026-04-17",
   "generated_by": "scripts/learning_cli.py source-map",
   "roots": [
     {
@@ -1075,6 +1075,15 @@
       "source_pdf": "materials/archive/submission_400400482.pdf",
       "duplicate_equivalents": [
         "submission_400400482.pdf"
+      ],
+      "ingest_report": "materials/processed/optimization-for-ml/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/optimization-for-ml/S26_10_725_HW4_student_3__1___1_.md",
+      "root_topic": "optimization-for-ml",
+      "source_pdf": "materials/archive/S26_10_725_HW4_student_3__1___1_.pdf",
+      "duplicate_equivalents": [
+        "S26_10_725_HW4_student_3__1___1_.pdf"
       ],
       "ingest_report": "materials/processed/optimization-for-ml/_INGEST_REPORT.md"
     },

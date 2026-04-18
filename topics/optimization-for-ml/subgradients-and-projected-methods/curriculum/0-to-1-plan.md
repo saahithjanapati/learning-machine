@@ -5,7 +5,7 @@ Topic Path: `topics/optimization-for-ml/subgradients-and-projected-methods`
 ## Source Trace
 
 - Canonical manifest: `learning_system/SOURCE_MAP.json`
-- Topic locator: `topics/optimization-for-ml/subgradients-and-projected-methods/curriculum/0-to-1-plan.md`
+- Topic locator: [topics/optimization-for-ml/subgradients-and-projected-methods/curriculum/0-to-1-plan.md](0-to-1-plan.md)
 - Transcript links: see source sections in this curriculum.
 
 ## Outcome
@@ -14,9 +14,9 @@ By the end of this topic, you should be able to compute subgradients for common 
 
 ## Source Materials
 
-- `materials/processed/optimization-for-ml/Feb5_subgradients.md`
-- `materials/processed/optimization-for-ml/Feb10_subgradient-method.md`
-- `materials/processed/optimization-for-ml/Feb12-projected-subgradient.md`
+- [materials/processed/optimization-for-ml/Feb5_subgradients.md](../../../../materials/processed/optimization-for-ml/Feb5_subgradients.md)
+- [materials/processed/optimization-for-ml/Feb10_subgradient-method.md](../../../../materials/processed/optimization-for-ml/Feb10_subgradient-method.md)
+- [materials/processed/optimization-for-ml/Feb12-projected-subgradient.md](../../../../materials/processed/optimization-for-ml/Feb12-projected-subgradient.md)
 
 ## Transcript Anchors
 

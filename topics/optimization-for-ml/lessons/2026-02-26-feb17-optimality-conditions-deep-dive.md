@@ -2,7 +2,7 @@
 
 ## Expository Deep Dive: Optimality Conditions, Normal Cones, and LASSO Geometry
 
-Source transcript: `materials/processed/optimization-for-ml/Feb17_Optimiality_Conditions.md`
+Source transcript: [materials/processed/optimization-for-ml/Feb17_Optimiality_Conditions.md](../../../materials/processed/optimization-for-ml/Feb17_Optimiality_Conditions.md)
 
 ## How to read this lesson
 

@@ -2,7 +2,7 @@
 
 ## Expository Deep Dive: Convex Functions and Their Equivalent Views
 
-Source transcript: `materials/processed/optimization-for-ml/Jan20_ConvexFunctions.md`
+Source transcript: [materials/processed/optimization-for-ml/Jan20_ConvexFunctions.md](../../../materials/processed/optimization-for-ml/Jan20_ConvexFunctions.md)
 
 ## How to read this lesson
 

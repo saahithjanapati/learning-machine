@@ -2,7 +2,7 @@
 
 ## Expository Deep Dive: Logistics and Course Operating Rules
 
-Source transcript: `materials/processed/optimization-for-ml/Jan13_Logistics.md`
+Source transcript: [materials/processed/optimization-for-ml/Jan13_Logistics.md](../../../materials/processed/optimization-for-ml/Jan13_Logistics.md)
 
 ## How to read this lesson
 

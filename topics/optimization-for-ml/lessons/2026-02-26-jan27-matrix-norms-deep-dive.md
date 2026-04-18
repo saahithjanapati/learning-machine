@@ -2,7 +2,7 @@
 
 ## Expository Deep Dive: Matrix Norms, Spectral Quantities, and SVD
 
-Source transcript: `materials/processed/optimization-for-ml/Jan27_matrix_norms.md`
+Source transcript: [materials/processed/optimization-for-ml/Jan27_matrix_norms.md](../../../materials/processed/optimization-for-ml/Jan27_matrix_norms.md)
 
 ## How to read this lesson
 

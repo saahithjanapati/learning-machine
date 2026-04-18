@@ -3,9 +3,9 @@
 ## Scope
 
 This live chat is for:
-- `materials/processed/optimization-for-ml/HW3_prompt.md` Problem 1
-- `topics/optimization-for-ml/lessons/2026-03-28-hw3-topics-interactive-study-guide.md`
-- `materials/processed/optimization-for-ml/Feb17+24_proximal_gd.md`
+- [materials/processed/optimization-for-ml/HW3_prompt.md](../../../materials/processed/optimization-for-ml/HW3_prompt.md) Problem 1
+- [topics/optimization-for-ml/lessons/2026-03-28-hw3-topics-interactive-study-guide.md](2026-03-28-hw3-topics-interactive-study-guide.md)
+- [materials/processed/optimization-for-ml/Feb17+24_proximal_gd.md](../../../materials/processed/optimization-for-ml/Feb17+24_proximal_gd.md)
 
 ## Session Controls
 

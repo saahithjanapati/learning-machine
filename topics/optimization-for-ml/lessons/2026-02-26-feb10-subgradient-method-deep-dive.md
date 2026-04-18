@@ -2,7 +2,7 @@
 
 ## Expository Deep Dive: Subgradient Method and Its Guarantees
 
-Source transcript: `materials/processed/optimization-for-ml/Feb10_subgradient-method.md`
+Source transcript: [materials/processed/optimization-for-ml/Feb10_subgradient-method.md](../../../materials/processed/optimization-for-ml/Feb10_subgradient-method.md)
 
 ## How to read this lesson
 

@@ -2,7 +2,7 @@
 
 ## Expository Deep Dive: Subgradients and Nonsmooth Convex Analysis
 
-Source transcript: `materials/processed/optimization-for-ml/Feb5_subgradients.md`
+Source transcript: [materials/processed/optimization-for-ml/Feb5_subgradients.md](../../../materials/processed/optimization-for-ml/Feb5_subgradients.md)
 
 ## How to read this lesson
 

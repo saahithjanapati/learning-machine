@@ -5,7 +5,7 @@ Topic path: `topics/optimization-for-ml`
 ## Source Trace
 
 - Canonical manifest: `learning_system/SOURCE_MAP.json`
-- Topic locator: `topics/optimization-for-ml/curriculum/0-to-1-master-plan.md`
+- Topic locator: [topics/optimization-for-ml/curriculum/0-to-1-master-plan.md](0-to-1-master-plan.md)
 - Transcript links: see source sections in this curriculum.
 
 ## Starting Assumption
@@ -23,7 +23,7 @@ You are currently behind and close to 0 familiarity with course content.
 - `Feb17+24_proximal_gd.md` and `Feb24_proximal_gd_examples.md`: proximal operators, composite objectives, and worked proximal-gradient updates.
 - `March10_LP_Duality.md`, `March12_Part1_LagrangianFunction.md`, `March12_Part2_SaddlePoints_Minimax_Slater.md`, `March17_KKT.md`: LP duality, Lagrangian dual construction, saddle-point and Slater conditions, and KKT systems.
 - `March19_Newton_method.md`: second-order local models, Newton updates, and when quadratic information changes the optimization regime.
-- `materials/processed/optimization-for-ml/HW1_prompt.md`, `materials/processed/optimization-for-ml/HW3_prompt.md`, `materials/processed/optimization-for-ml/HW1_graded_submission.md`, `materials/processed/optimization-for-ml/HW2_graded_submission.md`, `materials/processed/optimization-for-ml/Quiz1_graded_submission.md`, `materials/processed/optimization-for-ml/Quiz2_graded_submission.md`, `materials/processed/optimization-for-ml/Quiz3_graded_submission.md`: assignment and quiz artifacts for gap mining, proof rigor review, and exam-oriented remediation.
+- [materials/processed/optimization-for-ml/HW1_prompt.md](../../../materials/processed/optimization-for-ml/HW1_prompt.md), [materials/processed/optimization-for-ml/HW3_prompt.md](../../../materials/processed/optimization-for-ml/HW3_prompt.md), [materials/processed/optimization-for-ml/HW1_graded_submission.md](../../../materials/processed/optimization-for-ml/HW1_graded_submission.md), [materials/processed/optimization-for-ml/HW2_graded_submission.md](../../../materials/processed/optimization-for-ml/HW2_graded_submission.md), [materials/processed/optimization-for-ml/Quiz1_graded_submission.md](../../../materials/processed/optimization-for-ml/Quiz1_graded_submission.md), [materials/processed/optimization-for-ml/Quiz2_graded_submission.md](../../../materials/processed/optimization-for-ml/Quiz2_graded_submission.md), [materials/processed/optimization-for-ml/Quiz3_graded_submission.md](../../../materials/processed/optimization-for-ml/Quiz3_graded_submission.md): assignment and quiz artifacts for gap mining, proof rigor review, and exam-oriented remediation.
 
 ## 0 -> 1 Definition
 
@@ -94,6 +94,6 @@ By the end, you should be able to:
 
 ## Assessment And Feedback Corpus
 
-- Problem statements: `materials/processed/optimization-for-ml/HW1_prompt.md`, `materials/processed/optimization-for-ml/HW3_prompt.md`
-- Graded feedback artifacts: `materials/processed/optimization-for-ml/HW1_graded_submission.md`, `materials/processed/optimization-for-ml/HW2_graded_submission.md`, `materials/processed/optimization-for-ml/Quiz1_graded_submission.md`, `materials/processed/optimization-for-ml/Quiz2_graded_submission.md`, `materials/processed/optimization-for-ml/Quiz3_graded_submission.md`
+- Problem statements: [materials/processed/optimization-for-ml/HW1_prompt.md](../../../materials/processed/optimization-for-ml/HW1_prompt.md), [materials/processed/optimization-for-ml/HW3_prompt.md](../../../materials/processed/optimization-for-ml/HW3_prompt.md)
+- Graded feedback artifacts: [materials/processed/optimization-for-ml/HW1_graded_submission.md](../../../materials/processed/optimization-for-ml/HW1_graded_submission.md), [materials/processed/optimization-for-ml/HW2_graded_submission.md](../../../materials/processed/optimization-for-ml/HW2_graded_submission.md), [materials/processed/optimization-for-ml/Quiz1_graded_submission.md](../../../materials/processed/optimization-for-ml/Quiz1_graded_submission.md), [materials/processed/optimization-for-ml/Quiz2_graded_submission.md](../../../materials/processed/optimization-for-ml/Quiz2_graded_submission.md), [materials/processed/optimization-for-ml/Quiz3_graded_submission.md](../../../materials/processed/optimization-for-ml/Quiz3_graded_submission.md)
 - Use these artifacts to mine recurring rigor gaps, formula-recall slips, and timed-reasoning errors for future review sessions

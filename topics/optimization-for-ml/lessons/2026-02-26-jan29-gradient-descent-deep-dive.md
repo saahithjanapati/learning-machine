@@ -2,7 +2,7 @@
 
 ## Expository Deep Dive: Gradient Descent from Intuition to Rates
 
-Source transcript: `materials/processed/optimization-for-ml/Jan29_GD.md`
+Source transcript: [materials/processed/optimization-for-ml/Jan29_GD.md](../../../materials/processed/optimization-for-ml/Jan29_GD.md)
 
 ## How to read this lesson
 

@@ -6,15 +6,15 @@ Topic: `topics/optimization-for-ml`
 ## Sources Reviewed
 
 - Class transcripts:
-  - `materials/processed/optimization-for-ml/Jan29_GD.md`
-  - `materials/processed/optimization-for-ml/Feb5_subgradients.md`
-  - `materials/processed/optimization-for-ml/Feb10_subgradient-method.md`
-  - `materials/processed/optimization-for-ml/Feb12-projected-subgradient.md`
+  - [materials/processed/optimization-for-ml/Jan29_GD.md](../../../materials/processed/optimization-for-ml/Jan29_GD.md)
+  - [materials/processed/optimization-for-ml/Feb5_subgradients.md](../../../materials/processed/optimization-for-ml/Feb5_subgradients.md)
+  - [materials/processed/optimization-for-ml/Feb10_subgradient-method.md](../../../materials/processed/optimization-for-ml/Feb10_subgradient-method.md)
+  - [materials/processed/optimization-for-ml/Feb12-projected-subgradient.md](../../../materials/processed/optimization-for-ml/Feb12-projected-subgradient.md)
 - Current lesson artifacts:
-  - `topics/optimization-for-ml/lessons/2026-02-15-quiz-2-core-concepts.md`
-  - `topics/optimization-for-ml/lessons/2026-02-16-quiz-2-mini-textbook.md`
-  - `topics/optimization-for-ml/lessons/2026-02-17-quiz-2-problem-set-01.md`
-  - `topics/optimization-for-ml/lessons/2026-02-17-live-chat-02-review.md`
+  - [topics/optimization-for-ml/lessons/2026-02-15-quiz-2-core-concepts.md](2026-02-15-quiz-2-core-concepts.md)
+  - [topics/optimization-for-ml/lessons/2026-02-16-quiz-2-mini-textbook.md](2026-02-16-quiz-2-mini-textbook.md)
+  - [topics/optimization-for-ml/lessons/2026-02-17-quiz-2-problem-set-01.md](2026-02-17-quiz-2-problem-set-01.md)
+  - [topics/optimization-for-ml/lessons/2026-02-17-live-chat-02-review.md](2026-02-17-live-chat-02-review.md)
 
 ## What Looks Solid
 

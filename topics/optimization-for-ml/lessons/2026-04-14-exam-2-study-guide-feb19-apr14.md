@@ -10,33 +10,33 @@ Difficulty: `medium-to-hard`
 ## Inputs
 
 - Source materials:
-  - `materials/processed/optimization-for-ml/Feb19_stoch_gd.md`
-  - `materials/processed/optimization-for-ml/Feb17+24_proximal_gd.md`
-  - `materials/processed/optimization-for-ml/Feb24_proximal_gd_examples.md`
-  - `materials/processed/optimization-for-ml/March10_LP_Duality.md`
-  - `materials/processed/optimization-for-ml/March12_Part1_LagrangianFunction.md`
-  - `materials/processed/optimization-for-ml/March12_Part2_SaddlePoints_Minimax_Slater.md`
-  - `materials/processed/optimization-for-ml/March17_KKT.md`
-  - `materials/processed/optimization-for-ml/March19_EXTRA_Nonconvex_KKT.md`
-  - `materials/processed/optimization-for-ml/March24_SDP.md`
-  - `materials/processed/optimization-for-ml/March26_Newton_method.md`
-  - `materials/processed/optimization-for-ml/March31_April2_ICA.md`
-  - `materials/processed/optimization-for-ml/April7_MomentumBasedOptimization.md`
-  - `materials/processed/optimization-for-ml/April7_EXTRA_AcceleratedGD_Theory.md`
-  - `materials/processed/optimization-for-ml/April14_AvancedNeuralNetOptimization.md`
+  - [materials/processed/optimization-for-ml/Feb19_stoch_gd.md](../../../materials/processed/optimization-for-ml/Feb19_stoch_gd.md)
+  - [materials/processed/optimization-for-ml/Feb17+24_proximal_gd.md](../../../materials/processed/optimization-for-ml/Feb17+24_proximal_gd.md)
+  - [materials/processed/optimization-for-ml/Feb24_proximal_gd_examples.md](../../../materials/processed/optimization-for-ml/Feb24_proximal_gd_examples.md)
+  - [materials/processed/optimization-for-ml/March10_LP_Duality.md](../../../materials/processed/optimization-for-ml/March10_LP_Duality.md)
+  - [materials/processed/optimization-for-ml/March12_Part1_LagrangianFunction.md](../../../materials/processed/optimization-for-ml/March12_Part1_LagrangianFunction.md)
+  - [materials/processed/optimization-for-ml/March12_Part2_SaddlePoints_Minimax_Slater.md](../../../materials/processed/optimization-for-ml/March12_Part2_SaddlePoints_Minimax_Slater.md)
+  - [materials/processed/optimization-for-ml/March17_KKT.md](../../../materials/processed/optimization-for-ml/March17_KKT.md)
+  - [materials/processed/optimization-for-ml/March19_EXTRA_Nonconvex_KKT.md](../../../materials/processed/optimization-for-ml/March19_EXTRA_Nonconvex_KKT.md)
+  - [materials/processed/optimization-for-ml/March24_SDP.md](../../../materials/processed/optimization-for-ml/March24_SDP.md)
+  - [materials/processed/optimization-for-ml/March26_Newton_method.md](../../../materials/processed/optimization-for-ml/March26_Newton_method.md)
+  - [materials/processed/optimization-for-ml/March31_April2_ICA.md](../../../materials/processed/optimization-for-ml/March31_April2_ICA.md)
+  - [materials/processed/optimization-for-ml/April7_MomentumBasedOptimization.md](../../../materials/processed/optimization-for-ml/April7_MomentumBasedOptimization.md)
+  - [materials/processed/optimization-for-ml/April7_EXTRA_AcceleratedGD_Theory.md](../../../materials/processed/optimization-for-ml/April7_EXTRA_AcceleratedGD_Theory.md)
+  - [materials/processed/optimization-for-ml/April14_AvancedNeuralNetOptimization.md](../../../materials/processed/optimization-for-ml/April14_AvancedNeuralNetOptimization.md)
 - Calibration artifacts:
-  - `materials/processed/optimization-for-ml/submission_393376523.md`
-  - `materials/processed/optimization-for-ml/Quiz1_graded_submission.md`
-  - `materials/processed/optimization-for-ml/Quiz2_graded_submission.md`
-  - `materials/processed/optimization-for-ml/Quiz3_graded_submission.md`
-  - `materials/processed/optimization-for-ml/HW1_graded_submission.md`
-  - `materials/processed/optimization-for-ml/HW2_graded_submission.md`
-  - `materials/processed/optimization-for-ml/HW3_prompt.md`
-  - `topics/optimization-for-ml/lessons/2026-04-12-quiz-4-study-guide-newton-ica-adaptive-methods.md`
-  - `topics/optimization-for-ml/lessons/2026-04-14-quiz-4-edge-cases-and-traps.md`
-  - `topics/optimization-for-ml/lessons/2026-04-14-quiz-4-targeted-review-problems.md`
+  - [materials/processed/optimization-for-ml/submission_393376523.md](../../../materials/processed/optimization-for-ml/submission_393376523.md)
+  - [materials/processed/optimization-for-ml/Quiz1_graded_submission.md](../../../materials/processed/optimization-for-ml/Quiz1_graded_submission.md)
+  - [materials/processed/optimization-for-ml/Quiz2_graded_submission.md](../../../materials/processed/optimization-for-ml/Quiz2_graded_submission.md)
+  - [materials/processed/optimization-for-ml/Quiz3_graded_submission.md](../../../materials/processed/optimization-for-ml/Quiz3_graded_submission.md)
+  - [materials/processed/optimization-for-ml/HW1_graded_submission.md](../../../materials/processed/optimization-for-ml/HW1_graded_submission.md)
+  - [materials/processed/optimization-for-ml/HW2_graded_submission.md](../../../materials/processed/optimization-for-ml/HW2_graded_submission.md)
+  - [materials/processed/optimization-for-ml/HW3_prompt.md](../../../materials/processed/optimization-for-ml/HW3_prompt.md)
+  - [topics/optimization-for-ml/lessons/2026-04-12-quiz-4-study-guide-newton-ica-adaptive-methods.md](2026-04-12-quiz-4-study-guide-newton-ica-adaptive-methods.md)
+  - [topics/optimization-for-ml/lessons/2026-04-14-quiz-4-edge-cases-and-traps.md](2026-04-14-quiz-4-edge-cases-and-traps.md)
+  - [topics/optimization-for-ml/lessons/2026-04-14-quiz-4-targeted-review-problems.md](2026-04-14-quiz-4-targeted-review-problems.md)
 - Prior session summary:
-  - `learning_system/PROGRESS_LOG.md`
+  - [learning_system/PROGRESS_LOG.md](../../../learning_system/PROGRESS_LOG.md)
 
 ## Executive Read
 
@@ -735,7 +735,7 @@ This should be your highest-value practice.
 
 ## Pass 2.5: proof-style compression drills
 
-Use [2026-04-14-exam-2-proof-drill.md](/Users/saahith/Desktop/learning-machine/topics/optimization-for-ml/lessons/2026-04-14-exam-2-proof-drill.md).
+Use [2026-04-14-exam-2-proof-drill.md](2026-04-14-exam-2-proof-drill.md).
 
 Do these with a hard cap of `6-10 lines` each:
 
