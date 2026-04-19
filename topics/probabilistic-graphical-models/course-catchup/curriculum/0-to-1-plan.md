@@ -5,7 +5,7 @@ Path: `topics/probabilistic-graphical-models/course-catchup`
 ## Source Trace
 
 - Canonical manifest: `learning_system/SOURCE_MAP.json`
-- Topic locator: `topics/probabilistic-graphical-models/course-catchup/curriculum/0-to-1-plan.md`
+- Topic locator: [topics/probabilistic-graphical-models/course-catchup/curriculum/0-to-1-plan.md](0-to-1-plan.md)
 - Transcript links: see source sections in this curriculum.
 
 ## Purpose
@@ -14,18 +14,18 @@ Reach lecture-following readiness from near zero background by moving through th
 
 ## Source Transcript Sequence
 
-1. `materials/processed/probabilistic-graphical-models/Lecture_1_intro.md`
-2. `materials/processed/probabilistic-graphical-models/Lecture_2_directed.md`
-3. `materials/processed/probabilistic-graphical-models/Lecture_3_4_undirected.md`
-4. `materials/processed/probabilistic-graphical-models/Lecture_5_inference.md`
-5. `materials/processed/probabilistic-graphical-models/Lecture_6_7_beliefprop.md`
-6. `materials/processed/probabilistic-graphical-models/Lecture_8_GNNs.md`
-7. `materials/processed/probabilistic-graphical-models/Lecture_9_MCMC_intro.md`
-8. `materials/processed/probabilistic-graphical-models/Lecture_13_variational.md`
-9. `materials/processed/probabilistic-graphical-models/Lecture_15_EM.md`
-10. `materials/processed/probabilistic-graphical-models/Lecture_17_GAN.md`
-11. `materials/processed/probabilistic-graphical-models/Lecture_18_applications.md`
-12. `materials/processed/probabilistic-graphical-models/Lecture_19_scorematching.md`
+1. [materials/processed/probabilistic-graphical-models/Lecture_1_intro.md](../../../../materials/processed/probabilistic-graphical-models/Lecture_1_intro.md)
+2. [materials/processed/probabilistic-graphical-models/Lecture_2_directed.md](../../../../materials/processed/probabilistic-graphical-models/Lecture_2_directed.md)
+3. [materials/processed/probabilistic-graphical-models/Lecture_3_4_undirected.md](../../../../materials/processed/probabilistic-graphical-models/Lecture_3_4_undirected.md)
+4. [materials/processed/probabilistic-graphical-models/Lecture_5_inference.md](../../../../materials/processed/probabilistic-graphical-models/Lecture_5_inference.md)
+5. [materials/processed/probabilistic-graphical-models/Lecture_6_7_beliefprop.md](../../../../materials/processed/probabilistic-graphical-models/Lecture_6_7_beliefprop.md)
+6. [materials/processed/probabilistic-graphical-models/Lecture_8_GNNs.md](../../../../materials/processed/probabilistic-graphical-models/Lecture_8_GNNs.md)
+7. [materials/processed/probabilistic-graphical-models/Lecture_9_MCMC_intro.md](../../../../materials/processed/probabilistic-graphical-models/Lecture_9_MCMC_intro.md)
+8. [materials/processed/probabilistic-graphical-models/Lecture_13_variational.md](../../../../materials/processed/probabilistic-graphical-models/Lecture_13_variational.md)
+9. [materials/processed/probabilistic-graphical-models/Lecture_15_EM.md](../../../../materials/processed/probabilistic-graphical-models/Lecture_15_EM.md)
+10. [materials/processed/probabilistic-graphical-models/Lecture_17_GAN.md](../../../../materials/processed/probabilistic-graphical-models/Lecture_17_GAN.md)
+11. [materials/processed/probabilistic-graphical-models/Lecture_18_applications.md](../../../../materials/processed/probabilistic-graphical-models/Lecture_18_applications.md)
+12. [materials/processed/probabilistic-graphical-models/Lecture_19_scorematching.md](../../../../materials/processed/probabilistic-graphical-models/Lecture_19_scorematching.md)
 
 Note: current repo coverage is non-contiguous in lecture numbering; `Lectures 10-12`, `14`, and `16` are not currently present in `materials/processed/`.
 

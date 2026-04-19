@@ -224,6 +224,72 @@ $$
 
 Now rewrite each term in matrix-entry notation:
 
+The rule being used is
+
+$$
+e_a^T X e_b = X_{ab}.
+$$
+
+Why is that true?
+
+- multiplying by $e_b$ on the right picks out column $b$
+- multiplying by $e_a^T$ on the left then picks out row $a$
+- so the result is exactly the $(a,b)$ entry
+
+So term by term:
+
+- original version:
+
+$$
+e_i^T X e_i
+$$
+
+- new version:
+
+$$
+X_{ii}
+$$
+
+because this picks out the $(i,i)$ entry.
+
+Also:
+
+- original version:
+
+$$
+e_i^T X e_j
+$$
+
+- new version:
+
+$$
+X_{ij}
+$$
+
+and
+
+- original version:
+
+$$
+e_j^T X e_j
+$$
+
+- new version:
+
+$$
+X_{jj}.
+$$
+
+So the expanded quadratic form
+
+$$
+e_i^T X e_i
++ 2t\, e_i^T X e_j
++ t^2 e_j^T X e_j
+$$
+
+becomes
+
 $$
 X_{ii} + 2t X_{ij} + t^2 X_{jj} \ge 0.
 $$

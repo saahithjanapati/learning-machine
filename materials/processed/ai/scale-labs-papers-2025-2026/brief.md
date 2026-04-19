@@ -4,8 +4,8 @@ Date: 2026-03-30
 
 ## Artifact Map
 
-- Paper metadata: `materials/processed/scale-labs-papers-2025-2026/papers.json`
-- Paper-by-paper summaries: `materials/processed/scale-labs-papers-2025-2026/paper_summaries.md`
+- Paper metadata: `materials/processed/ai/scale-labs-papers-2025-2026/papers.json`
+- Paper-by-paper summaries: [materials/processed/ai/scale-labs-papers-2025-2026/paper_summaries.md](paper_summaries.md)
 - Downloaded PDFs: `materials/archive/scale-labs-papers-2025-2026/pdfs/`
 
 Download status:

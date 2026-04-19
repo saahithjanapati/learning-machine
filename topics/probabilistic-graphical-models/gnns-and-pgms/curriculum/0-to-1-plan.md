@@ -5,7 +5,7 @@ Topic Path: `topics/probabilistic-graphical-models/gnns-and-pgms`
 ## Source Trace
 
 - Canonical manifest: `learning_system/SOURCE_MAP.json`
-- Topic locator: `topics/probabilistic-graphical-models/gnns-and-pgms/curriculum/0-to-1-plan.md`
+- Topic locator: [topics/probabilistic-graphical-models/gnns-and-pgms/curriculum/0-to-1-plan.md](0-to-1-plan.md)
 - Transcript links: see source sections in this curriculum.
 
 ## Outcome
@@ -14,7 +14,7 @@ By the end of this topic, you should be able to explain the conceptual link betw
 
 ## Source Materials
 
-- `materials/processed/probabilistic-graphical-models/Lecture_8_GNNs.md`
+- [materials/processed/probabilistic-graphical-models/Lecture_8_GNNs.md](../../../../materials/processed/probabilistic-graphical-models/Lecture_8_GNNs.md)
 
 ## Transcript Anchors
 

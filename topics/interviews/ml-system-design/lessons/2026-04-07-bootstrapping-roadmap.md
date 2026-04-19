@@ -9,11 +9,11 @@ Difficulty: `medium`
 
 ## Inputs
 
-- Source materials: `materials/processed/interviews/system_design.md`
+- Source materials: [materials/processed/interviews/system_design.md](../../../../materials/processed/interviews/system_design.md)
 - Prior session summary: none
 - Recent mistake tags: none
 - In-depth mode requested?: no
-- History loaded from: `learning_system/LESSON_INDEX.md`
+- History loaded from: [learning_system/LESSON_INDEX.md](../../../../learning_system/LESSON_INDEX.md)
 
 ## Session Objectives
 

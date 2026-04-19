@@ -36,6 +36,6 @@ No user-run conversion script is required for this workflow.
 
 ## After Extraction
 
-1. Create or update a curriculum doc using `learning_system/templates/CURRICULUM_TEMPLATE.md`.
-2. Create a lesson plan using `learning_system/templates/LESSON_PLAN_TEMPLATE.md`.
-3. Track outcomes in `learning_system/PROGRESS_LOG.md`.
+1. Create or update a curriculum doc using [learning_system/templates/CURRICULUM_TEMPLATE.md](../learning_system/templates/CURRICULUM_TEMPLATE.md).
+2. Create a lesson plan using [learning_system/templates/LESSON_PLAN_TEMPLATE.md](../learning_system/templates/LESSON_PLAN_TEMPLATE.md).
+3. Track outcomes in [learning_system/PROGRESS_LOG.md](../learning_system/PROGRESS_LOG.md).

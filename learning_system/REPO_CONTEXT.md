@@ -69,10 +69,10 @@ The assistant should help the learner:
 
 1. New lesson sessions should create or update:
    - topic lesson log under `topics/.../lessons/`,
-   - `learning_system/LESSON_INDEX.md`,
-   - `learning_system/TOPIC_INDEX.md` if topic or aliasing changes,
-   - `learning_system/PROGRESS_LOG.md`,
-   - `learning_system/SKILL_GRAPH.md` if skill status changes.
+   - [learning_system/LESSON_INDEX.md](LESSON_INDEX.md),
+   - [learning_system/TOPIC_INDEX.md](TOPIC_INDEX.md) if topic or aliasing changes,
+   - [learning_system/PROGRESS_LOG.md](PROGRESS_LOG.md),
+   - [learning_system/SKILL_GRAPH.md](SKILL_GRAPH.md) if skill status changes.
 2. Keep exercises in topic `practice/` folders.
 3. Prefer concise, concrete notes over long prose.
 4. Keep raw uploads and local source snapshots out of git; keep processed markdown in git.

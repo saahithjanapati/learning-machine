@@ -4,8 +4,8 @@
 
 This gap map was created after reviewing:
 
-- `materials/processed/probabilistic-graphical-models/HW1_prompt.md`
-- `topics/probabilistic-graphical-models/lessons/2026-02-20-live-chat.md`
+- [materials/processed/probabilistic-graphical-models/HW1_prompt.md](../../../materials/processed/probabilistic-graphical-models/HW1_prompt.md)
+- [topics/probabilistic-graphical-models/lessons/2026-02-20-live-chat.md](2026-02-20-live-chat.md)
 
 Goal: move from intro fluency to proof-level and algorithm-level fluency for quiz/homework difficulty.
 

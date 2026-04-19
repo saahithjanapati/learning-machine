@@ -1,9 +1,9 @@
 # Startup Context (Load First)
 
 This file is the compact memory for new assistant instances.
-Use `learning_system/LOAD_ORDER.md` for full startup loading sequence.
+Use [learning_system/LOAD_ORDER.md](LOAD_ORDER.md) for full startup loading sequence.
 Use `AGENTS.md` as the canonical public skill registry.
-Use `learning_system/REPO_CONTEXT.md` for fuller background repo context.
+Use [learning_system/REPO_CONTEXT.md](REPO_CONTEXT.md) for fuller background repo context.
 Public skills live in `.agents/skills/` for native Codex discovery.
 
 ## User Preferences
@@ -24,7 +24,7 @@ Public skills live in `.agents/skills/` for native Codex discovery.
 - use class name as root (example: `topics/cs229/gradient-descent/...`).
 
 3. Topic matching:
-- check `learning_system/TOPIC_INDEX.md`.
+- check [learning_system/TOPIC_INDEX.md](TOPIC_INDEX.md).
 - if close match exists, suggest it and ask confirmation.
 - else create a new topic path.
 
@@ -40,18 +40,18 @@ Public skills live in `.agents/skills/` for native Codex discovery.
 ## Session Update Requirements
 
 After each lesson session, update:
-- `learning_system/LESSON_INDEX.md`
-- `learning_system/PROGRESS_LOG.md`
+- [learning_system/LESSON_INDEX.md](LESSON_INDEX.md)
+- [learning_system/PROGRESS_LOG.md](PROGRESS_LOG.md)
 - topic lesson file under `topics/<root>/<topic>/lessons/`
-- `learning_system/SKILL_GRAPH.md` when skill status changes
+- [learning_system/SKILL_GRAPH.md](SKILL_GRAPH.md) when skill status changes
 - end-of-session recap file summarizing learned concepts, mistakes/corrections, and next-session targets
 
 ## Session Control References
 
-- `learning_system/ADAPTIVE_TEACHING_POLICY.md`
-- `learning_system/SELF_DIRECTED_CONTROLS.md`
-- `learning_system/IN_DEPTH_MODE.md`
-- `learning_system/CLI_HELP.md`
+- [learning_system/ADAPTIVE_TEACHING_POLICY.md](ADAPTIVE_TEACHING_POLICY.md)
+- [learning_system/SELF_DIRECTED_CONTROLS.md](SELF_DIRECTED_CONTROLS.md)
+- [learning_system/IN_DEPTH_MODE.md](IN_DEPTH_MODE.md)
+- [learning_system/CLI_HELP.md](CLI_HELP.md)
 
 ## Startup Interaction Rule
 
@@ -98,5 +98,5 @@ When using colors in markdown output (equations, spans, callouts, or legends):
 
 ## Latest Logged Lesson Snapshot
 
-- Use `learning_system/LESSON_INDEX.md` as the source of truth for recency.
-- Latest logged lesson entry: `topics/optimization-for-ml/lessons/2026-02-26-live-chat-all-topics-cumulative.md`
+- Use [learning_system/LESSON_INDEX.md](LESSON_INDEX.md) as the source of truth for recency.
+- Latest logged lesson entry: [topics/optimization-for-ml/lessons/2026-02-26-live-chat-all-topics-cumulative.md](../topics/optimization-for-ml/lessons/2026-02-26-live-chat-all-topics-cumulative.md)

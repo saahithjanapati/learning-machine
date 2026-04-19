@@ -17,8 +17,8 @@ The course numbering is not contiguous in the repo right now:
 Topic path: `topics/probabilistic-graphical-models/variational-inference-and-em`
 
 Source transcripts:
-- `materials/processed/probabilistic-graphical-models/Lecture_13_variational.md`
-- `materials/processed/probabilistic-graphical-models/Lecture_15_EM.md`
+- [materials/processed/probabilistic-graphical-models/Lecture_13_variational.md](../../../materials/processed/probabilistic-graphical-models/Lecture_13_variational.md)
+- [materials/processed/probabilistic-graphical-models/Lecture_15_EM.md](../../../materials/processed/probabilistic-graphical-models/Lecture_15_EM.md)
 
 Focus questions:
 - How does the Gibbs variational principle turn `log Z` or `log p(x)` into an optimization problem?
@@ -30,8 +30,8 @@ Focus questions:
 Topic path: `topics/probabilistic-graphical-models/generative-adversarial-networks`
 
 Source transcripts:
-- `materials/processed/probabilistic-graphical-models/Lecture_17_GAN.md`
-- `materials/processed/probabilistic-graphical-models/Lecture_18_applications.md`
+- [materials/processed/probabilistic-graphical-models/Lecture_17_GAN.md](../../../materials/processed/probabilistic-graphical-models/Lecture_17_GAN.md)
+- [materials/processed/probabilistic-graphical-models/Lecture_18_applications.md](../../../materials/processed/probabilistic-graphical-models/Lecture_18_applications.md)
 
 Focus questions:
 - Why can adversarial training produce sharper samples than likelihood-heavy approaches?
@@ -43,7 +43,7 @@ Focus questions:
 Topic path: `topics/probabilistic-graphical-models/score-matching-and-energy-based-models`
 
 Source transcripts:
-- `materials/processed/probabilistic-graphical-models/Lecture_19_scorematching.md`
+- [materials/processed/probabilistic-graphical-models/Lecture_19_scorematching.md](../../../materials/processed/probabilistic-graphical-models/Lecture_19_scorematching.md)
 
 Focus questions:
 - How does score matching avoid partition-function gradients during training?
@@ -58,6 +58,6 @@ Focus questions:
 
 ## Use With
 
-- Root overview: `topics/probabilistic-graphical-models/README.md`
-- Master curriculum: `topics/probabilistic-graphical-models/curriculum/0-to-1-master-plan.md`
-- Catch-up path: `topics/probabilistic-graphical-models/course-catchup/curriculum/0-to-1-plan.md`
+- Root overview: [topics/probabilistic-graphical-models/README.md](../README.md)
+- Master curriculum: [topics/probabilistic-graphical-models/curriculum/0-to-1-master-plan.md](../curriculum/0-to-1-master-plan.md)
+- Catch-up path: [topics/probabilistic-graphical-models/course-catchup/curriculum/0-to-1-plan.md](../course-catchup/curriculum/0-to-1-plan.md)

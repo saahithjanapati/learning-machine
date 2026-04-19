@@ -10,15 +10,17 @@ Policy:
 
 ## Processed Sources
 
-- `materials/processed/ai/datacomp-lm-in-search-of-the-next-generation-of-training-sets-for-language-models.md`
-- `materials/processed/ai/trustworthy-agents-in-practice.md`
-- `materials/processed/ai/building-effective-agents.md`
-- `materials/processed/ai/why-we-are-excited-about-confessions.md`
-- `materials/processed/ai/a-diff-tool-for-ai-finding-behavioral-differences-in-new-models.md`
-- `materials/processed/ai/text-is-the-universal-interface.md`
-- `materials/processed/ai/the-hot-mess-of-ai-how-does-misalignment-scale-with-model-intelligence-and-task-complexity.md`
-- `materials/processed/ai/vibe-physics-the-ai-grad-student.md`
-- `materials/processed/ai/bloom-an-open-source-tool-for-automated-behavioral-evaluations.md`
-- `materials/processed/ai/machines-of-faithful-obedience.md`
-- `materials/processed/ai/trading-inference-time-compute-for-adversarial-robustness.md`
-- `materials/processed/ai/openai-stargate-where-the-us-sites-stand.md`
+- [materials/processed/ai/datacomp-lm-in-search-of-the-next-generation-of-training-sets-for-language-models.md](../../../materials/processed/ai/datacomp-lm-in-search-of-the-next-generation-of-training-sets-for-language-models.md)
+- [materials/processed/ai/trustworthy-agents-in-practice.md](../../../materials/processed/ai/trustworthy-agents-in-practice.md)
+- [materials/processed/ai/building-effective-agents.md](../../../materials/processed/ai/building-effective-agents.md)
+- [materials/processed/ai/why-we-are-excited-about-confessions.md](../../../materials/processed/ai/why-we-are-excited-about-confessions.md)
+- [materials/processed/ai/a-diff-tool-for-ai-finding-behavioral-differences-in-new-models.md](../../../materials/processed/ai/a-diff-tool-for-ai-finding-behavioral-differences-in-new-models.md)
+- [materials/processed/ai/text-is-the-universal-interface.md](../../../materials/processed/ai/text-is-the-universal-interface.md)
+- [materials/processed/ai/the-hot-mess-of-ai-how-does-misalignment-scale-with-model-intelligence-and-task-complexity.md](../../../materials/processed/ai/the-hot-mess-of-ai-how-does-misalignment-scale-with-model-intelligence-and-task-complexity.md)
+- [materials/processed/ai/vibe-physics-the-ai-grad-student.md](../../../materials/processed/ai/vibe-physics-the-ai-grad-student.md)
+- [materials/processed/ai/bloom-an-open-source-tool-for-automated-behavioral-evaluations.md](../../../materials/processed/ai/bloom-an-open-source-tool-for-automated-behavioral-evaluations.md)
+- [materials/processed/ai/machines-of-faithful-obedience.md](../../../materials/processed/ai/machines-of-faithful-obedience.md)
+- [materials/processed/ai/trading-inference-time-compute-for-adversarial-robustness.md](../../../materials/processed/ai/trading-inference-time-compute-for-adversarial-robustness.md)
+- [materials/processed/ai/openai-stargate-where-the-us-sites-stand.md](../../../materials/processed/ai/openai-stargate-where-the-us-sites-stand.md)
+- [materials/processed/ai/scale-labs-papers-2025-2026/brief.md](../../../materials/processed/ai/scale-labs-papers-2025-2026/brief.md)
+- [materials/processed/ai/scale-labs-papers-2025-2026/paper_summaries.md](../../../materials/processed/ai/scale-labs-papers-2025-2026/paper_summaries.md)

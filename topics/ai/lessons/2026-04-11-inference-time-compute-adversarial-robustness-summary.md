@@ -1,6 +1,6 @@
 # Trading Inference-Time Compute for Adversarial Robustness
 
-Source note: `materials/processed/ai/trading-inference-time-compute-for-adversarial-robustness.md`
+Source note: [materials/processed/ai/trading-inference-time-compute-for-adversarial-robustness.md](../../../materials/processed/ai/trading-inference-time-compute-for-adversarial-robustness.md)
 
 ## Core claim
 

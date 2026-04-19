@@ -1,6 +1,6 @@
 # OpenAI Stargate: where the US sites stand
 
-Source note: `materials/processed/ai/openai-stargate-where-the-us-sites-stand.md`
+Source note: [materials/processed/ai/openai-stargate-where-the-us-sites-stand.md](../../../materials/processed/ai/openai-stargate-where-the-us-sites-stand.md)
 
 ## Core claim
 

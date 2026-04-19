@@ -37,6 +37,6 @@ Do not use this skill for:
 ## Output Requirements
 
 Summarize changed files:
-- `learning_system/TOPIC_INDEX.md`
-- `learning_system/SKILL_TREE.md`
-- `learning_system/reorg/latest-report.md`
+- [learning_system/TOPIC_INDEX.md](../../../learning_system/TOPIC_INDEX.md)
+- [learning_system/SKILL_TREE.md](../../../learning_system/SKILL_TREE.md)
+- [learning_system/reorg/latest-report.md](../../../learning_system/reorg/latest-report.md)

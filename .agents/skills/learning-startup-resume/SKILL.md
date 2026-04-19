@@ -34,4 +34,4 @@ Do not use this skill for:
 - load topic context from:
   - `topics/<root>/<topic>/README.md`
   - latest file in `topics/<root>/<topic>/lessons/`
-  - `learning_system/PROGRESS_LOG.md`
+  - [learning_system/PROGRESS_LOG.md](../../../learning_system/PROGRESS_LOG.md)

@@ -1,13 +1,13 @@
 # Skill Catalog Report
 
-Generated: 2026-03-29
+Generated: 2026-04-18
 
 ## Summary
 
 - Catalog status: PASS
-- Public skills registered in `AGENTS.md`: 6
-- Skill files discovered on disk: 7
-- Public skills in `.agents/skills`: 6
+- Public skills registered in `AGENTS.md`: 7
+- Skill files discovered on disk: 8
+- Public skills in `.agents/skills`: 7
 - Internal skill files: 1
 - Errors: 0
 - Warnings: 0
@@ -19,6 +19,7 @@ Generated: 2026-03-29
 - `materials-to-curriculum` -> `.agents/skills/materials-to-curriculum/SKILL.md`
 - `adaptive-session-tutor` -> `.agents/skills/adaptive-session-tutor/SKILL.md`
 - `markdown-live-chat` -> `.agents/skills/markdown-live-chat/SKILL.md`
+- `learner-evidence-tracker` -> `.agents/skills/learner-evidence-tracker/SKILL.md`
 - `skill-catalog-manager` -> `.agents/skills/skill-catalog-manager/SKILL.md`
 
 ## Public Skill Files
@@ -28,6 +29,7 @@ Generated: 2026-03-29
 - `materials-to-curriculum` -> `.agents/skills/materials-to-curriculum/SKILL.md` (present)
 - `adaptive-session-tutor` -> `.agents/skills/adaptive-session-tutor/SKILL.md` (present)
 - `markdown-live-chat` -> `.agents/skills/markdown-live-chat/SKILL.md` (present)
+- `learner-evidence-tracker` -> `.agents/skills/learner-evidence-tracker/SKILL.md` (present)
 - `skill-catalog-manager` -> `.agents/skills/skill-catalog-manager/SKILL.md` (present)
 
 ## Internal Skill Files

@@ -1,7 +1,7 @@
 # Live Chat: Lecture 2 Directed Graphical Models
 
 Source:
-- `materials/processed/probabilistic-graphical-models/Lecture_2_directed.md`
+- [materials/processed/probabilistic-graphical-models/Lecture_2_directed.md](../../../materials/processed/probabilistic-graphical-models/Lecture_2_directed.md)
 
 Session mode:
 - `learn`

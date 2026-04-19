@@ -3913,3 +3913,885 @@ So your instinct is right:
 
 - ordinary SDP optimization: optimize a linear function over PSD and linear constraints
 - SDP feasibility: just ask whether the PSD and linear constraints can be satisfied at all
+
+---
+### Turn 52
+User asked:
+alright i need it to go much slower please... this is all quite new to me
+
+Assistant response:
+I slowed down the advanced-optimizers note itself in [[2026-04-14-exam-2-section-10-advanced-optimizers]].
+
+The main changes were:
+
+- added a more beginner-friendly explanation of what preconditioning means
+- added a simple picture for why we reshape gradients at all
+- slowed down the Newton-to-Shampoo connection
+- broke Shampoo into step-by-step actions instead of presenting it as one formula
+- added a much slower AdamW explanation, including why SGD makes $L_2$ and weight decay look equivalent and why Adam breaks that equivalence
+
+So the note should now read more like:
+
+`what is this object, why do we do this, what should I picture`
+
+instead of just:
+
+`here is the formula and the comparison`
+
+---
+### Turn 53
+User asked:
+can you add some more depth to the newton method notes page
+
+Assistant response:
+I expanded [[2026-04-14-exam-2-section-06-newton]] with slower explanations and a few extra subsections.
+
+The main additions were:
+
+- a clearer explanation of why the course keeps separating root-finding Newton from minimization Newton
+- a geometric picture for the scalar root-finding version
+- a slower explanation of what equation the Newton step is actually solving in optimization
+- a bridge showing why the root-finding derivation and quadratic-model derivation agree
+- a slower descent-direction proof
+- a more intuitive explanation of what quadratic convergence actually means
+- a clearer discussion of why local speed does not imply global reliability
+- a short practical section on how damping is used in practice
+- a more explicit explanation of why convexity alone does not guarantee global convergence
+
+I also cleaned the inline math formatting in that note so it should render properly in Obsidian.
+
+---
+### Turn 54
+User asked:
+in the newton's methods notes, can you explain this: At iteration $k$, linearize the gradient around $x_k$:
+
+$$
+\nabla f(x_k+\Delta x)
+\approx
+\nabla f(x_k)+\nabla^2 f(x_k)\Delta x.
+$$
+
+Assistant response:
+Yes. The clean way to read this is:
+
+`we do not know the gradient at the next point yet, so we approximate it using a first-order Taylor expansion around the current point.`
+
+Start by defining a new function
+
+$$
+g(x)=\nabla f(x).
+$$
+
+Now $g$ is a vector-valued function.
+
+The ordinary first-order Taylor rule says:
+
+$$
+g(x_k+h)\approx g(x_k)+J_g(x_k)h,
+$$
+
+where $J_g(x_k)$ is the Jacobian of $g$ at $x_k$.
+
+But here
+
+$$
+g(x)=\nabla f(x),
+$$
+
+so the Jacobian of $g$ is exactly the Hessian of $f$:
+
+$$
+J_g(x_k)=\nabla^2 f(x_k).
+$$
+
+Now rename the small step $h$ as
+
+$$
+h=\Delta x.
+$$
+
+That gives
+
+$$
+\nabla f(x_k+\Delta x)
+\approx
+\nabla f(x_k)+\nabla^2 f(x_k)\Delta x.
+$$
+
+So this line is just:
+
+- take the gradient function
+- do a first-order Taylor expansion around $x_k$
+- the derivative of the gradient is the Hessian
+
+The reason Newton does this is that we want the next point to satisfy
+
+$$
+\nabla f(x_{k+1})=0.
+$$
+
+If we write
+
+$$
+x_{k+1}=x_k+\Delta x,
+$$
+
+then the exact equation would be
+
+$$
+\nabla f(x_k+\Delta x)=0.
+$$
+
+But that is still nonlinear and hard to solve.
+
+So Newton replaces it by the linearized equation
+
+$$
+\nabla f(x_k)+\nabla^2 f(x_k)\Delta x=0.
+$$
+
+That is now a linear system in the unknown step $\Delta x$.
+
+Solving it gives
+
+$$
+\Delta x=-[\nabla^2 f(x_k)]^{-1}\nabla f(x_k).
+$$
+
+If it helps, the one-dimensional version is easier to see:
+
+$$
+f'(x_k+\Delta x)\approx f'(x_k)+f''(x_k)\Delta x.
+$$
+
+So the multidimensional formula is the same idea, just with:
+
+- gradient instead of derivative
+- Hessian matrix instead of second derivative
+
+The most important intuition is:
+
+`Newton approximates the gradient near the current point by an affine function, then chooses the step that would make that approximation equal to zero.`
+
+---
+### Turn 55
+User asked:
+for problem 7.1, could you explain why we square the norm term here:
+
+$$
+\mathcal{L}(w,\lambda)=E[(w^T z)^4]-3+\lambda(\|w\|^2-1).
+$$
+
+Assistant response:
+Yes. The main reason is:
+
+`the actual constraint is that w should have unit length, and ||w|| = 1 is equivalent to ||w||^2 = 1.`
+
+So we are not changing the feasible set. We are just writing the same unit-norm constraint in a form that is easier to differentiate.
+
+Why is it easier?
+
+Because
+
+$$
+\nabla_w \|w\|^2 = 2w,
+$$
+
+which is very clean.
+
+If instead you wrote the constraint as
+
+$$
+\|w\|-1=0,
+$$
+
+then the derivative of $\|w\|$ is more awkward:
+
+$$
+\nabla_w \|w\| = \frac{w}{\|w\|}.
+$$
+
+That is much less convenient algebraically.
+
+So the squared norm is mostly a convenience choice:
+
+- same constraint set
+- cleaner derivative
+- simpler stationarity equation
+
+There is also an ICA-specific reason this form is natural.
+
+After whitening, you usually have
+
+$$
+E[zz^T]=I.
+$$
+
+Then the variance of the scalar projection $w^T z$ is
+
+$$
+E[(w^T z)^2]
+=
+w^T E[zz^T] w
+=
+w^T I w
+=
+\|w\|^2.
+$$
+
+So requiring unit variance for the projection is exactly the condition
+
+$$
+\|w\|^2=1.
+$$
+
+That means the squared norm is not just mathematically convenient. In ICA it also matches the natural variance normalization after whitening.
+
+So the short answer is:
+
+- $\|w\|=1$ and $\|w\|^2=1$ describe the same unit sphere
+- $\|w\|^2$ is easier to differentiate
+- in whitened ICA, $\|w\|^2$ is also the variance of $w^T z$
+
+---
+### Turn 56
+User asked:
+can you explain this rewriting in problem 5.4?
+
+Assistant response:
+Yes. The key rewrite in Problem 5.4 is
+
+$$
+e_i^T X e_i
++ 2t\, e_i^T X e_j
++ t^2 e_j^T X e_j
+\ge 0
+$$
+
+becoming
+
+$$
+X_{ii}+2tX_{ij}+t^2 X_{jj}\ge 0.
+$$
+
+That is just using what standard basis vectors do to a matrix.
+
+The rule to remember is:
+
+$$
+e_a^T X e_b = X_{ab}.
+$$
+
+Why?
+
+- multiplying by $e_b$ on the right picks out column $b$
+- then multiplying by $e_a^T$ on the left picks out row $a$
+- so the result is exactly the $(a,b)$ entry
+
+So in this problem:
+
+- original version:
+
+$$
+e_i^T X e_i
+$$
+
+- new version:
+
+$$
+X_{ii}
+$$
+
+because it picks out the $(i,i)$ entry.
+
+Then:
+
+- original version:
+
+$$
+e_i^T X e_j
+$$
+
+- new version:
+
+$$
+X_{ij}
+$$
+
+because it picks out the $(i,j)$ entry.
+
+And:
+
+- original version:
+
+$$
+e_j^T X e_j
+$$
+
+- new version:
+
+$$
+X_{jj}.
+$$
+
+So the whole quadratic expression
+
+$$
+e_i^T X e_i
++ 2t\, e_i^T X e_j
++ t^2 e_j^T X e_j
+$$
+
+just becomes
+
+$$
+X_{ii}+2tX_{ij}+t^2X_{jj}.
+$$
+
+If it helps, you can think of $e_i$ as “select row/column $i$.”
+
+---
+### Turn 57
+User asked:
+can you add it to the actual notes page
+
+Assistant response:
+Yes. I added that explanation directly into [[2026-04-14-exam-2-worked-problems-section-05-sdp]] under Problem 5.4, right before the line
+
+$$
+X_{ii} + 2t X_{ij} + t^2 X_{jj} \ge 0.
+$$
+
+It now explicitly explains the rule
+
+$$
+e_a^T X e_b = X_{ab},
+$$
+
+and walks through the three substitutions term by term.
+
+---
+### Turn 58
+User asked:
+how do they get the term $2t e_i^T X e_j$... I get two terms like that, but one has i first and one has j first
+
+Assistant response:
+Yes. If you expand it fully, you do get two cross terms first.
+
+Start with
+
+$$
+(e_i+t e_j)^T X (e_i+t e_j).
+$$
+
+First rewrite the left factor:
+
+$$
+(e_i+t e_j)^T = e_i^T + t e_j^T.
+$$
+
+So now the expression is
+
+$$
+(e_i^T+t e_j^T)X(e_i+t e_j).
+$$
+
+Now distribute carefully. You get four terms:
+
+$$
+e_i^T X e_i
++ t e_i^T X e_j
++ t e_j^T X e_i
++ t^2 e_j^T X e_j.
+$$
+
+So your expansion is right: there are two cross terms.
+
+The reason the worked solution combines them is that $X$ is PSD, and PSD matrices are symmetric. So
+
+$$
+X^T = X.
+$$
+
+Now look at one of the cross terms:
+
+$$
+e_j^T X e_i.
+$$
+
+This is a scalar. Since it is a scalar, it equals its own transpose:
+
+$$
+e_j^T X e_i = (e_j^T X e_i)^T.
+$$
+
+Take the transpose:
+
+$$
+(e_j^T X e_i)^T = e_i^T X^T e_j.
+$$
+
+Because $X^T=X$, this becomes
+
+$$
+e_i^T X e_j.
+$$
+
+So the two cross terms are equal:
+
+$$
+t e_i^T X e_j + t e_j^T X e_i
+=
+t e_i^T X e_j + t e_i^T X e_j
+=
+2t e_i^T X e_j.
+$$
+
+So the full expansion becomes
+
+$$
+e_i^T X e_i
++ 2t e_i^T X e_j
++ t^2 e_j^T X e_j.
+$$
+
+The key reason this works is symmetry. If $X$ were not symmetric, you would keep the two cross terms separate.
+
+---
+### Turn 59
+User asked:
+`/Users/saahith/Downloads/IMG_0403.HEIC here are my answers to the true/false... for question 1.11, i think it's true? but kinda shaky on the details there...`
+
+Assistant response:
+For $1.11$, the correct answer is **False**.
+
+The statement was:
+
+$$
+\text{In AdamW, adding } L_2 \text{ regularization to the objective is exactly the same as decoupled weight decay inside Adam.}
+$$
+
+It is false because there are two different mechanisms:
+
+1. Add $L_2$ regularization to the objective.
+   Then the gradient becomes
+   $$
+   \nabla f(w) + \lambda w.
+   $$
+   In Adam, that whole quantity gets fed into the adaptive machinery, so the shrinkage term $\lambda w$ is also scaled coordinatewise by the Adam denominator.
+
+2. Use decoupled weight decay, as in AdamW.
+   Then you do the Adam-style gradient step, and separately apply a shrinkage term directly to the weights. The decay is not mixed into the adaptive gradient normalization in the same way.
+
+So the key difference is:
+
+- with plain $L_2$ regularization inside Adam, the regularization term is blended into the adaptively scaled gradient
+- with AdamW, the weight decay is applied separately
+
+That is why they are not exactly equivalent.
+
+A useful contrast is:
+
+- for vanilla SGD, $L_2$ regularization and weight decay line up algebraically
+- for Adam, they do not line up the same way because Adam rescales coordinates adaptively
+
+So the thing to remember is:
+
+$$
+\text{AdamW was introduced precisely because } L_2 \text{ inside Adam is not the same as decoupled weight decay.}
+$$
+
+---
+### Turn 60
+User asked:
+my answers to the exam were, False, True, True, True, True, True, True, False, True, True, Not sure, True, can you grade?
+
+Assistant response:
+Yes. Against the answer key, that is **10 / 12**.
+
+Correct:
+
+- $1.1$ False
+- $1.2$ True
+- $1.3$ True
+- $1.4$ True
+- $1.5$ True
+- $1.6$ True
+- $1.8$ False
+- $1.9$ True
+- $1.10$ True
+- $1.12$ True
+
+Misses / open items:
+
+- $1.7$: your answer was **True**, but the correct answer is **False**
+- $1.11$: you put **Not sure**; the correct answer is **False**
+
+Why $1.7$ is false:
+
+Whitening means
+
+$$
+E[zz^T] = I,
+$$
+
+so the coordinates are uncorrelated and each has variance $1$. But uncorrelated does **not** imply independent in general. ICA exists because whitening alone is not enough to recover independence.
+
+Why $1.11$ is false:
+
+In Adam, adding $L_2$ regularization means the term $\lambda w$ gets mixed into the adaptively scaled gradient. In AdamW, the weight decay is applied separately from the adaptive gradient normalization. So they are not exactly the same update rule.
+
+---
+### Turn 61
+User asked:
+can you give me some more details about what exactly the adamw optimizer does?
+
+Assistant response:
+Yes. The clean way to think about AdamW is:
+
+- it does an ordinary Adam-style adaptive gradient step
+- and then it applies weight decay **separately**
+
+At iteration $t$, suppose the gradient is
+
+$$
+g_t = \nabla f(w_t).
+$$
+
+Adam keeps two running averages:
+
+1. first moment / momentum:
+   $$
+   m_t = \beta_1 m_{t-1} + (1-\beta_1) g_t
+   $$
+
+2. second moment / squared-gradient average:
+   $$
+   v_t = \beta_2 v_{t-1} + (1-\beta_2) g_t^2
+   $$
+
+Because these start at zero, Adam uses bias correction:
+
+$$
+\hat m_t = \frac{m_t}{1-\beta_1^t},
+\qquad
+\hat v_t = \frac{v_t}{1-\beta_2^t}.
+$$
+
+Then the Adam part of the step is
+
+$$
+w_t - \eta \frac{\hat m_t}{\sqrt{\hat v_t}+\varepsilon}.
+$$
+
+This means:
+
+- coordinates with consistently large gradients get divided by a larger denominator, so their effective step sizes become smaller
+- coordinates with smaller historical gradients can get relatively larger effective steps
+
+Now AdamW adds **decoupled weight decay**:
+
+$$
+w_{t+1}
+=
+w_t
+-\eta \frac{\hat m_t}{\sqrt{\hat v_t}+\varepsilon}
+-\eta \lambda w_t.
+$$
+
+You can also factor that as
+
+$$
+w_{t+1}
+=
+(1-\eta\lambda) w_t
+-\eta \frac{\hat m_t}{\sqrt{\hat v_t}+\varepsilon}.
+$$
+
+That second form is useful because it makes the roles very clear:
+
+- $(1-\eta\lambda) w_t$ = shrink the weights a little
+- $-\eta \frac{\hat m_t}{\sqrt{\hat v_t}+\varepsilon}$ = take the Adam adaptive gradient step
+
+So what AdamW is doing, operationally, is:
+
+1. estimate a momentum direction
+2. estimate per-coordinate gradient scale
+3. normalize the step coordinatewise
+4. shrink the weights separately
+
+Why this matters:
+
+If you instead add $L_2$ regularization directly to the objective, then the gradient becomes
+
+$$
+g_t + \lambda w_t,
+$$
+
+and that whole expression gets fed into the Adam moments and denominators. So the regularization term gets mixed into the adaptive scaling. AdamW avoids that by keeping the decay separate.
+
+So the shortest summary is:
+
+$$
+\text{AdamW = Adam + separate multiplicative weight shrinkage.}
+$$
+
+That is why people say the weight decay is **decoupled**.
+
+---
+### Turn 62
+User asked:
+`/Users/saahith/Downloads/IMG_7409.HEIC here are my answers to the select all... some of the answers, i wasn't really sure, and I've added annotations for those`
+
+Assistant response:
+I graded the select-all page from the photo.
+
+Assuming I read your marked choices correctly, you got **8 / 11** questions fully correct, which is **24 / 33** on an all-or-nothing grading rule.
+
+Your marked answers as I read them:
+
+- $2.1$: $a,b,c,d$ -> correct
+- $2.2$: $a,b,c,d$ -> correct
+- $2.3$: $a,b,c,e$ -> incorrect
+- $2.4$: $a,b,c,d,e$ -> incorrect
+- $2.5$: $a,b,c,e$ -> correct
+- $2.6$: $a,b,d$ -> correct
+- $2.7$: $a,c,e$ -> incorrect
+- $2.8$: $a,b,c,d$ -> correct
+- $2.9$: $a,b,c,d$ -> correct
+- $2.10$: $a,b,c,d$ -> correct
+- $2.11$: $a,b,c,e$ -> correct
+
+The answer key is:
+
+- $2.1$: $a,b,c,d$
+- $2.2$: $a,b,c,d$
+- $2.3$: $a,c,e$
+- $2.4$: $a,b,d,e$
+- $2.5$: $a,b,c,e$
+- $2.6$: $a,b,d$
+- $2.7$: $a,b,c,e$
+- $2.8$: $a,b,c,d$
+- $2.9$: $a,b,c,d$
+- $2.10$: $a,b,c,d$
+- $2.11$: $a,b,c,e$
+
+So the misses were:
+
+1. $2.3$:
+   - you added $b$
+   - but $b$ is false because the dual function is the pointwise **infimum** of affine functions of the dual variables, not the supremum
+
+2. $2.4$:
+   - you added $c$
+   - but $c$ is false because stationarity alone is not enough for constrained convex optimality; you also need feasibility and the rest of the KKT conditions
+
+3. $2.7$:
+   - you missed $b$
+   - $b$ is true because for whitened data
+     $$
+     E[(w^T z)^2] = w^T E[zz^T] w = w^T I w = \|w\|^2
+     $$
+
+Your uncertainty annotations were useful, and they line up well with the actual misses:
+
+- `LP` / duality precision
+- KKT statement precision
+- ICA whitening facts
+- AdamW review
+- subgradient-method rate/quantity recall
+
+---
+### Turn 63
+User asked:
+can you explain why the dual is the pointwise infimum instead of supremmum for question 2.3?
+
+Assistant response:
+Yes. The reason is tied to what the dual function is supposed to do for a **primal minimization problem**.
+
+Start from the primal
+
+$$
+\min_x f(x)
+\quad
+\text{subject to}
+\quad
+g_i(x)\le 0,
+\qquad
+h_j(x)=0.
+$$
+
+Its Lagrangian is
+
+$$
+L(x,\lambda,\nu)
+=
+f(x)+\sum_i \lambda_i g_i(x)+\sum_j \nu_j h_j(x),
+\qquad
+\lambda_i \ge 0.
+$$
+
+Now fix the dual variables $(\lambda,\nu)$ and think of $L$ only as a function of $x$.
+
+Why do we define
+
+$$
+q(\lambda,\nu)=\inf_x L(x,\lambda,\nu)?
+$$
+
+Because we want $q(\lambda,\nu)$ to be a **lower bound** on the primal optimum.
+
+Take any feasible point $x$.
+
+Then:
+
+- $g_i(x)\le 0$
+- $\lambda_i \ge 0$
+- so $\lambda_i g_i(x)\le 0$
+
+Also:
+
+- $h_j(x)=0$
+- so $\nu_j h_j(x)=0$
+
+Therefore, for every feasible $x$,
+
+$$
+L(x,\lambda,\nu)\le f(x).
+$$
+
+Now take the infimum over **all** $x$:
+
+$$
+q(\lambda,\nu)=\inf_x L(x,\lambda,\nu)\le L(x,\lambda,\nu)\le f(x)
+$$
+
+for every feasible $x$.
+
+So in particular,
+
+$$
+q(\lambda,\nu)\le p^*
+$$
+
+where $p^*$ is the primal optimum.
+
+That is exactly what we want: each dual-feasible choice gives a lower bound, and then the dual problem tries to make that lower bound as large as possible.
+
+So the dual problem is
+
+$$
+\max_{\lambda \ge 0,\nu} q(\lambda,\nu).
+$$
+
+If we used a supremum instead,
+
+$$
+\sup_x L(x,\lambda,\nu),
+$$
+
+then we would generally lose the lower-bound property. In fact, the supremum could be huge or even $+\infty$, which is the wrong direction for a minimization primal.
+
+There is also a geometry reason:
+
+- for each fixed $x$, $L(x,\lambda,\nu)$ is an affine function of $(\lambda,\nu)$
+- the dual function is the pointwise **infimum** of those affine functions
+- a pointwise infimum of affine functions is concave
+
+That is why the dual function is concave.
+
+So the short answer is:
+
+$$
+\text{infimum gives the lower envelope, and that is what produces valid lower bounds for a minimization primal.}
+$$
+
+If you want, I can also draw the “family of affine lines, dual = lower envelope” picture in words, because that is often the fastest way to remember it.
+
+---
+### Turn 64
+User asked:
+wdym the dual function is the pointwise infimum of all those affine function? my understanding is that we pick the $x$ that leads to the minimum value across all $\lambda, \nu$ values, right? is that not correct?
+
+Assistant response:
+Not quite. The order is:
+
+1. fix $(\lambda,\nu)$
+2. minimize over $x$
+3. that gives one number, namely $q(\lambda,\nu)$
+4. then, in the dual problem, maximize that number over $(\lambda,\nu)$
+
+So the definition is
+
+$$
+q(\lambda,\nu)=\inf_x L(x,\lambda,\nu).
+$$
+
+That means:
+
+- $(\lambda,\nu)$ are being held fixed
+- only $x$ is being optimized inside the infimum
+
+Then after you have built the function $q$, you solve
+
+$$
+\max_{\lambda \ge 0,\nu} q(\lambda,\nu).
+$$
+
+So you are **not** picking one magical $x$ that minimizes everything across all $(\lambda,\nu)$ at once.
+
+The minimizing $x$ can change depending on which $(\lambda,\nu)$ you plug in.
+
+That is what `pointwise` means.
+
+At one specific dual point $(\lambda,\nu)$, you look at all the values
+
+$$
+L(x,\lambda,\nu)
+$$
+
+as $x$ varies, and you take the smallest one. That smallest value is $q(\lambda,\nu)$ at that point.
+
+Why people say “pointwise infimum of affine functions”:
+
+For each fixed $x$, the function
+
+$$
+(\lambda,\nu) \mapsto L(x,\lambda,\nu)
+$$
+
+is affine in the dual variables.
+
+So every fixed $x$ gives you one affine function of $(\lambda,\nu)$.
+
+Then
+
+$$
+q(\lambda,\nu)=\inf_x L(x,\lambda,\nu)
+$$
+
+means:
+
+- at this particular $(\lambda,\nu)$
+- look at the value of every one of those affine functions
+- take the smallest value
+
+That is the lower envelope.
+
+So the mental picture is:
+
+- fix $(\lambda,\nu)$
+- scan over all $x$
+- take the lowest Lagrangian value
+- that gives the dual-function value there
+
+Then later:
+
+- move $(\lambda,\nu)$ around
+- try to make that lower bound as large as possible
+
+So the clean slogan is:
+
+$$
+\text{first minimize over } x \text{ for each fixed dual point, then maximize over the dual points.}
+$$

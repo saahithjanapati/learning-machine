@@ -1,6 +1,6 @@
 # Trustworthy Agents in Practice
 
-Source note: `materials/processed/ai/trustworthy-agents-in-practice.md`
+Source note: [materials/processed/ai/trustworthy-agents-in-practice.md](../../../materials/processed/ai/trustworthy-agents-in-practice.md)
 
 ## Core claim
 

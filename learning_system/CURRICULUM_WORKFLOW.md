@@ -5,7 +5,7 @@ This workflow supports the "upload materials or share links -> tailored lessons 
 ## Step 0: Handle In-Depth Requests
 
 If learner asks for deep coverage of an existing topic:
-- load prior topic history first (see `learning_system/IN_DEPTH_MODE.md`)
+- load prior topic history first (see [learning_system/IN_DEPTH_MODE.md](IN_DEPTH_MODE.md))
 - derive objectives from prior mistakes and gaps
 - then generate the new lesson plan
 
@@ -35,7 +35,7 @@ If learner asks how to start:
 
 ## Step 2: Build a 0 -> 1 Curriculum
 
-Use `learning_system/templates/CURRICULUM_TEMPLATE.md`.
+Use [learning_system/templates/CURRICULUM_TEMPLATE.md](templates/CURRICULUM_TEMPLATE.md).
 
 Interpretation of 0 -> 1:
 - `0`: little/no familiarity.
@@ -57,7 +57,7 @@ After creating/updating curricula:
 
 ## Step 3: Generate Session Lesson Plan
 
-Use `learning_system/templates/LESSON_PLAN_TEMPLATE.md`.
+Use [learning_system/templates/LESSON_PLAN_TEMPLATE.md](templates/LESSON_PLAN_TEMPLATE.md).
 
 Policy:
 - If topic familiarity is low: exposition-heavy session.
@@ -74,11 +74,11 @@ For each session, record:
 - full chat transcript in lesson markdown format (for later mining).
 
 Update:
-- `learning_system/PROGRESS_LOG.md`
+- [learning_system/PROGRESS_LOG.md](PROGRESS_LOG.md)
 - topic lesson log under `topics/<root>/<topic>/lessons/`
 - topic live chat transcript under `topics/<root>/<topic>/lessons/YYYY-MM-DD-live-chat.md`
-- `learning_system/TOPIC_INDEX.md` if new topic path or alias is created
-- `learning_system/SKILL_GRAPH.md` if skill status changes.
+- [learning_system/TOPIC_INDEX.md](TOPIC_INDEX.md) if new topic path or alias is created
+- [learning_system/SKILL_GRAPH.md](SKILL_GRAPH.md) if skill status changes.
 
 ## Step 5: Adapt Next Lesson
 

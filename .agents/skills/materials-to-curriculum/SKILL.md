@@ -52,13 +52,13 @@ Use this skill when user asks:
   - if a local snapshot is saved for debugging, keep it in local-only storage and do not require it for committed provenance
 
 4. Build curriculum and session plan using templates:
-- `learning_system/templates/CURRICULUM_TEMPLATE.md`
-- `learning_system/templates/LESSON_PLAN_TEMPLATE.md`
+- [learning_system/templates/CURRICULUM_TEMPLATE.md](../../../learning_system/templates/CURRICULUM_TEMPLATE.md)
+- [learning_system/templates/LESSON_PLAN_TEMPLATE.md](../../../learning_system/templates/LESSON_PLAN_TEMPLATE.md)
 
 5. Update tracking:
-- `learning_system/LESSON_INDEX.md`
-- `learning_system/PROGRESS_LOG.md`
-- `learning_system/TOPIC_INDEX.md` (if new topic)
+- [learning_system/LESSON_INDEX.md](../../../learning_system/LESSON_INDEX.md)
+- [learning_system/PROGRESS_LOG.md](../../../learning_system/PROGRESS_LOG.md)
+- [learning_system/TOPIC_INDEX.md](../../../learning_system/TOPIC_INDEX.md) (if new topic)
 
 ## Git Policy
 

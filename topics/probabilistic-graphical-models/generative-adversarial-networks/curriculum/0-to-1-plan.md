@@ -5,7 +5,7 @@ Topic Path: `topics/probabilistic-graphical-models/generative-adversarial-networ
 ## Source Trace
 
 - Canonical manifest: `learning_system/SOURCE_MAP.json`
-- Topic locator: `topics/probabilistic-graphical-models/generative-adversarial-networks/curriculum/0-to-1-plan.md`
+- Topic locator: [topics/probabilistic-graphical-models/generative-adversarial-networks/curriculum/0-to-1-plan.md](0-to-1-plan.md)
 - Transcript links: see source sections in this curriculum.
 
 ## Outcome
@@ -14,8 +14,8 @@ By the end of this topic, you should be able to explain GAN training as a two-pl
 
 ## Source Materials
 
-- `materials/processed/probabilistic-graphical-models/Lecture_17_GAN.md`
-- `materials/processed/probabilistic-graphical-models/Lecture_18_applications.md`
+- [materials/processed/probabilistic-graphical-models/Lecture_17_GAN.md](../../../../materials/processed/probabilistic-graphical-models/Lecture_17_GAN.md)
+- [materials/processed/probabilistic-graphical-models/Lecture_18_applications.md](../../../../materials/processed/probabilistic-graphical-models/Lecture_18_applications.md)
 
 ## Transcript Anchors
 

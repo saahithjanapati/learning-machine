@@ -5,7 +5,7 @@ Topic Path: `topics/probabilistic-graphical-models/directed-graphical-models`
 ## Source Trace
 
 - Canonical manifest: `learning_system/SOURCE_MAP.json`
-- Topic locator: `topics/probabilistic-graphical-models/directed-graphical-models/curriculum/0-to-1-plan.md`
+- Topic locator: [topics/probabilistic-graphical-models/directed-graphical-models/curriculum/0-to-1-plan.md](0-to-1-plan.md)
 - Transcript links: see source sections in this curriculum.
 
 ## Outcome
@@ -14,7 +14,7 @@ By the end of this topic, you should be able to build and interpret Bayesian net
 
 ## Source Materials
 
-- `materials/processed/probabilistic-graphical-models/Lecture_2_directed.md`
+- [materials/processed/probabilistic-graphical-models/Lecture_2_directed.md](../../../../materials/processed/probabilistic-graphical-models/Lecture_2_directed.md)
 
 ## Transcript Anchors
 

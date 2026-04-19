@@ -7,7 +7,7 @@ Assistant response:
 Yes. New live chat started for Lectures 3 + 4.
 
 Source:
-- `materials/processed/probabilistic-graphical-models/Lecture_3_4_undirected.md`
+- [materials/processed/probabilistic-graphical-models/Lecture_3_4_undirected.md](../../../materials/processed/probabilistic-graphical-models/Lecture_3_4_undirected.md)
 
 Session mode:
 - `learn`

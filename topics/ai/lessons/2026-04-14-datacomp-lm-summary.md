@@ -1,6 +1,6 @@
 # DataComp-LM
 
-Source note: `materials/processed/ai/datacomp-lm-in-search-of-the-next-generation-of-training-sets-for-language-models.md`
+Source note: [materials/processed/ai/datacomp-lm-in-search-of-the-next-generation-of-training-sets-for-language-models.md](../../../materials/processed/ai/datacomp-lm-in-search-of-the-next-generation-of-training-sets-for-language-models.md)
 
 ## Core claim
 

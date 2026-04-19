@@ -2,8 +2,8 @@
 
 Related sources:
 
-- `materials/processed/ai/trading-inference-time-compute-for-adversarial-robustness.md`
-- `materials/processed/ai/the-hot-mess-of-ai-how-does-misalignment-scale-with-model-intelligence-and-task-complexity.md`
+- [materials/processed/ai/trading-inference-time-compute-for-adversarial-robustness.md](../../../materials/processed/ai/trading-inference-time-compute-for-adversarial-robustness.md)
+- [materials/processed/ai/the-hot-mess-of-ai-how-does-misalignment-scale-with-model-intelligence-and-task-complexity.md](../../../materials/processed/ai/the-hot-mess-of-ai-how-does-misalignment-scale-with-model-intelligence-and-task-complexity.md)
 
 ## Core difference
 

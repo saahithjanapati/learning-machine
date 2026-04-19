@@ -5,7 +5,7 @@ Topic Path: `topics/probabilistic-graphical-models/foundations-probability`
 ## Source Trace
 
 - Canonical manifest: `learning_system/SOURCE_MAP.json`
-- Topic locator: `topics/probabilistic-graphical-models/foundations-probability/curriculum/0-to-1-plan.md`
+- Topic locator: [topics/probabilistic-graphical-models/foundations-probability/curriculum/0-to-1-plan.md](0-to-1-plan.md)
 - Transcript links: see source sections in this curriculum.
 
 ## Outcome
@@ -14,7 +14,7 @@ By the end of this topic, you should be able to manipulate core probability expr
 
 ## Source Materials
 
-- `materials/processed/probabilistic-graphical-models/Lecture_1_intro.md`
+- [materials/processed/probabilistic-graphical-models/Lecture_1_intro.md](../../../../materials/processed/probabilistic-graphical-models/Lecture_1_intro.md)
 
 ## Transcript Anchors
 

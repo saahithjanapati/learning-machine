@@ -56,6 +56,10 @@ If the learner asks to "show the contents in the MD file," then each turn should
 5. Stay in live-chat mode until the learner opts out.
 - continue appending new turns to the same file for the session
 - if learner asks to stop transcript logging, honor that for the current session
+- if the session is academic Q&A and the learner demonstrates a substantive doubt, confusion, proof gap, or incorrect answer, also create a concept-level evidence entry
+- default to delegating that evidence write to a worker subagent using `learner-evidence-tracker` when delegation is allowed
+- do not make the learner wait on the evidence write unless the next critical-path step depends on its result
+- if delegation is unavailable, fall back to `python3 scripts/learning_cli.py log-evidence ...`
 
 6. Close out lesson sessions cleanly.
 - if the session is a lesson/tutoring session, create or update recap artifacts and logs according to repo teaching policy

@@ -5,7 +5,7 @@ Topic path: `topics/probabilistic-graphical-models`
 ## Source Trace
 
 - Canonical manifest: `learning_system/SOURCE_MAP.json`
-- Topic locator: `topics/probabilistic-graphical-models/curriculum/0-to-1-master-plan.md`
+- Topic locator: [topics/probabilistic-graphical-models/curriculum/0-to-1-master-plan.md](0-to-1-master-plan.md)
 - Transcript links: see source sections in this curriculum.
 
 ## Starting Assumption

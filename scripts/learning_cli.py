@@ -9,6 +9,9 @@ Examples:
   python scripts/learning_cli.py reindex --write-skill-tree
   python scripts/learning_cli.py audit-skills --write-report
   python scripts/learning_cli.py post-ingest
+  python scripts/learning_cli.py log-evidence --topic optimization-for-ml --subtopic proximal-gradient --concept indicator-function --event-type doubt --summary "Asked what I_C means in prox-GD." --source-path topics/optimization-for-ml/lessons/2026-04-14-exam-2-live-chat.md
+  python scripts/learning_cli.py evidence-index
+  python scripts/learning_cli.py show-evidence --topic optimization-for-ml --limit 10
   python scripts/learning_cli.py reorganize --write-report
   python scripts/learning_cli.py archive-processed --apply
   python scripts/learning_cli.py new-topic --root transformers --topic attention/rope
@@ -18,9 +21,9 @@ Examples:
 from __future__ import annotations
 
 import argparse
-from collections import defaultdict
+from collections import Counter, defaultdict
 from dataclasses import dataclass
-from datetime import date
+from datetime import date, datetime
 import json
 from pathlib import Path
 import re
@@ -44,6 +47,10 @@ MATERIALS_DIR = REPO_ROOT / "materials"
 INBOX_DIR = MATERIALS_DIR / "inbox"
 PROCESSED_DIR = MATERIALS_DIR / "processed"
 ARCHIVE_DIR = MATERIALS_DIR / "archive"
+LEARNER_EVIDENCE_DIR = LEARNING_SYSTEM_DIR / "learner_evidence"
+EVIDENCE_LOG_PATH = LEARNER_EVIDENCE_DIR / "EVIDENCE_LOG.jsonl"
+EVIDENCE_INDEX_PATH = LEARNER_EVIDENCE_DIR / "INDEX.md"
+EVIDENCE_TOPIC_DIR = LEARNER_EVIDENCE_DIR / "by_topic"
 
 TOPIC_MARKERS = ("practice", "lessons", "curriculum")
 
@@ -79,6 +86,14 @@ def _normalize_slug(s: str) -> str:
 
 def _ensure_dir(path: Path) -> None:
     path.mkdir(parents=True, exist_ok=True)
+
+
+def _now_local_iso() -> str:
+    return datetime.now().astimezone().replace(microsecond=0).isoformat()
+
+
+def _slugify_label(value: str) -> str:
+    return re.sub(r"[^a-z0-9]+", "-", value.lower()).strip("-")
 
 
 def _normalize_material_stem(name: str) -> str:
@@ -940,6 +955,268 @@ def _merge_topics(src_rel: Path, dst_rel: Path, apply: bool) -> tuple[list[tuple
     return moves, conflicts
 
 
+def _load_evidence_entries() -> list[dict]:
+    if not EVIDENCE_LOG_PATH.exists():
+        return []
+
+    entries: list[dict] = []
+    for line in EVIDENCE_LOG_PATH.read_text(encoding="utf-8").splitlines():
+        striped = line.strip()
+        if not striped:
+            continue
+        entries.append(json.loads(striped))
+    return entries
+
+
+def _sort_evidence_entries(entries: Iterable[dict]) -> list[dict]:
+    return sorted(
+        entries,
+        key=lambda entry: (
+            entry.get("observed_at") or "",
+            entry.get("logged_at") or "",
+            entry.get("id") or "",
+        ),
+        reverse=True,
+    )
+
+
+def _append_evidence_entry(entry: dict) -> None:
+    _ensure_dir(LEARNER_EVIDENCE_DIR)
+    _ensure_dir(EVIDENCE_TOPIC_DIR)
+    with EVIDENCE_LOG_PATH.open("a", encoding="utf-8") as fh:
+        fh.write(json.dumps(entry, sort_keys=True) + "\n")
+
+
+def _render_evidence_index(entries: list[dict]) -> str:
+    by_topic: dict[str, list[dict]] = defaultdict(list)
+    concept_counts: Counter[str] = Counter()
+    state_counts: Counter[str] = Counter()
+    type_counts: Counter[str] = Counter()
+
+    for entry in entries:
+        topic = entry.get("topic") or "unknown"
+        by_topic[topic].append(entry)
+        state_counts[entry.get("review_state") or "unknown"] += 1
+        type_counts[entry.get("event_type") or "unknown"] += 1
+        for concept in entry.get("concept_tags") or []:
+            concept_counts[concept] += 1
+
+    lines = [
+        "# Learner Evidence Index",
+        "",
+        "Concept-level evidence about doubts, incorrect answers, and recurring confusion.",
+        "",
+        f"Generated: {_now_local_iso()}",
+        "",
+        "## Summary",
+        "",
+        f"- Total evidence entries: {len(entries)}",
+        f"- Topics with evidence: {len(by_topic)}",
+        f"- Event types: " + (", ".join(f"`{k}`={v}" for k, v in sorted(type_counts.items())) if type_counts else "none"),
+        f"- Review states: " + (", ".join(f"`{k}`={v}" for k, v in sorted(state_counts.items())) if state_counts else "none"),
+        "",
+        "## Topics",
+        "",
+        "| Topic | Entries | Last Seen | Topic File |",
+        "|---|---:|---|---|",
+    ]
+
+    for topic, topic_entries in sorted(by_topic.items()):
+        last_seen = max((entry.get("observed_at") or "" for entry in topic_entries), default="")
+        topic_slug = _slugify_label(topic) or "unknown"
+        topic_rel = f"by_topic/{topic_slug}.md"
+        lines.append(f"| `{topic}` | {len(topic_entries)} | {last_seen} | [{topic_rel}]({topic_rel}) |")
+
+    lines.extend(["", "## Most Frequent Concepts", ""])
+    if concept_counts:
+        for concept, count in concept_counts.most_common(20):
+            lines.append(f"- `{concept}`: {count}")
+    else:
+        lines.append("- None yet.")
+
+    lines.extend(["", "## Recent Evidence", ""])
+    if entries:
+        for entry in _sort_evidence_entries(entries)[:20]:
+            subtopic = entry.get("subtopic") or "general"
+            summary = entry.get("summary") or ""
+            lines.append(
+                f"- {entry.get('observed_at', '')} | `{entry.get('topic', 'unknown')}` / `{subtopic}` | "
+                f"`{entry.get('event_type', 'unknown')}` / `{entry.get('review_state', 'unknown')}` | {summary}"
+            )
+    else:
+        lines.append("- None yet.")
+
+    return "\n".join(lines) + "\n"
+
+
+def _render_topic_evidence_page(topic: str, entries: list[dict]) -> str:
+    topic_entries = [entry for entry in entries if entry.get("topic") == topic]
+    topic_entries = _sort_evidence_entries(topic_entries)
+    concept_stats: dict[str, dict] = defaultdict(
+        lambda: {"count": 0, "last_seen": "", "event_types": Counter(), "review_states": Counter()}
+    )
+
+    for entry in topic_entries:
+        observed_at = entry.get("observed_at") or ""
+        for concept in entry.get("concept_tags") or ["untagged"]:
+            stats = concept_stats[concept]
+            stats["count"] += 1
+            stats["last_seen"] = max(stats["last_seen"], observed_at)
+            stats["event_types"][entry.get("event_type") or "unknown"] += 1
+            stats["review_states"][entry.get("review_state") or "unknown"] += 1
+
+    lines = [
+        f"# Learner Evidence: {topic}",
+        "",
+        f"Generated: {_now_local_iso()}",
+        "",
+        f"Source log: [{EVIDENCE_LOG_PATH.name}](../{EVIDENCE_LOG_PATH.name})",
+        "",
+        "## Concept Summary",
+        "",
+        "| Concept | Entries | Last Seen | Event Types | Review States |",
+        "|---|---:|---|---|---|",
+    ]
+
+    for concept, stats in sorted(concept_stats.items(), key=lambda kv: (-kv[1]["count"], kv[0])):
+        type_summary = ", ".join(f"`{k}`={v}" for k, v in sorted(stats["event_types"].items()))
+        state_summary = ", ".join(f"`{k}`={v}" for k, v in sorted(stats["review_states"].items()))
+        lines.append(
+            f"| `{concept}` | {stats['count']} | {stats['last_seen']} | {type_summary or 'n/a'} | {state_summary or 'n/a'} |"
+        )
+
+    lines.extend(["", "## Recent Entries", ""])
+    if topic_entries:
+        for entry in topic_entries[:50]:
+            concepts = ", ".join(f"`{c}`" for c in (entry.get("concept_tags") or ["untagged"]))
+            lines.extend(
+                [
+                    f"### {entry.get('observed_at', '')} | {entry.get('subtopic') or 'general'}",
+                    "",
+                    f"- Event type: `{entry.get('event_type', 'unknown')}`",
+                    f"- Review state: `{entry.get('review_state', 'unknown')}`",
+                    f"- Concepts: {concepts}",
+                    f"- Summary: {entry.get('summary') or ''}",
+                ]
+            )
+            if entry.get("learner_signal"):
+                lines.append(f"- Learner evidence: {entry['learner_signal']}")
+            if entry.get("assistant_response_summary"):
+                lines.append(f"- Assistant response: {entry['assistant_response_summary']}")
+            if entry.get("source_path"):
+                source_line = f"- Source: `{entry['source_path']}`"
+                if entry.get("source_turn"):
+                    source_line += f" ({entry['source_turn']})"
+                lines.append(source_line)
+            if entry.get("timestamp_precision") and entry["timestamp_precision"] != "exact":
+                lines.append(f"- Timestamp precision: `{entry['timestamp_precision']}`")
+            lines.append("")
+    else:
+        lines.append("- None yet.")
+
+    return "\n".join(lines) + "\n"
+
+
+def _write_evidence_indexes(entries: list[dict] | None = None) -> None:
+    if entries is None:
+        entries = _load_evidence_entries()
+    _ensure_dir(LEARNER_EVIDENCE_DIR)
+    _ensure_dir(EVIDENCE_TOPIC_DIR)
+
+    sorted_entries = _sort_evidence_entries(entries)
+    EVIDENCE_INDEX_PATH.write_text(_render_evidence_index(sorted_entries), encoding="utf-8")
+
+    by_topic: dict[str, list[dict]] = defaultdict(list)
+    for entry in sorted_entries:
+        by_topic[entry.get("topic") or "unknown"].append(entry)
+
+    for topic, topic_entries in by_topic.items():
+        topic_slug = _slugify_label(topic) or "unknown"
+        topic_path = EVIDENCE_TOPIC_DIR / f"{topic_slug}.md"
+        topic_path.write_text(_render_topic_evidence_page(topic, topic_entries), encoding="utf-8")
+
+
+def cmd_log_evidence(args: argparse.Namespace) -> None:
+    observed_at = args.observed_at or _now_local_iso()
+    logged_at = _now_local_iso()
+    concept_tags = list(dict.fromkeys(_slugify_label(tag) for tag in (args.concept or []) if tag.strip()))
+    topic_slug = _slugify_label(args.topic) or "unknown-topic"
+    subtopic_slug = _slugify_label(args.subtopic) if args.subtopic else "general"
+    concept_slug = concept_tags[0] if concept_tags else "untagged"
+    id_timestamp = re.sub(r"[^0-9]", "", observed_at)[:14] or re.sub(r"[^0-9]", "", logged_at)[:14]
+
+    entry = {
+        "id": f"{id_timestamp}-{topic_slug}-{subtopic_slug}-{concept_slug}",
+        "observed_at": observed_at,
+        "logged_at": logged_at,
+        "timestamp_precision": args.timestamp_precision,
+        "topic": args.topic,
+        "subtopic": args.subtopic,
+        "concept_tags": concept_tags,
+        "event_type": args.event_type,
+        "review_state": args.review_state,
+        "summary": args.summary,
+        "learner_signal": args.learner_signal,
+        "assistant_response_summary": args.assistant_response_summary,
+        "source_path": args.source_path,
+        "source_turn": args.source_turn,
+    }
+
+    _append_evidence_entry(entry)
+    entries = _load_evidence_entries()
+    _write_evidence_indexes(entries)
+
+    print(f"Logged evidence: {entry['id']}")
+    print(f"Observed at: {entry['observed_at']} ({entry['timestamp_precision']})")
+    print(f"Topic: {entry['topic']}")
+    if entry.get("subtopic"):
+        print(f"Subtopic: {entry['subtopic']}")
+    if entry.get("concept_tags"):
+        print("Concepts: " + ", ".join(entry["concept_tags"]))
+    print(f"Event type: {entry['event_type']}")
+    print(f"Review state: {entry['review_state']}")
+    print(f"Updated: {EVIDENCE_LOG_PATH.relative_to(REPO_ROOT)}")
+    print(f"Updated: {EVIDENCE_INDEX_PATH.relative_to(REPO_ROOT)}")
+    print(f"Updated: {EVIDENCE_TOPIC_DIR.relative_to(REPO_ROOT)}/{_slugify_label(entry['topic']) or 'unknown'}.md")
+
+
+def cmd_evidence_index(args: argparse.Namespace) -> None:
+    entries = _load_evidence_entries()
+    _write_evidence_indexes(entries)
+    print(f"Updated: {EVIDENCE_INDEX_PATH.relative_to(REPO_ROOT)}")
+    print(f"Entries indexed: {len(entries)}")
+
+
+def cmd_show_evidence(args: argparse.Namespace) -> None:
+    entries = _sort_evidence_entries(_load_evidence_entries())
+    if args.topic:
+        entries = [entry for entry in entries if entry.get("topic") == args.topic]
+    if args.subtopic:
+        entries = [entry for entry in entries if entry.get("subtopic") == args.subtopic]
+    if args.event_type:
+        entries = [entry for entry in entries if entry.get("event_type") == args.event_type]
+    if args.review_state:
+        entries = [entry for entry in entries if entry.get("review_state") == args.review_state]
+    if args.concept:
+        wanted = _slugify_label(args.concept)
+        entries = [entry for entry in entries if wanted in (entry.get("concept_tags") or [])]
+
+    if not entries:
+        print("No matching evidence entries found.")
+        return
+
+    for entry in entries[: args.limit]:
+        concepts = ", ".join(entry.get("concept_tags") or ["untagged"])
+        print(
+            f"{entry.get('observed_at', '')} | {entry.get('topic', 'unknown')} / {entry.get('subtopic') or 'general'} | "
+            f"{entry.get('event_type', 'unknown')} / {entry.get('review_state', 'unknown')} | {concepts}"
+        )
+        print(f"  summary: {entry.get('summary') or ''}")
+        if entry.get("source_path"):
+            turn = f" ({entry['source_turn']})" if entry.get("source_turn") else ""
+            print(f"  source: {entry['source_path']}{turn}")
+
+
 def cmd_start(args: argparse.Namespace) -> None:
     recent = _recent_topic_rows(limit=args.limit)
     print("Learning Repo Startup")
@@ -949,11 +1226,13 @@ def cmd_start(args: argparse.Namespace) -> None:
     print("- Practice mode: ask for drills in a requested style")
     print("- In-depth mode: deep dive with prior-session adaptation")
     print("- Materials mode: convert uploaded PDFs to markdown and build lessons")
+    print("- Evidence mode: log concept-level doubts, mistakes, and recurring confusion")
     print("- Maintenance mode: reindex topics, regenerate skill tree, generate reorg report")
     print("")
     print("Suggested commands:")
     print("- python scripts/learning_cli.py recent-topics --limit 5")
     print("- python scripts/learning_cli.py reindex --write-skill-tree")
+    print("- python scripts/learning_cli.py show-evidence --limit 10")
     print("- python scripts/learning_cli.py post-ingest")
     print("- python scripts/learning_cli.py reorganize --write-report")
     print("")
@@ -1215,6 +1494,76 @@ def _build_parser() -> argparse.ArgumentParser:
         help="Run post-ingest maintenance (archive processed inbox PDFs + refresh source map).",
     )
     p_post_ingest.set_defaults(func=cmd_post_ingest)
+
+    p_log_evidence = sub.add_parser(
+        "log-evidence",
+        help="Append a concept-level learner-evidence entry and rebuild indexes.",
+    )
+    p_log_evidence.add_argument("--topic", required=True, help="High-level topic key, e.g. optimization-for-ml.")
+    p_log_evidence.add_argument("--subtopic", help="Optional subtopic or unit, e.g. proximal-gradient.")
+    p_log_evidence.add_argument(
+        "--concept",
+        action="append",
+        default=[],
+        help="Concept tag. Repeat for multiple tags; values are slug-normalized.",
+    )
+    p_log_evidence.add_argument(
+        "--event-type",
+        choices=["doubt", "incorrect-answer", "partial-answer", "notation-confusion", "proof-gap", "recall-gap"],
+        required=True,
+        help="Primary evidence type.",
+    )
+    p_log_evidence.add_argument(
+        "--review-state",
+        choices=["open", "addressed", "reinforced", "stable"],
+        default="addressed",
+        help="Current follow-up status for this evidence item.",
+    )
+    p_log_evidence.add_argument(
+        "--observed-at",
+        help="ISO timestamp for when the learner demonstrated the doubt/error. Defaults to local now.",
+    )
+    p_log_evidence.add_argument(
+        "--timestamp-precision",
+        choices=["exact", "backfilled-session", "date-only-backfill"],
+        default="exact",
+        help="How precise the observed timestamp is.",
+    )
+    p_log_evidence.add_argument("--summary", required=True, help="Compact summary of the issue.")
+    p_log_evidence.add_argument("--learner-signal", help="Optional quote/paraphrase of what the learner said or did.")
+    p_log_evidence.add_argument(
+        "--assistant-response-summary",
+        help="Optional short note on how the issue was addressed.",
+    )
+    p_log_evidence.add_argument("--source-path", help="Optional source file path for the session transcript/note.")
+    p_log_evidence.add_argument("--source-turn", help="Optional turn label or location within the source.")
+    p_log_evidence.set_defaults(func=cmd_log_evidence)
+
+    p_evidence_index = sub.add_parser(
+        "evidence-index",
+        help="Regenerate learner-evidence summary pages from the JSONL log.",
+    )
+    p_evidence_index.set_defaults(func=cmd_evidence_index)
+
+    p_show_evidence = sub.add_parser(
+        "show-evidence",
+        help="List learner-evidence entries, optionally filtered by topic, concept, or state.",
+    )
+    p_show_evidence.add_argument("--topic", help="Filter by topic key.")
+    p_show_evidence.add_argument("--subtopic", help="Filter by subtopic.")
+    p_show_evidence.add_argument("--concept", help="Filter by concept tag.")
+    p_show_evidence.add_argument(
+        "--event-type",
+        choices=["doubt", "incorrect-answer", "partial-answer", "notation-confusion", "proof-gap", "recall-gap"],
+        help="Filter by primary evidence type.",
+    )
+    p_show_evidence.add_argument(
+        "--review-state",
+        choices=["open", "addressed", "reinforced", "stable"],
+        help="Filter by follow-up state.",
+    )
+    p_show_evidence.add_argument("--limit", type=int, default=20, help="Maximum number of entries to print.")
+    p_show_evidence.set_defaults(func=cmd_show_evidence)
 
     return parser
 

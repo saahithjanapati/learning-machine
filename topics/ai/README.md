@@ -17,5 +17,5 @@ Path: `topics/ai`
 
 ## Core Files
 
-- Materials index: `topics/ai/materials/INDEX.md`
+- Materials index: [topics/ai/materials/INDEX.md](materials/INDEX.md)
 - Processed sources: `materials/processed/ai/`

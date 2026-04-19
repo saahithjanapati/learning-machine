@@ -17,8 +17,8 @@ This repo is organized so you can:
   - `<root>` can be a domain (`transformers`) or class name (`cs229`)
 - `learning_system/`
   - Cross-topic tracking files and templates.
-  - Load `learning_system/STARTUP_CONTEXT.md` first in new sessions.
-  - Use `learning_system/LOAD_ORDER.md` for deterministic context loading.
+  - Load [learning_system/STARTUP_CONTEXT.md](learning_system/STARTUP_CONTEXT.md) first in new sessions.
+  - Use [learning_system/LOAD_ORDER.md](learning_system/LOAD_ORDER.md) for deterministic context loading.
 
 ## Current Topic Coverage
 
@@ -40,10 +40,10 @@ This repo is organized so you can:
    - `topics/<root>/<topic>/...`
 5. Work in `practice/` for exercises, save summaries in `lessons/`.
 6. Update:
-   - `learning_system/LESSON_INDEX.md`
-   - `learning_system/TOPIC_INDEX.md`
-   - `learning_system/PROGRESS_LOG.md`
-   - `learning_system/SKILL_GRAPH.md`
+   - [learning_system/LESSON_INDEX.md](learning_system/LESSON_INDEX.md)
+   - [learning_system/TOPIC_INDEX.md](learning_system/TOPIC_INDEX.md)
+   - [learning_system/PROGRESS_LOG.md](learning_system/PROGRESS_LOG.md)
+   - [learning_system/SKILL_GRAPH.md](learning_system/SKILL_GRAPH.md)
 
 ## Agent Skill Commands
 
@@ -77,9 +77,9 @@ The assistant executes maintenance actions internally.
 Use these files as the primary references instead of duplicating policy across many notes:
 
 - `AGENTS.md`: public skill registry and routing boundaries
-- `learning_system/LOAD_ORDER.md`: startup context loading order
-- `learning_system/CONTENT_ROUTING.md`: topic path and artifact placement rules
-- `learning_system/CURRICULUM_WORKFLOW.md`: ingest -> curriculum -> lesson workflow
+- [learning_system/LOAD_ORDER.md](learning_system/LOAD_ORDER.md): startup context loading order
+- [learning_system/CONTENT_ROUTING.md](learning_system/CONTENT_ROUTING.md): topic path and artifact placement rules
+- [learning_system/CURRICULUM_WORKFLOW.md](learning_system/CURRICULUM_WORKFLOW.md): ingest -> curriculum -> lesson workflow
 
 If repo skills do not appear in the Codex skill picker immediately after changes, start a new chat or restart Codex so it re-scans `.agents/skills/`.
 
@@ -91,7 +91,7 @@ At session start, you can specify:
 - difficulty and number of questions
 
 Reference:
-- `learning_system/SELF_DIRECTED_CONTROLS.md`
-- `learning_system/IN_DEPTH_MODE.md`
-- `learning_system/CLI_HELP.md`
+- [learning_system/SELF_DIRECTED_CONTROLS.md](learning_system/SELF_DIRECTED_CONTROLS.md)
+- [learning_system/IN_DEPTH_MODE.md](learning_system/IN_DEPTH_MODE.md)
+- [learning_system/CLI_HELP.md](learning_system/CLI_HELP.md)
 - `AGENTS.md`

@@ -16,5 +16,5 @@ Path: `topics/interviews/ml-system-design`
 
 ## Starting Point
 
-- Seed material: `materials/processed/interviews/system_design.md`
-- First roadmap lesson: `topics/interviews/ml-system-design/lessons/2026-04-07-bootstrapping-roadmap.md`
+- Seed material: [materials/processed/interviews/system_design.md](../../../materials/processed/interviews/system_design.md)
+- First roadmap lesson: [topics/interviews/ml-system-design/lessons/2026-04-07-bootstrapping-roadmap.md](lessons/2026-04-07-bootstrapping-roadmap.md)

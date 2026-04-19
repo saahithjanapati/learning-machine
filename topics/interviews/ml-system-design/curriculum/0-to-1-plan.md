@@ -5,12 +5,12 @@ Topic Path: `topics/interviews/ml-system-design`
 ## Source Trace
 
 - Canonical manifest: `learning_system/SOURCE_MAP.json`
-- Topic locator: `topics/interviews/ml-system-design/curriculum/0-to-1-plan.md`
+- Topic locator: [topics/interviews/ml-system-design/curriculum/0-to-1-plan.md](0-to-1-plan.md)
 - Transcript links: keep these in `## Source Materials`.
 
 ## Source Materials
 
-- `materials/processed/interviews/system_design.md`
+- [materials/processed/interviews/system_design.md](../../../../materials/processed/interviews/system_design.md)
 
 ## Transcript Anchors
 

@@ -5,7 +5,7 @@ Source transcripts live in: `materials/processed/interviews/`
 ## Mapping
 
 - Interview topic landscape
-  - `materials/processed/interviews/system_design.md`
+  - [materials/processed/interviews/system_design.md](../../../../materials/processed/interviews/system_design.md)
 
 ## Coverage
 

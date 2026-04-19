@@ -7,7 +7,7 @@ Assistant response:
 Using `adaptive-session-tutor` skill because you asked for a live, adaptive review.
 
 Grounding source:
-- `materials/processed/probabilistic-graphical-models/Lecture_5_inference.md`
+- [materials/processed/probabilistic-graphical-models/Lecture_5_inference.md](../../../materials/processed/probabilistic-graphical-models/Lecture_5_inference.md)
 
 Default session setup (change anytime):
 - mode: `mixed`

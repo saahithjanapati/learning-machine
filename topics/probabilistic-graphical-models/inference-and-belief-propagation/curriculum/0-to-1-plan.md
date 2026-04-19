@@ -5,7 +5,7 @@ Topic Path: `topics/probabilistic-graphical-models/inference-and-belief-propagat
 ## Source Trace
 
 - Canonical manifest: `learning_system/SOURCE_MAP.json`
-- Topic locator: `topics/probabilistic-graphical-models/inference-and-belief-propagation/curriculum/0-to-1-plan.md`
+- Topic locator: [topics/probabilistic-graphical-models/inference-and-belief-propagation/curriculum/0-to-1-plan.md](0-to-1-plan.md)
 - Transcript links: see source sections in this curriculum.
 
 ## Outcome
@@ -14,8 +14,8 @@ By the end of this topic, you should be able to formulate inference queries, exp
 
 ## Source Materials
 
-- `materials/processed/probabilistic-graphical-models/Lecture_5_inference.md`
-- `materials/processed/probabilistic-graphical-models/Lecture_6_7_beliefprop.md`
+- [materials/processed/probabilistic-graphical-models/Lecture_5_inference.md](../../../../materials/processed/probabilistic-graphical-models/Lecture_5_inference.md)
+- [materials/processed/probabilistic-graphical-models/Lecture_6_7_beliefprop.md](../../../../materials/processed/probabilistic-graphical-models/Lecture_6_7_beliefprop.md)
 
 ## Transcript Anchors
 
