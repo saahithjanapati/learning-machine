@@ -1,6 +1,6 @@
 # Learner Evidence: optimization-for-ml
 
-Generated: 2026-04-18T22:40:33-04:00
+Generated: 2026-04-19T12:44:29-04:00
 
 Source log: [EVIDENCE_LOG.jsonl](../EVIDENCE_LOG.jsonl)
 
@@ -9,13 +9,19 @@ Source log: [EVIDENCE_LOG.jsonl](../EVIDENCE_LOG.jsonl)
 | Concept | Entries | Last Seen | Event Types | Review States |
 |---|---:|---|---|---|
 | `decoupled-weight-decay` | 3 | 2026-04-18T21:15:58-04:00 | `doubt`=3 | `addressed`=3 |
+| `whitening-second-moment-identity` | 3 | 2026-04-19T10:16:40-04:00 | `doubt`=1, `incorrect-answer`=2 | `addressed`=3 |
+| `adamw` | 2 | 2026-04-19T12:42:12-04:00 | `doubt`=2 | `addressed`=2 |
 | `dual-function-infimum-vs-supremum` | 2 | 2026-04-18T22:27:12-04:00 | `doubt`=1, `incorrect-answer`=1 | `addressed`=2 |
+| `l2-regularization` | 2 | 2026-04-19T12:42:12-04:00 | `doubt`=2 | `addressed`=2 |
 | `quadratic-form-expansion` | 2 | 2026-04-18T16:46:37-04:00 | `doubt`=2 | `addressed`=2 |
 | `variance-after-whitening` | 2 | 2026-04-18T21:15:58-04:00 | `doubt`=1, `incorrect-answer`=1 | `addressed`=2 |
+| `weight-decay` | 2 | 2026-04-19T12:42:12-04:00 | `doubt`=2 | `addressed`=2 |
+| `whitening-vs-independence` | 2 | 2026-04-19T10:16:40-04:00 | `incorrect-answer`=2 | `addressed`=2 |
 | `adamw-decoupling` | 1 | 2026-04-18T14:46:04-04:00 | `doubt`=1 | `addressed`=1 |
 | `adamw-review-needed` | 1 | 2026-04-18T21:15:58-04:00 | `doubt`=1 | `addressed`=1 |
 | `adamw-update-rule` | 1 | 2026-04-18T20:22:11-04:00 | `doubt`=1 | `addressed`=1 |
 | `adamw-vs-l2` | 1 | 2026-04-18T20:09:11-04:00 | `doubt`=1 | `addressed`=1 |
+| `adaptive-scaling` | 1 | 2026-04-19T12:42:12-04:00 | `doubt`=1 | `addressed`=1 |
 | `adaptive-weight-decay-distinction` | 1 | 2026-04-18T20:09:11-04:00 | `doubt`=1 | `addressed`=1 |
 | `alpha-vs-beta` | 1 | 2026-04-18T14:46:03-04:00 | `doubt`=1 | `addressed`=1 |
 | `basis-vector-entry-selection` | 1 | 2026-04-18T16:30:31-04:00 | `doubt`=1 | `addressed`=1 |
@@ -23,18 +29,23 @@ Source log: [EVIDENCE_LOG.jsonl](../EVIDENCE_LOG.jsonl)
 | `conditional-expectation` | 1 | 2026-04-18T14:46:03-04:00 | `proof-gap`=1 | `addressed`=1 |
 | `discrete-expectation-over-indices` | 1 | 2026-04-18T14:46:03-04:00 | `proof-gap`=1 | `addressed`=1 |
 | `dual-function-as-lower-envelope` | 1 | 2026-04-18T22:40:32-0400 | `doubt`=1 | `addressed`=1 |
+| `expectation-of-scalar-vs-matrix` | 1 | 2026-04-18T23:41:42-04:00 | `doubt`=1 | `addressed`=1 |
 | `first-vs-second-moment` | 1 | 2026-04-18T20:22:11-04:00 | `doubt`=1 | `addressed`=1 |
 | `fixed-vector-in-expectation` | 1 | 2026-04-18T14:46:03-04:00 | `proof-gap`=1 | `addressed`=1 |
 | `gradient-linearization` | 1 | 2026-04-18T15:01:59-04:00 | `doubt`=1 | `addressed`=1 |
 | `gradient-mapping` | 1 | 2026-04-18T14:46:03-04:00 | `doubt`=1 | `addressed`=1 |
 | `hessian-as-jacobian-of-gradient` | 1 | 2026-04-18T15:01:59-04:00 | `doubt`=1 | `addressed`=1 |
+| `hw4-momentum-quadratic-analysis` | 1 | 2026-04-19T10:16:40-04:00 | `doubt`=1 | `open`=1 |
 | `indicator-function` | 1 | 2026-04-18T14:46:03-04:00 | `doubt`=1 | `addressed`=1 |
 | `kkt-condition-completeness` | 1 | 2026-04-18T21:15:57-04:00 | `incorrect-answer`=1 | `addressed`=1 |
+| `kkt-sufficiency-necessity` | 1 | 2026-04-19T12:31:13-04:00 | `doubt`=1 | `open`=1 |
 | `lower-envelope-of-affine-functions` | 1 | 2026-04-18T22:27:12-04:00 | `doubt`=1 | `addressed`=1 |
 | `lp-duality-precision` | 1 | 2026-04-18T21:15:57-04:00 | `incorrect-answer`=1 | `addressed`=1 |
 | `matrix-square-root-trick` | 1 | 2026-04-18T14:46:04-04:00 | `doubt`=1 | `addressed`=1 |
 | `mini-batch-unbiasedness` | 1 | 2026-04-18T14:46:03-04:00 | `proof-gap`=1 | `addressed`=1 |
+| `nonconvex-candidate-points` | 1 | 2026-04-19T12:31:13-04:00 | `doubt`=1 | `open`=1 |
 | `objective-gap-vs-iterate` | 1 | 2026-04-18T21:15:58-04:00 | `doubt`=1 | `open`=1 |
+| `optimizer-equivalence` | 1 | 2026-04-19T00:00:00-04:00 | `doubt`=1 | `addressed`=1 |
 | `order-of-min-and-max` | 1 | 2026-04-18T22:40:32-0400 | `doubt`=1 | `addressed`=1 |
 | `pointwise-infimum-over-x` | 1 | 2026-04-18T22:40:32-0400 | `doubt`=1 | `addressed`=1 |
 | `preconditioning-intuition` | 1 | 2026-04-18T14:46:04-04:00 | `doubt`=1 | `addressed`=1 |
@@ -42,9 +53,12 @@ Source log: [EVIDENCE_LOG.jsonl](../EVIDENCE_LOG.jsonl)
 | `prox-piecewise-logic` | 1 | 2026-04-18T14:46:04-04:00 | `proof-gap`=1 | `addressed`=1 |
 | `prox-update-geometry` | 1 | 2026-04-18T14:46:03-04:00 | `doubt`=1 | `addressed`=1 |
 | `psd-inner-product` | 1 | 2026-04-18T14:46:04-04:00 | `doubt`=1 | `addressed`=1 |
+| `quadratic-form-expectation` | 1 | 2026-04-18T23:41:42-04:00 | `doubt`=1 | `addressed`=1 |
 | `sdp-feasibility` | 1 | 2026-04-18T14:46:04-04:00 | `doubt`=1 | `addressed`=1 |
+| `slater-condition` | 1 | 2026-04-19T12:31:13-04:00 | `doubt`=1 | `open`=1 |
 | `soft-thresholding-case-split` | 1 | 2026-04-18T14:46:04-04:00 | `proof-gap`=1 | `addressed`=1 |
 | `sos-gram-matrix` | 1 | 2026-04-18T14:46:04-04:00 | `doubt`=1 | `addressed`=1 |
+| `spectral-radius-linear-system-view` | 1 | 2026-04-19T10:16:40-04:00 | `doubt`=1 | `open`=1 |
 | `squared-norm-lagrangian` | 1 | 2026-04-18T16:08:46-04:00 | `doubt`=1 | `addressed`=1 |
 | `stationarity-not-sufficient` | 1 | 2026-04-18T21:15:57-04:00 | `incorrect-answer`=1 | `addressed`=1 |
 | `strong-convexity-parameter` | 1 | 2026-04-18T14:46:03-04:00 | `doubt`=1 | `addressed`=1 |
@@ -53,10 +67,71 @@ Source log: [EVIDENCE_LOG.jsonl](../EVIDENCE_LOG.jsonl)
 | `taylor-expansion-of-gradient` | 1 | 2026-04-18T15:01:59-04:00 | `doubt`=1 | `addressed`=1 |
 | `uncorrelated-vs-independent` | 1 | 2026-04-18T20:09:11-04:00 | `incorrect-answer`=1 | `addressed`=1 |
 | `unit-norm-constraint` | 1 | 2026-04-18T16:08:46-04:00 | `doubt`=1 | `addressed`=1 |
-| `whitening-second-moment-identity` | 1 | 2026-04-18T21:15:58-04:00 | `incorrect-answer`=1 | `addressed`=1 |
-| `whitening-vs-independence` | 1 | 2026-04-18T20:09:11-04:00 | `incorrect-answer`=1 | `addressed`=1 |
+| `whitening-definition` | 1 | 2026-04-19T10:16:40-04:00 | `incorrect-answer`=1 | `addressed`=1 |
 
 ## Recent Entries
+
+### 2026-04-19T12:42:12-04:00 | adaptive-methods
+
+- Event type: `doubt`
+- Review state: `addressed`
+- Concepts: `weight-decay`, `l2-regularization`, `adamw`, `adaptive-scaling`
+- Summary: Confused about why L2 regularization and weight decay are equivalent in plain SGD but diverge under Adam-style adaptive scaling, especially AdamW.
+- Learner evidence: Asked why L2 regularization and weight decay coincide in plain SGD but not in Adam/AdamW.
+- Assistant response: Explained that in plain SGD the L2 term and multiplicative decay induce the same update, but adaptive per-parameter scaling in Adam breaks that equivalence unless decay is decoupled as in AdamW.
+- Source: `topics/optimization-for-ml/lessons/2026-04-14-exam-2-live-chat.md` (Turn 60)
+
+### 2026-04-19T12:31:13-04:00 | kkt
+
+- Event type: `doubt`
+- Review state: `open`
+- Concepts: `kkt-sufficiency-necessity`, `slater-condition`, `nonconvex-candidate-points`
+- Summary: Confused about when KKT is sufficient versus necessary, especially convex problems with Slater conditions versus nonconvex candidate points.
+- Learner evidence: Unsure whether KKT guarantees optimality only in convex+Slater cases, and how that differs from using KKT conditions as a candidate-point test in nonconvex problems.
+
+### 2026-04-19T10:16:40-04:00 | momentum-nag
+
+- Event type: `doubt`
+- Review state: `open`
+- Concepts: `spectral-radius-linear-system-view`, `hw4-momentum-quadratic-analysis`
+- Summary: On select-all Version B, was unsure whether the HW4 momentum analysis uses spectral radius of a small linear update matrix.
+- Learner evidence: In 2.8d, wrote "idk..."
+- Assistant response: Flagged for follow-up review during grading of the second select-all set.
+- Source: `topics/optimization-for-ml/lessons/2026-04-14-exam-2-live-chat.md` (Turn 66)
+- Timestamp precision: `backfilled-session`
+
+### 2026-04-19T10:16:40-04:00 | ica
+
+- Event type: `incorrect-answer`
+- Review state: `addressed`
+- Concepts: `whitening-definition`, `whitening-second-moment-identity`, `whitening-vs-independence`
+- Summary: On select-all Version B, marked the whitening definition statement E[zz^T]=I as false and showed continuing instability around whitening facts.
+- Learner evidence: In 2.7, wrote that whitening was false because zz^T would be scalar, while marking c and e true.
+- Assistant response: Clarified that whitening is exactly E[zz^T]=I and separated that from the false independence claim.
+- Source: `topics/optimization-for-ml/lessons/2026-04-14-exam-2-live-chat.md` (Turn 66)
+- Timestamp precision: `backfilled-session`
+
+### 2026-04-19T00:00:00-04:00 | adaptive-methods
+
+- Event type: `doubt`
+- Review state: `addressed`
+- Concepts: `weight-decay`, `l2-regularization`, `adamw`, `optimizer-equivalence`
+- Summary: Repeated confusion about whether weight decay and L2 regularization are the same thing, revisiting the AdamW distinction.
+- Learner evidence: Follow-up confusion about whether weight decay and L2 regularization are 'the same thing'.
+- Assistant response: Reinforced that they coincide in vanilla SGD but diverge once adaptive scaling enters; AdamW restores the intended decoupled decay behavior.
+- Source: `topics/optimization-for-ml/lessons/2026-04-14-exam-2-live-chat.md` (Turn 60 follow-up)
+- Timestamp precision: `date-only-backfill`
+
+### 2026-04-18T23:41:42-04:00 | ica
+
+- Event type: `doubt`
+- Review state: `addressed`
+- Concepts: `whitening-second-moment-identity`, `quadratic-form-expectation`, `expectation-of-scalar-vs-matrix`
+- Summary: Asked for a step-by-step explanation of why E[(w^T z)^2] = w^T E[zz^T] w = w^T I w = ||w||^2 in the ICA whitening argument.
+- Learner evidence: can u explain this part: E[(w^T z)^2] = w^T E[zz^T] w = w^T I w = ||w||^2
+- Assistant response: Explained the identity by rewriting (w^T z)^2 as w^T (zz^T) w, then pulling the fixed vector w through expectation and using the whitening condition E[zz^T]=I.
+- Source: `topics/optimization-for-ml/lessons/2026-04-14-exam-2-live-chat.md` (Turn 65)
+- Timestamp precision: `backfilled-session`
 
 ### 2026-04-18T22:40:32-0400 | duality
 

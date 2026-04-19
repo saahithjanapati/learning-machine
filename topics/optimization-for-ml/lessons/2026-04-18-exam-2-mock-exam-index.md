@@ -8,6 +8,9 @@ Modeled on the structure of `Exam 1`, but covering the `Feb 19 - Apr 14` materia
 - [[2026-04-18-exam-2-mock-exam-select-all|Part II: Select All That Apply]]
 - [[2026-04-18-exam-2-mock-exam-short-answer|Part III: Short Answer / Proof]]
 - [[2026-04-18-exam-2-mock-exam-answer-key|Answer Key]]
+- [[2026-04-19-exam-2-mock-exam-short-answer-platonic-answers|Platonic Short-Answer Answers]]
+- [[2026-04-19-exam-2-mock-exam-select-all-v2|Extra Practice: Select All Version B]]
+- [[2026-04-19-exam-2-mock-exam-select-all-v2-answer-key|Version B Answer Key]]
 
 ## Point Split
 
@@ -52,3 +55,4 @@ In particular, I tried to keep the difficulty in the same band as Exam 1:
 - First pass: do the three question files without opening the key.
 - Second pass: grade against [[2026-04-18-exam-2-mock-exam-answer-key]].
 - Third pass: convert misses into new learner-evidence entries or targeted drills.
+- If you want another select-all round in the same style, use [[2026-04-19-exam-2-mock-exam-select-all-v2]].

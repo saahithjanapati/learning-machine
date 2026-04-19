@@ -38,6 +38,7 @@ $$
 
 ### 3.3
 
+
 [5 pts] Assume $\nabla^2 f(x_k)\succ 0$ and $\nabla f(x_k)\neq 0$. Show that the Newton step
 
 $$
