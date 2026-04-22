@@ -19,6 +19,10 @@ Each section now also ends with:
 - `Formal Anchors`: the precise statements, identities, and conditions worth knowing rigorously
 - `Worked Problems`: fully solved exam-style questions collected in one place
 
+There is now also a separate cross-cutting primer:
+
+- `Math Machinery Primer`: the reusable algebra, information theory, calculus, linear algebra, Markov-chain, and causal-adjustment moves that keep appearing across the whole class
+
 ## Table of Contents
 
 - [[#How To Use These Notes]]
@@ -32,6 +36,10 @@ Each section now also ends with:
 ## How To Use These Notes
 
 If you have not been going to class, the biggest mistake is trying to memorize isolated formulas before you know what problem each formula is solving.
+
+If the notation itself feels foreign before the PGM idea even starts, begin with:
+
+[[2026-04-22-pgm-exam-prep-math-machinery|Math Machinery Primer]]
 
 So for each section, use this order:
 
@@ -55,15 +63,17 @@ Those four questions rescue a surprising amount of confusion.
 
 If the exam is close and you need the highest-value reading order, do this:
 
-1. Section 1 to understand what a graphical model even is
-2. Section 2 to learn directed vs undirected models and the basic independence language
-3. Section 3 because inference, elimination, treewidth, and BP are central
-4. Section 5 and Section 6 because MCMC and VI are major algorithmic themes
-5. Section 7 and Section 8 because late-course topics often show up as conceptual questions
-6. Section 4 last, unless your practice material suggests GNNs are emphasized
+1. Math Machinery Primer if expectation, KL, gradients, or probability algebra feel shaky
+2. Section 1 to understand what a graphical model even is
+3. Section 2 to learn directed vs undirected models and the basic independence language
+4. Section 3 because inference, elimination, treewidth, and BP are central
+5. Section 5 and Section 6 because MCMC and VI are major algorithmic themes
+6. Section 7 and Section 8 because late-course topics often show up as conceptual questions
+7. Section 4 last, unless your practice material suggests GNNs are emphasized
 
 If you are *really* short on time:
 
+- Math Machinery Primer
 - Section 2
 - Section 3
 - Section 5
@@ -99,6 +109,14 @@ So if a section ever feels abstract, come back to this:
 That is most of the class.
 
 ## Reading Order
+
+### Math Machinery Primer
+
+Read this first if the course notation itself still feels shaky.
+It collects the reusable algebra and math moves that keep showing up across every major section:
+probability algebra, expectations, entropy and KL, logs and partition functions, derivatives, Gaussian facts, Markov-chain basics, and causal-adjustment formulas.
+
+[[2026-04-22-pgm-exam-prep-math-machinery]]
 
 ### Section 1. Foundations
 
