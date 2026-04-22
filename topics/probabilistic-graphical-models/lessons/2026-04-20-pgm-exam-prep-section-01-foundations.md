@@ -105,11 +105,11 @@ entries.
 
 That number grows exponentially in the number of variables.
 
-If `c = 2`, then with:
+If $c = 2$, then with:
 
-- `10` variables you have `2^{10} = 1024` entries
-- `20` variables you have `2^{20}` entries, already over a million
-- `100` variables you have `2^{100}`, which is absurdly large
+- $10$ variables you have $2^{10} = 1024$ entries
+- $20$ variables you have $2^{20}$ entries, already over a million
+- $100$ variables you have $2^{100}$, which is absurdly large
 
 So even though the idea of a joint distribution is simple, writing it down naively becomes impossible very quickly.
 
@@ -174,7 +174,7 @@ There are four different things here, and keeping them separate will save you a 
 ### 1. The variables
 
 These are the random quantities:
-`X_1, ..., X_d`.
+$X_1, \ldots, X_d$.
 
 ### 2. The graph
 

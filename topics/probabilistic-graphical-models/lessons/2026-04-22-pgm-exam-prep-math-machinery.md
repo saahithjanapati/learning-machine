@@ -282,7 +282,7 @@ $$
 H(Y\mid X)=\mathbb{E}_X[H(Y\mid X=x)].
 $$
 
-It measures how uncertain `Y` remains once `X` is known.
+It measures how uncertain $Y$ remains once $X$ is known.
 
 ### Chain rule of entropy
 
@@ -335,8 +335,8 @@ $$
 
 This matters in VI versus MLE-style behavior:
 
-- `KL(q||p)` often behaves more mode-seeking
-- `KL(p||q)` often behaves more mass-covering
+- $\mathrm{KL}(q\|p)$ often behaves more mode-seeking
+- $\mathrm{KL}(p\|q)$ often behaves more mass-covering
 
 That exact contrast appears in the practice exam and in the late-course generative-model discussion.
 
@@ -444,7 +444,7 @@ $$
 
 Its role is simple:
 
-- divide by the total mass so probabilities sum or integrate to `1`
+- divide by the total mass so probabilities sum or integrate to $1$
 
 Its computational role is hard:
 
@@ -456,17 +456,17 @@ You often care about
 $$
 \log Z
 $$
-rather than `Z` itself.
+rather than $Z$ itself.
 
 Why?
 
 - likelihoods use logs
-- variational principles are often stated in terms of `log Z`
-- derivatives of `log Z` have especially useful expectation forms
+- variational principles are often stated in terms of $\log Z$
+- derivatives of $\log Z$ have especially useful expectation forms
 
 ### Why unnormalized models are still useful
 
-Even if you cannot compute `Z`, you can often still do useful things:
+Even if you cannot compute $Z$, you can often still do useful things:
 
 - compare energies
 - run MH because $Z$ cancels
@@ -694,14 +694,14 @@ $$
 show up constantly.
 This is a quadratic form.
 
-If `A` is symmetric positive semidefinite, then
+If $A$ is symmetric positive semidefinite, then
 $$
 x^T A x \ge 0.
 $$
 
 ### Covariance matrix
 
-For a random vector `X`,
+For a random vector $X$,
 $$
 \Sigma = \mathrm{Cov}(X).
 $$
@@ -747,7 +747,7 @@ You do not need every version memorized, but you should recognize the goal:
 
 For WGAN and optimization-style statements, know the informal meaning:
 
-- a `1`-Lipschitz function cannot change faster than linearly with slope bigger than `1`
+- a $1$-Lipschitz function cannot change faster than linearly with slope bigger than $1$
 
 You do not need advanced functional analysis here.
 You do need to recognize that Lipschitz constraints are controlling how sharply the critic can vary.
@@ -1175,8 +1175,8 @@ They are different objectives and can prefer very different approximations.
 
 In this course, a standard rough summary is:
 
-- `KL(q||p)` tends to be more mode-seeking
-- `KL(p||q)` tends to be more mass-covering
+- $\mathrm{KL}(q\|p)$ tends to be more mode-seeking
+- $\mathrm{KL}(p\|q)$ tends to be more mass-covering
 
 That is why VI and likelihood-based fitting can behave differently on multimodal targets.
 

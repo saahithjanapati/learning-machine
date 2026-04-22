@@ -214,8 +214,8 @@ That is why there is no separate global partition function in the DAG factorizat
 
 ### Parameter savings
 
-Suppose each variable takes `r` possible values and each node has at most `D` parents.
-Then each local conditional table is on the order of `r^D` in parent configuration size, not `r^n`.
+Suppose each variable takes $r$ possible values and each node has at most $D$ parents.
+Then each local conditional table is on the order of $r^D$ in parent configuration size, not $r^n$.
 
 So DAG structure is useful when each node has only a few parents.
 

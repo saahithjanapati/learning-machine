@@ -354,7 +354,9 @@ Treewidth is the structural summary of the elimination-order story.
 
 At the level you need for this course, the operational definition is:
 
-`treewidth = the smallest possible value of (largest induced clique size minus 1) over all elimination orders`
+$\text{treewidth} =$ the smallest possible value of
+$(\text{largest induced clique size} - 1)$
+over all elimination orders.
 
 That sounds abstract, so unpack it slowly.
 
@@ -370,20 +372,20 @@ how bad does the biggest forced cluster get, even if you choose the best possibl
 ### Why the minus 1?
 
 Because graph theorists define treewidth that way.
-If the biggest induced clique has size `k+1`, the treewidth is `k`.
+If the biggest induced clique has size $k+1$, the treewidth is $k$.
 
 ### Examples worth remembering
 
-- a tree has treewidth `1`
-- a clique on `N` nodes has treewidth `N-1`
-- an `N x N` grid has treewidth on the order of `N`
+- a tree has treewidth $1$
+- a clique on $N$ nodes has treewidth $N-1$
+- an $N \times N$ grid has treewidth on the order of $N$
 
 These examples tell you why trees are special:
 their worst forced cluster stays tiny.
 
 ### Why treewidth matters computationally
 
-If each variable has `c` states and you create a factor over `k` variables, the table size is on the order of
+If each variable has $c$ states and you create a factor over $k$ variables, the table size is on the order of
 $$
 c^k.
 $$
@@ -758,7 +760,7 @@ That is the exact local algebraic move behind VE.
 Operationally, treewidth is:
 
 - the minimum, over elimination orders, of
-- largest induced clique size minus `1`
+- largest induced clique size minus $1$
 
 Exact inference complexity is exponential in this width.
 

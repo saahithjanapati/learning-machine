@@ -105,11 +105,11 @@ $$
 
 Read this slowly.
 
-Each node `v` has a hidden state $h_v^{(t)}$ at layer or iteration `t`.
+Each node $v$ has a hidden state $h_v^{(t)}$ at layer or iteration $t$.
 
-To update node `v`:
+To update node $v$:
 
-1. each neighbor `u` contributes some message
+1. each neighbor $u$ contributes some message
 2. those messages are aggregated
 3. the node updates its hidden state using the aggregated information
 

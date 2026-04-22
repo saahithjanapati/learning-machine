@@ -521,7 +521,7 @@ $$
 
 That is the whole variational inference story in one sentence:
 
-`maximize ELBO <=> minimize KL from q to the true posterior`
+$\text{maximize ELBO} \Longleftrightarrow \text{minimize } \mathrm{KL}(q \,\|\, \text{true posterior})$
 
 ### How to read the ELBO itself
 
@@ -653,7 +653,7 @@ That is why the updates have a "local negotiation" feel:
 
 One of the most important conceptual points in all of approximate inference is:
 
-`the direction of KL matters`
+$\text{the direction of } \mathrm{KL} \text{ matters}$
 
 The ELBO corresponds to minimizing
 $$

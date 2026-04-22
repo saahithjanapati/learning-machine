@@ -4,40 +4,52 @@
 
 - [[#Big Picture]]
 - [[#0. How To Use This Section]]
-- [[#8.0 Observing Is Not the Same as Intervening]]
-- [[#8.1 Conditioning Versus Intervention, Slowly]]
-- [[#8.2 Backdoor, Slowly]]
-- [[#8.3 Front-Door, Slowly]]
-- [[#8.4 Do-Calculus at a High Level]]
-- [[#8.5 Causal Discovery and Markov Equivalence]]
-- [[#8.6 SGS and PC, Slowly]]
-- [[#8.7 What Interventions Buy You for Discovery]]
-- [[#8.8 What You Should Be Able To Say Out Loud]]
+- [[#8.0 What Causality Adds Beyond Ordinary Graphical Models]]
+- [[#8.1 Structural Equations, Exogenous Variables, and Modularity]]
+- [[#8.2 Observation Versus Intervention, Slowly]]
+- [[#8.3 Truncated Factorization and a Simple Adjustment Example]]
+- [[#8.4 Backdoor, Slowly and Rigorously]]
+- [[#8.5 Front-Door, Slowly and Rigorously]]
+- [[#8.6 Do-Calculus at a High Level]]
+- [[#8.7 Causal Discovery and Markov Equivalence]]
+- [[#8.8 SGS and PC, Slowly]]
+- [[#8.9 What Interventions Buy You for Discovery]]
+- [[#8.10 What You Should Be Able To Say Out Loud]]
 - [[#Formal Anchors]]
 - [[#Worked Problems]]
 
 ## Big Picture
 
-This section introduces a genuinely new kind of question.
+This section is where the course stops asking only observational questions.
 
-Earlier in the course, most questions were observational:
+Earlier sections mostly asked things like:
 
-- if I observe some variables, what can I infer about other variables?
+- if I observe $X$, what should I believe about $Y$?
+- if I condition on some evidence, what marginals change?
 
-Causality asks a different question:
+Those are questions about association under one fixed data-generating process.
+
+Causality asks a stronger question:
 
 - what would happen if I actively changed part of the system?
 
-That is why this section matters.
+That is why this section feels different.
 
-It is not “just more probabilistic inference.”
-It is a shift from:
+It is not just “more Bayes nets.”
+It is the moment where a directed graph is interpreted as a model of mechanisms rather than just a compact factorization.
 
-- seeing
+So the core sentence of the section is:
 
-to
+`causal inference is about predicting the consequences of interventions, not just describing correlations in observational data`
 
-- doing
+That shift sounds small in words, but it is conceptually huge.
+
+Once interventions enter, we have to distinguish:
+
+- seeing a variable take a value
+- forcing a variable to take a value
+
+If you keep that distinction clear, the rest of the section becomes much easier.
 
 ## 0. How To Use This Section
 
@@ -48,263 +60,902 @@ Primary lecture coverage:
 - `Lecture 24`
 - `Lecture 25`
 
-This section uses a lot of graph language.
+This section mixes three layers of ideas:
 
-If you feel lost, always ask:
+1. **Causal semantics:** what a causal graph means
+2. **Identification:** when $P(Y \mid do(T=t))$ can be written using observational quantities
+3. **Discovery:** what parts of the graph can be recovered from data
 
-- am I merely observing a variable?
-- or am I forcing it to a value?
+Students often blend those together.
 
-That one distinction clears up a huge amount of confusion.
+Do not.
 
-## 8.0 Observing Is Not the Same as Intervening
+As you read, keep asking:
 
-Suppose you observe that a patient took a treatment.
+1. Am I talking about the meaning of an intervention?
+2. Am I talking about whether a causal effect is identifiable?
+3. Am I talking about learning the graph itself?
 
-That does **not** mean the same thing as you randomly assigning that treatment yourself.
+Those are related, but they are not the same question.
 
-Why not?
+## 8.0 What Causality Adds Beyond Ordinary Graphical Models
 
-Because in the observational world, the reasons the patient took the treatment may themselves be related to the outcome.
+A directed acyclic graph in an ordinary probabilistic-graphical-model sense tells us a factorization:
+$$
+P(x_1,\dots,x_n)=\prod_i P(x_i \mid \mathrm{pa}_i).
+$$
+
+That is already useful.
+
+But causality adds an interpretation:
+
+- the parents of a node are its direct causes
+- edges point in the direction of causal influence
+
+This is stronger than ordinary probabilistic semantics.
+
+### Why ordinary conditional distributions are not enough
+
+From observational data alone, we may know that:
+
+- treatment and outcome are associated
+
+But that does not tell us whether treatment causes outcome.
+
+The association could arise because:
+
+- treatment causes outcome
+- outcome causes treatment
+- a third variable causes both
+
+This is the “correlation is not causation” warning.
+
+### Why directed edges now mean more
+
+In ordinary DAGs, directed edges help define conditional independence and factorization.
+
+In causal DAGs, they also encode:
+
+- what changes when we intervene
+- which mechanisms are disrupted by manipulation
+
+That extra semantic content is what makes causal inference possible.
+
+## 8.1 Structural Equations, Exogenous Variables, and Modularity
+
+The lecture gives causal DAGs a mechanistic interpretation through structural equations.
+
+### Structural equations
+
+Instead of only writing conditional tables, imagine each variable is generated by an equation:
+$$
+X_i := f_i(\mathrm{pa}_i, U_i),
+$$
+where:
+
+- $\mathrm{pa}_i$ are the parents of $X_i$
+- $U_i$ is an exogenous noise variable
+
+### Endogenous versus exogenous variables
+
+The variables inside the graph, such as $X,Y,Z$, are **endogenous**.
+
+The noise variables $U_X, U_Y, U_Z$ are **exogenous**:
+
+- they represent randomness
+- omitted microscopic detail
+- or unknown external influences
+
+The lecture emphasizes that any probabilistic relation can be represented this way by introducing suitable exogenous noise.
+
+### Why this viewpoint matters
+
+It turns the graph from a static factorization into a collection of mechanisms:
+
+- one mechanism for $X$
+- one mechanism for $Y$
+- and so on
+
+That is exactly what interventions will modify.
+
+### Modularity
+
+The causality lectures stress the idea of **modularity**:
+
+- each variable has its own mechanism
+- an intervention on one variable should replace only that variable’s mechanism
+- all other mechanisms stay unchanged
+
+This is crucial.
+
+If interventions scrambled the whole system arbitrarily, the graph would not let us reason cleanly about causal effects.
+
+Modularity is what makes “surgical” interventions meaningful.
+
+## 8.2 Observation Versus Intervention, Slowly
+
+This is the most important distinction in the section.
+
+### Conditioning
+
+If we condition on $T=t$, we are looking at the subpopulation in which treatment happened to equal $t$.
+
+So
+$$
+P(Y \mid T=t)
+$$
+means:
+
+- in the observational world
+- among units where treatment happened to be $t$
+- what is the distribution of $Y$?
+
+### Intervention
+
+If we intervene and set $T:=t$, we replace the mechanism that ordinarily determines $T$.
+
+So
+$$
+P(Y \mid do(T=t))
+$$
+means:
+
+- in the entire population
+- after we force treatment to equal $t$
+- what would the distribution of $Y$ be?
+
+### Why these are different
+
+In the observational world, the value of $T$ may depend on other variables that also affect $Y$.
 
 That is confounding.
 
-So causal inference begins from a warning:
+So the subpopulation with $T=t$ may be systematically different from the one with $T=t'$ even before the treatment acts.
 
-correlation is not automatically intervention effect.
+Therefore:
+$$
+P(Y \mid T=t) \neq P(Y \mid do(T=t))
+$$
+in general.
 
-## 8.1 Conditioning Versus Intervention, Slowly
+### Plain-English example
 
-Conditioning means:
+The lecture gives the classic kind of example:
 
-- you observe `T=t`
-- you update beliefs about everything else
+- observing that people who eat more ice cream get more sunburns
 
-Intervention means:
+does not imply:
 
-- you set `T=t`
-- you break the normal causal mechanism that would have chosen `T`
+- forcing people to eat ice cream would cause more sunburn
 
-This is why the notation $P(Y \mid T=t)$ is different from $P(Y \mid do(T=t))$.
+because weather may drive both.
 
-In words:
+So observation changes beliefs.
+Intervention changes the world.
 
-- $P(Y \mid T=t)$ = what outcomes are associated with treatment level $t$ in the observational world
-- $P(Y \mid do(T=t))$ = what outcomes would happen if we forced treatment to $t$
+That sentence is worth remembering.
 
-The two only match under special conditions.
+### Graph surgery intuition
 
-That is the whole reason causal graphs matter.
+Under an intervention $do(T=t)$, think of the incoming arrows into $T$ as being cut.
 
-## 8.2 Backdoor, Slowly
+The ordinary equation
+$$
+T := f_T(\mathrm{pa}_T, U_T)
+$$
+is replaced by
+$$
+T := t.
+$$
 
-Backdoor is the friendliest causal-identification criterion in the course.
+That is why the do-operator is often described as “graph surgery.”
 
-Suppose you want the causal effect of treatment `T` on outcome `Y`.
+## 8.3 Truncated Factorization and a Simple Adjustment Example
 
-A set `W` satisfies the backdoor criterion if:
+Once we intervene, the joint distribution changes.
 
-- no variable in `W` is a descendant of `T`
-- `W` blocks all backdoor paths from `T` to `Y`
+### Truncated factorization
 
-What is a backdoor path?
+If we intervene on a set of nodes $S$, then the causal joint under the intervention is obtained by removing the factors for those nodes and fixing them to the intervention values.
 
-Any path that starts by going **into** `T`.
+The lecture states:
 
-Why do we care about those paths?
+if $x$ is consistent with $do(S=s)$, then
+$$
+P(x_1,\dots,x_n \mid do(S=s))
+=
+\prod_{i \notin S} P(x_i \mid \mathrm{pa}_i).
+$$
 
-Because they are the paths along which confounding sneaks in.
+This is called **truncated factorization**.
 
-So the practical meaning of backdoor is:
+The name is descriptive:
 
-find variables that block the noncausal routes from treatment to outcome, without blocking the effect you actually want.
+- start from the usual factorization
+- truncate away the mechanisms you intervened on
 
-If `W` satisfies the criterion, then
+### Why this matters
+
+This formula is the mathematical expression of modularity.
+
+It says:
+
+- only the intervened nodes have their mechanisms replaced
+- every other conditional remains the same
+
+### Simple confounding example
+
+Suppose the graph is
+$$
+X \to T,\qquad X \to Y,\qquad T \to Y.
+$$
+
+Here:
+
+- $T$ is treatment
+- $Y$ is outcome
+- $X$ is a confounder affecting both treatment and outcome
+
+Then the observational quantity is
+$$
+P(Y=y \mid T=t)=\sum_x P(X=x \mid T=t)P(Y=y \mid X=x,T=t).
+$$
+
+But under intervention:
+$$
+P(Y=y \mid do(T=t))
+=
+\sum_x P(Y=y,X=x \mid do(T=t)).
+$$
+
+Using the intervention semantics, this becomes
+$$
+P(Y=y \mid do(T=t))
+=
+\sum_x P(X=x)P(Y=y \mid X=x,T=t).
+$$
+
+### What changed?
+
+The observational formula weights by
+$$
+P(X=x \mid T=t),
+$$
+because among people who happened to receive treatment $t$, the confounder distribution is biased by treatment assignment.
+
+The interventional formula weights by
+$$
+P(X=x),
+$$
+because when we force the treatment, we do not let the natural causes of treatment distort the composition of the treated group.
+
+That is the algebraic heart of adjustment.
+
+## 8.4 Backdoor, Slowly and Rigorously
+
+Backdoor adjustment is the most important identification criterion in the course.
+
+### What is the goal?
+
+We want to express
+$$
+P(Y \mid do(T=t))
+$$
+using only observational quantities.
+
+When that is possible, the effect is called **identifiable** from observational data.
+
+### Backdoor paths
+
+A **backdoor path** from $T$ to $Y$ is an undirected path that starts with an arrow entering $T$.
+
+Why do we care about such paths?
+
+Because they are noncausal routes by which association can flow from $T$ to $Y$.
+
+They are exactly where confounding enters.
+
+### Backdoor criterion
+
+A set $W$ satisfies the backdoor criterion relative to treatment $T$ and outcome $Y$ if:
+
+1. $W$ blocks all backdoor paths from $T$ to $Y$
+2. $W$ contains no descendants of $T$
+
+### Why descendants of $T$ are forbidden
+
+Because descendants of $T$ may lie on the causal effect pathway or create other forms of bias.
+
+Conditioning on them can destroy the total effect you are trying to estimate, or open problematic paths.
+
+So the backdoor criterion is not merely:
+
+- “condition on enough variables”
+
+It is:
+
+- “condition on the right variables”
+
+### Backdoor adjustment formula
+
+If $W$ satisfies the criterion, then
+$$
+P(Y \mid do(T=t))
+=
+\sum_w P(Y \mid T=t,W=w)P(W=w).
+$$
+
+This is the central theorem.
+
+### Plain-English interpretation
+
+Backdoor adjustment says:
+
+- stratify into groups where the confounding variables $W$ are fixed
+- inside each stratum, compare outcome distributions at treatment $t$
+- then average those stratum-specific effects using the population distribution of $W$
+
+So the method is often described as:
+
+- adjustment
+- stratification
+- standardization
+
+depending on context
+
+### Why the formula makes sense
+
+Within a fixed level of $W$, the noncausal backdoor paths are blocked.
+
+So inside each stratum, the treatment-outcome comparison is cleaned of that confounding route.
+
+Then averaging over $W$ recovers the causal effect in the full population.
+
+### Important beginner warning: not every related variable should be conditioned on
+
+This is worth stating very explicitly.
+
+#### Conditioning on a confounder can help
+
+That is the whole point of backdoor adjustment.
+
+#### Conditioning on a mediator can change the estimand
+
+If $M$ lies on the path
+$$
+T \to M \to Y,
+$$
+then conditioning on $M$ blocks part of the treatment effect itself.
+
+So you are no longer estimating the total effect.
+
+#### Conditioning on a collider can create bias
+
+If
+$$
+T \to C \leftarrow U \to Y,
+$$
+then $T$ and $U$ may be marginally independent, but conditioning on the collider $C$ can make them dependent.
+
+That opens a spurious path from $T$ to $Y$.
+
+So “adjust for everything” is bad causal advice.
+
+### Corollary: when no backdoor paths exist
+
+If there are no backdoor paths from $T$ to $Y$, then
+$$
+P(Y \mid do(T=t))=P(Y \mid T=t).
+$$
+
+This is the clean “no confounding” case.
+
+### D-separation view
+
+The lecture also revisits backdoor via graph surgery:
+
+- remove outgoing edges from $T$ appropriately in the modified graph
+- check a d-separation condition there
+
+You do not need to treat that as a separate unrelated theorem.
+It is the graphical version of the same idea:
+
+- after isolating the treatment intervention
+- do the noncausal routes remain blocked by $W$?
+
+## 8.5 Front-Door, Slowly and Rigorously
+
+Backdoor is the friendliest criterion, but it is not always available.
+
+The main obstacle is unobserved confounding.
+
+### Motivation
+
+Suppose there is an unobserved confounder affecting both $T$ and $Y$.
+
+Then simple backdoor adjustment may fail because we cannot condition on that confounder.
+
+Front-door is a more delicate rescue strategy.
+
+### The front-door picture
+
+There is a mediator $M$ such that:
+
+- $T$ affects $M$
+- $M$ affects $Y$
+- the mediator structure is clean enough that we can reconstruct the treatment effect through $M$
+
+The lecture’s slogan is:
+
+- identify the causal effect of $T$ on $M$
+- identify the causal effect of $M$ on $Y$
+- combine them
+
+### Front-door criterion
+
+A mediator set $M$ satisfies the front-door criterion relative to $T$ and $Y$ if:
+
+1. $M$ intercepts all directed paths from $T$ to $Y$
+2. there is no unblocked backdoor path from $T$ to $M$
+3. all backdoor paths from $M$ to $Y$ are blocked by $T$
+
+This is more technical than backdoor, so it helps to read the conditions in plain English.
+
+#### Condition 1
+
+All causal influence of $T$ on $Y$ must pass through $M$.
+
+#### Condition 2
+
+The treatment-to-mediator relationship must itself be causally clean.
+
+#### Condition 3
+
+Once we condition on $T$, the mediator-to-outcome relationship must be clean enough to adjust.
+
+### Front-door formula
+
+Under the front-door criterion,
+$$
+P(Y \mid do(T=t))
+=
+\sum_m P(m \mid T=t)\sum_{t'} P(Y \mid m, t')P(t').
+$$
+
+This formula often looks magical the first time you see it.
+
+It helps to unpack where it comes from.
+
+### Why the formula works, conceptually
+
+Start from
+$$
+P(Y \mid do(T=t))
+=
+\sum_m P(m \mid do(T=t))P(Y \mid m, do(T=t)).
+$$
+
+Then the lecture uses two key claims.
+
+#### Claim 1
+
+Because there is no backdoor path from $T$ to $M$,
+$$
+P(m \mid do(T=t))=P(m \mid T=t).
+$$
+
+So the effect of treatment on mediator is observationally identifiable.
+
+#### Claim 2
+
+Because the mediator-to-outcome relation can be adjusted using $T$,
+$$
+P(Y \mid m, do(T=t))
+=
+P(Y \mid do(m))
+=
+\sum_{t'} P(Y \mid m,t')P(t').
+$$
+
+So the causal effect of $M$ on $Y$ can be recovered through an observational average over $T$.
+
+### Big-picture interpretation
+
+Front-door works by decomposing the hard treatment-to-outcome causal effect into two easier pieces:
+
+- treatment $\to$ mediator
+- mediator $\to$ outcome
+
+This is why it can succeed even when treatment itself is confounded with outcome.
+
+### What to remember for exams
+
+Backdoor and front-door are both identification criteria, but they work in very different ways:
+
+- backdoor blocks bad noncausal paths
+- front-door exploits a clean mediator pathway
+
+That contrast is essential.
+
+## 8.6 Do-Calculus at a High Level
+
+Backdoor and front-door are important, but they are only special cases of a larger identification toolkit.
+
+That toolkit is do-calculus.
+
+### Why do-calculus exists
+
+Sometimes the causal estimand
+$$
+P(Y \mid do(T=t))
+$$
+is identifiable, but not by an obvious backdoor or front-door trick.
+
+Do-calculus gives a general symbolic system for transforming intervention expressions into other expressions when the graph structure licenses it.
+
+The lecture describes this as **complete** for identification:
+
+- if a causal effect is identifiable in principle
+- do-calculus can eventually derive it
+
+That is a stronger statement than backdoor/front-door, which are only sufficient criteria.
+
+### The three rules, conceptually
+
+The lecture states three rules involving d-separation in surgically modified graphs.
+
+You do not need to memorize them as mystical incantations.
+
+It is better to learn what kind of move each rule allows.
+
+#### Rule 1: ignore an observation
+
+Under the right graphical independence condition, an observed variable $Z$ can be dropped from a conditional expression:
+$$
+P(y \mid do(t), z, w)=P(y \mid do(t), w).
+$$
+
+This is the causal analogue of saying:
+
+- once the relevant variables are known, $Z$ tells us nothing further
+
+#### Rule 2: replace intervention by observation
+
+Under the right graphical condition, we can turn $do(z)$ into ordinary observation $z$:
+$$
+P(y \mid do(t), do(z), w)=P(y \mid do(t), z, w).
+$$
+
+This is often the most psychologically surprising rule.
+
+It says:
+
+- in some graph structures, intervening on $Z$ has the same informational effect as conditioning on $Z$
+
+for the causal query at hand.
+
+#### Rule 3: ignore an intervention
+
+Under another graphical condition, an intervention on $Z$ can be removed entirely:
+$$
+P(y \mid do(t), do(z), w)=P(y \mid do(t), w).
+$$
+
+This says:
+
+- once the rest of the structure is fixed appropriately, the extra intervention on $Z$ is irrelevant to $Y$
+
+### How to think about do-calculus
+
+Do-calculus is:
+
+- graph surgery
+- plus d-separation
+- plus symbolic rewriting of interventional expressions
+
+So although the rules look algebraic, the real logic is graphical.
+
+## 8.7 Causal Discovery and Markov Equivalence
+
+Now the question changes.
+
+Before, we mostly assumed the causal graph was known and asked:
+
+- what intervention effect follows from it?
+
+Now we ask:
+
+- what if the graph itself is unknown?
+
+That is causal discovery.
+
+### Why discovery is fundamentally hard
+
+Observational conditional independences do not usually identify a unique DAG.
+
+Different DAGs can imply the same observational independences.
+
+This is **Markov equivalence**.
+
+### Three-node example
+
+The lecture emphasizes the classic three-node family:
+
+- $X \to Y \to Z$
+- $X \leftarrow Y \to Z$
+- $X \leftarrow Y \leftarrow Z$
+
+These can share the same skeleton and the same non-collider structure, so they are observationally equivalent.
+
+But the collider
+$$
+X \to Y \leftarrow Z
+$$
+is different.
+
+It induces different conditional independences.
+
+### Characterization
+
+Two DAGs are Markov equivalent if and only if they have:
+
+- the same skeleton
+- the same collider structure
+
+The lecture phrases this as “same skeleton and same colliders.”
+
+This is a fundamental result.
+
+### Why this limits observational discovery
+
+From observational CI information alone, you generally recover:
+
+- not one DAG
+- but an equivalence class of DAGs
+
+That is why algorithms like PC often return a partially directed graph rather than a fully oriented causal structure.
+
+## 8.8 SGS and PC, Slowly
+
+The discovery algorithms in the course are constraint-based.
+
+That means they learn from conditional-independence information rather than from a likelihood score.
+
+### SGS: the conceptually simple version
+
+The SGS algorithm has two broad phases.
+
+#### Phase I: skeleton finding
+
+Start with a complete undirected graph on the observed variables.
+
+Then:
+
+- for each pair of variables $X,Y$
+- and for candidate conditioning sets $S$
+- test whether $X \perp Y \mid S$
+
+If yes, remove the edge between $X$ and $Y$.
+
+So the first phase is just:
+
+- use conditional independences to remove impossible adjacencies
+
+#### Phase II: orientation
+
+After the skeleton is found, orient edges that are logically forced.
+
+The lecture stresses collider logic:
+
+- if $X$ and $Y$ are not adjacent
+- but both are adjacent to $Z$
+- and the CI pattern shows $Z$ is not in the separating set
+
+then we infer a collider:
+$$
+X \to Z \leftarrow Y.
+$$
+
+Then further orientation rules propagate these constraints while avoiding impossible cycles.
+
+### What SGS returns
+
+It identifies a graph in the same Markov equivalence class as the true one.
+
+That is exactly the right thing to expect from observational CI information.
+
+### PC: a more efficient version
+
+SGS is conceptually clean but combinatorially expensive, because there are many possible conditioning sets.
+
+PC keeps the same basic idea but organizes the search more efficiently.
+
+The lecture describes it as checking conditional independences in increasing conditioning-set size:
+
+1. unconditional independence
+2. conditioning on one variable
+3. conditioning on two variables
+4. and so on
+
+As soon as an edge can be removed using one separating set, there is no need to keep searching all larger sets for that pair.
+
+That is the practical efficiency gain.
+
+### What assumptions are hiding in the background
+
+Constraint-based discovery relies on more than just a graph.
+
+At minimum, the lecture explicitly highlights:
+
+- causal sufficiency in the observed variable set, meaning no unobserved confounders among them
+
+And in practice these methods also depend on:
+
+- reliable conditional-independence testing from finite data
+
+So the algorithms are elegant, but they are not magical.
+
+They can only be as good as the CI information they receive.
+
+## 8.9 What Interventions Buy You for Discovery
+
+Observational discovery is limited by Markov equivalence.
+
+Interventions can break that symmetry.
+
+### Two-variable example
+
+The lecture begins with the simplest case:
+
+- $A \to B$
+- versus $A \leftarrow B$
+
+These two graphs are not distinguishable from observational data alone.
+
+But if we intervene on $A$:
+
+- in $A \to B$, manipulating $A$ changes $B$
+- in $A \leftarrow B$, manipulating $A$ does not propagate to $B$ in the same way
+
+So interventions reveal directionality that observation cannot.
+
+### Why interventions help
+
+Observation sees equilibrium associations under the original mechanisms.
+
+Intervention perturbs a mechanism and watches what changes downstream.
+
+That breaks symmetry.
+
+### Graph-identification results from the lecture
+
+The intervention lecture gives concrete worst-case guarantees.
+
+#### Single-variable interventions
+
+For a graph on $n$ nodes:
+
+- $n-1$ single-node interventions suffice in the worst case to identify the graph
+
+#### Multi-variable interventions
+
+If you can intervene on larger sets of variables simultaneously, then:
+
+- $O(\log n)$ interventions can suffice in the worst case
+
+The lecture presents this as a directionality-testing argument:
+
+- across a clever sequence of intervention sets
+- every pair of variables gets exposed to either adjacency tests plus directionality tests, or equivalent directional information
+
+### Why this is conceptually important
+
+Interventions are useful in two distinct ways:
+
+1. estimating causal effects when the graph is known
+2. learning graph directions when observational data leaves them ambiguous
+
+Students often remember only the first role.
+The second one is a major point of the last lecture.
+
+## 8.10 What You Should Be Able To Say Out Loud
+
+By the end of this section, you should be able to say:
+
+> Causal graphs add more than probabilistic factorization: they represent mechanisms. An intervention $do(T=t)$ replaces the mechanism for $T$ and is therefore different from conditioning on $T=t$. Truncated factorization formalizes this surgical replacement. Backdoor adjustment identifies causal effects by blocking all noncausal paths into treatment while avoiding descendants of treatment. Front-door identification uses a clean mediator structure when backdoor adjustment is unavailable because of unobserved confounding. Do-calculus is the general graphical rewriting system for identification. In causal discovery, observational data usually identifies only a Markov equivalence class because graphs with the same skeleton and colliders have the same observational independences. Constraint-based algorithms such as SGS and PC exploit those independences, while interventions can break equivalence-class ambiguities and reveal causal direction.
+
+If you can explain that clearly, the section’s conceptual architecture is solid.
+
+## Formal Anchors
+
+These are the main definitions and theorem-level statements worth knowing precisely.
+
+### Structural causal model view
+
+Each endogenous variable is generated by a structural equation
+$$
+X_i := f_i(\mathrm{pa}_i, U_i),
+$$
+where $U_i$ is an exogenous noise variable.
+
+### Observation versus intervention
+
+Conditioning and intervention are different objects:
+$$
+P(Y \mid T=t) \neq P(Y \mid do(T=t))
+$$
+in general.
+
+An intervention $do(T=t)$ replaces the structural mechanism for $T$ by the constant assignment $T:=t$.
+
+### Truncated factorization
+
+If $S$ is a set of intervention nodes and $x$ is consistent with $do(S=s)$, then
+$$
+P(x_1,\dots,x_n \mid do(S=s))
+=
+\prod_{i \notin S} P(x_i \mid \mathrm{pa}_i).
+$$
+
+### Backdoor adjustment
+
+A set $W$ satisfies the backdoor criterion relative to $T$ and $Y$ if:
+
+1. $W$ blocks all backdoor paths from $T$ to $Y$
+2. $W$ contains no descendants of $T$
+
+Then
 $$
 P(Y \mid do(T=t))
 =
 \sum_w P(Y \mid T=t, W=w)P(W=w).
 $$
 
-That formula is adjustment.
-
-### Important beginner warning
-
-Not every “related variable” is a good thing to condition on.
-
-For example:
-
-- conditioning on a confounder can help
-- conditioning on a mediator may destroy the total causal effect you wanted
-- conditioning on a collider can create spurious dependence
-
-So do not think “more conditioning is always safer.”
-That is false.
-
-## 8.3 Front-Door, Slowly
-
-Front-door is more delicate than backdoor.
-
-It uses a mediator `M` between `T` and `Y`.
-
-The rough story is:
-
-- treatment affects mediator
-- mediator affects outcome
-- the graph is arranged so that this mediator pathway can be used to identify the causal effect, even when simple backdoor adjustment is unavailable
-
-The front-door criterion has several technical conditions, but the most important beginner idea is:
-
-front-door works by using a clean mediator pathway to reconstruct the effect of treatment on outcome.
-
-So if backdoor is:
-
-- “block the bad noncausal paths”
-
-then front-door is more like:
-
-- “exploit the right mediator structure when direct confounding blocks the easy route”
-
-## 8.4 Do-Calculus at a High Level
-
-Do-calculus is the general symbolic toolkit for manipulating intervention expressions.
-
-You do **not** need to think of it as mystical formula pushing.
-
-At a high level, it is:
-
-- graph surgery
-- plus conditional-independence reasoning
-- plus rules for when observation and intervention expressions can be transformed
-
-Backdoor and front-door are the friendliest special cases.
-
-So if full do-calculus feels intimidating, that is okay.
-The main conceptual point is:
-
-there is a systematic graphical logic for transforming causal quantities, not just ad hoc tricks.
-
-## 8.5 Causal Discovery and Markov Equivalence
-
-Now a different question:
-
-what if you do **not** know the graph?
-
-Causal discovery tries to infer causal structure from conditional independences in the data.
-
-But there is a fundamental obstacle:
-
-different DAGs can imply the same observational independence structure.
-
-This is called **Markov equivalence**.
-
-So observational data does not usually identify one unique causal DAG.
-Instead it identifies an equivalence class.
-
-This is why the PC algorithm often returns a partially directed graph rather than a completely directed one.
-
-## 8.6 SGS and PC, Slowly
-
-The course presents two related discovery algorithms.
-
-### SGS
-
-This is the conceptually simple but expensive version.
-
-High-level plan:
-
-1. start with a complete graph
-2. test conditional independences
-3. remove edges when independence evidence says they should not be there
-4. orient some edges using collider logic
-
-### PC
-
-PC is the more efficient practical version of the same style of idea.
-
-It still uses conditional-independence tests, but it organizes them more cleverly.
-
-The key beginner point is:
-
-PC is not a likelihood-based learning algorithm.
-It is a **constraint-based** discovery algorithm.
-
-It learns from which conditional independences appear to hold.
-
-## 8.7 What Interventions Buy You for Discovery
-
-Observational data alone often leaves edge directions ambiguous because of Markov equivalence.
-
-Interventions can break those ambiguities.
-
-Why?
-
-Because when you actively manipulate one variable, the resulting changes in the rest of the system reveal asymmetries that plain observation cannot.
-
-So interventions are useful in two different ways:
-
-- to estimate causal effects once a graph is known
-- to help learn the graph itself
-
-That second role is easy to overlook, but it is a major conceptual point of the later lectures.
-
-## 8.8 What You Should Be Able To Say Out Loud
-
-By the end of this section, you should be able to say:
-
-> Causal inference is different from ordinary probabilistic inference because observing a variable is not the same as intervening on it. Backdoor adjustment blocks confounding paths. Front-door uses a mediator structure when simple adjustment is not available. Causal discovery from observational data is limited by Markov equivalence, which is why algorithms like PC often identify only partial orientation. Interventions can help both estimate effects and resolve discovery ambiguity.
-
-If you can say that clearly, you have the real conceptual backbone of the section.
-
-## Formal Anchors
-
-These are the causal statements worth being able to recognize and write cleanly.
-
-### Observation versus intervention
-
-Observing $P(Y\mid T=t)$ is not the same as intervening to get $P(Y\mid do(T=t))$.
-
-An intervention breaks the original structural mechanism for `T` and sets it externally.
-In graph language, you can think of `do(T=t)` as cutting the incoming edges into `T` and forcing the treatment node to the chosen value.
-
-### Backdoor adjustment
-
-If a set `W` blocks all backdoor paths from treatment `T` to outcome `Y` and contains no descendants of `T`, then
+If there are no backdoor paths from $T$ to $Y$, then
 $$
-P(Y\mid do(T=t))=\sum_w P(Y\mid T=t,W=w)P(W=w).
+P(Y \mid do(T=t))=P(Y \mid T=t).
 $$
-
-This is the standard adjustment formula.
 
 ### Front-door identification
 
-Under the front-door conditions, the causal effect can be expressed through mediator adjustment terms.
-The standard front-door formula is
+If mediator set $M$ satisfies the front-door criterion relative to $T$ and $Y$, then
 $$
-P(Y\mid do(T=t))
+P(Y \mid do(T=t))
 =
-\sum_m P(m\mid T=t)\sum_{t'} P(Y\mid m,T=t')P(T=t').
+\sum_m P(m \mid t)\sum_{t'} P(Y \mid m,t')P(t').
 $$
-
-At course level, the key point is that mediator structure can identify effects even when simple backdoor adjustment fails.
 
 ### Do-calculus
 
-Do-calculus gives graphical rules for transforming intervention expressions into other expressions when the graph structure licenses those manipulations.
+The three do-calculus rules give conditions under which:
 
-Backdoor and front-door are important friendly special cases of this broader logic.
+- an observation can be ignored
+- an intervention can be replaced by an observation
+- an intervention can be removed
+
+with each rule justified by d-separation in a suitably modified graph.
 
 ### Markov equivalence
 
-Different DAGs can imply the same observational conditional independences.
-At a high level, observational equivalence is tied to sharing the same skeleton and the same unshielded collider structure.
+Two DAGs are Markov equivalent if and only if they have:
 
-This is why observational data alone often identifies an equivalence class rather than a unique DAG.
+- the same skeleton
+- the same collider structure
+
+Therefore observational conditional independences generally identify only an equivalence class, not a unique DAG.
 
 ### Constraint-based discovery
 
-Algorithms like SGS and PC use conditional-independence tests to remove and orient edges.
-They are not primarily likelihood-based fitting procedures.
+SGS and PC remove edges using conditional-independence tests and orient forced edges using collider and consistency rules.
+
+They are constraint-based, not primarily likelihood-based.
+
+### Interventions for discovery
+
+Worst-case lecture results:
+
+- $n-1$ single-variable interventions suffice to identify a graph on $n$ nodes
+- $O(\log n)$ multi-variable interventions suffice when larger intervention sets are allowed
 
 ## Worked Problems
 
@@ -312,87 +963,103 @@ They are not primarily likelihood-based fitting procedures.
 
 Why is
 $$
-P(Y\mid T=t)
+P(Y \mid T=t)
 $$
 not automatically equal to
 $$
-P(Y\mid do(T=t))?
+P(Y \mid do(T=t))?
 $$
 
 ### Solution
 
-Because observing `T=t` leaves intact whatever factors caused treatment assignment in the observational world.
-Those factors may also affect `Y`, creating confounding.
+Because conditioning on $T=t$ only selects the subpopulation in which treatment happened naturally to equal $t$.
 
-An intervention `do(T=t)` instead forces `T` to the chosen value and breaks its usual causes.
+The same variables that caused treatment assignment may also affect the outcome, creating confounding.
+
+An intervention $do(T=t)$ instead replaces the treatment mechanism and forces treatment to $t$ across the population.
 
 So the observational association and the causal effect can differ.
 
 ### Problem 8.2
 
-What is the purpose of a backdoor adjustment set?
+What is the purpose of truncated factorization?
 
 ### Solution
 
-Its purpose is to block all noncausal paths from treatment to outcome that begin by entering the treatment node.
-By conditioning on such a set, you remove confounding influence without blocking the causal pathway you want to estimate.
+It gives the post-intervention joint distribution by removing the conditional factors corresponding to the intervened variables and keeping all nonintervened mechanisms unchanged.
+
+It is the formal expression of the idea that interventions are modular, surgical replacements of mechanisms.
 
 ### Problem 8.3
 
-Why is conditioning on "more variables" not always safer in causal inference?
+Why does the backdoor criterion forbid descendants of treatment from being included in the adjustment set?
 
 ### Solution
 
-Because different variables play different causal roles.
+Because descendants of treatment may lie on the causal pathway from treatment to outcome or may otherwise induce bias.
 
-- conditioning on a confounder can help
-- conditioning on a mediator can change the effect being estimated
-- conditioning on a collider can create spurious dependence
+Conditioning on them can destroy part of the total effect of interest or open problematic paths.
 
-So causal adjustment is about choosing the right variables, not the largest possible set.
+So a valid adjustment set must block confounding without conditioning on post-treatment variables.
 
 ### Problem 8.4
 
-At a high level, how does front-door identification differ from backdoor adjustment?
+What is the main conceptual difference between backdoor and front-door identification?
 
 ### Solution
 
-Backdoor adjustment blocks noncausal confounding paths between treatment and outcome.
+Backdoor identifies a causal effect by blocking noncausal paths from treatment to outcome.
 
-Front-door identification instead uses a mediator pathway with the right graphical structure to reconstruct the causal effect, even when a simple confounder-blocking adjustment is unavailable.
+Front-door identifies a causal effect by using a mediator structure that cleanly transmits the treatment effect, even when direct treatment-outcome confounding prevents simple backdoor adjustment.
+
+So backdoor blocks bad paths, while front-door exploits a good mediator path.
 
 ### Problem 8.5
 
-Why can observational data fail to identify a unique causal DAG?
+Why can two different DAGs be indistinguishable from observational data alone?
 
 ### Solution
 
-Because different DAGs can imply exactly the same set of observational conditional independences.
-Such DAGs are Markov equivalent.
+Because they may be Markov equivalent: they induce exactly the same set of observational conditional independences.
 
-So conditional-independence information alone often determines only an equivalence class, not one uniquely oriented graph.
+The lecture’s characterization is that this happens precisely when they have the same skeleton and the same collider structure.
+
+In that case, observational CI information cannot tell them apart.
 
 ### Problem 8.6
 
-What kind of method is the PC algorithm?
+What kind of algorithm is PC?
 
 ### Solution
 
-PC is a constraint-based causal discovery algorithm.
-It uses conditional-independence tests to:
+PC is a constraint-based causal-discovery algorithm.
 
-- remove edges that are not supported
-- orient some remaining edges using collider and consistency logic
+It:
 
-It is not primarily a likelihood-maximization algorithm.
+- removes edges using conditional-independence tests
+- identifies colliders
+- then orients additional forced edges using consistency rules
+
+It is not primarily a likelihood-optimization method.
 
 ### Problem 8.7
 
-Why do interventions help with causal discovery as well as causal-effect estimation?
+Why do interventions help causal discovery, not just causal-effect estimation?
 
 ### Solution
 
-Observational data often leaves directions ambiguous because multiple DAGs are Markov equivalent.
-Interventions break some of those symmetries by actively perturbing one part of the system and observing asymmetric downstream changes.
+Observational data often leaves edge directions ambiguous because many DAGs lie in the same Markov equivalence class.
 
-That extra asymmetry provides orientation information that pure observation cannot always supply.
+Interventions perturb specific mechanisms and reveal asymmetric downstream responses.
+
+That extra asymmetry breaks observational equivalences and can orient edges that observational data alone cannot.
+
+### Problem 8.8
+
+What do the lecture results about $n-1$ single-node interventions and $O(\log n)$ multi-node interventions mean conceptually?
+
+### Solution
+
+They mean that interventions can be scheduled so that every pair of variables is exposed to enough adjacency and directionality information to recover the graph in the worst case.
+
+Single-node interventions do this less efficiently, while carefully chosen larger intervention sets can test many directions at once and therefore reduce the total number of experiments.
