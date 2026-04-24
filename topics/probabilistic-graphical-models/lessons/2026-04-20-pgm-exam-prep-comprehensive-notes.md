@@ -22,6 +22,7 @@ Each section now also ends with:
 There is now also a separate cross-cutting primer:
 
 - `Math Machinery Primer`: the reusable algebra, information theory, calculus, linear algebra, Markov-chain, and causal-adjustment moves that keep appearing across the whole class
+- `Assessment Topic Map`: a bidirectional map from homeworks / Midterm 1 / practice final questions to the topics they test, plus approximate difficulty
 
 ## Table of Contents
 
@@ -31,6 +32,7 @@ There is now also a separate cross-cutting primer:
 - [[#Reading Order]]
 - [[#Section Map]]
 - [[#Companion Pages]]
+- [[#Cross-Cutting Study Aids]]
 - [[#Assessment-Tuned Sources]]
 
 ## How To Use These Notes
@@ -117,6 +119,14 @@ It collects the reusable algebra and math moves that keep showing up across ever
 probability algebra, expectations, entropy and KL, logs and partition functions, derivatives, Gaussian facts, Markov-chain basics, and causal-adjustment formulas.
 
 [[2026-04-22-pgm-exam-prep-math-machinery]]
+
+## Cross-Cutting Study Aids
+
+### Assessment Topic Map
+
+Read this if you want to know what topics were actually tested, where they repeat, and which problems are likely to feel easiest vs hardest under exam pressure.
+
+[[2026-04-24-pgm-assessment-topic-map|Assessment Topic Map]]
 
 ### Section 1. Foundations
 
