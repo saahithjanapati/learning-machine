@@ -6,6 +6,9 @@
 - [[2026-04-24-pgm-assessment-map-question-to-topic|Question -> Topic Map]]
 - [[2026-04-24-pgm-assessment-map-difficulty-to-questions|Difficulty -> Question Map]]
 
+Legend:
+- <span style="color: #86EFAC;">green</span> = reviewed together and currently marked as answered correctly
+
 ## Topic -> Assessment Reverse Map
 
 ### Directed Graphical Models / Bayesian Networks / D-Separation / Moralization
@@ -51,7 +54,7 @@
 - `HW2-Q4` (`Hard`): finite-chain spectral and conductance analysis.
 - `HW2-PROG` (`Hard`): Gibbs, AIS, and tempering on Ising grids.
 - `M1-Q3` (`Easy`): irreducibility and aperiodicity for a finite Markov chain.
-- `M1-Q4` (`Easy`): MALA concept check.
+- <span style="color: #86EFAC;">`M1-Q4` (`Easy`): MALA concept check. Reviewed in live chat; your answer `False` was correct.</span>
 - `M1-Q5` (`Easy`): Metropolis-Hastings / conductance concept check.
 - `M1-Q6` (`Easy`): Gibbs-sampling / ergodicity concept check.
 - `M1-Q7` (`Easy`): simulated tempering intuition.

@@ -6,6 +6,9 @@
 - [[2026-04-24-pgm-assessment-map-question-to-topic|Question -> Topic Map]]
 - [[2026-04-24-pgm-assessment-map-topic-to-assessments|Topic -> Assessment Reverse Map]]
 
+Legend:
+- <span style="color: #86EFAC;">green</span> = reviewed together and currently marked as answered correctly
+
 ## Difficulty -> Question Map
 
 ### Easy
@@ -19,7 +22,7 @@
 - `M1-Q1`: Bayesian network local reasoning: Markov blanket and d-separation / conditional independence.
 - `M1-Q2`: undirected graphical model local reasoning: Markov blanket, factor-graph conversion, and separation.
 - `M1-Q3`: irreducibility and aperiodicity for a finite Markov chain.
-- `M1-Q4`: MALA concept check.
+- <span style="color: #86EFAC;">`M1-Q4`: MALA concept check. Reviewed in live chat; your answer `False` was correct.</span>
 - `M1-Q5`: Metropolis-Hastings / conductance concept check.
 - `M1-Q6`: Gibbs-sampling / ergodicity concept check.
 - `M1-Q7`: simulated tempering intuition.
