@@ -8,6 +8,7 @@
 
 Legend:
 - <span style="color: #86EFAC;">green</span> = reviewed together and currently marked as answered correctly
+- <span style="color: #FDA4AF;">red</span> = reviewed together and currently marked as needs more practice
 
 ## Question -> Topic Map
 
@@ -54,7 +55,7 @@ Legend:
 - `M1-Q2` (`Easy`): undirected graphical model local reasoning: Markov blanket, factor-graph conversion, and separation.
 - `M1-Q3` (`Easy`): irreducibility and aperiodicity for a finite Markov chain.
 - <span style="color: #86EFAC;">`M1-Q4` (`Easy`): MALA concept check. Reviewed in live chat; your answer `False` was correct.</span>
-- `M1-Q5` (`Easy`): Metropolis-Hastings / conductance concept check.
+- <span style="color: #FDA4AF;">`M1-Q5` (`Easy`): Metropolis-Hastings / conductance concept check. Reviewed in live chat; marked red for conductance confusion / needs more practice.</span>
 - `M1-Q6` (`Easy`): Gibbs-sampling / ergodicity concept check.
 - `M1-Q7` (`Easy`): simulated tempering intuition.
 - `M1-Q8` (`Easy`): simulated tempering stationary-distribution intuition.
