@@ -14,6 +14,7 @@ This note is now the hub for the PGM assessment maps.
 - visible homework programming problems
 - Midterm 1
 - the processed `Practice_Exam_Solutions`
+- worked problems embedded in the comprehensive notes guide
 
 The main purpose is to help you move through the assessment material in three different ways:
 
@@ -24,6 +25,7 @@ The main purpose is to help you move through the assessment material in three di
 ## Notes On Scope
 
 - I included the written homeworks, the visible homework programming problems, Midterm 1, and the processed `Practice_Exam_Solutions`.
+- I included the comprehensive-notes worked examples using `WPx.y` labels so they are distinguishable from graded/practice assessment questions.
 - The processed `HW2_graded_submission.md` has some numbering/OCR drift. I preserved the clearly visible problem blocks from the processed source, including the late-file GNN oversmoothing problem that appears there as `Q9`.
 - Difficulty is approximate and meant in the sense of `how hard this is likely to feel under exam pressure`, not `how many points it was worth`.
 
