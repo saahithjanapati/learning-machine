@@ -11,37 +11,58 @@ Use with [[2026-04-20-pgm-practice-problems-section-03-inference-bp]].
 
 ## Solution 3.1
 
-The direct elimination expression is
+An elimination expression for the unnormalized marginal over $E$ is
 $$
-p(x_4)
+\tilde{p}(e)
 =
-\sum_{x_1}\sum_{x_2}\sum_{x_3}
-p(x_1)p(x_2 \mid x_1)p(x_3 \mid x_2)p(x_4 \mid x_3).
+\sum_a\sum_b\sum_c\sum_d
+\phi_1(a,b)\phi_2(b,c)\phi_3(c,d)\phi_4(c,e).
 $$
 
-An efficient left-to-right elimination order is:
-$$
-m_2(x_2)=\sum_{x_1} p(x_1)p(x_2 \mid x_1),
-$$
-then
-$$
-m_3(x_3)=\sum_{x_2} m_2(x_2)p(x_3 \mid x_2),
-$$
-then
-$$
-p(x_4)=\sum_{x_3} m_3(x_3)p(x_4 \mid x_3).
-$$
+For order $A,D,B,C$:
 
-The point is to build small intermediate factors rather than one huge table.
+- Eliminate $A$: combine $\phi_1(A,B)$ and sum out $A$, creating a factor over $\{B\}$.
+- Eliminate $D$: combine $\phi_3(C,D)$ and sum out $D$, creating a factor over $\{C\}$.
+- Eliminate $B$: combine the $\{B\}$ factor with $\phi_2(B,C)$ and sum out $B$, creating a factor over $\{C\}$.
+- Eliminate $C$: combine all remaining $C$-dependent factors with $\phi_4(C,E)$ and sum out $C$, creating a factor over $\{E\}$.
+
+The largest factor scope involved during multiplication has size $2$ in this order, such as $\{A,B\}$, $\{C,D\}$, $\{B,C\}$, or $\{C,E\}$. The newly created post-summation intermediate factors have scope size $1$.
 
 ## Solution 3.2
 
-Different elimination orders create different intermediate factors. If an order causes many variables to appear in one intermediate factor, then that factor has many entries and the computation becomes expensive. A better order keeps the intermediate factors smaller. So the exact answer is unchanged, but the computational cost can change dramatically.
+The true statements are A and C.
+
+Statement A is true because variable elimination is exact regardless of order if all required sums/products are done correctly.
+
+Statement B is false. Eliminating $C$ first combines $\phi_2(B,C)$, $\phi_3(C,D)$, and $\phi_4(C,E)$, which creates a factor over $\{B,D,E\}$, not $\{A,B,D,E\}$.
+
+Statement C is true. The largest intermediate factor is the main driver of runtime and memory.
+
+Statement D is false. Two orders can eliminate the same variables but create very different intermediate scopes.
 
 ## Solution 3.3
 
-Sum-product belief propagation is exact on tree-structured graphs or acyclic factor graphs. On graphs with cycles, the same updates become loopy belief propagation, which is generally approximate.
+The factor-to-variable message is
+$$
+m_{f\to Y}(y)
+=
+\sum_x f(x,y)m_{X\to f}(x).
+$$
+
+The variable-to-factor message from $Y$ to $g$ is the product of incoming messages to $Y$ except the one from $g$. In this tiny graph, that is
+$$
+m_{Y\to g}(y)=m_{f\to Y}(y).
+$$
+
+The "exclude the recipient" rule prevents a node from immediately sending information back to the place it just came from. Without that rule, messages can double-count the same evidence.
 
 ## Solution 3.4
 
-No. Once the factor graph has a cycle, running the same sum-product message updates no longer guarantees exact marginals. The algorithm may still work well in practice, and it may converge, but exactness is not guaranteed on loopy graphs.
+The true statements are:
+
+- A
+- B
+- D
+- E
+
+Statement C is false. On graphs with cycles, BP is generally called loopy BP; it may converge and work well, but exact convergence to true marginals is not guaranteed.

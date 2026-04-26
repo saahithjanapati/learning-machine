@@ -1177,128 +1177,197 @@ $$
 
 ### Problem 6.1
 
-What is the difference in philosophy between MCMC and variational inference?
+Select all true statements about MCMC and variational inference.
+
+A. MCMC builds a Markov chain whose long-run distribution is the target.
+
+B. VI turns posterior approximation into an optimization problem over a chosen family.
+
+C. VI is exact whenever the ELBO is easy to evaluate.
+
+D. MCMC and VI can both be used when exact posterior inference is hard.
+
+E. VI quality depends on the expressiveness of the variational family.
 
 ### Solution
 
-MCMC approximates a target distribution by building a Markov chain whose long-run samples come from that target.
+The true statements are A, B, D, and E.
 
-Variational inference instead chooses a simpler family of distributions and optimizes inside that family to approximate the target.
-
-So MCMC is sampling-based, while VI is optimization-based.
+C is false. An easy-to-evaluate ELBO does not mean the variational family contains the true posterior.
 
 ### Problem 6.2
 
-Why is the ELBO a lower bound on $\log p_\theta(x)$?
+Starting from
+$$
+\log p_\theta(x)=\log\int p_\theta(x,z)\,dz,
+$$
+derive the ELBO by introducing $q(z)$ and applying Jensen's inequality.
 
 ### Solution
 
-Because
+Insert $q(z)$:
+$$
+\log p_\theta(x)
+=
+\log\int q(z)\frac{p_\theta(x,z)}{q(z)}\,dz.
+$$
+
+Apply Jensen:
+$$
+\log p_\theta(x)
+\ge
+\mathbb{E}_{q(z)}
+\left[
+\log p_\theta(x,z)-\log q(z)
+\right].
+$$
+
+The right-hand side is the ELBO:
+$$
+\mathcal{L}(q,\theta)
+=
+\mathbb{E}_q[\log p_\theta(x,z)]
+-
+\mathbb{E}_q[\log q(z)].
+$$
+
+### Problem 6.3
+
+For fixed $\theta$, state the KL-gap identity and use it to explain what maximizing the ELBO does to $q$.
+
+### Solution
+
+The identity is
 $$
 \log p_\theta(x)
 =
 \mathcal{L}(q,\theta)
 +
-\mathrm{KL}\bigl(q(z)\,\|\,p_\theta(z \mid x)\bigr),
-$$
-and KL divergence is always nonnegative.
-
-So
-$$
-\mathcal{L}(q,\theta)\le \log p_\theta(x).
+\mathrm{KL}\left(q(z)\|p_\theta(z\mid x)\right).
 $$
 
-### Problem 6.3
-
-Why does maximizing the ELBO improve the variational approximation?
-
-### Solution
-
-For fixed $x$ and fixed $\theta$, the quantity $\log p_\theta(x)$ does not depend on $q$.
-So increasing the ELBO is exactly the same as decreasing
-$$
-\mathrm{KL}\bigl(q(z)\,\|\,p_\theta(z \mid x)\bigr).
-$$
-
-That means the variational approximation gets closer to the true posterior in the KL sense used by VI.
+For fixed $\theta$, $\log p_\theta(x)$ is constant with respect to $q$. Therefore increasing the ELBO decreases the KL divergence from $q(z)$ to the true posterior $p_\theta(z\mid x)$.
 
 ### Problem 6.4
 
-Why is mean-field VI usually easier computationally but weaker statistically?
+Suppose $q(z_1,z_2)=q_1(z_1)q_2(z_2)$.
+
+1. What posterior feature can this family fail to represent?
+2. Write the CAVI update for $q_1^*(z_1)$ up to proportionality.
 
 ### Solution
 
-It is easier because the factorized family
-$$
-q(z)=\prod_i q_i(z_i)
-$$
-reduces a hard global optimization over arbitrary distributions to a structured optimization over simpler factors.
+The family can fail to represent posterior dependence or correlation between $z_1$ and $z_2$.
 
-It is weaker because the factorization may destroy dependencies that are actually present in the true posterior.
+The coordinate update is
+$$
+q_1^*(z_1)
+\propto
+\exp\left(
+\mathbb{E}_{q_2}
+\left[
+\log p(x,z_1,z_2)
+\right]
+\right).
+$$
+
+This is easier than optimizing over all joint distributions, but weaker because the approximation may be forced to ignore dependencies the true posterior actually has.
 
 ### Problem 6.5
 
-What practical behavior can result when the true posterior is multimodal but the approximation family is unimodal and VI minimizes $\mathrm{KL}(q\|p)$?
+Select all true statements about $\mathrm{KL}(q\|p)$ when $p$ is multimodal and $q$ is unimodal.
+
+A. It often encourages mode-seeking behavior.
+
+B. It heavily penalizes putting $q$ mass where $p$ is near zero.
+
+C. It always forces $q$ to cover every mode of $p$.
+
+D. It can ignore one mode if covering both would require placing mass in low-density regions between them.
 
 ### Solution
 
-The approximation may lock onto one mode and ignore the others.
+The true statements are A, B, and D.
 
-This happens because $\mathrm{KL}(q\|p)$ strongly penalizes placing mass where the true posterior is tiny, but is more tolerant of failing to cover all regions where the true posterior has mass.
+C is false. Covering all modes is more associated with the reverse direction $\mathrm{KL}(p\|q)$, depending on context.
 
 ### Problem 6.6
 
-What is the conceptual difference between EM and variational EM?
+For a latent-variable model with latent $Z$ and parameters $\theta$, select all true statements.
+
+A. EM alternates between posterior inference over $Z$ and parameter optimization.
+
+B. The exact E-step uses $p_{\theta^{old}}(Z\mid X)$.
+
+C. Variational EM replaces the exact posterior with an approximate $q(Z)$ when exact inference is hard.
+
+D. The M-step updates the observed data.
 
 ### Solution
 
-EM uses the exact posterior in the E-step when that posterior is tractable.
+The true statements are A, B, and C.
 
-Variational EM keeps the same alternating structure but replaces the exact posterior with a variational approximation because the exact E-step is intractable.
+D is false. The observed data are fixed; the M-step updates parameters.
 
 ### Problem 6.7
 
-What makes a VAE different from plain classical variational inference?
+In a VAE, identify the role of each object:
+
+1. $p(z)$
+2. $p_\theta(x\mid z)$
+3. $q_\phi(z\mid x)$
+
+Then say what "amortized inference" means.
 
 ### Solution
 
-A VAE combines:
+$p(z)$ is the prior over latent variables.
 
-- a latent-variable generative model
-- ELBO-based training
-- an encoder network that amortizes inference across datapoints
+$p_\theta(x\mid z)$ is the decoder or generative model.
 
-So instead of solving a fresh optimization problem for each datapoint's variational distribution, the encoder learns to predict approximate posterior parameters directly from the observation.
+$q_\phi(z\mid x)$ is the encoder or approximate posterior.
+
+Amortized inference means the encoder network learns a shared mapping from $x$ to approximate-posterior parameters, instead of solving a separate variational optimization problem from scratch for every datapoint.
 
 ### Problem 6.8
 
-When is REINFORCE preferred conceptually, and when is reparameterization preferred conceptually?
+For each case, choose `REINFORCE`, `reparameterization`, or `either`.
+
+1. $z$ is sampled from a categorical distribution.
+2. $z=\mu_\phi+\sigma_\phi\varepsilon$, where $\varepsilon\sim\mathcal{N}(0,1)$.
+3. The sample path is not differentiable, but $\nabla_\phi\log q_\phi(z)$ is available.
+4. A Gaussian VAE encoder needs low-variance pathwise gradients.
 
 ### Solution
 
-REINFORCE is the direct option when you can sample from $q_\phi$ and differentiate $\log q_\phi$, even if the latent variable is discrete or not continuously reparameterizable.
+1. REINFORCE
+2. reparameterization
+3. REINFORCE
+4. reparameterization
 
-Reparameterization is preferred when the latent variable can be written as a differentiable transformation of fixed noise, because this usually gives lower-variance gradients.
+REINFORCE is more general but often high variance. Reparameterization is preferred when possible because it differentiates through a deterministic transformation of fixed noise.
 
 ### Problem 6.9
 
-What do the two terms in the usual VAE ELBO mean?
+The VAE ELBO is
+$$
+\mathbb{E}_{q_\phi(z\mid x)}[\log p_\theta(x\mid z)]
+-
+\mathrm{KL}(q_\phi(z\mid x)\|p(z)).
+$$
+
+Select all true statements.
+
+A. The first term rewards reconstructions/data likelihood under sampled latents.
+
+B. The KL term encourages the encoder distribution to stay close to the prior.
+
+C. Removing the KL term entirely can make samples from the prior less reliable.
+
+D. The ELBO requires the true posterior $p_\theta(z\mid x)$ to be known exactly.
 
 ### Solution
 
-The term
-$$
-\mathbb{E}_{q_\phi(z \mid x)}[\log p_\theta(x \mid z)]
-$$
-is the data-fit or reconstruction term.
+The true statements are A, B, and C.
 
-The term
-$$
-\mathrm{KL}\bigl(q_\phi(z \mid x)\,\|\,p(z)\bigr)
-$$
-keeps the approximate posterior from wandering too far from the prior.
-
-So the VAE balances:
-
-- explaining the data well
-- keeping the latent representation organized relative to the prior
+D is false. The ELBO is useful precisely because it avoids needing to compute the exact posterior directly.

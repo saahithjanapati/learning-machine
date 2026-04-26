@@ -11,48 +11,76 @@ Use with [[2026-04-20-pgm-practice-problems-section-06-vi-em-vae]].
 
 ## Solution 6.1
 
-The identity is
+Insert $q(z)$ into the marginal likelihood:
 $$
-\log p(x)
+\log p_\theta(x)
 =
-\mathcal{L}(q)+\mathrm{KL}(q(z)\|p(z \mid x)).
+\log \int q(z)\frac{p_\theta(x,z)}{q(z)}\,dz.
 $$
 
-Since KL divergence is always nonnegative,
+By Jensen's inequality,
 $$
-\mathrm{KL}(q(z)\|p(z \mid x))\ge 0,
-$$
-it follows that
-$$
-\mathcal{L}(q)\le \log p(x).
+\log p_\theta(x)
+\ge
+\mathbb{E}_{q(z)}
+\left[
+\log \frac{p_\theta(x,z)}{q(z)}
+\right]
+=
+\mathcal{L}(q).
 $$
 
-That is why the ELBO is a lower bound.
+The exact identity is
+$$
+\log p_\theta(x)
+=
+\mathcal{L}(q)
++
+\mathrm{KL}\left(q(z)\|p_\theta(z\mid x)\right).
+$$
+
+The true statements are A, C, and D. Statement B is false because the ELBO is a lower bound; it cannot exceed $\log p_\theta(x)$.
 
 ## Solution 6.2
 
-The mean-field assumption says that the variational approximation factorizes into simpler independent pieces, for example
+The mean-field family refuses to represent posterior dependence between $z_1$ and $z_2$. Even if $p(z_1,z_2\mid x)$ is strongly correlated, the approximation forces
 $$
-q(z)=\prod_j q_j(z_j).
+q(z_1,z_2)=q_1(z_1)q_2(z_2).
 $$
 
-This makes optimization easier because instead of searching over a completely general joint distribution, we optimize over a restricted family with simpler structure and often simpler coordinate updates.
+The coordinate-ascent update has the form
+$$
+q_1^*(z_1)
+\propto
+\exp\left(
+\mathbb{E}_{q_2(z_2)}
+\left[
+\log p(x,z_1,z_2)
+\right]
+\right).
+$$
+
+Mean-field makes optimization easier because each coordinate update only has to optimize one factor while averaging over the others. The cost is bias: if the true posterior has dependencies the factorized family cannot express, the best variational approximation may still be systematically wrong.
 
 ## Solution 6.3
 
-In the E-step, we estimate the hidden-variable distribution given the current parameters. In exact EM, this means computing the posterior over latent variables under the current model.
+The true statements are:
 
-In the M-step, we update the parameters by maximizing the expected complete-data log-likelihood under that current hidden-variable distribution.
+- A
+- B
+- D
 
-So EM alternates between latent-variable inference and parameter optimization.
+Statement C is false because EM is built around latent-variable inference in the E-step.
+
+Statement E is false because the observed data are fixed. The M-step updates parameters, not observations.
 
 ## Solution 6.4
 
-A score-function or REINFORCE estimator differentiates an expectation without needing to differentiate through the sample itself, so it is very general but often high variance.
+The natural choices are:
 
-A reparameterization-based estimator rewrites the sample as a differentiable transformation of noise, for example
-$$
-z=\mu+\sigma \odot \varepsilon.
-$$
+- Discrete categorical $z$: `REINFORCE / score function`
+- $z=\mu_\phi(x)+\sigma_\phi(x)\odot\varepsilon$: `reparameterization`
+- Sampling not differentiable, but $\nabla_\phi\log q_\phi(z)$ is available: `REINFORCE / score function`
+- Lower-variance pathwise gradients for a Gaussian VAE encoder: `reparameterization`
 
-This usually gives lower-variance gradients in VAEs, which is why it is often preferred when applicable.
+REINFORCE is very general because it does not require differentiating through the sampled value, but it often has high variance. Reparameterization rewrites randomness as fixed noise passed through a differentiable function, allowing pathwise gradients. VAEs usually prefer it for Gaussian latent variables because the resulting gradients are often much lower variance.

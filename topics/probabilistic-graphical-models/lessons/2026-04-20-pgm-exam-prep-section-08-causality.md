@@ -992,74 +992,104 @@ It is the formal expression of the idea that interventions are modular, surgical
 
 ### Problem 8.3
 
-Why does the backdoor criterion forbid descendants of treatment from being included in the adjustment set?
+Consider
+$$
+W\to T,\qquad W\to Y,\qquad T\to M,\qquad M\to Y.
+$$
+
+You want the total effect of $T$ on $Y$.
+
+1. Is $\{W\}$ a valid adjustment set?
+2. Is $\{M\}$ a valid adjustment set?
+3. Write the valid backdoor formula.
 
 ### Solution
 
-Because descendants of treatment may lie on the causal pathway from treatment to outcome or may otherwise induce bias.
+$\{W\}$ is valid because it blocks the backdoor path $T\leftarrow W\to Y$.
 
-Conditioning on them can destroy part of the total effect of interest or open problematic paths.
+$\{M\}$ is not valid for the total effect because $M$ is a mediator on the causal path $T\to M\to Y$. Conditioning on it would block part of the effect being estimated.
 
-So a valid adjustment set must block confounding without conditioning on post-treatment variables.
+The valid formula is
+$$
+p(y\mid do(t))=\sum_w p(y\mid t,w)p(w).
+$$
 
 ### Problem 8.4
 
-What is the main conceptual difference between backdoor and front-door identification?
+Select all statements that are true.
+
+A. Backdoor adjustment blocks noncausal paths from treatment to outcome.
+
+B. Front-door identification can sometimes work when treatment-outcome confounding prevents simple backdoor adjustment.
+
+C. Front-door identification uses a mediator-like variable satisfying specific graphical conditions.
+
+D. Front-door identification says every mediator should always be conditioned on.
 
 ### Solution
 
-Backdoor identifies a causal effect by blocking noncausal paths from treatment to outcome.
+The true statements are A, B, and C.
 
-Front-door identifies a causal effect by using a mediator structure that cleanly transmits the treatment effect, even when direct treatment-outcome confounding prevents simple backdoor adjustment.
-
-So backdoor blocks bad paths, while front-door exploits a good mediator path.
+D is false. Front-door is not the advice "condition on every mediator." It is a specific identification pattern with conditions about the treatment-to-mediator path, mediator-to-outcome path, and relevant backdoor paths.
 
 ### Problem 8.5
 
-Why can two different DAGs be indistinguishable from observational data alone?
+Two DAGs have the same skeleton and the same unshielded colliders.
+
+1. What does that imply about their observational conditional independences?
+2. What is this phenomenon called?
+3. Does it imply all interventions have the same distribution?
 
 ### Solution
 
-Because they may be Markov equivalent: they induce exactly the same set of observational conditional independences.
+They imply the same observational conditional independences.
 
-The lecture’s characterization is that this happens precisely when they have the same skeleton and the same collider structure.
+This is Markov equivalence.
 
-In that case, observational CI information cannot tell them apart.
+It does not imply all interventions agree. Markov-equivalent DAGs can have different causal meanings and can disagree under interventions.
 
 ### Problem 8.6
 
-What kind of algorithm is PC?
+A PC-style algorithm starts with a complete undirected graph.
+
+Select all true statements.
+
+A. It removes edges using conditional-independence tests.
+
+B. It uses separation sets to help orient colliders.
+
+C. It always returns a unique fully directed DAG.
+
+D. Its correctness depends on assumptions such as causal sufficiency and faithfulness.
 
 ### Solution
 
-PC is a constraint-based causal-discovery algorithm.
+The true statements are A, B, and D.
 
-It:
-
-- removes edges using conditional-independence tests
-- identifies colliders
-- then orients additional forced edges using consistency rules
-
-It is not primarily a likelihood-optimization method.
+C is false. PC generally returns a partially directed equivalence-class representation, not necessarily one fully identified DAG.
 
 ### Problem 8.7
 
-Why do interventions help causal discovery, not just causal-effect estimation?
+Suppose observational data cannot distinguish $X\to Y$ from $Y\to X$.
+
+Explain how an intervention on $X$ can help orient the edge.
 
 ### Solution
 
-Observational data often leaves edge directions ambiguous because many DAGs lie in the same Markov equivalence class.
+If we intervene on $X$, we replace the mechanism generating $X$. If changing $X$ causes the distribution of $Y$ to change, that supports $X\to Y$.
 
-Interventions perturb specific mechanisms and reveal asymmetric downstream responses.
+If instead the true direction were $Y\to X$, intervening on $X$ would not change $Y$ through that edge, because $X$ is downstream rather than upstream.
 
-That extra asymmetry breaks observational equivalences and can orient edges that observational data alone cannot.
+The key point is asymmetry: interventions reveal downstream responses, while observational dependence alone is symmetric.
 
 ### Problem 8.8
 
-What do the lecture results about $n-1$ single-node interventions and $O(\log n)$ multi-node interventions mean conceptually?
+The lecture mentions that enough single-node interventions can identify a graph in the worst case, and that carefully chosen multi-node interventions can reduce the number of experiments.
+
+What is the conceptual reason multi-node interventions can be more efficient?
 
 ### Solution
 
-They mean that interventions can be scheduled so that every pair of variables is exposed to enough adjacency and directionality information to recover the graph in the worst case.
+Single-node interventions test one manipulated variable at a time. Multi-node interventions can split many pairs of variables across different intervention/control groups in one experiment.
 
-Single-node interventions do this less efficiently, while carefully chosen larger intervention sets can test many directions at once and therefore reduce the total number of experiments.
+That lets one experiment provide orientation information about many relationships simultaneously. The exam-level idea is not the exact combinatorics; it is that intervention design can be batched so many edge directions are probed at once.

@@ -421,76 +421,135 @@ The second uses unnormalized local scores plus one global normalizer.
 
 ### Problem 1.1
 
-You have `12` binary random variables.
-How many entries are in the full joint table?
-Why is that already a warning sign for naive modeling?
+You have `10` binary variables $X_1,\dots,X_{10}$.
+
+Compare two representations:
+
+- Model A is an unrestricted full joint distribution.
+- Model B is a directed chain $X_1\to X_2\to\cdots\to X_{10}$ with tabular conditionals.
+
+Answer:
+
+1. How many independent parameters does Model A have?
+2. How many independent parameters does Model B have?
+3. What exam-level lesson should you take from the gap?
 
 ### Solution
 
-For `12` binary variables, the table has
+Model A has $2^{10}$ joint assignments, but the probabilities must sum to $1$, so it has
 $$
-2^{12}=4096
+2^{10}-1=1023
 $$
-entries.
+independent parameters.
 
-That is not yet astronomically large, but the key issue is the exponential pattern.
-Adding only a few more variables multiplies the storage cost dramatically, so naive full-joint modeling does not scale.
+For Model B, $p(x_1)$ needs $1$ independent parameter. Each binary conditional $p(x_i\mid x_{i-1})$ has two parent settings and one free child probability per setting, so each conditional needs $2$ parameters. There are $9$ conditionals, so Model B has
+$$
+1+9\cdot 2=19
+$$
+independent parameters.
+
+The lesson is not just "graphs save space." The sharper lesson is: conditional-independence assumptions convert one huge joint table into local pieces, but those assumptions must be justified and inference cost is a separate question.
 
 ### Problem 1.2
 
-A student says, "The graph itself is the probability distribution."
-What is wrong with that statement?
+Select all statements that are true.
+
+A. The graph specifies which variables are connected structurally, but not the numerical probabilities by itself.
+
+B. Once a graph is drawn, all CPTs or potentials are determined automatically.
+
+C. A factorization is an algebraic way to write the joint distribution using local pieces.
+
+D. Two different parameter settings on the same graph can define different joint distributions.
+
+E. The graph, factorization, and full joint distribution are related but not identical objects.
 
 ### Solution
 
-The graph is only a structural object.
-It does not by itself assign probabilities to outcomes.
-To get a probability model, you also need:
+The true statements are A, C, D, and E.
 
-- variables
-- a factorization rule associated with the graph
-- numerical parameters inside the factors or conditionals
+B is false. A graph gives structure, not numbers. You still need the numerical CPTs, potentials, neural-network parameters, or other factor parameters.
 
-So the graph constrains the form of the distribution, but it is not the distribution by itself.
+The clean mental separation is:
+
+- graph: structural constraints
+- factorization: product form implied by the structure
+- parameters: numerical values inside the factors
+- full joint: the complete probability law
 
 ### Problem 1.3
 
-What is the difference between a marginal distribution and a conditional distribution?
+Suppose the joint distribution over two binary variables is:
+
+| $X$ | $Y$ | $p(x,y)$ |
+|---|---|---:|
+| 0 | 0 | 0.30 |
+| 0 | 1 | 0.20 |
+| 1 | 0 | 0.10 |
+| 1 | 1 | 0.40 |
+
+Compute:
+
+1. $p(X=1)$
+2. $p(Y=1\mid X=1)$
+3. Explain the difference between what you did in parts 1 and 2.
 
 ### Solution
 
-A marginal distribution is obtained by summing or integrating out variables you are not focusing on.
+For the marginal,
+$$
+p(X=1)=p(1,0)+p(1,1)=0.10+0.40=0.50.
+$$
 
-A conditional distribution is obtained by treating some variables as observed and renormalizing the remaining probabilities accordingly.
+For the conditional,
+$$
+p(Y=1\mid X=1)
+=
+\frac{p(X=1,Y=1)}{p(X=1)}
+=
+\frac{0.40}{0.50}
+=0.80.
+$$
 
-So:
-
-- marginal = remove variables
-- conditional = fix variables
+Marginalization sums out variables you are not asking about. Conditioning restricts attention to a slice of the table and renormalizes inside that slice.
 
 ### Problem 1.4
 
-Why is it a mistake to think "compact representation implies easy inference"?
+A model over binary variables has a compact factorization:
+$$
+p(x_1,\dots,x_n)\propto \prod_{i<j}\psi_{ij}(x_i,x_j).
+$$
+
+Assume every pair $(i,j)$ has a factor.
+
+1. Is this representation more compact than a full joint table?
+2. Would exact variable elimination necessarily be cheap?
+3. Explain the difference between parameter-count savings and inference-time savings.
 
 ### Solution
 
-Because compactness only tells you the model can be written using local pieces.
-It does not guarantee that answering questions like marginals, MAP assignments, or partition functions will be easy.
+The pairwise representation can be much more compact than a full joint table because it uses $O(n^2)$ pairwise factors instead of $2^n$ joint entries.
 
-In many graphical models, the representation is compact but inference is still exponential in the worst case.
+Exact variable elimination is not necessarily cheap. If every variable is connected to every other variable, eliminating variables creates large factors over many remaining variables.
+
+Parameter-count savings ask: "How many numbers do I need to write down the model?" Inference-time savings ask: "How large do the intermediate computations become when answering a query?" A compact factorization can still have high treewidth and expensive exact inference.
 
 ### Problem 1.5
 
-Classify each task as mainly representation, inference, or learning.
+Classify each task as mainly `representation`, `inference`, `learning`, or `sampling`.
 
 1. Writing a DAG factorization for a disease-symptom model
 2. Computing $p(Z\mid X=x)$ in a latent-variable model
 3. Estimating model parameters from observed data
+4. Drawing approximate posterior samples from a Markov chain
+5. Choosing an elimination order to compute a marginal
 
 ### Solution
 
 1. representation
 2. inference
 3. learning
+4. sampling
+5. inference
 
-This distinction is worth keeping clear throughout the course because different algorithms are solving different jobs.
+The slight trick is part 5. Choosing an elimination order is an algorithmic choice inside inference; the goal is still to compute a model-implied probability query.

@@ -11,36 +11,60 @@ Use with [[2026-04-20-pgm-practice-problems-section-08-causality]].
 
 ## Solution 8.1
 
-The quantity
-$$
-p(y \mid x)
-$$
-is observational: it conditions on seeing $X=x$ in the ordinary data-generating process.
+No. In this graph, $p(y\mid x)$ is not generally equal to $p(y\mid do(x))$ because $Z$ confounds the relationship between $X$ and $Y$.
 
-The quantity
-$$
-p(y \mid do(x))
-$$
-is interventional: it describes what happens if we actively set $X=x$ and break the usual mechanism that generated $X$.
+The confounder is $Z$ because it affects both treatment $X$ and outcome $Y$.
 
-These are different because observation can still carry information about confounding or common causes, while intervention changes the system itself.
+The backdoor adjustment is
+$$
+p(y\mid do(x))
+=
+\sum_z p(y\mid x,z)p(z).
+$$
+
+The intervention $do(X=x)$ removes incoming arrows into $X$, so the arrow $Z\to X$ is cut while the downstream causal effect $X\to Y$ remains.
 
 ## Solution 8.2
 
-For a valid backdoor set $Z$, the adjustment formula in the discrete case is
+$\{W\}$ is a valid backdoor adjustment set because $W$ blocks the backdoor path
 $$
-p(y \mid do(x))
+T\leftarrow W\to Y.
+$$
+
+$\{M\}$ is not a valid backdoor adjustment set. $M$ is a mediator on the causal path $T\to M\to Y$, not a pre-treatment confounder. Adjusting for it would block part of the effect you are trying to estimate.
+
+A valid adjustment formula is
+$$
+p(y\mid do(t))
 =
-\sum_z p(y \mid x,z)p(z).
+\sum_w p(y\mid t,w)p(w).
 $$
+
+Adjusting for a mediator changes the causal estimand by controlling away part of the treatment's effect. Backdoor adjustment is supposed to block noncausal confounding paths into treatment, not block the causal path out of treatment.
 
 ## Solution 8.3
 
-The PC algorithm is a causal-discovery procedure that uses conditional-independence tests to recover a graph skeleton and orient as many edges as possible under its assumptions. At a high level, it is trying to infer causal structure from observational statistical constraints.
+The true statements are:
+
+- A
+- B
+- D
+- E
+
+Statement C is false. Observational data usually identify only a Markov-equivalence class, not a unique fully oriented DAG, unless additional assumptions or information are available.
 
 ## Solution 8.4
 
-Two good reasons are:
+This phenomenon is Markov equivalence.
 
-1. Different causal graphs can imply the same observational independences, so the structure is not always uniquely identified.
-2. Real data may violate the assumptions of the method, such as no hidden confounders, faithfulness, or perfect conditional-independence testing.
+It limits observational causal discovery because the same observed conditional independences can be consistent with multiple causal directions. Observational data alone may not contain enough information to choose between those directions.
+
+Additional information that can help includes interventions, temporal ordering, domain knowledge, known randomized treatment assignment, or stronger modeling assumptions.
+
+The true warnings are:
+
+- A
+- B
+- D
+
+Statement C is false. Markov-equivalent DAGs agree on observational independences, but they can disagree on interventional distributions.

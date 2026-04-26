@@ -1270,113 +1270,179 @@ So a chain can be correct in principle but still be practically poor if it mixes
 
 ### Problem 5.2
 
-Why does detailed balance imply stationarity?
+Consider the two-state chain
+$$
+P=
+\begin{pmatrix}
+0.7 & 0.3\\
+0.2 & 0.8
+\end{pmatrix}.
+$$
+
+1. Find the stationary distribution.
+2. Check detailed balance.
+3. Explain why this check proves stationarity for this example.
 
 ### Solution
 
-If
+Let $\pi=(\pi_0,\pi_1)$. Stationarity gives
 $$
-\pi(x)P(x,y)=\pi(y)P(y,x)
+0.3\pi_0=0.2\pi_1,
 $$
-for all $x,y$, then summing over $x$ gives
+so $\pi_1=1.5\pi_0$. Since $\pi_0+\pi_1=1$,
 $$
-\sum_x \pi(x)P(x,y)
-=
-\pi(y)\sum_x P(y,x)
-=
-\pi(y),
+\pi=(0.4,0.6).
 $$
-because the transition probabilities out of state $y$ sum to $1$.
 
-That is exactly the stationarity condition.
+Detailed balance holds because
+$$
+\pi_0P(0,1)=0.4\cdot 0.3=0.12
+$$
+and
+$$
+\pi_1P(1,0)=0.6\cdot 0.2=0.12.
+$$
+
+Detailed balance means the probability flow from $0$ to $1$ equals the reverse flow. When all flows balance, the distribution is unchanged after one transition.
 
 ### Problem 5.3
 
-Why is Metropolis-Hastings especially convenient when the target is only known up to a normalizing constant?
+You want to sample from an unnormalized target on states $A,B,C$:
+$$
+\tilde{\pi}(A)=2,\qquad \tilde{\pi}(B)=6,\qquad \tilde{\pi}(C)=1.
+$$
+
+The proposal probabilities include
+$$
+q(B\mid A)=0.5,\qquad q(A\mid B)=0.25.
+$$
+
+Compute the MH acceptance probability for $A\to B$ and for $B\to A$.
 
 ### Solution
 
-If
+For $A\to B$,
 $$
-\pi(x)=\frac{1}{Z}\tilde{\pi}(x),
-$$
-then the acceptance ratio is
-$$
-\frac{\pi(y)q(y,x)}{\pi(x)q(x,y)}
+\alpha(A,B)
 =
-\frac{\tilde{\pi}(y)q(y,x)}{\tilde{\pi}(x)q(x,y)}.
+\min\left(
+1,
+\frac{\tilde{\pi}(B)q(A\mid B)}
+{\tilde{\pi}(A)q(B\mid A)}
+\right)
+=
+\min\left(1,\frac{6\cdot 0.25}{2\cdot 0.5}\right)
+=1.
 $$
 
-The unknown $Z$ cancels.
+For $B\to A$,
+$$
+\alpha(B,A)
+=
+\min\left(1,\frac{2\cdot 0.5}{6\cdot 0.25}\right)
+=
+\frac{2}{3}.
+$$
 
-So MH can be implemented using only unnormalized target values, which is crucial for undirected models and posteriors with hard evidence integrals.
+The normalizing constant is not needed because it would multiply every $\tilde{\pi}$ value by the same factor and cancel in the ratio.
 
 ### Problem 5.4
 
-Why is Gibbs sampling a special case of Metropolis-Hastings with acceptance probability $1$?
+Consider
+$$
+\pi(x_1,x_2,x_3)\propto \psi_{12}(x_1,x_2)\psi_{23}(x_2,x_3).
+$$
+
+You are updating $X_2$ with $X_1=a$ and $X_3=c$ fixed.
+
+1. Write the Gibbs conditional up to proportionality.
+2. Why is the resulting MH acceptance probability $1$?
 
 ### Solution
 
-In Gibbs, the proposal for coordinate $i$ is the exact conditional
+The conditional is
 $$
-q(x,y)=\pi(y_i \mid x_{-i})
+p(X_2=x\mid X_1=a,X_3=c)
+\propto
+\psi_{12}(a,x)\psi_{23}(x,c).
 $$
-for states differing only in coordinate $i$.
 
-Plugging this proposal into the MH ratio, the joint terms factor through the same conditioning context $x_{-i}$, and the ratio simplifies to $1$.
+Only factors touching $X_2$ matter. Any factor not involving $X_2$ would be constant with respect to the proposed value and cancel during normalization.
 
-So every Gibbs proposal is accepted.
+Gibbs proposes exactly from the correct conditional distribution for the coordinate being updated. Plugging that exact conditional proposal into the MH ratio makes the ratio simplify to $1$.
 
 ### Problem 5.5
 
-Give two structural reasons an MCMC chain may mix slowly.
+Select all statements that are true.
+
+A. A chain can have the right stationary distribution but still mix slowly.
+
+B. A local random-walk proposal can struggle to move between well-separated modes.
+
+C. High-dimensional targets are always easier because there are more possible directions to move.
+
+D. Low conductance means probability mass has a bottleneck between regions.
+
+E. Autocorrelation reduces the effective number of independent samples.
 
 ### Solution
 
-Two major reasons are:
+The true statements are A, B, D, and E.
 
-- **multimodality:** low-probability barriers separate important regions, so local moves rarely switch modes
-- **high-dimensional mismatch:** the proposal distribution suggests states that are not typical under the target, so informative moves are rare
-
-Other common reasons include strong variable dependence and poor step-size choices.
+C is false. High dimension usually makes MCMC harder because typical sets are geometrically delicate and naive proposals often miss useful moves.
 
 ### Problem 5.6
 
-Why is pure gradient descent not a valid replacement for MCMC sampling from $\pi(x)\propto \exp(-E(x))$?
+A student proposes sampling from
+$$
+\pi(x)\propto \exp(-E(x))
+$$
+by repeatedly applying
+$$
+x_{t+1}=x_t-\eta \nabla E(x_t).
+$$
+
+Is this a valid sampler? Explain, and say what role noise plays in Langevin/MALA.
 
 ### Solution
 
-Pure gradient descent
-$$
-x_{t+1}=x_t-\eta \nabla E(x_t)
-$$
-deterministically moves toward lower energy, which means toward a mode.
+No. Pure gradient descent is an optimizer: it tends to move toward a mode of the target. A sampler needs to represent the full distribution, including spread around modes and relative mass across regions.
 
-That performs optimization rather than sampling.
-
-It does not produce draws from the full target distribution because it removes the randomness needed to explore the full probability landscape.
+Langevin-type methods add noise so the chain explores rather than only descends. MALA also includes an MH correction so the discretized noisy gradient proposal has the desired stationary distribution.
 
 ### Problem 5.7
 
-What is the main conceptual advantage of HMC over random-walk Metropolis-Hastings?
+Select all statements that are true about HMC.
+
+A. HMC augments the state with momentum.
+
+B. HMC uses gradient-informed dynamics to propose longer coherent moves.
+
+C. HMC is designed mainly for discrete state spaces with no gradients.
+
+D. In practice, leapfrog discretization is often followed by an MH accept/reject correction.
+
+E. HMC removes all need to tune step size or trajectory length.
 
 ### Solution
 
-HMC augments the state with momentum and uses Hamiltonian dynamics to propose long, coherent moves through an extended state space.
+The true statements are A, B, and D.
 
-This reduces inefficient random-walk behavior.
+C is false because HMC is naturally a continuous-state, differentiable-target method.
 
-So the main advantage is not just “using gradients,” but using gradients in a structured dynamical system that can travel far while still preserving the target after correction.
+E is false. HMC can be much more efficient than random-walk MH, but it still requires tuning or adaptation.
 
 ### Problem 5.8
 
-What is the common conceptual theme shared by HMC and simulated tempering?
+In simulated tempering, the chain targets a joint distribution over $(x,T)$, where $T$ is a temperature index. Suppose the conditional distribution at $T=1$ is the original target $\pi(x)$.
+
+Why does sampling from the joint distribution still let you recover samples from the original target?
 
 ### Solution
 
-Both methods improve exploration by enlarging the state space:
+The joint distribution is designed so that
+$$
+\Pi(x\mid T=1)=\pi(x).
+$$
 
-- HMC adds momentum
-- simulated tempering adds a temperature index
-
-The purpose in both cases is to make the chain move through the hard target more effectively than a simple local sampler would.
+Higher temperatures help the chain move between modes by flattening the distribution. But when the chain returns to $T=1$, the conditional distribution over $x$ is the original target. Therefore samples collected at $T=1$ are samples from the distribution of interest, assuming the extended chain is sampling correctly.

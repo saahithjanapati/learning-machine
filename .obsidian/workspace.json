@@ -8,27 +8,17 @@
         "type": "tabs",
         "children": [
           {
-            "id": "89f751d37837fcd0",
-            "type": "leaf",
-            "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
-            }
-          },
-          {
             "id": "fba41c5fa16fca97",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "topics/probabilistic-graphical-models/lessons/2026-04-24-pgm-assessment-map-difficulty-to-questions.md",
+                "file": "topics/probabilistic-graphical-models/lessons/2026-04-24-pgm-assessment-map-topic-to-assessments.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-04-24-pgm-assessment-map-difficulty-to-questions"
+              "title": "2026-04-24-pgm-assessment-map-topic-to-assessments"
             }
           },
           {
@@ -37,16 +27,16 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "topics/probabilistic-graphical-models/lessons/2026-04-24-pgm-assessment-map-difficulty-to-questions.md",
+                "file": "topics/probabilistic-graphical-models/lessons/2026-04-20-pgm-memory-03-inference-bp.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-04-24-pgm-assessment-map-difficulty-to-questions"
+              "title": "2026-04-20-pgm-memory-03-inference-bp"
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -241,16 +231,15 @@
                 "state": {
                   "type": "markdown",
                   "state": {
-                    "file": "topics/probabilistic-graphical-models/lessons/2026-04-20-pgm-exam-prep-section-07-generative-models.md",
+                    "file": "topics/probabilistic-graphical-models/lessons/2026-04-20-pgm-exam-prep-section-08-causality.md",
                     "mode": "source",
                     "source": false
                   },
                   "icon": "lucide-file",
-                  "title": "2026-04-20-pgm-exam-prep-section-07-generative-models"
+                  "title": "2026-04-20-pgm-exam-prep-section-08-causality"
                 }
               }
-            ],
-            "currentTab": 1
+            ]
           }
         ],
         "direction": "vertical",
@@ -265,18 +254,23 @@
   },
   "active": "10fc517de69e698e",
   "lastOpenFiles": [
+    "topics/probabilistic-graphical-models/lessons/2026-04-20-pgm-exam-prep-comprehensive-notes.md",
+    "topics/probabilistic-graphical-models/lessons/2026-04-20-pgm-exam-prep-section-03-inference-bp.md",
+    "topics/probabilistic-graphical-models/lessons/2026-04-20-pgm-memory-02-directed-undirected.md",
+    "topics/probabilistic-graphical-models/lessons/2026-04-25-live-chat-midterm-1-q4.md",
+    "topics/probabilistic-graphical-models/lessons/2026-04-20-pgm-memory-01-foundations.md",
+    "topics/probabilistic-graphical-models/lessons/2026-04-24-pgm-assessment-map-topic-to-assessments.md",
+    "topics/probabilistic-graphical-models/lessons/2026-04-20-pgm-practice-problems-section-08-causality.md",
+    "topics/probabilistic-graphical-models/lessons/2026-04-20-pgm-exam-prep-section-08-causality.md",
     "topics/probabilistic-graphical-models/lessons/2026-04-24-pgm-assessment-topic-map.md",
+    "topics/probabilistic-graphical-models/lessons/2026-04-24-pgm-assessment-map-difficulty-to-questions.md",
+    "topics/probabilistic-graphical-models/lessons/2026-04-20-pgm-exam-prep-section-07-generative-models.md",
+    "topics/probabilistic-graphical-models/lessons/2026-04-20-pgm-practice-problems-section-07-generative-models.md",
     "topics/probabilistic-graphical-models/lessons/2026-04-24-pgm-assessment-map-question-to-topic.md",
     "topics/probabilistic-graphical-models/lessons/2026-04-20-pgm-exam-prep-section-01-foundations.md",
     "topics/probabilistic-graphical-models/lessons/2026-04-22-pgm-exam-prep-math-machinery.md",
-    "topics/probabilistic-graphical-models/lessons/2026-04-25-live-chat-midterm-1-q4.md",
-    "topics/probabilistic-graphical-models/lessons/2026-04-20-pgm-exam-prep-section-07-generative-models.md",
-    "topics/probabilistic-graphical-models/lessons/2026-04-24-pgm-assessment-map-difficulty-to-questions.md",
     "topics/probabilistic-graphical-models/lessons/2026-04-24-pgm-assessment-map-topic-to-worked-problems.md",
-    "topics/probabilistic-graphical-models/lessons/2026-04-20-pgm-exam-prep-comprehensive-notes.md",
-    "topics/probabilistic-graphical-models/lessons/2026-04-20-pgm-exam-prep-section-08-causality.md",
     "topics/probabilistic-graphical-models/lessons/2026-04-20-pgm-exam-prep-section-05-mcmc.md",
-    "topics/probabilistic-graphical-models/lessons/2026-04-24-pgm-assessment-map-topic-to-assessments.md",
     "learning_system/LESSON_INDEX.md",
     "topics/probabilistic-graphical-models/lessons/2026-04-20-pgm-worked-problems-section-08-causality.md",
     "topics/probabilistic-graphical-models/lessons/2026-04-20-pgm-exam-prep-section-06-vi-em-vae.md",
@@ -284,10 +278,8 @@
     "topics/probabilistic-graphical-models/lessons/2026-02-24-live-chat-lecture-5-inference.md",
     "topics/probabilistic-graphical-models/lessons/2026-03-30-late-course-module-map.md",
     "topics/probabilistic-graphical-models/lessons/2026-04-20-pgm-course-overview.md",
-    "topics/probabilistic-graphical-models/lessons/2026-04-20-pgm-exam-prep-section-03-inference-bp.md",
     "topics/probabilistic-graphical-models/lessons/2026-04-20-pgm-exam-prep-section-04-gnns.md",
     "topics/probabilistic-graphical-models/lessons/2026-04-20-pgm-worked-problems-section-03-inference-bp.md",
-    "skills/learning-repo-orchestrator/SKILL.md",
     "skills/learning-repo-orchestrator",
     "topics/probabilistic-graphical-models/lessons/local-assets/openai-images/section02-moralization-markov-blanket.png.json",
     "topics/probabilistic-graphical-models/lessons/local-assets/openai-images/section02-moralization-markov-blanket.png",
@@ -307,9 +299,6 @@
     "topics/probabilistic-graphical-models/lessons/local-assets/openai-images/20260422-155945-a-clean-notebook-style-educational-comparison-diagram-for-a.png",
     "topics/probabilistic-graphical-models/lessons/local-assets/openai-images/20260422-155945-a-clean-notebook-style-educational-diagram-for-a-probabilist.png.json",
     "topics/probabilistic-graphical-models/lessons/local-assets/openai-images/20260422-155945-a-clean-notebook-style-educational-diagram-for-a-probabilist.png",
-    "topics/probabilistic-graphical-models/lessons/local-assets/openai-images/20260422-155826-a-clean-notebook-style-educational-diagram-for-a-probabilist.png",
-    "topics/optimization-for-ml/lessons/2026-04-14-exam-2-live-chat.md",
-    "materials/processed/probabilistic-graphical-models/Practice_Exam_Solutions.md",
-    "materials/processed/probabilistic-graphical-models/Midterm_1_graded_submission.md"
+    "topics/probabilistic-graphical-models/lessons/local-assets/openai-images/20260422-155826-a-clean-notebook-style-educational-diagram-for-a-probabilist.png"
   ]
 }

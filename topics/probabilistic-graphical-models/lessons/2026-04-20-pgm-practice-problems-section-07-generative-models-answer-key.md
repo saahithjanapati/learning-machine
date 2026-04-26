@@ -20,15 +20,37 @@ The correct matching is:
 
 ## Solution 7.2
 
-Score matching is attractive because it works with the score
+The true statements are:
+
+- A
+- B
+- D
+
+For
 $$
-\nabla_x \log p_\theta(x),
+\log p_\theta(x)=-E_\theta(x)-\log Z_\theta,
 $$
-and for energy-based models the partition-function term disappears when differentiating with respect to $x$. So it can avoid directly computing the global normalizer.
+the score is
+$$
+\nabla_x\log p_\theta(x)
+=
+-\nabla_x E_\theta(x),
+$$
+because $Z_\theta$ depends on $\theta$, not on $x$.
+
+Statement C is false because the score does not directly give normalized probability values. Statement E is false because classical score matching is naturally stated for continuous variables.
 
 ## Solution 7.3
 
-The standard GAN story is built around a discriminator that tries to distinguish real from fake, while the generator tries to fool it. The Wasserstein view instead emphasizes a smoother distance-like objective between model and data distributions. Conceptually, the point is to make training geometry better behaved than the original discriminator-based objective often is.
+The best answer is A.
+
+When the real and generated distributions barely overlap, the original GAN objective can give weak or saturated learning signals. A Wasserstein-style objective measures how much "work" it takes to move mass from one distribution to the other, so it can remain informative even when the supports are far apart.
+
+The other choices are wrong:
+
+- B is wrong because WGANs still train a generator.
+- C is wrong because WGANs can reduce some training pathologies but do not mathematically eliminate mode collapse in every practical setup.
+- D is wrong because the critic in a WGAN is not a calibrated probability discriminator.
 
 ## Solution 7.4
 

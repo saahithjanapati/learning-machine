@@ -3229,3 +3229,356 @@ Options:
 
 1. True
 2. False
+
+---
+
+### Turn 56
+
+**User asked:**
+
+> can you give me wp 8.1 in the live chat
+
+**Assistant response:**
+
+`WP8.1`: Conditioning vs intervention.
+
+Why is
+
+$$
+P(Y \mid T=t)
+$$
+
+not automatically equal to
+
+$$
+P(Y \mid do(T=t))?
+$$
+
+---
+
+### Turn 57
+
+**User asked:**
+
+> conditioninig just asks, assuming t occurred, what is the distribution of Y. but intervention asks, assuming we explicitly do t, what is the probability of Y... the second one is a bit more restrictive / asking a different question, and so the distribution will likely be different
+
+**Assistant response:**
+
+Yes, that is the right conceptual distinction.
+
+More precise version:
+
+$$
+P(Y\mid T=t)
+$$
+
+means:
+
+> Among the people / units where $T$ naturally happened to equal $t$, what is the distribution of $Y$?
+
+But
+
+$$
+P(Y\mid do(T=t))
+$$
+
+means:
+
+> If we force $T$ to equal $t$ by intervention, what is the distribution of $Y$?
+
+The reason they may differ is not just that intervention is “more restrictive.” The main reason is that the naturally treated group may be systematically different from the untreated group.
+
+For example, if some variable $Z$ affects both treatment and outcome:
+
+$$
+Z\to T,
+\qquad
+Z\to Y,
+$$
+
+then conditioning on $T=t$ also selects for information about $Z$. Intervening with $do(T=t)$ cuts the natural treatment-assignment mechanism, so it does not select the same subpopulation in the same way.
+
+Exam memory:
+
+> Conditioning observes who naturally got treatment. Intervention forces treatment and removes the original treatment mechanism.
+
+---
+
+### Turn 58
+
+**User asked:**
+
+> and give me 8.2 next plz
+
+**Assistant response:**
+
+`WP8.2`: Truncated factorization.
+
+What is the purpose of truncated factorization?
+
+---
+
+### Turn 59
+
+**User asked:**
+
+> it's how factorization works when we impose some kind of intervention... normally, when you factorize a joint distribution, you factorize solely based on parent-child relationships. but when you do an intervention, you remove hte factors where it's the intervening variable conditioned by soething else (cuz you are setting the value of the variable yourself)... and for any children of that variable, in the conditional, you bind the intervening value to the variable you're intervening with
+
+**Assistant response:**
+
+Yes. That is correct.
+
+In an ordinary Bayesian network, the observational joint factorizes as:
+
+$$
+P(x_1,\dots,x_n)=\prod_i P(x_i\mid \mathrm{pa}_i).
+$$
+
+If we intervene and set $X_j=x_j^*$, then we remove the original mechanism for $X_j$:
+
+$$
+P(x_j\mid \mathrm{pa}_j)
+$$
+
+because $X_j$ is no longer being generated from its parents. We are forcing it externally.
+
+The post-intervention distribution over the remaining variables is:
+
+$$
+P(x_{-j}\mid do(X_j=x_j^*))
+=
+\prod_{i\ne j} P(x_i\mid \mathrm{pa}_i)\bigg|_{X_j=x_j^*}.
+$$
+
+Your “bind the intervened value into the children’s conditionals” phrasing is exactly right. If $X_j$ is a parent of some child $Y$, then the child mechanism stays, but it now receives the fixed value $X_j=x_j^*$ as input.
+
+Exam memory:
+
+> Truncated factorization removes the intervened variable’s own conditional factor, but keeps downstream mechanisms and plugs in the forced value.
+
+---
+
+### Turn 60
+
+**User asked:**
+
+> give me pp7.1 please
+
+**Assistant response:**
+
+`PP7.1`: Match each method to the main object it most directly learns.
+
+Methods:
+
+1. GAN
+2. Score matching
+3. NCE
+4. Diffusion model
+
+Targets:
+
+A. A denoising / reverse-noise process
+B. The score $\nabla_x \log p(x)$
+C. A classifier that separates data from noise
+D. A generator trained against a discriminator
+
+---
+
+### Turn 61
+
+**User asked:**
+
+> 1-D, 2-B, 3-C, 4-A
+
+**Assistant response:**
+
+Correct.
+
+The matching is:
+
+1. GAN $\to$ D. A generator trained against a discriminator
+2. Score matching $\to$ B. The score $\nabla_x \log p(x)$
+3. NCE $\to$ C. A classifier that separates data from noise
+4. Diffusion model $\to$ A. A denoising / reverse-noise process
+
+Exam memory:
+
+> GAN learns by adversarial generation, score matching learns the score, NCE learns through data-vs-noise classification, and diffusion learns reverse denoising dynamics.
+
+---
+
+### Turn 62
+
+**User asked:**
+
+> pp7.4
+
+**Assistant response:**
+
+`PP7.4`: Diffusion forward and reverse process.
+
+Describe the forward and reverse stories in a diffusion model.
+
+Your answer should explain what happens during training at a high level and how sampling works.
+
+---
+
+### Turn 63
+
+**User asked:**
+
+> the forward process adds noise progressively to the image, while the backgward process iteratively removes noise?
+
+**Assistant response:**
+
+Yes. That is the core idea.
+
+Exam-complete version:
+
+- The **forward process** starts with real data $x_0$ and gradually adds noise over time until the sample becomes close to pure noise.
+- During **training**, the model learns how to undo this corruption, often by predicting the noise or learning the score $\nabla_x\log p_t(x)$ at different noise levels.
+- The **reverse / sampling process** starts from random noise and repeatedly applies learned denoising or reverse-time updates until it produces a clean-looking data sample.
+
+Memory:
+
+> Forward diffusion destroys data into noise. Reverse diffusion uses the learned denoising/score model to turn noise back into data.
+
+---
+
+### Turn 64
+
+**User asked:**
+
+> give me wp 5.1
+
+**Assistant response:**
+
+`WP5.1`: Stationarity vs mixing.
+
+What is the difference between saying “$\pi$ is stationary for the chain” and saying “the chain mixes quickly to $\pi$”?
+
+---
+
+### Turn 65
+
+**User asked:**
+
+> if Pi is stationary for the chain, it means that taking a step keeps you in the same distribution pi... but if the chain mixes quickly to pi, it means that it eventually reaches that distribution after a bunch of steps / eventually becomes stationary?
+
+**Assistant response:**
+
+First part: correct.
+
+If $\pi$ is stationary, then starting the chain with distribution $\pi$ means one transition leaves the distribution unchanged:
+
+$$
+\pi P=\pi.
+$$
+
+The second part is close, but the phrase “eventually becomes stationary” is a bit imprecise.
+
+Mixing quickly means:
+
+> Starting from some other initial distribution, the chain's distribution gets close to $\pi$ in a small number of steps.
+
+So:
+
+- stationarity is a **fixed-point / correctness** property
+- mixing is a **speed of convergence** property
+
+A chain can have $\pi$ as a stationary distribution but still mix very slowly. That means it is correct in principle, but bad in practice.
+
+Exam memory:
+
+> Stationary: if you are already at $\pi$, you stay at $\pi$. Fast mixing: if you are not at $\pi$, you get close to $\pi$ quickly.
+
+---
+
+### Turn 66
+
+**User asked:**
+
+> how can you have pi as a stationary distribution by mix very slowly?
+
+**Assistant response:**
+
+Because stationarity only checks what happens **if you already start at $\pi$**.
+
+It says:
+
+$$
+\pi P=\pi.
+$$
+
+That means: if the chain's current distribution is exactly $\pi$, then one transition keeps it exactly $\pi$.
+
+But mixing asks a different question:
+
+> If I start from a bad initial state, how long does it take until the distribution is close to $\pi$?
+
+Those can be very different.
+
+Example intuition:
+
+Suppose $\pi$ puts half its mass in region $A$ and half in region $B$:
+
+$$
+\pi(A)=0.5,
+\qquad
+\pi(B)=0.5.
+$$
+
+The chain is designed so that $\pi$ is stationary, but it almost never crosses between $A$ and $B$.
+
+If you start already distributed as $\pi$, then half the probability mass starts in $A$ and half starts in $B$. Since almost no mass crosses either way, the balance stays roughly half and half. So $\pi$ is stationary.
+
+But if you start from a single point in $A$, the chain may take a very long time to cross into $B$. Until it crosses, it badly underrepresents $B$. So it mixes slowly.
+
+Memory:
+
+> Stationarity is about balance at equilibrium. Mixing is about travel time to equilibrium.
+
+This is why low conductance / bottlenecks matter: they can preserve the correct equilibrium distribution while making it painfully slow to reach that equilibrium from one side.
+
+---
+
+### Turn 67
+
+**User asked:**
+
+> for pf sq 10, is the correct answer c? i think it's either c or none of the above, but not 100% sure, and leaning with c
+
+**Assistant response:**
+
+Yes. The correct answer is **(c)**.
+
+This is a backdoor-criterion question. A valid adjustment set must:
+
+1. contain no descendants of the treatment $T$
+2. block every backdoor path from $T$ to $Y$, meaning every path that starts with an arrow into $T$
+
+Why (c) works:
+
+- The highlighted set is $\{W_1,W_2\}$.
+- The relevant backdoor path starts
+
+$$
+T \leftarrow W_1 \to W_2 \leftarrow V \to Y.
+$$
+
+- $W_1$ blocks that backdoor path.
+- The highlighted variables are not descendants of $T$.
+
+Why not “none of the above”:
+
+> Because (c) really does satisfy the criterion.
+
+Why the others fail:
+
+- In (a), the highlighted variables are descendants of $T$.
+- In (b), the highlighted set includes $W_2$, which is a descendant of $T$.
+- In (d), the highlighted set includes descendants of $T$, such as $W_2$ and $W_3$.
+
+Exam memory:
+
+> For backdoor, first reject any adjustment set containing descendants of treatment. Then check whether it blocks every path into treatment.

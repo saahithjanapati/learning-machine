@@ -11,19 +11,37 @@ Use with [[2026-04-20-pgm-practice-problems-section-05-mcmc]].
 
 ## Solution 5.1
 
-A stationary distribution $\pi$ satisfies
+Let $\pi=(\pi_0,\pi_1)$. Stationarity requires
 $$
-\pi=\pi P,
+\pi=\pi P
 $$
-meaning one transition step leaves the distribution unchanged.
+and $\pi_0+\pi_1=1$. The flow equations give
+$$
+0.1\pi_0=0.2\pi_1,
+$$
+so $\pi_0=2\pi_1$. Therefore
+$$
+\pi=\left(\frac{2}{3},\frac{1}{3}\right).
+$$
 
-Detailed balance is the stronger condition
+Detailed balance holds because
 $$
-\pi(x)P(x,y)=\pi(y)P(y,x)
+\pi_0P(0,1)
+=
+\frac{2}{3}\cdot 0.1
+=
+\frac{1}{15}
 $$
-for all states $x,y$.
+and
+$$
+\pi_1P(1,0)
+=
+\frac{1}{3}\cdot 0.2
+=
+\frac{1}{15}.
+$$
 
-Detailed balance implies stationarity, but stationarity does not require detailed balance.
+Detailed balance helps prove stationarity, but it does not by itself tell you that the chain mixes quickly. Mixing speed depends on how fast distributions from different starting states converge to $\pi$.
 
 ## Solution 5.2
 
@@ -34,21 +52,49 @@ $$
 \min\left(1,\frac{\pi(x')q(x \mid x')}{\pi(x)q(x' \mid x)}\right).
 $$
 
-If the proposal is symmetric, then
+Because the normalizing constant cancels, we can use $\tilde{\pi}$ instead of normalized $\pi$.
+
+For $A\to B$:
 $$
-q(x' \mid x)=q(x \mid x'),
-$$
-so the proposal terms cancel and we get
-$$
-\alpha(x,x')
+\alpha(A,B)
 =
-\min\left(1,\frac{\pi(x')}{\pi(x)}\right).
+\min\left(1,\frac{\tilde{\pi}(B)q(A\mid B)}{\tilde{\pi}(A)q(B\mid A)}\right)
+=
+\min\left(1,\frac{4\cdot 0.2}{1\cdot 0.6}\right)
+=1.
+$$
+
+For $B\to A$:
+$$
+\alpha(B,A)
+=
+\min\left(1,\frac{\tilde{\pi}(A)q(B\mid A)}{\tilde{\pi}(B)q(A\mid B)}\right)
+=
+\min\left(1,\frac{1\cdot 0.6}{4\cdot 0.2}\right)
+=
+\frac{3}{4}.
 $$
 
 ## Solution 5.3
 
-Gibbs sampling is natural in graphical models because each update samples one variable or block from its conditional distribution given the rest. In a graphical model, those conditionals are often determined by local neighboring structure rather than the entire graph. That makes Gibbs look especially well matched to graph-based probabilistic models.
+The Gibbs conditional satisfies
+$$
+p(X_2=x\mid X_1=a,X_3=c)
+\propto
+\psi_{12}(a,x)\psi_{23}(x,c).
+$$
+
+There are no other factors in this model, so nothing else matters. More generally, for a Gibbs update you only need factors that touch the variable being updated; factors not involving that variable cancel out during normalization.
+
+This is local because $X_2$ only interacts with its graph neighbors $X_1$ and $X_3$.
 
 ## Solution 5.4
 
-Multimodality is hard because the chain can get stuck near one mode and have trouble moving to another. High dimension is hard because probability mass can concentrate in complicated regions, proposal tuning becomes delicate, and naive local moves may explore the space very slowly. So both features can lead to poor mixing.
+The true statements are:
+
+- A
+- B
+- C
+- E
+
+Statement D is false. Always accepting every proposed move only samples from the desired target if the proposal dynamics themselves preserve that target. Acceptance probability $1$ alone does not guarantee correctness.

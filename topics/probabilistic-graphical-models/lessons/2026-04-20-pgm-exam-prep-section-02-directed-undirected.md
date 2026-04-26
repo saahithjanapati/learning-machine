@@ -734,28 +734,32 @@ At exam level, the point is:
 
 Suppose the DAG is
 $$
-X_1 \to X_2,\qquad X_1 \to X_3,\qquad X_2 \to X_4,\qquad X_3 \to X_4.
+A \to B,\qquad A \to C,\qquad B \to D,\qquad C \to D,\qquad D \to E.
 $$
 
-Write the joint factorization.
+Answer:
+
+1. Write the joint factorization.
+2. Give the Markov blanket of $D$.
+3. Are $B$ and $C$ independent given $A$?
+4. Are $B$ and $C$ independent given $D$?
 
 ### Solution
 
-The parent sets are:
-
-- $pa_1=\emptyset$
-- $pa_2=\{X_1\}$
-- $pa_3=\{X_1\}$
-- $pa_4=\{X_2,X_3\}$
-
-So
+The factorization is
 $$
-p(x_1,x_2,x_3,x_4)=p(x_1)p(x_2\mid x_1)p(x_3\mid x_1)p(x_4\mid x_2,x_3).
+p(a,b,c,d,e)=p(a)p(b\mid a)p(c\mid a)p(d\mid b,c)p(e\mid d).
 $$
+
+The Markov blanket of $D$ is $\{B,C,E\}$: its parents and its child.
+
+$B\perp C\mid A$ is implied. Conditioning on their shared parent $A$ blocks the fork path, and the collider $B\to D\leftarrow C$ remains closed because $D$ is not conditioned on.
+
+$B\perp C\mid D$ is not implied. Conditioning on the collider $D$ opens the path $B\to D\leftarrow C$.
 
 ### Problem 2.2
 
-For each path pattern, say what conditioning on the middle node does.
+For each path pattern, say whether conditioning on the middle node blocks or opens the path between the endpoints.
 
 1. $X \to Y \to Z$
 2. $X \leftarrow Y \to Z$
@@ -776,21 +780,23 @@ $$
 A \to B \to C \leftarrow D.
 $$
 
-Are $A$ and $D$ independent with no conditioning? What changes if you condition on $C$?
+Select all true statements.
+
+A. $A$ and $D$ are independent with no conditioning.
+
+B. Conditioning on $C$ can make $A$ and $D$ dependent.
+
+C. Conditioning on $B$ opens the collider at $C$.
+
+D. Conditioning on a descendant of $C$ can also open the collider path.
 
 ### Solution
 
-With no conditioning, the only path from $A$ to $D$ is
-$$
-A - B - C - D.
-$$
+The true statements are A, B, and D.
 
-The node $B$ is an unobserved chain node, so it does not block the path.
-The node $C$ is an unobserved collider, so it blocks the path.
-Therefore $A$ and $D$ are independent.
+With no conditioning, the only path from $A$ to $D$ is blocked at the collider $C$, so A is true. Conditioning on $C$ opens that collider, so B is true. Conditioning on a descendant of a collider also opens the collider, so D is true.
 
-If you condition on $C$, the collider opens.
-Then the path becomes active, so $A$ and $D$ become dependent given $C$.
+C is false. Conditioning on $B$ blocks the chain part $A\to B\to C$; it does not open the collider at $C$.
 
 ### Problem 2.4
 
@@ -822,52 +828,81 @@ $$
 
 ### Problem 2.5
 
-Why is there a partition function in a UGM but not in a DAG factorization?
+Consider a UGM on two binary variables:
+$$
+p(x,y)=\frac{1}{Z}\psi(x,y)
+$$
+with
+$$
+\psi(0,0)=3,\quad \psi(0,1)=1,\quad \psi(1,0)=2,\quad \psi(1,1)=4.
+$$
+
+Compute $Z$ and $p(X=1)$.
 
 ### Solution
 
-In a DAG, each local factor is a conditional probability table and is already normalized over the child variable.
+The partition function is the sum of all compatibility scores:
+$$
+Z=3+1+2+4=10.
+$$
 
-In a UGM, the potentials are only nonnegative scores.
-Their product is generally not normalized, so the partition function is needed to make the total mass equal to `1`.
+Then
+$$
+p(X=1)=p(1,0)+p(1,1)=\frac{2+4}{10}=0.6.
+$$
+
+This is exactly what $Z$ does: it turns compatibility scores into probabilities.
 
 ### Problem 2.6
 
-Suppose the undirected graph is a chain
+Suppose the undirected graph has edges
 $$
-X_1 - X_2 - X_3.
+(A,B),\ (B,C),\ (C,D),\ (A,D).
 $$
 
-What are the maximal cliques, and what conditional independence does the graph imply?
+Answer:
+
+1. What are the maximal cliques?
+2. Does $A\perp C\mid \{B,D\}$ follow from graph separation?
+3. Write a valid clique factorization.
 
 ### Solution
 
 The maximal cliques are:
 
-- $\{X_1,X_2\}$
-- $\{X_2,X_3\}$
+- $\{A,B\}$
+- $\{B,C\}$
+- $\{C,D\}$
+- $\{A,D\}$
+
+Yes. In the cycle, every path from $A$ to $C$ goes through either $B$ or $D$, so conditioning on $\{B,D\}$ separates $A$ from $C$.
 
 So a valid factorization is
 $$
-p(x_1,x_2,x_3)=\frac{1}{Z}\phi_{12}(x_1,x_2)\phi_{23}(x_2,x_3).
+p(a,b,c,d)
+=
+\frac{1}{Z}
+\psi_{AB}(a,b)\psi_{BC}(b,c)\psi_{CD}(c,d)\psi_{AD}(a,d).
 $$
-
-The graph also implies
-$$
-X_1 \perp X_3 \mid X_2
-$$
-because $X_2$ separates $X_1$ from $X_3$.
 
 ### Problem 2.7
 
-Why is it wrong to say "directed models are just graphs with arrows, and undirected models are just graphs without arrows"?
+Select all true statements about DAGs and UGMs.
+
+A. DAG local conditionals are normalized over each child variable.
+
+B. UGM potentials are allowed to be unnormalized compatibility scores.
+
+C. DAGs must be acyclic.
+
+D. UGMs never require a partition function.
+
+E. Directed and undirected graphs use different graphical rules for reading conditional independence.
 
 ### Solution
 
-Because the real difference is in the probability semantics.
+The true statements are A, B, C, and E.
 
-Directed models use locally normalized conditional distributions and require acyclicity.
-Undirected models use unnormalized compatibility functions and one global partition function.
+D is false. UGMs generally need a partition function to normalize the product of potentials.
 
-So the distinction is not cosmetic.
-It changes sampling, normalization, and how conditional independence is read from the graph.
+The exam-level point is that the arrows are not just decoration. They change the factor semantics, normalization story, and separation criterion.

@@ -794,39 +794,62 @@ On loopy graphs, the same updates can still be run but generally become approxim
 
 ### Problem 3.1
 
-Suppose
+Suppose a factorization is
 $$
-p(x_1,x_2,x_3)=p(x_1)p(x_2\mid x_1)p(x_3\mid x_2).
+\tilde{p}(a,b,c,d)=\phi_1(a,b)\phi_2(b,c)\phi_3(c,d).
 $$
 
-Write $p(x_3)$ in variable-elimination form by eliminating $x_1$ first.
+You want the marginal over $D$.
+
+1. Write the elimination expression.
+2. Eliminate in the order $A,B,C$ and name the intermediate messages/factors.
 
 ### Solution
 
 Start from
 $$
-p(x_3)=\sum_{x_1,x_2} p(x_1)p(x_2\mid x_1)p(x_3\mid x_2).
+\tilde{p}(d)=
+\sum_a\sum_b\sum_c
+\phi_1(a,b)\phi_2(b,c)\phi_3(c,d).
 $$
 
-Eliminate $x_1$ first:
+Eliminate $A$:
 $$
-m(x_2)=\sum_{x_1} p(x_1)p(x_2\mid x_1).
+m_1(b)=\sum_a \phi_1(a,b).
 $$
 
-Then eliminate $x_2$:
+Eliminate $B$:
 $$
-p(x_3)=\sum_{x_2} m(x_2)p(x_3\mid x_2).
+m_2(c)=\sum_b m_1(b)\phi_2(b,c).
+$$
+
+Eliminate $C$:
+$$
+\tilde{p}(d)=\sum_c m_2(c)\phi_3(c,d).
 $$
 
 ### Problem 3.2
 
-Why can two elimination orders give the same exact answer but very different runtime?
+For the factors
+$$
+\phi_1(A,B),\qquad \phi_2(B,C),\qquad \phi_3(C,D),\qquad \phi_4(C,E),
+$$
+you want the marginal over $E$.
+
+Which order creates a larger first intermediate factor?
+
+1. Eliminate $A$ first.
+2. Eliminate $C$ first.
+
+Explain.
 
 ### Solution
 
-Because the elimination order determines which intermediate factors are created.
-One order may only create small factors, while another may create a large induced clique and therefore a large factor table.
-Correctness is unchanged, but computational cost is not.
+Eliminating $A$ first only touches $\phi_1(A,B)$ and creates a factor over $\{B\}$.
+
+Eliminating $C$ first touches $\phi_2(B,C)$, $\phi_3(C,D)$, and $\phi_4(C,E)$ and creates a factor over $\{B,D,E\}$.
+
+So eliminating $C$ first creates the larger first intermediate factor. Both orders can be exact, but the second order is more expensive because it creates a higher-dimensional table.
 
 ### Problem 3.3
 
@@ -845,15 +868,23 @@ If $\alpha$ were included, information from that edge would be double-counted.
 
 ### Problem 3.4
 
-Why is BP exact on trees but not automatically exact on loopy graphs?
+Select all statements that are true.
+
+A. On a tree factor graph, sum-product BP is exact.
+
+B. On a loopy factor graph, the same message equations can still be run.
+
+C. Loopy BP is guaranteed to converge to exact marginals.
+
+D. On a tree, a message across an edge summarizes one separated side of the graph.
 
 ### Solution
 
-On a tree, cutting an edge separates the graph into two independent subproblems once the boundary variable is fixed.
-So each message is an exact subtree summary.
+The true statements are A, B, and D.
 
-On a loopy graph, that clean decomposition fails.
-Messages can recirculate information around cycles, so the updates are no longer exact dynamic programming in general.
+C is false. Loopy BP may converge and may be useful, but exactness is not guaranteed.
+
+The reason trees are special is that cutting an edge actually separates the graph into two pieces. A tree message is therefore an exact dynamic-programming summary of one side.
 
 ### Problem 3.5
 
@@ -869,10 +900,17 @@ The sequence formed by picking each time step's most likely marginal state need 
 
 ### Problem 3.6
 
-What does treewidth measure operationally, and why does it matter for exact inference?
+Consider an undirected cycle on four variables:
+$$
+A-B-C-D-A.
+$$
+
+If you eliminate $A$ first, what fill-in edge is created? What does that imply about the largest factor size you should expect during elimination?
 
 ### Solution
 
-Treewidth measures how large the worst induced clique must become under the best elimination order.
+Eliminating $A$ connects its neighbors $B$ and $D$, creating the fill-in edge $(B,D)$.
 
-It matters because factor size grows exponentially in the number of variables in the factor, so exact inference cost is exponential in that width.
+After that fill-in, $B,C,D$ form a triangle through edges $(B,C)$, $(C,D)$, and $(B,D)$. So this order creates a factor over three variables at some point.
+
+Operationally, treewidth measures the largest induced clique size minus one under the best elimination order. Factor size grows exponentially in that clique size.

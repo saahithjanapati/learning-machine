@@ -351,25 +351,45 @@ So the shared graph structure does not imply shared probabilistic semantics.
 
 ### Problem 4.1
 
-Why is it reasonable to compare GNNs to belief propagation at all?
+Select all true statements about BP and message-passing GNNs.
+
+A. Both pass local information along graph edges.
+
+B. Both always compute exact posterior marginals.
+
+C. After $k$ local message-passing rounds, information has traveled at most $k$ hops.
+
+D. BP messages are model-derived, while GNN messages are usually learned.
 
 ### Solution
 
-Because both are built from local message passing on a graph.
-In each case, nodes exchange local summaries along edges and repeated updates allow more distant information to have influence.
+The true statements are A, C, and D.
 
-The comparison is structural, not semantic.
+B is false. BP computes exact marginals on trees under the right probabilistic setup. A generic GNN layer does not automatically compute posterior marginals.
 
 ### Problem 4.2
 
-What is the main conceptual difference between a BP message and a GNN message?
+Suppose a GNN layer uses
+$$
+h_v^{(t+1)}
+=
+\sigma\left(
+W_0h_v^{(t)}+
+\sum_{u\in N(v)}W_1h_u^{(t)}
+\right).
+$$
+
+1. Why is the neighbor aggregation permutation-invariant?
+2. After two layers, which nodes can influence $h_v^{(2)}$?
+3. Why is this not automatically exact probabilistic inference?
 
 ### Solution
 
-A BP message has probabilistic meaning and is derived from the model factorization.
-A GNN message is a learned feature vector produced by a neural architecture for a downstream task.
+The sum is permutation-invariant because changing the order of the neighbors does not change the sum.
 
-So BP is model-derived inference, while GNNs are learned representation computation.
+After two layers, $h_v^{(2)}$ can depend on nodes within two hops of $v$.
+
+It is not automatically exact probabilistic inference because the update is a learned feature transformation, not a message equation derived from a normalized probabilistic model and its factors.
 
 ### Problem 4.3
 
@@ -395,15 +415,17 @@ So deeper message passing expands the receptive field one hop per layer.
 
 ### Problem 4.5
 
-Explain the difference between over-smoothing and over-squashing.
+A deep GNN on a connected graph produces nearly identical embeddings for many nodes after many averaging-style layers. Separately, a tree task requires many leaves to send information through a single edge near the root.
+
+Which issue is over-smoothing, and which issue is over-squashing?
 
 ### Solution
 
-Over-smoothing means repeated mixing makes many node representations too similar.
+Nearly identical embeddings are over-smoothing. The model has mixed local representations so much that node-specific information is washed out.
 
-Over-squashing means information from many distant nodes is compressed through a narrow bottleneck and cannot be transmitted faithfully.
+Many leaves sending information through one narrow edge is over-squashing. The issue is limited communication capacity through a graph bottleneck.
 
-So one is about collapse of similarity, while the other is about limited communication capacity.
+The distinction matters because adding depth can make both worse: deeper layers may smooth representations, and long-range dependencies may still be compressed through bottlenecks.
 
 ### Problem 4.6
 

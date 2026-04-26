@@ -1120,7 +1120,14 @@ It has the same marginal density evolution as the corresponding diffusion proces
 
 ### Problem 7.1
 
-For a fixed generator $G$, what is the optimal discriminator in the original GAN objective, and what is its intuition?
+For a fixed generator distribution $p_G$, the original GAN discriminator objective is
+$$
+\mathbb{E}_{x\sim p_{\text{data}}}\log D(x)
++
+\mathbb{E}_{x\sim p_G}\log(1-D(x)).
+$$
+
+What is the optimal discriminator $D^*(x)$, and why?
 
 ### Solution
 
@@ -1129,40 +1136,45 @@ $$
 D^*(x)=\frac{p_{\text{data}}(x)}{p_{\text{data}}(x)+p_G(x)}.
 $$
 
-This is exactly the Bayes classifier for distinguishing real from generated samples.
+This is the Bayes classifier for distinguishing real from generated samples. At each $x$, the discriminator should output the posterior probability that the sample came from data rather than the generator under equal class priors.
 
 It outputs a high value when $x$ is much more likely under real data than under the generator, and a low value when the reverse is true.
 
 ### Problem 7.2
 
-Why can the classical JS-based GAN objective give poor gradient information when the model and data supports are disjoint?
+Select all true statements about standard GANs and Wasserstein-style GANs.
+
+A. If $p_{\text{data}}$ and $p_G$ have disjoint supports, the JS-based objective can give weak or flat generator gradients.
+
+B. Wasserstein distance can vary smoothly with how far apart two non-overlapping distributions are.
+
+C. WGAN removes the generator and trains only a discriminator.
+
+D. WGAN critics are constrained to represent a suitable class of functions, often described using a Lipschitz constraint.
 
 ### Solution
 
-In that regime, Jensen-Shannon divergence can become flat as a function of the generator parameters.
+The true statements are A, B, and D.
 
-The practice-exam shifted-interval example shows this explicitly: once the two supports no longer overlap, the JS loss is constant, so its derivative is zero.
-
-That means gradient descent does not know which direction to move the generator.
+C is false. WGAN still trains a generator; it changes the objective and discriminator/critic interpretation.
 
 ### Problem 7.3
 
-Why does score matching avoid the partition function problem in an energy-based model?
+For
+$$
+p_\theta(x)=\frac{1}{Z_\theta}\exp(-E_\theta(x)),
+$$
+show why $\nabla_x\log p_\theta(x)$ does not require computing $Z_\theta$.
 
 ### Solution
 
-If
 $$
-q_\theta(x)\propto \exp(-E_\theta(x)),
-$$
-then
-$$
-\log q_\theta(x)=-E_\theta(x)-\log Z_\theta.
+\log p_\theta(x)=-E_\theta(x)-\log Z_\theta.
 $$
 
 Differentiating with respect to $x$ gives
 $$
-\nabla_x \log q_\theta(x)=-\nabla_x E_\theta(x),
+\nabla_x \log p_\theta(x)=-\nabla_x E_\theta(x),
 $$
 because $\log Z_\theta$ is constant with respect to $x$.
 
@@ -1170,66 +1182,100 @@ So the score can be learned without directly computing the partition function.
 
 ### Problem 7.4
 
-Why is integration by parts central to score matching rather than a minor algebra trick?
+In Hyvarinen score matching, which quantities must the model be differentiable enough to compute?
+
+Select all that apply.
+
+A. The score $s_\theta(x)=\nabla_x\log p_\theta(x)$.
+
+B. The divergence term $\nabla_x\cdot s_\theta(x)$ or equivalent second-derivative information.
+
+C. The partition function $Z_\theta$ exactly.
+
+D. The gradient of $\log Z_\theta$ with respect to $x$.
 
 ### Solution
 
-The ideal loss depends on the unknown data score $\nabla_x \log p_{\text{data}}(x)$, which we cannot evaluate directly from samples.
+The true statements are A and B.
 
-Integration by parts rewrites the troublesome cross term into a divergence of model quantities.
+C and D are false. Score matching avoids the need to know $Z_\theta$ because $Z_\theta$ is constant with respect to $x$.
 
-That transforms the objective into one that can be estimated from samples of the data alone.
-
-So without integration by parts, ordinary score matching would not be practical in the way the lecture presents it.
+Integration by parts matters because it replaces the unknown data-score term with derivatives of the model score that can be estimated on data samples.
 
 ### Problem 7.5
 
-What is the conceptual difference between GAN discrimination and NCE discrimination?
+A student says: "For NCE, the noise distribution should be as far from the data as possible so the classifier can easily tell data from noise."
+
+Is this correct?
 
 ### Solution
 
-In a GAN, the negative class is a learned generator distribution that changes during training.
+No. If the noise is too far from the data, the classification task becomes easy in an uninformative way. The classifier can separate data from noise without learning a useful density ratio near the data distribution.
 
-In NCE, the negative class is a fixed known noise distribution $q$.
-
-So GANs use adversarial comparison against a moving opponent, while NCE uses classification against a static reference distribution to learn an unnormalized density model.
+NCE works by turning density estimation into data-versus-noise classification. The noise distribution should be known and should overlap enough with relevant regions that the classifier has to learn meaningful distinctions.
 
 ### Problem 7.6
 
-Why is denoising score matching a natural precursor to diffusion models?
+Match each method to the main object it learns most directly.
+
+1. GAN
+2. Score matching
+3. NCE
+4. Diffusion / score-based model
+
+A. Scores or denoising directions across noise levels
+
+B. A classifier against a fixed known noise distribution
+
+C. A generator trained through an adversarial discriminator/critic signal
+
+D. A score field $\nabla_x\log p(x)$ or approximation to it
 
 ### Solution
 
-Denoising score matching learns score information for noisy versions of the data distribution.
+The matching is:
 
-Diffusion models also work across a family of noisy intermediate distributions and require the score $\nabla_x \log p_t(x)$ at different noise levels to construct the reverse process.
+- 1 -> C
+- 2 -> D
+- 3 -> B
+- 4 -> A
 
-So diffusion can be understood as extending denoising score estimation into a full generative procedure.
+Diffusion is especially connected to denoising score matching because it learns how to move from noisy distributions back toward cleaner data.
 
 ### Problem 7.7
 
-What is the role of the corrector step in predictor-corrector sampling?
+In score-based diffusion sampling, compare the predictor and corrector steps.
+
+Which statements are true?
+
+A. The predictor follows a reverse-time SDE or related discretized dynamics.
+
+B. The corrector usually applies local Langevin-style refinement at the current noise level.
+
+C. The predictor and corrector require two unrelated score networks.
+
+D. Both steps use the learned score field.
 
 ### Solution
 
-The predictor step follows the reverse SDE numerically and gives a coarse global move.
+The true statements are A, B, and D.
 
-The corrector step then performs a few local Langevin-style refinements at the current noise level using the learned score.
-
-Its purpose is to locally improve or re-equilibrate the sample, not to introduce a separate learned model.
+C is false. The same learned score model is typically used; the steps are different numerical/sampling operations, not separate learned densities.
 
 ### Problem 7.8
 
-What is the conceptual significance of the probability-flow ODE?
+Select all true statements about the probability-flow ODE in score-based diffusion.
+
+A. It gives a deterministic dynamics related to the stochastic reverse-time SDE.
+
+B. It can be useful for likelihood computation through change-of-variables ideas.
+
+C. It can support deterministic sampling or inversion-style reasoning.
+
+D. It removes the need to learn the score function.
 
 ### Solution
 
-It shows that score-based diffusion models are not tied only to a stochastic reverse SDE.
+The true statements are A, B, and C.
 
-There is also a deterministic dynamical system whose marginal density evolution matches the diffusion process.
-
-This provides:
-
-- a deterministic sampling perspective
-- a change-of-variables / likelihood interpretation
-- a cleaner view of how the learned score field transports probability mass over time
+D is false. The probability-flow ODE still depends on the learned score field.
