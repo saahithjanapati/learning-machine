@@ -10,6 +10,7 @@
 - [[#3.3 A Worked Variable-Elimination Example]]
 - [[#3.4 Why Elimination Order Matters So Much]]
 - [[#3.5 Treewidth and Junction-Tree Intuition]]
+- [[#3.5.5 Tree Decompositions, Explicitly]]
 - [[#3.6 Factor Graphs as a Common Language]]
 - [[#3.7 Belief Propagation Before the Formulas]]
 - [[#3.8 Sum-Product BP, Slowly]]
@@ -417,6 +418,207 @@ This helps because treewidth is not just a number to memorize.
 It is describing the size of the worst local cluster forced by elimination, and junction-tree bags are the cluster version of that same phenomenon.
 
 ![[local-assets/openai-images/bp-treewidth-junction-tree.png]]
+
+## 3.5.5 Tree Decompositions, Explicitly
+
+A tree decomposition is the formal object behind the phrase "treewidth."
+
+It takes an original undirected graph $G=(V,E)$ and builds a new tree $T$.
+
+The nodes of $T$ are not single variables. They are **bags**:
+
+$$
+B_i \subseteq V.
+$$
+
+Each bag contains a subset of variables from the original graph.
+
+The goal is to arrange these bags in a tree so that the original graph's dependencies are covered, but the bags stay as small as possible.
+
+### The three required properties
+
+A valid tree decomposition must satisfy three conditions.
+
+#### 1. Vertex coverage
+
+Every original variable appears in at least one bag:
+
+$$
+\bigcup_i B_i = V.
+$$
+
+If a variable never appears in any bag, the decomposition has lost part of the graph.
+
+#### 2. Edge coverage
+
+Every original edge is contained inside some bag.
+
+For every edge $(u,v)\in E$, there must be some bag $B_i$ such that:
+
+$$
+u\in B_i
+\qquad\text{and}\qquad
+v\in B_i.
+$$
+
+This is what ensures every local dependency from the original graph is represented somewhere in the bag tree.
+
+#### 3. Running-intersection property
+
+For each original variable $v$, look at all bags that contain $v$.
+
+Those bags must form a connected subtree of $T$.
+
+Equivalently:
+
+> if $v$ appears in two bags, then every bag on the path between those two bags must also contain $v$.
+
+This is the easiest condition to forget, and it is the one that makes message passing on the bag tree consistent.
+
+If a variable disappeared and then reappeared later in the tree, different parts of the tree could disagree about the same variable without a connected path enforcing consistency.
+
+### Width of a tree decomposition
+
+The width of a tree decomposition is:
+
+$$
+\max_i |B_i|-1.
+$$
+
+The treewidth of $G$ is the smallest possible width over all valid tree decompositions:
+
+$$
+\mathrm{tw}(G)
+=
+\min_{\text{valid tree decompositions}}
+\left(\max_i |B_i|-1\right).
+$$
+
+So:
+
+- small bags mean low treewidth
+- large bags mean expensive exact inference
+
+### Why the minus 1 appears again
+
+A tree has treewidth $1$, not $2$, because its bags can be edges:
+
+$$
+\{u,v\}
+$$
+
+with bag size $2$.
+
+Thus:
+
+$$
+\text{width}=2-1=1.
+$$
+
+This matches the operational fact that ordinary tree-structured graphical models are easy for exact message passing.
+
+### How this connects to variable elimination
+
+Variable elimination creates intermediate factors.
+
+Each large intermediate factor corresponds to a group of variables that must be handled together.
+
+Tree decompositions express the same idea geometrically:
+
+- induced cliques from elimination become bag-like clusters
+- junction-tree message passing runs over those bags
+- exact inference cost is exponential in the largest bag size
+
+So elimination order, induced cliques, tree decompositions, junction trees, and treewidth are all different views of the same computational bottleneck.
+
+### Exam proof pattern
+
+If a problem asks you to prove something is a valid tree decomposition, do not just draw bags.
+
+Explicitly verify:
+
+1. **Vertex coverage:** every graph vertex appears in at least one bag.
+2. **Edge coverage:** every graph edge is contained in at least one bag.
+3. **Running intersection:** for each vertex, the bags containing it form a connected subtree.
+
+Then state the largest bag size and conclude the width.
+
+For example, to show a cycle $C_n$ has treewidth at most $2$, it is enough to construct valid bags of size $3$ and verify the three properties. Since the largest bag has size $3$, the decomposition has width:
+
+$$
+3-1=2.
+$$
+
+That proves:
+
+$$
+\mathrm{tw}(C_n)\le 2.
+$$
+
+It does not by itself prove equality unless you also prove no width-$1$ decomposition exists.
+
+### M1-Q12 checklist
+
+Midterm 1 Question 12 asks for an explicit tree decomposition of a cycle graph $C_n$ showing treewidth at most $2$.
+
+For that question, the answer needs two pieces:
+
+1. Define the bags and the tree structure connecting them.
+2. Verify the required tree-decomposition properties.
+
+The properties to write explicitly are:
+
+#### Property 1: vertex coverage
+
+Every original cycle vertex must appear in at least one bag:
+
+$$
+\bigcup_i B_i = V(C_n).
+$$
+
+For a proposed decomposition, list where each kind of vertex appears. For example, if one vertex appears in many bags and other vertices appear in one or two adjacent bags, say that explicitly.
+
+#### Property 2: edge coverage
+
+Every original cycle edge must be contained in at least one bag.
+
+For each edge $(v_i,v_{i+1})$, there should be a bag containing both endpoints:
+
+$$
+\{v_i,v_{i+1}\}\subseteq B_j
+$$
+
+for some $j$.
+
+For the closing cycle edge $(v_n,v_1)$, do not forget to identify the bag that contains both $v_n$ and $v_1$.
+
+#### Property 3: running intersection
+
+For every original vertex $v$, the set of bags containing $v$ must be connected in the decomposition tree.
+
+Equivalently:
+
+> if $v$ is in two bags, then every bag on the path between those two bags must also contain $v$.
+
+This is the property graders often look for explicitly. It is not enough to say "the bags cover the graph."
+
+#### Width conclusion
+
+After verifying the three properties, report the largest bag size.
+
+For M1-Q12, the goal is to use bags of size at most $3$.
+
+So the width is:
+
+$$
+\max_i |B_i|-1 = 3-1=2.
+$$
+
+Therefore:
+
+$$
+\mathrm{tw}(C_n)\le 2.
+$$
 
 ## 3.6 Factor Graphs as a Common Language
 

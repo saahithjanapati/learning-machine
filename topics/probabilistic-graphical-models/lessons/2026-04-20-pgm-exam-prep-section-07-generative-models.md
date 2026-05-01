@@ -7,6 +7,7 @@
 - [[#7.0 The Common Problem Behind This Whole Section]]
 - [[#7.1 GANs, Slowly and Rigorously]]
 - [[#7.2 Why Wasserstein Changes the Geometry]]
+- [[#7.2.5 CycleGAN and Unpaired Image Translation]]
 - [[#7.3 Score Matching, Slowly and Rigorously]]
 - [[#7.4 Sliced and Denoising Score Matching]]
 - [[#7.5 Noise Contrastive Estimation, Slowly and Rigorously]]
@@ -65,6 +66,7 @@ If those are clear, the section becomes much more coherent.
 Primary lecture coverage:
 
 - `Lecture 17`
+- `Lecture 18`
 - `Lecture 19`
 - `Lecture 20`
 - `Lecture 21`
@@ -216,6 +218,43 @@ $$
 p_{\text{data}}(x)\log D(x) + p_G(x)\log(1-D(x)).
 $$
 
+Differentiate with respect to the scalar value $D(x)$:
+
+$$
+\frac{\partial}{\partial D}
+\left[
+p_{\text{data}}(x)\log D
++
+p_G(x)\log(1-D)
+\right]
+=
+\frac{p_{\text{data}}(x)}{D}
+-
+\frac{p_G(x)}{1-D}.
+$$
+
+Set this equal to zero:
+
+$$
+\frac{p_{\text{data}}(x)}{D}
+=
+\frac{p_G(x)}{1-D}.
+$$
+
+Rearrange:
+
+$$
+p_{\text{data}}(x)(1-D)=p_G(x)D,
+$$
+
+so
+
+$$
+p_{\text{data}}(x)
+=
+D\left(p_{\text{data}}(x)+p_G(x)\right).
+$$
+
 The maximizing choice is
 $$
 D^*(x)=\frac{p_{\text{data}}(x)}{p_{\text{data}}(x)+p_G(x)}.
@@ -235,6 +274,66 @@ $$
 2\,\mathrm{JS}(p_{\text{data}},p_G)-\log 4,
 $$
 where $\mathrm{JS}$ is Jensen-Shannon divergence.
+
+The algebra behind that statement is:
+
+$$
+\begin{aligned}
+V(D^*,G)
+&=
+\int p_{\text{data}}(x)
+\log
+\frac{p_{\text{data}}(x)}
+{p_{\text{data}}(x)+p_G(x)}
+\,dx \\
+&\quad+
+\int p_G(x)
+\log
+\frac{p_G(x)}
+{p_{\text{data}}(x)+p_G(x)}
+\,dx.
+\end{aligned}
+$$
+
+Let
+
+$$
+M(x)=\frac{1}{2}\left(p_{\text{data}}(x)+p_G(x)\right).
+$$
+
+Since
+
+$$
+p_{\text{data}}(x)+p_G(x)=2M(x),
+$$
+
+we get
+
+$$
+\begin{aligned}
+V(D^*,G)
+&=
+\int p_{\text{data}}(x)
+\log
+\frac{p_{\text{data}}(x)}
+{2M(x)}
+\,dx \\
+&\quad+
+\int p_G(x)
+\log
+\frac{p_G(x)}
+{2M(x)}
+\,dx \\
+&=
+\mathrm{KL}(p_{\text{data}}\|M)
++
+\mathrm{KL}(p_G\|M)
+-
+2\log 2 \\
+&=
+2\,\mathrm{JS}(p_{\text{data}},p_G)-\log 4.
+\end{aligned}
+$$
 
 This is one of the main formal facts from the GAN lecture.
 
@@ -334,6 +433,68 @@ $$
 W_1(p,p_m)=|m|.
 $$
 
+Here is the quick one-dimensional math intuition.
+
+Let
+
+$$
+p=\mathrm{Unif}[0,1],
+\qquad
+p_m=\mathrm{Unif}[m,m+1].
+$$
+
+The distribution $p_m$ is just $p$ shifted by $m$.
+
+A valid coupling samples
+
+$$
+X\sim \mathrm{Unif}[0,1],
+\qquad
+Y=X+m.
+$$
+
+Then $Y\sim \mathrm{Unif}[m,m+1]$, and the transport cost is:
+
+$$
+\mathbb{E}|X-Y|
+=
+\mathbb{E}|X-(X+m)|
+=
+|m|.
+$$
+
+So
+
+$$
+W_1(p,p_m)\le |m|.
+$$
+
+For the matching lower bound, use the Kantorovich-Rubinstein dual with a 1-Lipschitz critic.
+
+If $m>0$, choose $f(x)=-x$:
+
+$$
+\mathbb{E}_{p}[f(X)]-\mathbb{E}_{p_m}[f(Y)]
+=
+-\mathbb{E}[X]+\mathbb{E}[Y]
+=
+m.
+$$
+
+If $m<0$, choose $f(x)=x$ and get $-m=|m|$.
+
+Therefore:
+
+$$
+W_1(p,p_m)\ge |m|.
+$$
+
+Together:
+
+$$
+W_1(p,p_m)=|m|.
+$$
+
 So:
 
 - the loss is not flat
@@ -365,6 +526,190 @@ But it changes the geometry of the learning signal in an important way:
 - under severe support mismatch, it can still provide useful gradients
 
 That is the exam-level point.
+
+## 7.2.5 CycleGAN and Unpaired Image Translation
+
+CycleGAN is an application of GAN ideas to **unpaired image-to-image translation**.
+
+The problem is different from ordinary unconditional generation.
+
+In a standard GAN, the generator starts from noise:
+
+$$
+z \mapsto G(z).
+$$
+
+In image-to-image translation, we want to map an input image from one domain to another:
+
+$$
+x \in X \mapsto G(x) \in Y.
+$$
+
+Examples:
+
+- horse photos $\leftrightarrow$ zebra photos
+- summer landscapes $\leftrightarrow$ winter landscapes
+- ordinary photos $\leftrightarrow$ Monet-style paintings
+- contrast CT scans $\leftrightarrow$ non-contrast CT scans
+
+### Paired vs unpaired translation
+
+If the training data are paired, life is easier.
+
+For example, in pix2pix-style translation, we might have pairs:
+
+$$
+(x_i,y_i)
+$$
+
+where $x_i$ is a sketch and $y_i$ is the corresponding real shoe photo.
+
+Then we can train a conditional generator using both:
+
+- an adversarial loss, so outputs look realistic
+- a reconstruction loss, so $G(x_i)$ matches the paired target $y_i$
+
+CycleGAN handles the harder **unpaired** setting.
+
+Here we only have two datasets:
+
+$$
+X=\{\text{horse images}\},
+\qquad
+Y=\{\text{zebra images}\},
+$$
+
+but no direct pair saying:
+
+> this exact horse image corresponds to this exact zebra image.
+
+So the model needs a training signal without paired supervision.
+
+### The two-generator setup
+
+CycleGAN trains two generators:
+
+$$
+G:X\to Y,
+\qquad
+F:Y\to X.
+$$
+
+It also trains two discriminators:
+
+- $D_Y$: distinguishes real $Y$ images from generated $G(x)$ images
+- $D_X$: distinguishes real $X$ images from generated $F(y)$ images
+
+The adversarial losses say:
+
+- $G(x)$ should look like a real sample from domain $Y$
+- $F(y)$ should look like a real sample from domain $X$
+
+For example:
+
+$$
+\mathcal{L}_{GAN}(G,D_Y,X,Y)
+=
+\mathbb{E}_{y\sim p_{\text{data}}(y)}[\log D_Y(y)]
++
+\mathbb{E}_{x\sim p_{\text{data}}(x)}[\log(1-D_Y(G(x)))].
+$$
+
+There is a symmetric loss for $F$ and $D_X$.
+
+### Why adversarial losses alone are not enough
+
+Adversarial losses only match **marginal domain distributions**.
+
+They can force:
+
+$$
+G(X) \approx Y
+$$
+
+as a distribution, but they do not say that a particular input image should preserve its content.
+
+Without another constraint, many strange mappings could satisfy the adversarial losses.
+
+For example, a horse-to-zebra generator could map many horse images to plausible zebra images while ignoring the structure of the original horse image.
+
+### Cycle consistency
+
+CycleGAN adds a reconstruction-style constraint:
+
+$$
+F(G(x))\approx x,
+\qquad
+G(F(y))\approx y.
+$$
+
+The cycle-consistency loss is:
+
+$$
+\mathcal{L}_{cyc}(G,F)
+=
+\mathbb{E}_{x\sim p_{\text{data}}(x)}
+\left[
+\|F(G(x))-x\|_1
+\right]
++
+\mathbb{E}_{y\sim p_{\text{data}}(y)}
+\left[
+\|G(F(y))-y\|_1
+\right].
+$$
+
+This says:
+
+> if you translate from one domain to the other and then translate back, you should recover the original input.
+
+### Full CycleGAN objective
+
+The combined objective is:
+
+$$
+\mathcal{L}(G,F,D_X,D_Y)
+=
+\mathcal{L}_{GAN}(G,D_Y,X,Y)
++
+\mathcal{L}_{GAN}(F,D_X,Y,X)
++
+\lambda \mathcal{L}_{cyc}(G,F).
+$$
+
+The optimization is:
+
+$$
+G^*,F^*
+=
+\arg\min_{G,F}\max_{D_X,D_Y}
+\mathcal{L}(G,F,D_X,D_Y).
+$$
+
+So the two forces are:
+
+- adversarial loss: translated images should look like the target domain
+- cycle loss: translating there and back should reconstruct the original
+
+### The exam trap: cycle consistency does not imply uniqueness
+
+Cycle consistency is a strong constraint, but it does not uniquely identify the correct semantic translation.
+
+It prevents arbitrary many-to-one collapse because if many $x$ values map to the same $G(x)$, then $F(G(x))$ cannot reconstruct all of them.
+
+But it still allows many possible one-to-one correspondences between domains.
+
+For example, if there are many valid bijections between horse images and zebra-like images, cycle consistency can enforce invertibility without telling us which bijection is the "right" one.
+
+That is why the Practice Final statement
+
+> cycle consistency makes the optimal translators unique
+
+is false.
+
+The safe exam sentence is:
+
+> CycleGAN uses adversarial losses to match target-domain realism and cycle consistency to preserve enough information to map back, but cycle consistency does not guarantee a unique or semantically correct translation.
 
 ## 7.3 Score Matching, Slowly and Rigorously
 
@@ -478,6 +823,45 @@ $$
 -\mathbb{E}_{p}[\nabla \cdot f(x)],
 $$
 assuming boundary terms vanish.
+
+Here is the one-dimensional version of the calculation.
+
+Since
+
+$$
+\nabla_x \log p(x)=\frac{p'(x)}{p(x)},
+$$
+
+the cross term becomes:
+
+$$
+\mathbb{E}_p[f(x)\nabla_x\log p(x)]
+=
+\int p(x)f(x)\frac{p'(x)}{p(x)}\,dx
+=
+\int f(x)p'(x)\,dx.
+$$
+
+Integration by parts gives:
+
+$$
+\int f(x)p'(x)\,dx
+=
+\left[f(x)p(x)\right]_{\text{boundary}}
+-
+\int f'(x)p(x)\,dx.
+$$
+
+If the boundary term vanishes:
+
+$$
+\mathbb{E}_p[f(x)\nabla_x\log p(x)]
+=
+-
+\mathbb{E}_p[f'(x)].
+$$
+
+In multiple dimensions, $f'(x)$ becomes the divergence $\nabla\cdot f(x)$.
 
 Applying this with $f=s_\theta$ converts the cross term into a divergence term involving only model quantities.
 
@@ -613,17 +997,59 @@ $$
 D^*(x)=\frac{p_{\text{data}}(x)}{p_{\text{data}}(x)+kq(x)}.
 $$
 
+Equivalently, the optimal log-odds are:
+
+$$
+\log\frac{D^*(x)}{1-D^*(x)}
+=
+\log p_{\text{data}}(x)-\log kq(x).
+$$
+
+So if the model can learn the correct log-odds against known noise $q$, it can recover the data density shape.
+
 This is the exact same Bayes-classifier logic we saw in GANs, but now the second class is fixed noise rather than a learned generator.
 
 ### Where the model enters
 
 In NCE we posit an unnormalized model, often written through an energy or score function plus a learnable normalizing constant parameter $c$.
 
+One common notation is:
+
+$$
+\tilde p_\theta(x)=\exp(f_\theta(x)),
+\qquad
+p_{\theta,c}(x)=\exp(f_\theta(x)+c).
+$$
+
+If $c=-\log Z_\theta$, then $p_{\theta,c}$ is normalized.
+
+NCE treats $c$ as a parameter to learn.
+
 The lecture writes the discriminator in the form
 $$
 D_{\theta,c}(x)=r_k(E_\theta(x)-c-\log q(x)),
 $$
 where $r_k$ is a shifted sigmoid-like function.
+
+In the log-density notation above, the classifier is:
+
+$$
+D_{\theta,c}(x)
+=
+\frac{p_{\theta,c}(x)}
+{p_{\theta,c}(x)+kq(x)}
+=
+\frac{\exp(f_\theta(x)+c)}
+{\exp(f_\theta(x)+c)+kq(x)}.
+$$
+
+Its logit is:
+
+$$
+\log\frac{D_{\theta,c}(x)}{1-D_{\theta,c}(x)}
+=
+f_\theta(x)+c-\log kq(x).
+$$
 
 The point is that the model defines the log-odds of data versus noise.
 
@@ -753,6 +1179,36 @@ $$
 \nabla_x \log p_t(x)
 $$
 for many noise levels or times $t$.
+
+In the common Gaussian perturbation view, a noisy sample can be written as:
+
+$$
+x_t=\alpha(t)x_0+\sigma(t)\varepsilon,
+\qquad
+\varepsilon\sim\mathcal{N}(0,I).
+$$
+
+Conditioned on $x_0$, this means:
+
+$$
+p(x_t\mid x_0)
+=
+\mathcal{N}(\alpha(t)x_0,\sigma^2(t)I).
+$$
+
+The conditional score is explicit:
+
+$$
+\nabla_{x_t}\log p(x_t\mid x_0)
+=
+-
+\frac{x_t-\alpha(t)x_0}{\sigma^2(t)}
+=
+-
+\frac{\varepsilon}{\sigma(t)}.
+$$
+
+This is why denoising score matching can train a score network with synthetic noise: the target score for the corrupted sample is known conditionally on the clean sample.
 
 The lecture writes a continuous-time training objective of the form
 $$

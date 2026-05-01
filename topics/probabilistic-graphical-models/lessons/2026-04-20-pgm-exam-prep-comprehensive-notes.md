@@ -220,7 +220,7 @@ Read this if you want a slower explanation of intervention, backdoor, front-door
 - Main lectures: `Lecture 17`, `Lecture 19`, `Lecture 20`, `Lecture 21`
 - Main job of the section:
   explain several different ways to build generative models when exact likelihood is awkward
-
+se
 ### 8. Causality, Interventions, and Discovery
 
 - Main lectures: `Lecture 22`, `Lecture 23`, `Lecture 24`, `Lecture 25`

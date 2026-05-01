@@ -16,7 +16,7 @@ Legend:
 ### Easy
 
 - `HW1-Q1`: undirected graphical model factorization, conditional independence by graph separation, and Markov blankets.
-- `HW1-Q2`: Bayesian network factorization, d-separation, Markov blankets, and moralization.
+- <span style="color: #FDE047;">`HW1-Q2`: Bayesian network factorization, d-separation, Markov blankets, and moralization. Marked yellow for review.</span>
 - `HW1-Q4`: convert between UGMs, DAGs, and factor graphs.
 - `HW2-Q1`: MCMC concept checks: stationary distribution, rejection sampling in high dimensions, HMC vs Gibbs on discrete spaces, tempering intuition, and slow mixing in Ising models.
 - `HW2-Q3`: Gibbs sampling for a bivariate Gaussian via conditional Gaussian formulas.
@@ -35,7 +35,7 @@ Legend:
 - <span style="color: #86EFAC;">`PF-SQ8`: NCE noise-distribution choice and why "farther from the data" is not automatically better. Reviewed in live chat; your answer `False` was correct.</span>
 - <span style="color: #FDE047;">`PF-SQ12`: predictor-corrector sampling for score-based diffusion models. Reviewed in live chat; answer `2 and 3` was correct, but reverse-time SDE / probability-flow ODE integration needed clarification.</span>
 - <span style="color: #86EFAC;">`PF-SQ13`: probability-flow ODE uses in diffusion models: likelihoods, faster sampling, and inversion / latent-trajectory reasoning. Reviewed in live chat; your answer `4, all of the above` was correct.</span>
-- `PF-P1`: Bayesian network factorization, d-separation, Markov blankets, and moralization.
+- <span style="color: #86EFAC;">`PF-P1`: Bayesian network factorization, d-separation, Markov blankets, and moralization. Reviewed from image/live chat; basically correct, with minor reminder that `H` belongs in the Markov blanket of `D` as a co-parent of `G`.</span>
 - `WP1.1`: [[2026-04-20-pgm-exam-prep-section-01-foundations#Problem 1.1|full-joint table size and exponential scaling]].
 - `WP1.2`: [[2026-04-20-pgm-exam-prep-section-01-foundations#Problem 1.2|why a graph is not itself a probability distribution]].
 - `WP1.3`: [[2026-04-20-pgm-exam-prep-section-01-foundations#Problem 1.3|marginal distributions vs conditional distributions]].
@@ -57,12 +57,12 @@ Legend:
 - `WP5.3`: [[2026-04-20-pgm-exam-prep-section-05-mcmc#Problem 5.3|MH with unnormalized targets]].
 - `WP5.5`: [[2026-04-20-pgm-exam-prep-section-05-mcmc#Problem 5.5|why MCMC chains mix slowly]].
 - `WP5.6`: [[2026-04-20-pgm-exam-prep-section-05-mcmc#Problem 5.6|why pure gradient descent is not sampling]].
-- `WP6.1`: [[2026-04-20-pgm-exam-prep-section-06-vi-em-vae#Problem 6.1|MCMC vs VI philosophy]].
+- <span style="color: #86EFAC;">`WP6.1`: [[2026-04-20-pgm-exam-prep-section-06-vi-em-vae#Problem 6.1|MCMC vs VI philosophy]]. Reviewed in live chat; your answer `A, B, D, E` was correct, with clarification that both MCMC and VI can be used when exact posterior inference is hard.</span>
 - `WP6.4`: [[2026-04-20-pgm-exam-prep-section-06-vi-em-vae#Problem 6.4|mean-field dependence loss and CAVI update form]].
-- `WP6.7`: [[2026-04-20-pgm-exam-prep-section-06-vi-em-vae#Problem 6.7|what makes VAEs different from classical VI]].
-- `WP7.5`: [[2026-04-20-pgm-exam-prep-section-07-generative-models#Problem 7.5|NCE noise distribution should not be too easy]].
-- `WP7.6`: [[2026-04-20-pgm-exam-prep-section-07-generative-models#Problem 7.6|denoising score matching and diffusion]].
-- `WP7.7`: [[2026-04-20-pgm-exam-prep-section-07-generative-models#Problem 7.7|corrector step in predictor-corrector sampling]].
+- <span style="color: #86EFAC;">`WP6.7`: [[2026-04-20-pgm-exam-prep-section-06-vi-em-vae#Problem 6.7|what makes VAEs different from classical VI]]. Reviewed in live chat; VAE prior/decoder/encoder roles were correct, with minor wording clarification for amortized inference.</span>
+- [[2026-04-20-pgm-exam-prep-section-07-generative-models#Problem 7.5|WP7.5: NCE noise distribution should not be too easy]]. <span style="color: #86EFAC;">Reviewed in live chat; correctly answered false and explained that too-easy noise is uninformative.</span>
+- [[2026-04-20-pgm-exam-prep-section-07-generative-models#Problem 7.6|WP7.6: denoising score matching and diffusion]]. <span style="color: #86EFAC;">Reviewed in live chat; matching answer `1-C, 2-D, 3-B, 4-A` was correct.</span>
+- [[2026-04-20-pgm-exam-prep-section-07-generative-models#Problem 7.7|WP7.7: corrector step in predictor-corrector sampling]]. <span style="color: #86EFAC;">Reviewed in live chat; answer `A, B, D` was correct.</span>
 - [[2026-04-20-pgm-exam-prep-section-08-causality#Problem 8.1|WP8.1: conditioning vs intervention]]. <span style="color: #86EFAC;">Reviewed in live chat; your conceptual distinction was correct.</span>
 - [[2026-04-20-pgm-exam-prep-section-08-causality#Problem 8.2|WP8.2: truncated factorization]]. <span style="color: #86EFAC;">Reviewed in live chat; your intervention-factorization explanation was correct.</span>
 - `WP8.5`: [[2026-04-20-pgm-exam-prep-section-08-causality#Problem 8.5|observational indistinguishability]].
@@ -74,11 +74,11 @@ Legend:
 - `PP4.3`: [[2026-04-20-pgm-practice-problems-section-04-gnns#Problem 4.3|diagnose over-smoothing and a mitigation]].
 - `PP4.4`: [[2026-04-20-pgm-practice-problems-section-04-gnns#Problem 4.4|diagnose over-squashing in a tree bottleneck]].
 - `PP5.4`: [[2026-04-20-pgm-practice-problems-section-05-mcmc#Problem 5.4|select-all slow mixing, tempering, acceptance, and conductance]].
-- `PP6.3`: [[2026-04-20-pgm-practice-problems-section-06-vi-em-vae#Problem 6.3|select-all EM and variational EM statements]].
+- <span style="color: #86EFAC;">`PP6.3`: [[2026-04-20-pgm-practice-problems-section-06-vi-em-vae#Problem 6.3|select-all EM and variational EM statements]]. Reviewed in live chat; your answer `A, B, D` was correct.</span>
 - [[2026-04-20-pgm-practice-problems-section-07-generative-models#Problem 7.1|PP7.1: match GAN, score matching, NCE, and diffusion to what each learns]]. <span style="color: #86EFAC;">Reviewed in live chat; your matching `1-D, 2-B, 3-C, 4-A` was correct.</span>
 - [[2026-04-20-pgm-practice-problems-section-07-generative-models#Problem 7.4|PP7.4: forward and reverse stories in diffusion models]]. <span style="color: #86EFAC;">Reviewed in live chat; your forward-noising / reverse-denoising answer was correct.</span>
 - `PP8.3`: [[2026-04-20-pgm-practice-problems-section-08-causality#Problem 8.3|select-all PC algorithm skeleton and collider-orientation facts]].
-- `PP8.4`: [[2026-04-20-pgm-practice-problems-section-08-causality#Problem 8.4|Markov equivalence and limits of observational causal discovery]].
+- [[2026-04-20-pgm-practice-problems-section-08-causality#Problem 8.4|PP8.4: Markov equivalence and limits of observational causal discovery]]. <span style="color: #FDE047;">Reviewed in live chat; answer was correct, but marked yellow for continued review of observational equivalence vs interventional distinctions.</span>
 
 ### Medium
 
@@ -96,14 +96,22 @@ Legend:
 - <span style="color: #86EFAC;">`PF-SQ1`: Gibbs variational principle relaxations, inner vs outer approximations, and mean field as an inner approximation. Reviewed in live chat; your answer `1 and 4` was correct.</span>
 - <span style="color: #86EFAC;">`PF-SQ4`: `KL(q || p)` vs `KL(p || q)` and the mode-seeking vs mass-covering distinction. Reviewed in live chat; your answer `1 and 2` was correct.</span>
 - <span style="color: #FDE047;">`PF-SQ5`: HMC and simulated tempering as Markov chains on extended state spaces. Reviewed in live chat; concepts mostly understood, but needed clarification.</span>
-- `PF-SQ7`: standard GAN local minima and non-uniqueness in CycleGAN even with cycle consistency.
+- <span style="color: #FDE047;">[yellow]</span> `PF-SQ7`: standard GAN local minima and non-uniqueness in CycleGAN even with cycle consistency. Reviewed in live chat; part (a) was correct, but part (b) was missed because cycle consistency does not make translators unique.
 - <span style="color: #FDE047;">`PF-SQ9`: when REINFORCE vs reparameterization can be applied directly for unbiased VAE / ELBO gradients. Reviewed in live chat; answers were correct, but part (c) needed clarification.</span>
 - <span style="color: #FDE047;">`PF-SQ10`: backdoor criterion in causal graphs. Reviewed in live chat; you leaned toward the correct answer `(c)`, but needed confirmation and backdoor-criterion clarification.</span>
 - `PF-SQ11`: what the PC algorithm can and cannot identify from graph structure.
 - <span style="color: #86EFAC;">`PF-SQ14`: derivative requirements in Hyvarinen score matching for continuous EBMs. Reviewed in live chat; your answer `1 and 2` was correct.</span>
-- `PF-P2`: finite Markov chain graph, irreducibility, aperiodicity, and unique stationary distribution.
-- `PF-P3`: shortest paths via iterative dynamic programming and exact implementation through message-passing GNN layers.
-- `PF-P5`: JS-based GAN vs WGAN on shifted uniform intervals, including flat JS gradients and informative Wasserstein gradients.
+- <span style="color: #86EFAC;">`PF-P2`: finite Markov chain graph, irreducibility, aperiodicity, and unique stationary distribution. Reviewed in live chat; stationary-distribution computation and uniqueness reasoning now understood.</span>
+- <span style="color: #FDE047;">`PF-P3a`: shortest-path dynamic-programming induction proof. Reviewed in live chat; core intuition was right, but marked yellow for needing tighter induction structure and the distinction between no path of length at most `t` vs no path ever.</span>
+- <span style="color: #86EFAC;">`PF-P3b`: convergence after enough rounds for all reachable nodes. Reviewed in live chat; reasoning was correct after wording `T` as the maximum finite shortest-path distance from `s`.</span>
+- <span style="color: #86EFAC;">`PF-P3c`: implement shortest-path Bellman-Ford updates as a message-passing GNN. Reviewed in live chat; AGGREGATE as neighbor minimum and UPDATE as min-plus update were correct.</span>
+- <span style="color: #86EFAC;">`PF-P5a`: write the JS-GAN loss as $JSD(p\|p_m)=\frac12 KL(p\|M)+\frac12 KL(p_m\|M)$ with $M=\frac12(p+p_m)$. Reviewed in live chat; formula vs computed value distinction understood.</span>
+- <span style="color: #86EFAC;">`PF-P5b`: compute $JSD(p\|p_m)=\log 2$ for disjoint shifted-uniform supports. Reviewed in live chat; corrected answer $\log(2)$ was right.</span>
+- <span style="color: #86EFAC;">`PF-P5c`: JS-GAN shifted-uniform loss has zero derivative for disjoint supports, giving no generator gradient signal. Reviewed in live chat; correctly explained that $L_{JS}(m)=\log 2$ is constant for $|m|>1$.</span>
+- <span style="color: #86EFAC;">`PF-P5d`: prove the Wasserstein lower bound $W_1(p,p_m)\ge |m|$ using linear 1-Lipschitz critics. Reviewed in live chat; approach was correct.</span>
+- <span style="color: #86EFAC;">`PF-P5e`: prove the Wasserstein upper bound $W_1(p,p_m)\le |m|$ using the integral/change-of-variables argument and the 1-Lipschitz property. Reviewed in live chat; proof path was correct.</span>
+- <span style="color: #86EFAC;">`PF-P5f`: conclude $W_1(p,p_m)=|m|$ by combining the lower and upper bounds. Reviewed in live chat; squeeze argument was correct.</span>
+- <span style="color: #86EFAC;">`PF-P5g`: compare the nonzero Wasserstein gradient signal with the flat JS loss under disjoint support. Reviewed in live chat; derivative and interpretation were correct.</span>
 - `WP1.4`: [[2026-04-20-pgm-exam-prep-section-01-foundations#Problem 1.4|compact representation does not imply easy inference]].
 - `WP2.3`: [[2026-04-20-pgm-exam-prep-section-02-directed-undirected#Problem 2.3|collider blocking and opening]].
 - `WP2.7`: [[2026-04-20-pgm-exam-prep-section-02-directed-undirected#Problem 2.7|directed vs undirected probability semantics]].
@@ -118,15 +126,15 @@ Legend:
 - `WP6.2`: [[2026-04-20-pgm-exam-prep-section-06-vi-em-vae#Problem 6.2|ELBO as lower bound]].
 - `WP6.3`: [[2026-04-20-pgm-exam-prep-section-06-vi-em-vae#Problem 6.3|ELBO maximization improves the variational approximation]].
 - `WP6.5`: [[2026-04-20-pgm-exam-prep-section-06-vi-em-vae#Problem 6.5|mode-seeking behavior of `KL(q || p)`]].
-- `WP6.6`: [[2026-04-20-pgm-exam-prep-section-06-vi-em-vae#Problem 6.6|EM vs variational EM]].
+- <span style="color: #86EFAC;">`WP6.6`: [[2026-04-20-pgm-exam-prep-section-06-vi-em-vae#Problem 6.6|EM vs variational EM]]. Reviewed in live chat; your answer `A, B, C` was correct.</span>
 - `WP6.8`: [[2026-04-20-pgm-exam-prep-section-06-vi-em-vae#Problem 6.8|REINFORCE vs reparameterization]].
 - `WP6.9`: [[2026-04-20-pgm-exam-prep-section-06-vi-em-vae#Problem 6.9|VAE reconstruction and KL terms]].
-- `WP7.1`: [[2026-04-20-pgm-exam-prep-section-07-generative-models#Problem 7.1|optimal GAN discriminator]].
-- `WP7.2`: [[2026-04-20-pgm-exam-prep-section-07-generative-models#Problem 7.2|JS-based GAN gradients under support mismatch]].
+- [[2026-04-20-pgm-exam-prep-section-07-generative-models#Problem 7.1|WP7.1: optimal GAN discriminator]]. <span style="color: #86EFAC;">Reviewed in live chat; optimal discriminator formula was correct.</span>
+- [[2026-04-20-pgm-exam-prep-section-07-generative-models#Problem 7.2|WP7.2: JS-based GAN gradients under support mismatch]]. <span style="color: #86EFAC;">Reviewed in live chat; final answer `A, B, D` was correct after adding missed `A`.</span>
 - `WP7.3`: [[2026-04-20-pgm-exam-prep-section-07-generative-models#Problem 7.3|score matching avoids partition functions]].
 - `WP7.4`: [[2026-04-20-pgm-exam-prep-section-07-generative-models#Problem 7.4|Hyvarinen score-matching derivative requirements]].
-- `WP7.8`: [[2026-04-20-pgm-exam-prep-section-07-generative-models#Problem 7.8|probability-flow ODE significance]].
-- `WP8.3`: [[2026-04-20-pgm-exam-prep-section-08-causality#Problem 8.3|valid backdoor adjustment vs mediator adjustment]].
+- [[2026-04-20-pgm-exam-prep-section-07-generative-models#Problem 7.8|WP7.8: probability-flow ODE significance]]. <span style="color: #86EFAC;">Reviewed in live chat; answer `A, B, C` was correct.</span>
+- [[2026-04-20-pgm-exam-prep-section-08-causality#Problem 8.3|WP8.3: valid backdoor adjustment vs mediator adjustment]]. <span style="color: #FDE047;">Reviewed in live chat; backdoor-set reasoning was mostly correct, but the expanded formula with the mediator needed clarification.</span>
 - `WP8.4`: [[2026-04-20-pgm-exam-prep-section-08-causality#Problem 8.4|backdoor vs front-door identification]].
 - `WP8.7`: [[2026-04-20-pgm-exam-prep-section-08-causality#Problem 8.7|why interventions help causal discovery]].
 - `WP8.8`: [[2026-04-20-pgm-exam-prep-section-08-causality#Problem 8.8|single-node and multi-node intervention bounds]].
@@ -147,7 +155,7 @@ Legend:
 - `PP6.2`: [[2026-04-20-pgm-practice-problems-section-06-vi-em-vae#Problem 6.2|mean-field dependence loss and coordinate update form]].
 - `PP6.4`: [[2026-04-20-pgm-practice-problems-section-06-vi-em-vae#Problem 6.4|choose REINFORCE vs reparameterization by scenario]].
 - `PP7.2`: [[2026-04-20-pgm-practice-problems-section-07-generative-models#Problem 7.2|select-all score matching, scores, and partition-function cancellation]].
-- `PP7.3`: [[2026-04-20-pgm-practice-problems-section-07-generative-models#Problem 7.3|Wasserstein-style GAN objective with non-overlapping supports]].
+- [[2026-04-20-pgm-practice-problems-section-07-generative-models#Problem 7.3|PP7.3: Wasserstein-style GAN objective with non-overlapping supports]]. <span style="color: #86EFAC;">Reviewed in live chat; answer `A` and explanations for wrong choices were correct.</span>
 - `PP8.1`: [[2026-04-20-pgm-practice-problems-section-08-causality#Problem 8.1|confounding graph: conditioning vs intervention and backdoor adjustment]].
 - `PP8.2`: [[2026-04-20-pgm-practice-problems-section-08-causality#Problem 8.2|valid backdoor set vs mediator adjustment in a treatment graph]].
 

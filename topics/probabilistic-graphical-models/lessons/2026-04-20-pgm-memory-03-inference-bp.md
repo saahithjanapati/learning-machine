@@ -174,6 +174,22 @@ For a tree decomposition, verify:
 
 The third condition is the running-intersection property. It is the easiest one to forget.
 
+Width:
+
+$$
+\max_i |B_i|-1.
+$$
+
+Treewidth:
+
+$$
+\min_{\text{valid decompositions}}(\max_i |B_i|-1).
+$$
+
+Exam phrase:
+
+> To prove a proposed tree decomposition is valid, verify vertex coverage, edge coverage, and running intersection, then report the largest bag size minus one.
+
 ## Hardness / Reduction Memory
 
 If a problem asks about reducing partition functions to marginals or vice versa, the big idea is:
