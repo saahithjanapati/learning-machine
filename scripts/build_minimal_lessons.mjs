@@ -17,6 +17,7 @@ import { visit } from "unist-util-visit"
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..")
 const contentDir = path.join(repoRoot, "web", "lessons", "content")
 const publicDir = path.join(repoRoot, "web", "lessons", "public")
+let markdownRelativeSet = new Set()
 
 function toPosix(filePath) {
   return filePath.split(path.sep).join("/")
@@ -120,7 +121,9 @@ function rewriteMarkdownHref(href, sourceRelative, urlPrefix) {
   }
 
   const sourceDir = path.posix.dirname(sourceRelative)
-  const resolved = path.posix.normalize(path.posix.join(sourceDir, pathname))
+  const rootResolved = path.posix.normalize(pathname)
+  const sourceResolved = path.posix.normalize(path.posix.join(sourceDir, pathname))
+  const resolved = markdownRelativeSet.has(rootResolved) ? rootResolved : sourceResolved
 
   return `${markdownRelativeToUrl(resolved, urlPrefix)}${suffix}`
 }
@@ -477,6 +480,7 @@ async function renderTarget({ outputRoot, urlPrefix, preserveNames }) {
 }
 
 const markdownFiles = (await walk(contentDir)).sort((a, b) => toPosix(a).localeCompare(toPosix(b)))
+markdownRelativeSet = new Set(markdownFiles.map((markdownPath) => toPosix(path.relative(contentDir, markdownPath))))
 const targets = [
   { outputRoot: publicDir, urlPrefix: "", preserveNames: new Set(["quartz"]) },
   { outputRoot: path.join(publicDir, "minimal"), urlPrefix: "/minimal", preserveNames: new Set() },
