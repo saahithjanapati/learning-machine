@@ -34,8 +34,8 @@ Hierarchical topic tree discovered from `topics/` paths.
 
 ## Recent Topics
 
+- AI / Collection -> Paper Lesson: Golden Goose RLVR from unverifiable internet text
 - AI / Collection -> Paper Lesson: reliable weak-to-strong monitoring of LLM agents
 - AI / Collection -> Paper Lesson: pi0.7 steerable generalist robotic foundation model
 - Biology / Core -> Ecology: behavior, energy flow, populations, communities, biodiversity, disruption
 - Biology / Core -> Evolution and Natural Selection: variation, fitness, drift, phylogeny, speciation
-- Biology / Core -> Gene Expression and Biotechnology: DNA, RNA, protein, regulation, mutation, tools
