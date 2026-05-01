@@ -180,6 +180,10 @@ function renderPage({ title, body, sourceRelative, urlPrefix }) {
       --line-strong: #30405f;
       --link: #6ea3ff;
       --accent: #8bb8ff;
+      --heading-strong: #c7dcff;
+      --heading: #8bb8ff;
+      --heading-soft: #6ea3ff;
+      --heading-rule: rgb(110 163 255 / 0.24);
       --code-bg: #10131c;
       --code-border: #222b40;
       --max: 820px;
@@ -269,7 +273,7 @@ function renderPage({ title, body, sourceRelative, urlPrefix }) {
       line-height: 1.2;
       letter-spacing: 0;
       margin: 2.2em 0 0.55em;
-      color: var(--text);
+      color: var(--heading);
     }
 
     h1 {
@@ -278,11 +282,12 @@ function renderPage({ title, body, sourceRelative, urlPrefix }) {
       font-weight: 720;
       line-height: 1.05;
       max-width: 20ch;
+      color: var(--heading-strong);
     }
 
     h2 {
       font-size: 1.55rem;
-      border-top: 1px solid var(--line);
+      border-top: 1px solid var(--heading-rule);
       padding-top: 1.1em;
     }
 
@@ -295,6 +300,11 @@ function renderPage({ title, body, sourceRelative, urlPrefix }) {
 
     h3 {
       font-size: 1.2rem;
+      color: var(--heading-soft);
+    }
+
+    h4 {
+      color: var(--heading-soft);
     }
 
     p,
