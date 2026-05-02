@@ -431,6 +431,14 @@ def _parse_topic_aliases() -> dict[str, str]:
 def _write_topic_index() -> None:
     topic_paths = _discover_topic_paths()
     existing_aliases = _parse_topic_aliases()
+    root_paths = sorted(
+        {
+            path.relative_to(TOPICS_DIR)
+            for path in TOPICS_DIR.iterdir()
+            if path.is_dir()
+        }
+    ) if TOPICS_DIR.exists() else []
+    indexed_paths = sorted(set(root_paths) | set(topic_paths))
 
     lines = [
         "# Topic Index",
@@ -440,10 +448,8 @@ def _write_topic_index() -> None:
         "| Topic Key | Root | Canonical Path | Aliases |",
         "|---|---|---|---|",
     ]
-    for rel in topic_paths:
+    for rel in indexed_paths:
         parts = rel.parts
-        if len(parts) < 2:
-            continue
         topic_key = parts[-1]
         root = parts[0]
         canonical = f"topics/{rel.as_posix()}"

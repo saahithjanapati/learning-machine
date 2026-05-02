@@ -29,6 +29,7 @@ The assistant should help the learner:
   - `archive/`: local-only archived source files (git-ignored).
   - `processed/`: extracted markdown (committed).
 - `learning_system/`
+  - `AGENT_NAVIGATION.md`: compact traversal map for future agents.
   - `LESSON_INDEX.md`: chronological lesson registry.
   - `TOPIC_INDEX.md`: canonical topic paths + alias mapping.
   - `PROGRESS_LOG.md`: performance and mistake tracking.
@@ -46,6 +47,15 @@ The assistant should help the learner:
 
 ## Established Topics
 
+- `topics/ai/`
+  - `lessons/`: AI paper/article reading lessons.
+  - `materials/INDEX.md`: root AI materials map.
+- `topics/biology/core/`
+  - `curriculum/`: biology core review plans.
+  - `lessons/`: biology unit lessons.
+- `topics/interviews/ml-system-design/`
+  - `curriculum/`: interview roadmap.
+  - `lessons/`: ML system design lessons.
 - `topics/transformers/kv-caching/`
   - `practice/kv_cache_exercise.py`
   - `practice/kv_cache_exercise_batched_multihead.py`

@@ -1,6 +1,6 @@
 # Skill Tree
 
-Last generated: 2026-05-01
+Last generated: 2026-05-02
 
 Hierarchical topic tree discovered from `topics/` paths.
 

@@ -2,6 +2,7 @@
 
 This file is the compact memory for new assistant instances.
 Use [learning_system/LOAD_ORDER.md](LOAD_ORDER.md) for full startup loading sequence.
+Use [learning_system/AGENT_NAVIGATION.md](AGENT_NAVIGATION.md) as the fast traversal map.
 Use `AGENTS.md` as the canonical public skill registry.
 Use [learning_system/REPO_CONTEXT.md](REPO_CONTEXT.md) for fuller background repo context.
 Public skills live in `.agents/skills/` for native Codex discovery.
@@ -92,9 +93,12 @@ When using colors in markdown output (equations, spans, callouts, or legends):
 
 ## Current Known Topics
 
-- `topics/transformers/kv-caching`
+- `topics/ai`
+- `topics/biology/core`
+- `topics/interviews/ml-system-design`
 - `topics/optimization-for-ml`
 - `topics/probabilistic-graphical-models`
+- `topics/transformers/kv-caching`
 
 ## Latest Logged Learning Snapshot
 

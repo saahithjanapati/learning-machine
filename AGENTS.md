@@ -6,6 +6,10 @@ Only skills listed under `### Public skills` should be treated as discoverable a
 Public skill files live under `.agents/skills/` for native Codex discovery and `$skill-name` style invocation.
 Skill files may still exist under `skills/` for internal composition, but they should not be advertised unless they are listed here.
 
+## Repo Traversal
+For general repo navigation, load `learning_system/AGENT_NAVIGATION.md` after this file.
+Use `learning_system/LOAD_ORDER.md` when a deterministic startup context is needed.
+
 ### Public skills
 - learning-startup-resume: Startup help menu, recent-topic listing, and resume flow. (file: `.agents/skills/learning-startup-resume/SKILL.md`)
 - topic-tree-manager: Topic creation, reindexing, reorg reporting, and topic merge workflows. (file: `.agents/skills/topic-tree-manager/SKILL.md`)
