@@ -154,11 +154,103 @@ function escapeHtml(value) {
     .replaceAll('"', "&quot;")
 }
 
-function renderPage({ title, body, sourceRelative, urlPrefix }) {
+function escapeScriptJson(value) {
+  return value
+    .replaceAll("&", "\\u0026")
+    .replaceAll("<", "\\u003c")
+    .replaceAll(">", "\\u003e")
+    .replaceAll("\u2028", "\\u2028")
+    .replaceAll("\u2029", "\\u2029")
+}
+
+function isIndividualReading(markdownRelative) {
+  return /(^|\/)lessons\/(?!index\.md$)[^/]+\.md$/i.test(markdownRelative)
+}
+
+function buildCopyContext(markdown, title) {
+  const body = stripFrontmatter(markdown).trim()
+  const trimmedTitle = title.trim()
+
+  if (!body) {
+    return trimmedTitle
+  }
+
+  return /^#\s+/.test(body.trimStart()) ? body : `# ${trimmedTitle}\n\n${body}`
+}
+
+function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "" }) {
   const homeHref = routeWithPrefix(urlPrefix, "")
   const recentHref = routeWithPrefix(urlPrefix, "recent-lessons")
   const topicsHref = routeWithPrefix(urlPrefix, "topics")
   const quartzHref = markdownRelativeToQuartzUrl(sourceRelative)
+  const copyContextButton = copyContext
+    ? '<button class="copy-context-button" type="button" data-copy-context-button><span class="copy-context-label">Copy context for AI</span></button>'
+    : ""
+  const copyContextScript = copyContext
+    ? `
+  <script type="application/json" id="lesson-copy-context">${escapeScriptJson(JSON.stringify(copyContext))}</script>
+  <script>
+    (() => {
+      const button = document.querySelector("[data-copy-context-button]")
+      const source = document.getElementById("lesson-copy-context")
+
+      if (!button || !source) {
+        return
+      }
+
+      const label = button.querySelector(".copy-context-label")
+      const defaultLabel = label?.textContent || "Copy context for AI"
+
+      function fallbackCopy(text) {
+        return new Promise((resolve, reject) => {
+          const textarea = document.createElement("textarea")
+          textarea.value = text
+          textarea.setAttribute("readonly", "")
+          textarea.style.position = "fixed"
+          textarea.style.top = "-9999px"
+          textarea.style.opacity = "0"
+          document.body.append(textarea)
+          textarea.select()
+
+          try {
+            document.execCommand("copy") ? resolve() : reject(new Error("Copy command failed"))
+          } catch (error) {
+            reject(error)
+          } finally {
+            textarea.remove()
+          }
+        })
+      }
+
+      function setTemporaryLabel(text) {
+        if (!label) {
+          return
+        }
+
+        label.textContent = text
+        window.setTimeout(() => {
+          label.textContent = defaultLabel
+        }, 1800)
+      }
+
+      button.addEventListener("click", async () => {
+        try {
+          const text = JSON.parse(source.textContent || '""')
+          if (navigator.clipboard?.writeText) {
+            await navigator.clipboard.writeText(text)
+          } else {
+            await fallbackCopy(text)
+          }
+          button.blur()
+          setTemporaryLabel("Copied")
+        } catch (error) {
+          console.error(error)
+          setTemporaryLabel("Copy failed")
+        }
+      })
+    })()
+  </script>`
+    : ""
 
   return `<!doctype html>
 <html lang="en">
@@ -260,6 +352,34 @@ function renderPage({ title, body, sourceRelative, urlPrefix }) {
       border-color: var(--line-strong);
       color: var(--accent);
       background: var(--surface);
+    }
+
+    .reader-actions {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .copy-context-button {
+      min-height: 32px;
+      padding: 0.34rem 0.7rem;
+      border: 1px solid var(--line-strong);
+      border-radius: 6px;
+      background: var(--surface);
+      color: var(--text);
+      font: inherit;
+      font-size: 13px;
+      line-height: 1.2;
+      cursor: pointer;
+    }
+
+    .copy-context-button:hover,
+    .copy-context-button:focus-visible {
+      border-color: var(--accent);
+      color: var(--accent);
+      outline: none;
     }
 
     article {
@@ -411,6 +531,10 @@ function renderPage({ title, body, sourceRelative, urlPrefix }) {
         justify-content: flex-start;
       }
 
+      .reader-actions {
+        justify-content: flex-start;
+      }
+
       h1 {
         font-size: 2.25rem;
         max-width: 100%;
@@ -422,16 +546,20 @@ function renderPage({ title, body, sourceRelative, urlPrefix }) {
   <main class="shell">
     <header>
       <a class="brand" href="${homeHref}">Learning Machine</a>
-      <nav aria-label="Reader navigation">
-        <a href="${recentHref}">Recent</a>
-        <a href="${topicsHref}">Topics</a>
-        <a href="${quartzHref}">Quartz</a>
-      </nav>
+      <div class="reader-actions">
+        <nav aria-label="Reader navigation">
+          <a href="${recentHref}">Recent</a>
+          <a href="${topicsHref}">Topics</a>
+          <a href="${quartzHref}">Quartz</a>
+        </nav>
+        ${copyContextButton}
+      </div>
     </header>
     <article>
 ${body}
     </article>
   </main>
+${copyContextScript}
 </body>
 </html>
 `
@@ -458,6 +586,7 @@ async function renderTarget({ outputRoot, urlPrefix, preserveNames }) {
     const markdownRelative = toPosix(path.relative(contentDir, markdownPath))
     const markdown = await fs.readFile(markdownPath, "utf8")
     const title = extractTitle(markdown, markdownRelative)
+    const copyContext = isIndividualReading(markdownRelative) ? buildCopyContext(markdown, title) : ""
     const body = String(
       await unified()
         .use(remarkParse)
@@ -475,7 +604,10 @@ async function renderTarget({ outputRoot, urlPrefix, preserveNames }) {
     const outputPath = markdownRelativeToOutputPath(markdownRelative, outputRoot)
 
     await fs.mkdir(path.dirname(outputPath), { recursive: true })
-    await fs.writeFile(outputPath, renderPage({ title, body, sourceRelative: markdownRelative, urlPrefix }))
+    await fs.writeFile(
+      outputPath,
+      renderPage({ title, body, sourceRelative: markdownRelative, urlPrefix, copyContext }),
+    )
   }
 
   await fs.writeFile(
