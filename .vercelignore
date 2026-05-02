@@ -5,8 +5,15 @@ node_modules/
 web/lessons/content/
 web/lessons/public/
 Users/
-learning_system/
-materials/
+learning_system/*
+!learning_system/SOURCE_MAP.json
+materials/*
+!materials/processed/
+materials/processed/*
+!materials/processed/ai/
+materials/processed/ai/*
+!materials/processed/ai/*.md
+!materials/processed/ai/**/*.md
 skills/
 .agents/
 topics/**/materials/
