@@ -4,6 +4,41 @@
   "generated_by": "scripts/learning_cli.py source-map",
   "roots": [
     {
+      "root_topic": "advanced-machine-learning-10-715-cmu",
+      "processed_material_dir": "materials/processed/advanced-machine-learning-10-715-cmu",
+      "materials_index_path": "topics/advanced-machine-learning-10-715-cmu/materials/INDEX.md",
+      "topic_count": 1,
+      "topics": [
+        {
+          "topic_path": "topics/advanced-machine-learning-10-715-cmu",
+          "root_topic": "advanced-machine-learning-10-715-cmu",
+          "topic_key": "advanced-machine-learning-10-715-cmu",
+          "readme_path": "topics/advanced-machine-learning-10-715-cmu/README.md",
+          "curriculum_path": "topics/advanced-machine-learning-10-715-cmu/curriculum/0-to-1-plan.md",
+          "curriculum_paths": [
+            "topics/advanced-machine-learning-10-715-cmu/curriculum/0-to-1-plan.md"
+          ],
+          "source_materials": [
+            "materials/processed/advanced-machine-learning-10-715-cmu/_gradescope_dashboard.md",
+            "materials/processed/advanced-machine-learning-10-715-cmu/_piazza_resources_manifest.md"
+          ],
+          "source_pdfs": [
+            "https://piazza.com/cmu/fall2025/10715/resources",
+            "https://www.gradescope.com/courses/1082583"
+          ],
+          "transcript_anchors": [
+            "Lecture notes: logistics, introductory ML, perceptrons, SVMs, kernels, neural networks, learning theory, MAB/RL, graphical models, and score-based diffusion.",
+            "Recitations: optimization, recitation 2 materials, tail bounds, MLE/MAP.",
+            "Homework: HW1, HW2, HW3, HW4, HW5, and HW7 handout PDFs extracted from ZIPs, plus HW1 solutions.",
+            "Gradescope: available graded copies for HW1-HW7 reports/code, the 10-715 midterm, and the final exam.",
+            "Exams: previous midterms and finals from 2020-2024, including solution files where posted, plus the Fall 2025 graded midterm/final copies.",
+            "Relevant papers: score matching, minimax diffusion estimation, classifier-free guidance theory, DDPM, and score-based SDEs."
+          ],
+          "unresolved_source_materials": []
+        }
+      ]
+    },
+    {
       "root_topic": "ai",
       "processed_material_dir": "materials/processed/ai",
       "materials_index_path": "topics/ai/materials/INDEX.md",
@@ -510,6 +545,67 @@
       ]
     },
     {
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "processed_material_dir": "materials/processed/probability-and-statistics-36-700-cmu",
+      "materials_index_path": "topics/probability-and-statistics-36-700-cmu/materials/INDEX.md",
+      "topic_count": 1,
+      "topics": [
+        {
+          "topic_path": "topics/probability-and-statistics-36-700-cmu",
+          "root_topic": "probability-and-statistics-36-700-cmu",
+          "topic_key": "probability-and-statistics-36-700-cmu",
+          "readme_path": "topics/probability-and-statistics-36-700-cmu/README.md",
+          "curriculum_path": "topics/probability-and-statistics-36-700-cmu/curriculum/0-to-1-plan.md",
+          "curriculum_paths": [
+            "topics/probability-and-statistics-36-700-cmu/curriculum/0-to-1-plan.md"
+          ],
+          "source_materials": [
+            "materials/processed/probability-and-statistics-36-700-cmu/_canvas_modules_manifest.md",
+            "materials/processed/probability-and-statistics-36-700-cmu/_gradescope_dashboard.md"
+          ],
+          "source_pdfs": [
+            "https://canvas.cmu.edu/courses/49720",
+            "https://www.gradescope.com/courses/1099981"
+          ],
+          "transcript_anchors": [
+            "Canvas modules: final exam, midterms, syllabus, homework solutions, Chapters 1-10.",
+            "Gradescope: homework 1-10, midterm 1, midterm 2, final exam graded copies."
+          ],
+          "unresolved_source_materials": []
+        }
+      ]
+    },
+    {
+      "root_topic": "survey-of-algebra",
+      "processed_material_dir": "materials/processed/survey-of-algebra",
+      "materials_index_path": "topics/survey-of-algebra/materials/INDEX.md",
+      "topic_count": 1,
+      "topics": [
+        {
+          "topic_path": "topics/survey-of-algebra",
+          "root_topic": "survey-of-algebra",
+          "topic_key": "survey-of-algebra",
+          "readme_path": "topics/survey-of-algebra/README.md",
+          "curriculum_path": "topics/survey-of-algebra/curriculum/0-to-1-plan.md",
+          "curriculum_paths": [
+            "topics/survey-of-algebra/curriculum/0-to-1-plan.md"
+          ],
+          "source_materials": [
+            "materials/processed/survey-of-algebra/_local_source_manifest.md"
+          ],
+          "source_pdfs": [],
+          "transcript_anchors": [
+            "Foundations: commutative rings, fields, ordered rings, and arithmetic axioms.",
+            "Number theory layer: divisibility, greatest common divisors, Euclidean algorithm, congruences, and modular arithmetic.",
+            "Group theory layer: group axioms, subgroups, cyclic groups, isomorphisms, symmetric groups, and dihedral-style examples.",
+            "Ring theory layer: rings, units, zero divisors, domains, and polynomial rings over commutative rings or fields.",
+            "Source-folder extras: finite Markov chains, continuous-time Markov chains, martingales, and Brownian motion lectures that were present in the same local folder."
+          ],
+          "unresolved_source_materials": []
+        }
+      ]
+    },
+    {
       "root_topic": "transformers",
       "processed_material_dir": null,
       "materials_index_path": null,
@@ -533,6 +629,707 @@
     }
   ],
   "transcripts": [
+    {
+      "transcript_path": "materials/processed/advanced-machine-learning-10-715-cmu/_gradescope_dashboard.md",
+      "root_topic": "advanced-machine-learning-10-715-cmu",
+      "source_pdf": "https://www.gradescope.com/courses/1082583",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/advanced-machine-learning-10-715-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/advanced-machine-learning-10-715-cmu/_piazza_resources_manifest.md",
+      "root_topic": "advanced-machine-learning-10-715-cmu",
+      "source_pdf": "https://piazza.com/cmu/fall2025/10715/resources",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/advanced-machine-learning-10-715-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/advanced-machine-learning-10-715-cmu/gradescope-01-hw1-report-graded-copy.md",
+      "root_topic": "advanced-machine-learning-10-715-cmu",
+      "source_pdf": "materials/archive/advanced-machine-learning-10-715-cmu/gradescope-graded-copies/gradescope-01-hw1-report-graded-copy.pdf",
+      "duplicate_equivalents": [
+        "gradescope-01-hw1-report-graded-copy.pdf"
+      ],
+      "ingest_report": "materials/processed/advanced-machine-learning-10-715-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/advanced-machine-learning-10-715-cmu/gradescope-02-hw1-code-graded-copy.md",
+      "root_topic": "advanced-machine-learning-10-715-cmu",
+      "source_pdf": "materials/archive/advanced-machine-learning-10-715-cmu/gradescope-graded-copies/gradescope-02-hw1-code-graded-copy.pdf",
+      "duplicate_equivalents": [
+        "gradescope-02-hw1-code-graded-copy.pdf"
+      ],
+      "ingest_report": "materials/processed/advanced-machine-learning-10-715-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/advanced-machine-learning-10-715-cmu/gradescope-03-hw2-report-graded-copy.md",
+      "root_topic": "advanced-machine-learning-10-715-cmu",
+      "source_pdf": "materials/archive/advanced-machine-learning-10-715-cmu/gradescope-graded-copies/gradescope-03-hw2-report-graded-copy.pdf",
+      "duplicate_equivalents": [
+        "gradescope-03-hw2-report-graded-copy.pdf"
+      ],
+      "ingest_report": "materials/processed/advanced-machine-learning-10-715-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/advanced-machine-learning-10-715-cmu/gradescope-04-hw3-report-graded-copy.md",
+      "root_topic": "advanced-machine-learning-10-715-cmu",
+      "source_pdf": "materials/archive/advanced-machine-learning-10-715-cmu/gradescope-graded-copies/gradescope-04-hw3-report-graded-copy.pdf",
+      "duplicate_equivalents": [
+        "gradescope-04-hw3-report-graded-copy.pdf"
+      ],
+      "ingest_report": "materials/processed/advanced-machine-learning-10-715-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/advanced-machine-learning-10-715-cmu/gradescope-05-hw3-code-graded-copy.md",
+      "root_topic": "advanced-machine-learning-10-715-cmu",
+      "source_pdf": "materials/archive/advanced-machine-learning-10-715-cmu/gradescope-graded-copies/gradescope-05-hw3-code-graded-copy.pdf",
+      "duplicate_equivalents": [
+        "gradescope-05-hw3-code-graded-copy.pdf"
+      ],
+      "ingest_report": "materials/processed/advanced-machine-learning-10-715-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/advanced-machine-learning-10-715-cmu/gradescope-06-midterm-graded-copy.md",
+      "root_topic": "advanced-machine-learning-10-715-cmu",
+      "source_pdf": "materials/archive/advanced-machine-learning-10-715-cmu/gradescope-graded-copies/gradescope-06-midterm-graded-copy.pdf",
+      "duplicate_equivalents": [
+        "gradescope-06-midterm-graded-copy.pdf"
+      ],
+      "ingest_report": "materials/processed/advanced-machine-learning-10-715-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/advanced-machine-learning-10-715-cmu/gradescope-07-hw4-report-graded-copy.md",
+      "root_topic": "advanced-machine-learning-10-715-cmu",
+      "source_pdf": "materials/archive/advanced-machine-learning-10-715-cmu/gradescope-graded-copies/gradescope-07-hw4-report-graded-copy.pdf",
+      "duplicate_equivalents": [
+        "gradescope-07-hw4-report-graded-copy.pdf"
+      ],
+      "ingest_report": "materials/processed/advanced-machine-learning-10-715-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/advanced-machine-learning-10-715-cmu/gradescope-08-hw4-code-graded-copy.md",
+      "root_topic": "advanced-machine-learning-10-715-cmu",
+      "source_pdf": "materials/archive/advanced-machine-learning-10-715-cmu/gradescope-graded-copies/gradescope-08-hw4-code-graded-copy.pdf",
+      "duplicate_equivalents": [
+        "gradescope-08-hw4-code-graded-copy.pdf"
+      ],
+      "ingest_report": "materials/processed/advanced-machine-learning-10-715-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/advanced-machine-learning-10-715-cmu/gradescope-09-hw5-report-graded-copy.md",
+      "root_topic": "advanced-machine-learning-10-715-cmu",
+      "source_pdf": "materials/archive/advanced-machine-learning-10-715-cmu/gradescope-graded-copies/gradescope-09-hw5-report-graded-copy.pdf",
+      "duplicate_equivalents": [
+        "gradescope-09-hw5-report-graded-copy.pdf"
+      ],
+      "ingest_report": "materials/processed/advanced-machine-learning-10-715-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/advanced-machine-learning-10-715-cmu/gradescope-11-hw6-code-graded-copy.md",
+      "root_topic": "advanced-machine-learning-10-715-cmu",
+      "source_pdf": "materials/archive/advanced-machine-learning-10-715-cmu/gradescope-graded-copies/gradescope-11-hw6-code-graded-copy.pdf",
+      "duplicate_equivalents": [
+        "gradescope-11-hw6-code-graded-copy.pdf"
+      ],
+      "ingest_report": "materials/processed/advanced-machine-learning-10-715-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/advanced-machine-learning-10-715-cmu/gradescope-12-hw7-report-graded-copy.md",
+      "root_topic": "advanced-machine-learning-10-715-cmu",
+      "source_pdf": "materials/archive/advanced-machine-learning-10-715-cmu/gradescope-graded-copies/gradescope-12-hw7-report-graded-copy.pdf",
+      "duplicate_equivalents": [
+        "gradescope-12-hw7-report-graded-copy.pdf"
+      ],
+      "ingest_report": "materials/processed/advanced-machine-learning-10-715-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/advanced-machine-learning-10-715-cmu/gradescope-14-final-exam-graded-copy.md",
+      "root_topic": "advanced-machine-learning-10-715-cmu",
+      "source_pdf": "materials/archive/advanced-machine-learning-10-715-cmu/gradescope-graded-copies/gradescope-14-final-exam-graded-copy.pdf",
+      "duplicate_equivalents": [
+        "gradescope-14-final-exam-graded-copy.pdf"
+      ],
+      "ingest_report": "materials/processed/advanced-machine-learning-10-715-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/advanced-machine-learning-10-715-cmu/homework-solutions-01-10715_HW1_Solns.md",
+      "root_topic": "advanced-machine-learning-10-715-cmu",
+      "source_pdf": "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/homework-solutions-01-10715_HW1_Solns.pdf",
+      "duplicate_equivalents": [
+        "homework-solutions-01-10715_HW1_Solns.pdf"
+      ],
+      "ingest_report": "materials/processed/advanced-machine-learning-10-715-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/advanced-machine-learning-10-715-cmu/lecture-notes-01-Logistics.md",
+      "root_topic": "advanced-machine-learning-10-715-cmu",
+      "source_pdf": "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/lecture-notes-01-Logistics.pdf",
+      "duplicate_equivalents": [
+        "lecture-notes-01-Logistics.pdf"
+      ],
+      "ingest_report": "materials/processed/advanced-machine-learning-10-715-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/advanced-machine-learning-10-715-cmu/lecture-notes-02-intro to intro to ML.md",
+      "root_topic": "advanced-machine-learning-10-715-cmu",
+      "source_pdf": "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/lecture-notes-02-intro to intro to ML.pdf",
+      "duplicate_equivalents": [
+        "lecture-notes-02-intro to intro to ML.pdf"
+      ],
+      "ingest_report": "materials/processed/advanced-machine-learning-10-715-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/advanced-machine-learning-10-715-cmu/lecture-notes-03-perceptrons.md",
+      "root_topic": "advanced-machine-learning-10-715-cmu",
+      "source_pdf": "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/lecture-notes-03-perceptrons.pdf",
+      "duplicate_equivalents": [
+        "lecture-notes-03-perceptrons.pdf"
+      ],
+      "ingest_report": "materials/processed/advanced-machine-learning-10-715-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/advanced-machine-learning-10-715-cmu/lecture-notes-04-linear SVMs.md",
+      "root_topic": "advanced-machine-learning-10-715-cmu",
+      "source_pdf": "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/lecture-notes-04-linear SVMs.pdf",
+      "duplicate_equivalents": [
+        "lecture-notes-04-linear SVMs.pdf"
+      ],
+      "ingest_report": "materials/processed/advanced-machine-learning-10-715-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/advanced-machine-learning-10-715-cmu/lecture-notes-05-kernel methods.md",
+      "root_topic": "advanced-machine-learning-10-715-cmu",
+      "source_pdf": "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/lecture-notes-05-kernel methods.pdf",
+      "duplicate_equivalents": [
+        "lecture-notes-05-kernel methods.pdf"
+      ],
+      "ingest_report": "materials/processed/advanced-machine-learning-10-715-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/advanced-machine-learning-10-715-cmu/lecture-notes-06-neural networks 1.md",
+      "root_topic": "advanced-machine-learning-10-715-cmu",
+      "source_pdf": "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/lecture-notes-06-neural networks 1.pdf",
+      "duplicate_equivalents": [
+        "lecture-notes-06-neural networks 1.pdf"
+      ],
+      "ingest_report": "materials/processed/advanced-machine-learning-10-715-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/advanced-machine-learning-10-715-cmu/lecture-notes-07-proofs of representer and mercer theorems.md",
+      "root_topic": "advanced-machine-learning-10-715-cmu",
+      "source_pdf": "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/lecture-notes-07-proofs of representer and mercer theorems.pdf",
+      "duplicate_equivalents": [
+        "lecture-notes-07-proofs of representer and mercer theorems.pdf"
+      ],
+      "ingest_report": "materials/processed/advanced-machine-learning-10-715-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/advanced-machine-learning-10-715-cmu/lecture-notes-08-HistoryOfML-1.md",
+      "root_topic": "advanced-machine-learning-10-715-cmu",
+      "source_pdf": "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/lecture-notes-08-HistoryOfML-1.pdf",
+      "duplicate_equivalents": [
+        "lecture-notes-08-HistoryOfML-1.pdf"
+      ],
+      "ingest_report": "materials/processed/advanced-machine-learning-10-715-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/advanced-machine-learning-10-715-cmu/lecture-notes-09-HistoryOfML-2.md",
+      "root_topic": "advanced-machine-learning-10-715-cmu",
+      "source_pdf": "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/lecture-notes-09-HistoryOfML-2.pdf",
+      "duplicate_equivalents": [
+        "lecture-notes-09-HistoryOfML-2.pdf"
+      ],
+      "ingest_report": "materials/processed/advanced-machine-learning-10-715-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/advanced-machine-learning-10-715-cmu/lecture-notes-10-learning theory 1.md",
+      "root_topic": "advanced-machine-learning-10-715-cmu",
+      "source_pdf": "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/lecture-notes-10-learning theory 1.pdf",
+      "duplicate_equivalents": [
+        "lecture-notes-10-learning theory 1.pdf"
+      ],
+      "ingest_report": "materials/processed/advanced-machine-learning-10-715-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/advanced-machine-learning-10-715-cmu/lecture-notes-11-learning theory 2.md",
+      "root_topic": "advanced-machine-learning-10-715-cmu",
+      "source_pdf": "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/lecture-notes-11-learning theory 2.pdf",
+      "duplicate_equivalents": [
+        "lecture-notes-11-learning theory 2.pdf"
+      ],
+      "ingest_report": "materials/processed/advanced-machine-learning-10-715-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/advanced-machine-learning-10-715-cmu/lecture-notes-12-learning theory 3.md",
+      "root_topic": "advanced-machine-learning-10-715-cmu",
+      "source_pdf": "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/lecture-notes-12-learning theory 3.pdf",
+      "duplicate_equivalents": [
+        "lecture-notes-12-learning theory 3.pdf"
+      ],
+      "ingest_report": "materials/processed/advanced-machine-learning-10-715-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/advanced-machine-learning-10-715-cmu/lecture-notes-13-learning theory 4.md",
+      "root_topic": "advanced-machine-learning-10-715-cmu",
+      "source_pdf": "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/lecture-notes-13-learning theory 4.pdf",
+      "duplicate_equivalents": [
+        "lecture-notes-13-learning theory 4.pdf"
+      ],
+      "ingest_report": "materials/processed/advanced-machine-learning-10-715-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/advanced-machine-learning-10-715-cmu/lecture-notes-14-learning theory 5 and bias complexity.md",
+      "root_topic": "advanced-machine-learning-10-715-cmu",
+      "source_pdf": "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/lecture-notes-14-learning theory 5 and bias complexity.pdf",
+      "duplicate_equivalents": [
+        "lecture-notes-14-learning theory 5 and bias complexity.pdf"
+      ],
+      "ingest_report": "materials/processed/advanced-machine-learning-10-715-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/advanced-machine-learning-10-715-cmu/lecture-notes-15-NeuralNetworks.md",
+      "root_topic": "advanced-machine-learning-10-715-cmu",
+      "source_pdf": "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/lecture-notes-15-NeuralNetworks.pdf",
+      "duplicate_equivalents": [
+        "lecture-notes-15-NeuralNetworks.pdf"
+      ],
+      "ingest_report": "materials/processed/advanced-machine-learning-10-715-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/advanced-machine-learning-10-715-cmu/lecture-notes-16-MAB and RL.md",
+      "root_topic": "advanced-machine-learning-10-715-cmu",
+      "source_pdf": "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/lecture-notes-16-MAB and RL.pdf",
+      "duplicate_equivalents": [
+        "lecture-notes-16-MAB and RL.pdf"
+      ],
+      "ingest_report": "materials/processed/advanced-machine-learning-10-715-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/advanced-machine-learning-10-715-cmu/lecture-notes-17-RL2 and graphical models 1.md",
+      "root_topic": "advanced-machine-learning-10-715-cmu",
+      "source_pdf": "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/lecture-notes-17-RL2 and graphical models 1.pdf",
+      "duplicate_equivalents": [
+        "lecture-notes-17-RL2 and graphical models 1.pdf"
+      ],
+      "ingest_report": "materials/processed/advanced-machine-learning-10-715-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/advanced-machine-learning-10-715-cmu/lecture-notes-18-RL policy_gradient methods.md",
+      "root_topic": "advanced-machine-learning-10-715-cmu",
+      "source_pdf": "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/lecture-notes-18-RL policy_gradient methods.pdf",
+      "duplicate_equivalents": [
+        "lecture-notes-18-RL policy_gradient methods.pdf"
+      ],
+      "ingest_report": "materials/processed/advanced-machine-learning-10-715-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/advanced-machine-learning-10-715-cmu/lecture-notes-19-graphical models 2.md",
+      "root_topic": "advanced-machine-learning-10-715-cmu",
+      "source_pdf": "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/lecture-notes-19-graphical models 2.pdf",
+      "duplicate_equivalents": [
+        "lecture-notes-19-graphical models 2.pdf"
+      ],
+      "ingest_report": "materials/processed/advanced-machine-learning-10-715-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/advanced-machine-learning-10-715-cmu/lecture-notes-20-100_Intro_to_Denoising_Diffusion_1.md",
+      "root_topic": "advanced-machine-learning-10-715-cmu",
+      "source_pdf": "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/lecture-notes-20-100_Intro_to_Denoising_Diffusion_1.pdf",
+      "duplicate_equivalents": [
+        "lecture-notes-20-100_Intro_to_Denoising_Diffusion_1.pdf"
+      ],
+      "ingest_report": "materials/processed/advanced-machine-learning-10-715-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/advanced-machine-learning-10-715-cmu/lecture-notes-22-110_Ornstein-Uhlenbeck_process_1.md",
+      "root_topic": "advanced-machine-learning-10-715-cmu",
+      "source_pdf": "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/lecture-notes-22-110_Ornstein-Uhlenbeck_process_1.pdf",
+      "duplicate_equivalents": [
+        "lecture-notes-22-110_Ornstein-Uhlenbeck_process_1.pdf"
+      ],
+      "ingest_report": "materials/processed/advanced-machine-learning-10-715-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/advanced-machine-learning-10-715-cmu/lecture-notes-24-115_Reverse_diffusion_1.md",
+      "root_topic": "advanced-machine-learning-10-715-cmu",
+      "source_pdf": "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/lecture-notes-24-115_Reverse_diffusion_1.pdf",
+      "duplicate_equivalents": [
+        "lecture-notes-24-115_Reverse_diffusion_1.pdf"
+      ],
+      "ingest_report": "materials/processed/advanced-machine-learning-10-715-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/advanced-machine-learning-10-715-cmu/lecture-notes-26-130_ESM_DSM_2.md",
+      "root_topic": "advanced-machine-learning-10-715-cmu",
+      "source_pdf": "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/lecture-notes-26-130_ESM_DSM_2.pdf",
+      "duplicate_equivalents": [
+        "lecture-notes-26-130_ESM_DSM_2.pdf"
+      ],
+      "ingest_report": "materials/processed/advanced-machine-learning-10-715-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/advanced-machine-learning-10-715-cmu/lecture-notes-28-140_ScroreApprox_with_ReLU.md",
+      "root_topic": "advanced-machine-learning-10-715-cmu",
+      "source_pdf": "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/lecture-notes-28-140_ScroreApprox_with_ReLU.pdf",
+      "duplicate_equivalents": [
+        "lecture-notes-28-140_ScroreApprox_with_ReLU.pdf"
+      ],
+      "ingest_report": "materials/processed/advanced-machine-learning-10-715-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/advanced-machine-learning-10-715-cmu/lecture-notes-30-135_summary.md",
+      "root_topic": "advanced-machine-learning-10-715-cmu",
+      "source_pdf": "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/lecture-notes-30-135_summary.pdf",
+      "duplicate_equivalents": [
+        "lecture-notes-30-135_summary.pdf"
+      ],
+      "ingest_report": "materials/processed/advanced-machine-learning-10-715-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/advanced-machine-learning-10-715-cmu/lecture-notes-32-150_ScoreApprox_2_DistributionEstimation.md",
+      "root_topic": "advanced-machine-learning-10-715-cmu",
+      "source_pdf": "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/lecture-notes-32-150_ScoreApprox_2_DistributionEstimation.pdf",
+      "duplicate_equivalents": [
+        "lecture-notes-32-150_ScoreApprox_2_DistributionEstimation.pdf"
+      ],
+      "ingest_report": "materials/processed/advanced-machine-learning-10-715-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/advanced-machine-learning-10-715-cmu/previous-years-finals-01-10715_CMU_Fall_2020_final_nosoln.md",
+      "root_topic": "advanced-machine-learning-10-715-cmu",
+      "source_pdf": "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/previous-years-finals-01-10715_CMU_Fall_2020_final_nosoln.pdf",
+      "duplicate_equivalents": [
+        "previous-years-finals-01-10715_CMU_Fall_2020_final_nosoln.pdf"
+      ],
+      "ingest_report": "materials/processed/advanced-machine-learning-10-715-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/advanced-machine-learning-10-715-cmu/previous-years-finals-02-10715_CMU_Fall_2020_final_soln.md",
+      "root_topic": "advanced-machine-learning-10-715-cmu",
+      "source_pdf": "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/previous-years-finals-02-10715_CMU_Fall_2020_final_soln.pdf",
+      "duplicate_equivalents": [
+        "previous-years-finals-02-10715_CMU_Fall_2020_final_soln.pdf"
+      ],
+      "ingest_report": "materials/processed/advanced-machine-learning-10-715-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/advanced-machine-learning-10-715-cmu/previous-years-finals-03-10715_CMU_Fall_2023_final_nosoln.md",
+      "root_topic": "advanced-machine-learning-10-715-cmu",
+      "source_pdf": "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/previous-years-finals-03-10715_CMU_Fall_2023_final_nosoln.pdf",
+      "duplicate_equivalents": [
+        "previous-years-finals-03-10715_CMU_Fall_2023_final_nosoln.pdf"
+      ],
+      "ingest_report": "materials/processed/advanced-machine-learning-10-715-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/advanced-machine-learning-10-715-cmu/previous-years-finals-04-10715_CMU_Fall_2022_final_nosoln.md",
+      "root_topic": "advanced-machine-learning-10-715-cmu",
+      "source_pdf": "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/previous-years-finals-04-10715_CMU_Fall_2022_final_nosoln.pdf",
+      "duplicate_equivalents": [
+        "previous-years-finals-04-10715_CMU_Fall_2022_final_nosoln.pdf"
+      ],
+      "ingest_report": "materials/processed/advanced-machine-learning-10-715-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/advanced-machine-learning-10-715-cmu/previous-years-finals-05-10715_CMU_Fall_2021_final_nosoln.md",
+      "root_topic": "advanced-machine-learning-10-715-cmu",
+      "source_pdf": "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/previous-years-finals-05-10715_CMU_Fall_2021_final_nosoln.pdf",
+      "duplicate_equivalents": [
+        "previous-years-finals-05-10715_CMU_Fall_2021_final_nosoln.pdf"
+      ],
+      "ingest_report": "materials/processed/advanced-machine-learning-10-715-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/advanced-machine-learning-10-715-cmu/previous-years-finals-06-10715_CMU_Fall_2022_final_soln.md",
+      "root_topic": "advanced-machine-learning-10-715-cmu",
+      "source_pdf": "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/previous-years-finals-06-10715_CMU_Fall_2022_final_soln.pdf",
+      "duplicate_equivalents": [
+        "previous-years-finals-06-10715_CMU_Fall_2022_final_soln.pdf"
+      ],
+      "ingest_report": "materials/processed/advanced-machine-learning-10-715-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/advanced-machine-learning-10-715-cmu/previous-years-finals-07-10715_CMU_Fall_2021_final_soln.md",
+      "root_topic": "advanced-machine-learning-10-715-cmu",
+      "source_pdf": "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/previous-years-finals-07-10715_CMU_Fall_2021_final_soln.pdf",
+      "duplicate_equivalents": [
+        "previous-years-finals-07-10715_CMU_Fall_2021_final_soln.pdf"
+      ],
+      "ingest_report": "materials/processed/advanced-machine-learning-10-715-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/advanced-machine-learning-10-715-cmu/previous-years-finals-08-10715_CMU_Fall_2024_final_soln.md",
+      "root_topic": "advanced-machine-learning-10-715-cmu",
+      "source_pdf": "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/previous-years-finals-08-10715_CMU_Fall_2024_final_soln.pdf",
+      "duplicate_equivalents": [
+        "previous-years-finals-08-10715_CMU_Fall_2024_final_soln.pdf"
+      ],
+      "ingest_report": "materials/processed/advanced-machine-learning-10-715-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/advanced-machine-learning-10-715-cmu/previous-years-finals-09-10715_CMU_Fall_2024_final_nosoln.md",
+      "root_topic": "advanced-machine-learning-10-715-cmu",
+      "source_pdf": "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/previous-years-finals-09-10715_CMU_Fall_2024_final_nosoln.pdf",
+      "duplicate_equivalents": [
+        "previous-years-finals-09-10715_CMU_Fall_2024_final_nosoln.pdf"
+      ],
+      "ingest_report": "materials/processed/advanced-machine-learning-10-715-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/advanced-machine-learning-10-715-cmu/previous-years-finals-10-10715_CMU_Fall_2023_final_soln.md",
+      "root_topic": "advanced-machine-learning-10-715-cmu",
+      "source_pdf": "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/previous-years-finals-10-10715_CMU_Fall_2023_final_soln.pdf",
+      "duplicate_equivalents": [
+        "previous-years-finals-10-10715_CMU_Fall_2023_final_soln.pdf"
+      ],
+      "ingest_report": "materials/processed/advanced-machine-learning-10-715-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/advanced-machine-learning-10-715-cmu/previous-years-midterms-01-10715_CMU_Fall_2021_midterm_nosoln.md",
+      "root_topic": "advanced-machine-learning-10-715-cmu",
+      "source_pdf": "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/previous-years-midterms-01-10715_CMU_Fall_2021_midterm_nosoln.pdf",
+      "duplicate_equivalents": [
+        "previous-years-midterms-01-10715_CMU_Fall_2021_midterm_nosoln.pdf"
+      ],
+      "ingest_report": "materials/processed/advanced-machine-learning-10-715-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/advanced-machine-learning-10-715-cmu/previous-years-midterms-02-10715_CMU_Fall_2023_midterm_nosoln.md",
+      "root_topic": "advanced-machine-learning-10-715-cmu",
+      "source_pdf": "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/previous-years-midterms-02-10715_CMU_Fall_2023_midterm_nosoln.pdf",
+      "duplicate_equivalents": [
+        "previous-years-midterms-02-10715_CMU_Fall_2023_midterm_nosoln.pdf"
+      ],
+      "ingest_report": "materials/processed/advanced-machine-learning-10-715-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/advanced-machine-learning-10-715-cmu/previous-years-midterms-03-10715_CMU_Fall_2022_midterm_nosoln.md",
+      "root_topic": "advanced-machine-learning-10-715-cmu",
+      "source_pdf": "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/previous-years-midterms-03-10715_CMU_Fall_2022_midterm_nosoln.pdf",
+      "duplicate_equivalents": [
+        "previous-years-midterms-03-10715_CMU_Fall_2022_midterm_nosoln.pdf"
+      ],
+      "ingest_report": "materials/processed/advanced-machine-learning-10-715-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/advanced-machine-learning-10-715-cmu/previous-years-midterms-04-10715_CMU_Fall_2021_midterm_soln.md",
+      "root_topic": "advanced-machine-learning-10-715-cmu",
+      "source_pdf": "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/previous-years-midterms-04-10715_CMU_Fall_2021_midterm_soln.pdf",
+      "duplicate_equivalents": [
+        "previous-years-midterms-04-10715_CMU_Fall_2021_midterm_soln.pdf"
+      ],
+      "ingest_report": "materials/processed/advanced-machine-learning-10-715-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/advanced-machine-learning-10-715-cmu/previous-years-midterms-05-10715_CMU_Fall_2023_midterm_soln.md",
+      "root_topic": "advanced-machine-learning-10-715-cmu",
+      "source_pdf": "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/previous-years-midterms-05-10715_CMU_Fall_2023_midterm_soln.pdf",
+      "duplicate_equivalents": [
+        "previous-years-midterms-05-10715_CMU_Fall_2023_midterm_soln.pdf"
+      ],
+      "ingest_report": "materials/processed/advanced-machine-learning-10-715-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/advanced-machine-learning-10-715-cmu/previous-years-midterms-06-10715_CMU_Fall_2022_midterm_soln.md",
+      "root_topic": "advanced-machine-learning-10-715-cmu",
+      "source_pdf": "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/previous-years-midterms-06-10715_CMU_Fall_2022_midterm_soln.pdf",
+      "duplicate_equivalents": [
+        "previous-years-midterms-06-10715_CMU_Fall_2022_midterm_soln.pdf"
+      ],
+      "ingest_report": "materials/processed/advanced-machine-learning-10-715-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/advanced-machine-learning-10-715-cmu/previous-years-midterms-07-10715_CMU_Fall_2020_midterm_nosoln.md",
+      "root_topic": "advanced-machine-learning-10-715-cmu",
+      "source_pdf": "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/previous-years-midterms-07-10715_CMU_Fall_2020_midterm_nosoln.pdf",
+      "duplicate_equivalents": [
+        "previous-years-midterms-07-10715_CMU_Fall_2020_midterm_nosoln.pdf"
+      ],
+      "ingest_report": "materials/processed/advanced-machine-learning-10-715-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/advanced-machine-learning-10-715-cmu/previous-years-midterms-08-10715_CMU_Fall_2020_midterm_soln.md",
+      "root_topic": "advanced-machine-learning-10-715-cmu",
+      "source_pdf": "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/previous-years-midterms-08-10715_CMU_Fall_2020_midterm_soln.pdf",
+      "duplicate_equivalents": [
+        "previous-years-midterms-08-10715_CMU_Fall_2020_midterm_soln.pdf"
+      ],
+      "ingest_report": "materials/processed/advanced-machine-learning-10-715-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/advanced-machine-learning-10-715-cmu/previous-years-midterms-09-10715_CMU_Fall_2024_midterm_nosoln.md",
+      "root_topic": "advanced-machine-learning-10-715-cmu",
+      "source_pdf": "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/previous-years-midterms-09-10715_CMU_Fall_2024_midterm_nosoln.pdf",
+      "duplicate_equivalents": [
+        "previous-years-midterms-09-10715_CMU_Fall_2024_midterm_nosoln.pdf"
+      ],
+      "ingest_report": "materials/processed/advanced-machine-learning-10-715-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/advanced-machine-learning-10-715-cmu/previous-years-midterms-10-10715_CMU_Fall_2024_midterm_soln.md",
+      "root_topic": "advanced-machine-learning-10-715-cmu",
+      "source_pdf": "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/previous-years-midterms-10-10715_CMU_Fall_2024_midterm_soln.pdf",
+      "duplicate_equivalents": [
+        "previous-years-midterms-10-10715_CMU_Fall_2024_midterm_soln.pdf"
+      ],
+      "ingest_report": "materials/processed/advanced-machine-learning-10-715-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/advanced-machine-learning-10-715-cmu/recitations-01-Opti_Recitation.md",
+      "root_topic": "advanced-machine-learning-10-715-cmu",
+      "source_pdf": "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/recitations-01-Opti_Recitation.pdf",
+      "duplicate_equivalents": [
+        "recitations-01-Opti_Recitation.pdf"
+      ],
+      "ingest_report": "materials/processed/advanced-machine-learning-10-715-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/advanced-machine-learning-10-715-cmu/recitations-02-recitation_2_slides_10715.md",
+      "root_topic": "advanced-machine-learning-10-715-cmu",
+      "source_pdf": "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/recitations-02-recitation_2_slides_10715.pdf",
+      "duplicate_equivalents": [
+        "recitations-02-recitation_2_slides_10715.pdf"
+      ],
+      "ingest_report": "materials/processed/advanced-machine-learning-10-715-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/advanced-machine-learning-10-715-cmu/recitations-03-recitation_2_10715.md",
+      "root_topic": "advanced-machine-learning-10-715-cmu",
+      "source_pdf": "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/recitations-03-recitation_2_10715.pdf",
+      "duplicate_equivalents": [
+        "recitations-03-recitation_2_10715.pdf"
+      ],
+      "ingest_report": "materials/processed/advanced-machine-learning-10-715-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/advanced-machine-learning-10-715-cmu/recitations-04-Recitation_3_Tail_Bounds.md",
+      "root_topic": "advanced-machine-learning-10-715-cmu",
+      "source_pdf": "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/recitations-04-Recitation_3_Tail_Bounds.pdf",
+      "duplicate_equivalents": [
+        "recitations-04-Recitation_3_Tail_Bounds.pdf"
+      ],
+      "ingest_report": "materials/processed/advanced-machine-learning-10-715-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/advanced-machine-learning-10-715-cmu/recitations-05-Recitation_4_MLE_MAP.md",
+      "root_topic": "advanced-machine-learning-10-715-cmu",
+      "source_pdf": "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/recitations-05-Recitation_4_MLE_MAP.pdf",
+      "duplicate_equivalents": [
+        "recitations-05-Recitation_4_MLE_MAP.pdf"
+      ],
+      "ingest_report": "materials/processed/advanced-machine-learning-10-715-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/advanced-machine-learning-10-715-cmu/relevant-papers-01-Estimation of Non-Normalized Statistical Models by Score Matching.md",
+      "root_topic": "advanced-machine-learning-10-715-cmu",
+      "source_pdf": "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/relevant-papers-01-Estimation of Non-Normalized Statistical Models by Score Matching.pdf",
+      "duplicate_equivalents": [
+        "relevant-papers-01-Estimation of Non-Normalized Statistical Models by Score Matching.pdf"
+      ],
+      "ingest_report": "materials/processed/advanced-machine-learning-10-715-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/advanced-machine-learning-10-715-cmu/relevant-papers-02-Diffusion Models are Minimax Optimal Distribution Estimators.md",
+      "root_topic": "advanced-machine-learning-10-715-cmu",
+      "source_pdf": "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/relevant-papers-02-Diffusion Models are Minimax Optimal Distribution Estimators.pdf",
+      "duplicate_equivalents": [
+        "relevant-papers-02-Diffusion Models are Minimax Optimal Distribution Estimators.pdf"
+      ],
+      "ingest_report": "materials/processed/advanced-machine-learning-10-715-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/advanced-machine-learning-10-715-cmu/relevant-papers-03-Unveil Conditional Diffusion Models with Classifier-free Guidance- A Sharp Statistical Theory.md",
+      "root_topic": "advanced-machine-learning-10-715-cmu",
+      "source_pdf": "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/relevant-papers-03-Unveil Conditional Diffusion Models with Classifier-free Guidance- A Sharp Statistical Theory.pdf",
+      "duplicate_equivalents": [
+        "relevant-papers-03-Unveil Conditional Diffusion Models with Classifier-free Guidance- A Sharp Statistical Theory.pdf"
+      ],
+      "ingest_report": "materials/processed/advanced-machine-learning-10-715-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/advanced-machine-learning-10-715-cmu/relevant-papers-04-Denoising Diffusion Probabilistic Models.md",
+      "root_topic": "advanced-machine-learning-10-715-cmu",
+      "source_pdf": "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/relevant-papers-04-Denoising Diffusion Probabilistic Models.pdf",
+      "duplicate_equivalents": [
+        "relevant-papers-04-Denoising Diffusion Probabilistic Models.pdf"
+      ],
+      "ingest_report": "materials/processed/advanced-machine-learning-10-715-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/advanced-machine-learning-10-715-cmu/relevant-papers-05-Score-Based Generative Modeling through Stochastic Differential Equations.md",
+      "root_topic": "advanced-machine-learning-10-715-cmu",
+      "source_pdf": "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/relevant-papers-05-Score-Based Generative Modeling through Stochastic Differential Equations.pdf",
+      "duplicate_equivalents": [
+        "relevant-papers-05-Score-Based Generative Modeling through Stochastic Differential Equations.pdf"
+      ],
+      "ingest_report": "materials/processed/advanced-machine-learning-10-715-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/advanced-machine-learning-10-715-cmu/zip-extracted-homework-01-HW1-HW1.md",
+      "root_topic": "advanced-machine-learning-10-715-cmu",
+      "source_pdf": "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/zip-extracted-homework-01-HW1-HW1.pdf",
+      "duplicate_equivalents": [
+        "zip-extracted-homework-01-HW1-HW1.pdf",
+        "zip-extracted-homework-01-HW1-._HW1.pdf"
+      ],
+      "ingest_report": "materials/processed/advanced-machine-learning-10-715-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/advanced-machine-learning-10-715-cmu/zip-extracted-homework-02-HW2-hw2.md",
+      "root_topic": "advanced-machine-learning-10-715-cmu",
+      "source_pdf": "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/zip-extracted-homework-02-HW2-hw2.pdf",
+      "duplicate_equivalents": [
+        "zip-extracted-homework-02-HW2-hw2.pdf"
+      ],
+      "ingest_report": "materials/processed/advanced-machine-learning-10-715-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/advanced-machine-learning-10-715-cmu/zip-extracted-homework-03-HW3-HW3.md",
+      "root_topic": "advanced-machine-learning-10-715-cmu",
+      "source_pdf": "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/zip-extracted-homework-03-HW3-HW3.pdf",
+      "duplicate_equivalents": [
+        "zip-extracted-homework-03-HW3-HW3.pdf",
+        "zip-extracted-homework-03-HW3-._HW3.pdf"
+      ],
+      "ingest_report": "materials/processed/advanced-machine-learning-10-715-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/advanced-machine-learning-10-715-cmu/zip-extracted-homework-04-HW4-715_HW4.md",
+      "root_topic": "advanced-machine-learning-10-715-cmu",
+      "source_pdf": "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/zip-extracted-homework-04-HW4-715_HW4.pdf",
+      "duplicate_equivalents": [
+        "zip-extracted-homework-04-HW4-715_HW4.pdf",
+        "zip-extracted-homework-04-HW4-._715_HW4.pdf"
+      ],
+      "ingest_report": "materials/processed/advanced-machine-learning-10-715-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/advanced-machine-learning-10-715-cmu/zip-extracted-homework-05-HW5-hw5.md",
+      "root_topic": "advanced-machine-learning-10-715-cmu",
+      "source_pdf": "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/zip-extracted-homework-05-HW5-hw5.pdf",
+      "duplicate_equivalents": [
+        "zip-extracted-homework-05-HW5-hw5.pdf"
+      ],
+      "ingest_report": "materials/processed/advanced-machine-learning-10-715-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/advanced-machine-learning-10-715-cmu/zip-extracted-homework-05-HW5-hw5__dup1.md",
+      "root_topic": "advanced-machine-learning-10-715-cmu",
+      "source_pdf": "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/zip-extracted-homework-05-HW5-hw5__dup1.pdf",
+      "duplicate_equivalents": [
+        "zip-extracted-homework-05-HW5-hw5__dup1.pdf"
+      ],
+      "ingest_report": "materials/processed/advanced-machine-learning-10-715-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/advanced-machine-learning-10-715-cmu/zip-extracted-homework-07-HW7-10_715_HW7_Fall_2025.md",
+      "root_topic": "advanced-machine-learning-10-715-cmu",
+      "source_pdf": "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/zip-extracted-homework-07-HW7-10_715_HW7_Fall_2025.pdf",
+      "duplicate_equivalents": [
+        "zip-extracted-homework-07-HW7-10_715_HW7_Fall_2025.pdf"
+      ],
+      "ingest_report": "materials/processed/advanced-machine-learning-10-715-cmu/_INGEST_REPORT.md"
+    },
     {
       "transcript_path": "materials/processed/ai/a-diff-tool-for-ai-finding-behavioral-differences-in-new-models.md",
       "root_topic": "ai",
@@ -571,7 +1368,7 @@
     {
       "transcript_path": "materials/processed/ai/group-mates-method-equations.md",
       "root_topic": "ai",
-      "source_pdf": null,
+      "source_pdf": "https://arxiv.org/pdf/2502.14709",
       "duplicate_equivalents": [],
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
@@ -593,6 +1390,20 @@
       "transcript_path": "materials/processed/ai/openai-stargate-where-the-us-sites-stand.md",
       "root_topic": "ai",
       "source_pdf": "https://epoch.ai/blog/openai-stargate-where-the-us-sites-stand",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/ai/scale-labs-papers-2025-2026/brief.md",
+      "root_topic": "ai",
+      "source_pdf": null,
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/ai/scale-labs-papers-2025-2026/paper_summaries.md",
+      "root_topic": "ai",
+      "source_pdf": null,
       "duplicate_equivalents": [],
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
@@ -1288,6 +2099,1197 @@
         "Practice_Exam_Solutions.pdf"
       ],
       "ingest_report": "materials/processed/probabilistic-graphical-models/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/_canvas_modules_manifest.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "https://canvas.cmu.edu/courses/49720",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/_gradescope_dashboard.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "https://www.gradescope.com/courses/1099981",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/canvas-01-01-13725639-700_sol_final.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-01-01-13725639-700_sol_final.pdf",
+      "duplicate_equivalents": [
+        "canvas-01-01-13725639-700_sol_final.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/canvas-01-02-13645712-practice.final.exam.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-01-02-13645712-practice.final.exam.pdf",
+      "duplicate_equivalents": [
+        "canvas-01-02-13645712-practice.final.exam.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/canvas-01-03-13645713-Solutions.practice.final.exam.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-01-03-13645713-Solutions.practice.final.exam.pdf",
+      "duplicate_equivalents": [
+        "canvas-01-03-13645713-Solutions.practice.final.exam.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/canvas-01-04-13645717-official_cheat_sheet3.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-01-04-13645717-official_cheat_sheet3.pdf",
+      "duplicate_equivalents": [
+        "canvas-01-04-13645717-official_cheat_sheet3.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/canvas-01-05-13260347-Page-433-table.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-01-05-13260347-Page-433-table.pdf",
+      "duplicate_equivalents": [
+        "canvas-01-05-13260347-Page-433-table.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/canvas-01-06-13670299-info_700final_2025.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-01-06-13670299-info_700final_2025.pdf",
+      "duplicate_equivalents": [
+        "canvas-01-06-13670299-info_700final_2025.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/canvas-02-01-13611196-midterm2_sol.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-02-01-13611196-midterm2_sol.pdf",
+      "duplicate_equivalents": [
+        "canvas-02-01-13611196-midterm2_sol.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/canvas-02-03-13501935-Practice.Midterm.Two_blank.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-02-03-13501935-Practice.Midterm.Two_blank.pdf",
+      "duplicate_equivalents": [
+        "canvas-02-03-13501935-Practice.Midterm.Two_blank.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/canvas-02-04-13501939-solutions_Practice.Midterm.Two.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-02-04-13501939-solutions_Practice.Midterm.Two.pdf",
+      "duplicate_equivalents": [
+        "canvas-02-04-13501939-solutions_Practice.Midterm.Two.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/canvas-02-05-13501947-Midterm.Two_cheat_sheet.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-02-05-13501947-Midterm.Two_cheat_sheet.pdf",
+      "duplicate_equivalents": [
+        "canvas-02-05-13501947-Midterm.Two_cheat_sheet.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/canvas-02-06-13502043-Midterm.Two_info.sheet.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-02-06-13502043-Midterm.Two_info.sheet.pdf",
+      "duplicate_equivalents": [
+        "canvas-02-06-13502043-Midterm.Two_info.sheet.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/canvas-02-07-13526456-midterm2_review.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-02-07-13526456-midterm2_review.pdf",
+      "duplicate_equivalents": [
+        "canvas-02-07-13526456-midterm2_review.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/canvas-03-01-13260337-midterm_1_info_sheet.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-03-01-13260337-midterm_1_info_sheet.pdf",
+      "duplicate_equivalents": [
+        "canvas-03-01-13260337-midterm_1_info_sheet.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/canvas-03-03-13260349-practice_midterm.1_blank.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-03-03-13260349-practice_midterm.1_blank.pdf",
+      "duplicate_equivalents": [
+        "canvas-03-03-13260349-practice_midterm.1_blank.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/canvas-03-04-13260351-practice_midterm.1_solutions.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-03-04-13260351-practice_midterm.1_solutions.pdf",
+      "duplicate_equivalents": [
+        "canvas-03-04-13260351-practice_midterm.1_solutions.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/canvas-03-05-13301487-updated_OfficialCheatSheet.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-03-05-13301487-updated_OfficialCheatSheet.pdf",
+      "duplicate_equivalents": [
+        "canvas-03-05-13301487-updated_OfficialCheatSheet.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/canvas-03-06-13310020-normal_table.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-03-06-13310020-normal_table.pdf",
+      "duplicate_equivalents": [
+        "canvas-03-06-13310020-normal_table.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/canvas-04-01-13080649-700_syllabus_Aug22_2025.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-04-01-13080649-700_syllabus_Aug22_2025.pdf",
+      "duplicate_equivalents": [
+        "canvas-04-01-13080649-700_syllabus_Aug22_2025.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/canvas-05-01-13163382-hw1_sol.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-05-01-13163382-hw1_sol.pdf",
+      "duplicate_equivalents": [
+        "canvas-05-01-13163382-hw1_sol.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/canvas-05-02-13219718-hw2_sol.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-05-02-13219718-hw2_sol.pdf",
+      "duplicate_equivalents": [
+        "canvas-05-02-13219718-hw2_sol.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/canvas-05-03-13260384-hw3_sol.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-05-03-13260384-hw3_sol.pdf",
+      "duplicate_equivalents": [
+        "canvas-05-03-13260384-hw3_sol.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/canvas-05-04-13307477-hw4_sol.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-05-04-13307477-hw4_sol.pdf",
+      "duplicate_equivalents": [
+        "canvas-05-04-13307477-hw4_sol.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/canvas-05-05-13390771-midterm1_sol.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-05-05-13390771-midterm1_sol.pdf",
+      "duplicate_equivalents": [
+        "canvas-05-05-13390771-midterm1_sol.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/canvas-05-06-13427798-hw5_sol.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-05-06-13427798-hw5_sol.pdf",
+      "duplicate_equivalents": [
+        "canvas-05-06-13427798-hw5_sol.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/canvas-05-07-13444802-hw6_sol.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-05-07-13444802-hw6_sol.pdf",
+      "duplicate_equivalents": [
+        "canvas-05-07-13444802-hw6_sol.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/canvas-05-08-13473599-hw7_sol.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-05-08-13473599-hw7_sol.pdf",
+      "duplicate_equivalents": [
+        "canvas-05-08-13473599-hw7_sol.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/canvas-05-09-13518126-hw8_sol.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-05-09-13518126-hw8_sol.pdf",
+      "duplicate_equivalents": [
+        "canvas-05-09-13518126-hw8_sol.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/canvas-05-10-13635428-hw9_sol.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-05-10-13635428-hw9_sol.pdf",
+      "duplicate_equivalents": [
+        "canvas-05-10-13635428-hw9_sol.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/canvas-05-11-13670900-hw10_sol.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-05-11-13670900-hw10_sol.pdf",
+      "duplicate_equivalents": [
+        "canvas-05-11-13670900-hw10_sol.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/canvas-06-01-13085976-Chapter1.Prob.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-06-01-13085976-Chapter1.Prob.pdf",
+      "duplicate_equivalents": [
+        "canvas-06-01-13085976-Chapter1.Prob.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/canvas-06-02-13087961-slides_syllabus_2025.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-06-02-13087961-slides_syllabus_2025.pdf",
+      "duplicate_equivalents": [
+        "canvas-06-02-13087961-slides_syllabus_2025.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/canvas-06-03-13089514-slides_Chapter1.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-06-03-13089514-slides_Chapter1.pdf",
+      "duplicate_equivalents": [
+        "canvas-06-03-13089514-slides_Chapter1.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/canvas-06-04-13112497-annotated_slides_Chapter1_082725.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-06-04-13112497-annotated_slides_Chapter1_082725.pdf",
+      "duplicate_equivalents": [
+        "canvas-06-04-13112497-annotated_slides_Chapter1_082725.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/canvas-07-01-13085977-Chapter2.RVs.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-07-01-13085977-Chapter2.RVs.pdf",
+      "duplicate_equivalents": [
+        "canvas-07-01-13085977-Chapter2.RVs.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/canvas-07-02-13105674-slides_Chapter2_rvs.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-07-02-13105674-slides_Chapter2_rvs.pdf",
+      "duplicate_equivalents": [
+        "canvas-07-02-13105674-slides_Chapter2_rvs.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/canvas-07-03-13172673-annotated_slides_Chapter2_rev090825.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-07-03-13172673-annotated_slides_Chapter2_rev090825.pdf",
+      "duplicate_equivalents": [
+        "canvas-07-03-13172673-annotated_slides_Chapter2_rev090825.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/canvas-08-01-13128443-Chapter3.Expectations.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-08-01-13128443-Chapter3.Expectations.pdf",
+      "duplicate_equivalents": [
+        "canvas-08-01-13128443-Chapter3.Expectations.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/canvas-08-02-13128491-slides_Chapter3_exp.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-08-02-13128491-slides_Chapter3_exp.pdf",
+      "duplicate_equivalents": [
+        "canvas-08-02-13128491-slides_Chapter3_exp.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/canvas-08-03-13193496-annotated_slides_Chapter3_091025.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-08-03-13193496-annotated_slides_Chapter3_091025.pdf",
+      "duplicate_equivalents": [
+        "canvas-08-03-13193496-annotated_slides_Chapter3_091025.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/canvas-09-01-13173316-Chapter4.Inequalities.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-09-01-13173316-Chapter4.Inequalities.pdf",
+      "duplicate_equivalents": [
+        "canvas-09-01-13173316-Chapter4.Inequalities.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/canvas-09-02-13180383-slides_Chapter4.Part1.overview.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-09-02-13180383-slides_Chapter4.Part1.overview.pdf",
+      "duplicate_equivalents": [
+        "canvas-09-02-13180383-slides_Chapter4.Part1.overview.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/canvas-09-03-13210487-slides_Chapter4.revisited.ineqs.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-09-03-13210487-slides_Chapter4.revisited.ineqs.pdf",
+      "duplicate_equivalents": [
+        "canvas-09-03-13210487-slides_Chapter4.revisited.ineqs.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/canvas-09-04-13224311-annotated.slides_Chapter4.overview.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-09-04-13224311-annotated.slides_Chapter4.overview.pdf",
+      "duplicate_equivalents": [
+        "canvas-09-04-13224311-annotated.slides_Chapter4.overview.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/canvas-09-05-13224313-annotated.slides_Chapter4.revisited.ineqs.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-09-05-13224313-annotated.slides_Chapter4.revisited.ineqs.pdf",
+      "duplicate_equivalents": [
+        "canvas-09-05-13224313-annotated.slides_Chapter4.revisited.ineqs.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/canvas-10-01-13307038-annotated.slides_Chapter5.cvg.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-10-01-13307038-annotated.slides_Chapter5.cvg.pdf",
+      "duplicate_equivalents": [
+        "canvas-10-01-13307038-annotated.slides_Chapter5.cvg.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/canvas-10-02-13210493-Chapter5.cvg.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-10-02-13210493-Chapter5.cvg.pdf",
+      "duplicate_equivalents": [
+        "canvas-10-02-13210493-Chapter5.cvg.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/canvas-10-03-13226051-slides_Chapter5.cvg.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-10-03-13226051-slides_Chapter5.cvg.pdf",
+      "duplicate_equivalents": [
+        "canvas-10-03-13226051-slides_Chapter5.cvg.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/canvas-10-04-13294257-annotated.slides_Chapter5.cvg.092625.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-10-04-13294257-annotated.slides_Chapter5.cvg.092625.pdf",
+      "duplicate_equivalents": [
+        "canvas-10-04-13294257-annotated.slides_Chapter5.cvg.092625.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/canvas-11-01-13307068-annotated.slides_ch6.inf.overview-2.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-11-01-13307068-annotated.slides_ch6.inf.overview-2.pdf",
+      "duplicate_equivalents": [
+        "canvas-11-01-13307068-annotated.slides_ch6.inf.overview-2.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/canvas-11-02-13254388-chapter6.inference.overview.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-11-02-13254388-chapter6.inference.overview.pdf",
+      "duplicate_equivalents": [
+        "canvas-11-02-13254388-chapter6.inference.overview.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/canvas-11-03-13254389-slides_ch6.inf.overview.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-11-03-13254389-slides_ch6.inf.overview.pdf",
+      "duplicate_equivalents": [
+        "canvas-11-03-13254389-slides_ch6.inf.overview.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/canvas-11-04-13307100-annotated.midterm_1_info_sheet.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-11-04-13307100-annotated.midterm_1_info_sheet.pdf",
+      "duplicate_equivalents": [
+        "canvas-11-04-13307100-annotated.midterm_1_info_sheet.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/canvas-12-01-13460560-annotated.slides_Chapter7.Estimation.Part4.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-12-01-13460560-annotated.slides_Chapter7.Estimation.Part4.pdf",
+      "duplicate_equivalents": [
+        "canvas-12-01-13460560-annotated.slides_Chapter7.Estimation.Part4.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/canvas-12-02-13445381-annotated.slides_Chapter7.Estimation.Part1.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-12-02-13445381-annotated.slides_Chapter7.Estimation.Part1.pdf",
+      "duplicate_equivalents": [
+        "canvas-12-02-13445381-annotated.slides_Chapter7.Estimation.Part1.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/canvas-12-03-13420732-annotated.slides_Chapter7.Estimation.Part3.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-12-03-13420732-annotated.slides_Chapter7.Estimation.Part3.pdf",
+      "duplicate_equivalents": [
+        "canvas-12-03-13420732-annotated.slides_Chapter7.Estimation.Part3.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/canvas-12-04-13375696-annotated.slides_Chapter7.Estimation.Part2.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-12-04-13375696-annotated.slides_Chapter7.Estimation.Part2.pdf",
+      "duplicate_equivalents": [
+        "canvas-12-04-13375696-annotated.slides_Chapter7.Estimation.Part2.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/canvas-12-05-13415277-slides_Chapter7.Estimation.Part4.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-12-05-13415277-slides_Chapter7.Estimation.Part4.pdf",
+      "duplicate_equivalents": [
+        "canvas-12-05-13415277-slides_Chapter7.Estimation.Part4.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/canvas-12-06-13405873-slides_Chapter7.Estimation.Part3..md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-12-06-13405873-slides_Chapter7.Estimation.Part3..pdf",
+      "duplicate_equivalents": [
+        "canvas-12-06-13405873-slides_Chapter7.Estimation.Part3..pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/canvas-12-07-13301500-Chapter7.Estimation.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-12-07-13301500-Chapter7.Estimation.pdf",
+      "duplicate_equivalents": [
+        "canvas-12-07-13301500-Chapter7.Estimation.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/canvas-12-08-13301505-slides_Chapter7.Estimation.Part1.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-12-08-13301505-slides_Chapter7.Estimation.Part1.pdf",
+      "duplicate_equivalents": [
+        "canvas-12-08-13301505-slides_Chapter7.Estimation.Part1.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/canvas-12-09-13329053-slides_Chapter7.Estimation.Part2.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-12-09-13329053-slides_Chapter7.Estimation.Part2.pdf",
+      "duplicate_equivalents": [
+        "canvas-12-09-13329053-slides_Chapter7.Estimation.Part2.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/canvas-13-01-13575054-annotated.slides_Chapter8.Testing.Part2.WaldLRT.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-13-01-13575054-annotated.slides_Chapter8.Testing.Part2.WaldLRT.pdf",
+      "duplicate_equivalents": [
+        "canvas-13-01-13575054-annotated.slides_Chapter8.Testing.Part2.WaldLRT.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/canvas-13-02-13570927-slides_Chapter8.Testing.Part3.famous.tests.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-13-02-13570927-slides_Chapter8.Testing.Part3.famous.tests.pdf",
+      "duplicate_equivalents": [
+        "canvas-13-02-13570927-slides_Chapter8.Testing.Part3.famous.tests.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/canvas-13-03-13562978-Chapter10.asymptotic.evaluations.casella_berger_statistical_inference1.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-13-03-13562978-Chapter10.asymptotic.evaluations.casella_berger_statistical_inference1.pdf",
+      "duplicate_equivalents": [
+        "canvas-13-03-13562978-Chapter10.asymptotic.evaluations.casella_berger_statistical_inference1.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/canvas-13-04-13562973-Sec5.5.convergence.concepts.casella_berger_statistical_inference1.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-13-04-13562973-Sec5.5.convergence.concepts.casella_berger_statistical_inference1.pdf",
+      "duplicate_equivalents": [
+        "canvas-13-04-13562973-Sec5.5.convergence.concepts.casella_berger_statistical_inference1.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/canvas-13-05-13493921-slides_Chapter8.Testing.Part2.WaldLRT.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-13-05-13493921-slides_Chapter8.Testing.Part2.WaldLRT.pdf",
+      "duplicate_equivalents": [
+        "canvas-13-05-13493921-slides_Chapter8.Testing.Part2.WaldLRT.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/canvas-13-06-13488097-TEMP_annotated.slides_Chapter8.Testing.Part1.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-13-06-13488097-TEMP_annotated.slides_Chapter8.Testing.Part1.pdf",
+      "duplicate_equivalents": [
+        "canvas-13-06-13488097-TEMP_annotated.slides_Chapter8.Testing.Part1.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/canvas-13-07-13454057-Chapter8.testing.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-13-07-13454057-Chapter8.testing.pdf",
+      "duplicate_equivalents": [
+        "canvas-13-07-13454057-Chapter8.testing.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/canvas-13-08-13454353-slides_Chapter8.Testing.Part1.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-13-08-13454353-slides_Chapter8.Testing.Part1.pdf",
+      "duplicate_equivalents": [
+        "canvas-13-08-13454353-slides_Chapter8.Testing.Part1.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/canvas-13-09-13454354-WaldTests_AOS_Wasserman.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-13-09-13454354-WaldTests_AOS_Wasserman.pdf",
+      "duplicate_equivalents": [
+        "canvas-13-09-13454354-WaldTests_AOS_Wasserman.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/canvas-13-10-13609868-annotated.slides_Chapter8.Testing.Part3.famous.tests-2.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-13-10-13609868-annotated.slides_Chapter8.Testing.Part3.famous.tests-2.pdf",
+      "duplicate_equivalents": [
+        "canvas-13-10-13609868-annotated.slides_Chapter8.Testing.Part3.famous.tests-2.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/canvas-14-01-13652546-annotated.slides_Chapter9_DensEst.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-14-01-13652546-annotated.slides_Chapter9_DensEst.pdf",
+      "duplicate_equivalents": [
+        "canvas-14-01-13652546-annotated.slides_Chapter9_DensEst.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/canvas-14-02-13601948-Slides_NonParDensEst_fromLeeRegCourse.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-14-02-13601948-Slides_NonParDensEst_fromLeeRegCourse.pdf",
+      "duplicate_equivalents": [
+        "canvas-14-02-13601948-Slides_NonParDensEst_fromLeeRegCourse.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/canvas-14-03-13601946-Chapter9.DensEst.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-14-03-13601946-Chapter9.DensEst.pdf",
+      "duplicate_equivalents": [
+        "canvas-14-03-13601946-Chapter9.DensEst.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/canvas-14-04-13634119-Overview_Chapter9_DensEst.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-14-04-13634119-Overview_Chapter9_DensEst.pdf",
+      "duplicate_equivalents": [
+        "canvas-14-04-13634119-Overview_Chapter9_DensEst.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/canvas-15-01-13652552-annotated.slides_Chapter10.npreg.Part1.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-15-01-13652552-annotated.slides_Chapter10.npreg.Part1.pdf",
+      "duplicate_equivalents": [
+        "canvas-15-01-13652552-annotated.slides_Chapter10.npreg.Part1.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/canvas-15-02-13652554-annotated.slides_Chapter10.npreg.Part2.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-15-02-13652554-annotated.slides_Chapter10.npreg.Part2.pdf",
+      "duplicate_equivalents": [
+        "canvas-15-02-13652554-annotated.slides_Chapter10.npreg.Part2.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/canvas-15-03-13632515-Chapter10.npreg.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-15-03-13632515-Chapter10.npreg.pdf",
+      "duplicate_equivalents": [
+        "canvas-15-03-13632515-Chapter10.npreg.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/canvas-15-04-13632516-slides_Chapter10.npreg.Part1.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-15-04-13632516-slides_Chapter10.npreg.Part1.pdf",
+      "duplicate_equivalents": [
+        "canvas-15-04-13632516-slides_Chapter10.npreg.Part1.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/canvas-15-05-13635737-Gyorfi_nonparametric_rates.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-15-05-13635737-Gyorfi_nonparametric_rates.pdf",
+      "duplicate_equivalents": [
+        "canvas-15-05-13635737-Gyorfi_nonparametric_rates.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/canvas-15-06-13643294-slides_Chapter10.npreg.Part2.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-15-06-13643294-slides_Chapter10.npreg.Part2.pdf",
+      "duplicate_equivalents": [
+        "canvas-15-06-13643294-slides_Chapter10.npreg.Part2.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/canvas-15-07-13643296-Chapter10.reflections.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-15-07-13643296-Chapter10.reflections.pdf",
+      "duplicate_equivalents": [
+        "canvas-15-07-13643296-Chapter10.reflections.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/canvas-15-08-13643778-added_Optimism.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-15-08-13643778-added_Optimism.pdf",
+      "duplicate_equivalents": [
+        "canvas-15-08-13643778-added_Optimism.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/canvas-15-09-13643779-added_TrainTest.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-15-09-13643779-added_TrainTest.pdf",
+      "duplicate_equivalents": [
+        "canvas-15-09-13643779-added_TrainTest.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/gradescope-01-homework-10-graded-copy.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/gradescope-graded-copies/gradescope-01-homework-10-graded-copy.pdf",
+      "duplicate_equivalents": [
+        "gradescope-01-homework-10-graded-copy.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/gradescope-02-homework-9-graded-copy.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/gradescope-graded-copies/gradescope-02-homework-9-graded-copy.pdf",
+      "duplicate_equivalents": [
+        "gradescope-02-homework-9-graded-copy.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/gradescope-03-homework-8-graded-copy.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/gradescope-graded-copies/gradescope-03-homework-8-graded-copy.pdf",
+      "duplicate_equivalents": [
+        "gradescope-03-homework-8-graded-copy.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/gradescope-04-homework-7-graded-copy.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/gradescope-graded-copies/gradescope-04-homework-7-graded-copy.pdf",
+      "duplicate_equivalents": [
+        "gradescope-04-homework-7-graded-copy.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/gradescope-05-homework-6-graded-copy.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/gradescope-graded-copies/gradescope-05-homework-6-graded-copy.pdf",
+      "duplicate_equivalents": [
+        "gradescope-05-homework-6-graded-copy.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/gradescope-06-homework-5-graded-copy.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/gradescope-graded-copies/gradescope-06-homework-5-graded-copy.pdf",
+      "duplicate_equivalents": [
+        "gradescope-06-homework-5-graded-copy.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/gradescope-07-homework-4-graded-copy.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/gradescope-graded-copies/gradescope-07-homework-4-graded-copy.pdf",
+      "duplicate_equivalents": [
+        "gradescope-07-homework-4-graded-copy.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/gradescope-08-homework-3-graded-copy.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/gradescope-graded-copies/gradescope-08-homework-3-graded-copy.pdf",
+      "duplicate_equivalents": [
+        "gradescope-08-homework-3-graded-copy.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/gradescope-09-homework-2-graded-copy.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/gradescope-graded-copies/gradescope-09-homework-2-graded-copy.pdf",
+      "duplicate_equivalents": [
+        "gradescope-09-homework-2-graded-copy.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/gradescope-10-homework-1-graded-copy.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/gradescope-graded-copies/gradescope-10-homework-1-graded-copy.pdf",
+      "duplicate_equivalents": [
+        "gradescope-10-homework-1-graded-copy.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/gradescope-11-midterm-1-graded-copy.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/gradescope-graded-copies/gradescope-11-midterm-1-graded-copy.pdf",
+      "duplicate_equivalents": [
+        "gradescope-11-midterm-1-graded-copy.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/gradescope-12-midterm-2-graded-copy.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/gradescope-graded-copies/gradescope-12-midterm-2-graded-copy.pdf",
+      "duplicate_equivalents": [
+        "gradescope-12-midterm-2-graded-copy.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probability-and-statistics-36-700-cmu/gradescope-13-final-exam-graded-copy.md",
+      "root_topic": "probability-and-statistics-36-700-cmu",
+      "source_pdf": "materials/archive/probability-and-statistics-36-700-cmu/gradescope-graded-copies/gradescope-13-final-exam-graded-copy.pdf",
+      "duplicate_equivalents": [
+        "gradescope-13-final-exam-graded-copy.pdf"
+      ],
+      "ingest_report": "materials/processed/probability-and-statistics-36-700-cmu/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/survey-of-algebra/_local_source_manifest.md",
+      "root_topic": "survey-of-algebra",
+      "source_pdf": null,
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/survey-of-algebra/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/survey-of-algebra/lecture-01.md",
+      "root_topic": "survey-of-algebra",
+      "source_pdf": "materials/archive/survey-of-algebra/local-pdfs/lecture-01.pdf",
+      "duplicate_equivalents": [
+        "lecture-01.pdf"
+      ],
+      "ingest_report": "materials/processed/survey-of-algebra/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/survey-of-algebra/lecture-02-variant-1.md",
+      "root_topic": "survey-of-algebra",
+      "source_pdf": "materials/archive/survey-of-algebra/local-pdfs/lecture-02-variant-1.pdf",
+      "duplicate_equivalents": [
+        "lecture-02-variant-1.pdf"
+      ],
+      "ingest_report": "materials/processed/survey-of-algebra/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/survey-of-algebra/lecture-02.md",
+      "root_topic": "survey-of-algebra",
+      "source_pdf": "materials/archive/survey-of-algebra/local-pdfs/lecture-02.pdf",
+      "duplicate_equivalents": [
+        "lecture-02.pdf"
+      ],
+      "ingest_report": "materials/processed/survey-of-algebra/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/survey-of-algebra/lecture-03.md",
+      "root_topic": "survey-of-algebra",
+      "source_pdf": "materials/archive/survey-of-algebra/local-pdfs/lecture-03.pdf",
+      "duplicate_equivalents": [
+        "lecture-03.pdf"
+      ],
+      "ingest_report": "materials/processed/survey-of-algebra/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/survey-of-algebra/lecture-04.md",
+      "root_topic": "survey-of-algebra",
+      "source_pdf": "materials/archive/survey-of-algebra/local-pdfs/lecture-04.pdf",
+      "duplicate_equivalents": [
+        "lecture-04.pdf"
+      ],
+      "ingest_report": "materials/processed/survey-of-algebra/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/survey-of-algebra/lecture-05.md",
+      "root_topic": "survey-of-algebra",
+      "source_pdf": "materials/archive/survey-of-algebra/local-pdfs/lecture-05.pdf",
+      "duplicate_equivalents": [
+        "lecture-05.pdf"
+      ],
+      "ingest_report": "materials/processed/survey-of-algebra/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/survey-of-algebra/lecture-06.md",
+      "root_topic": "survey-of-algebra",
+      "source_pdf": "materials/archive/survey-of-algebra/local-pdfs/lecture-06.pdf",
+      "duplicate_equivalents": [
+        "lecture-06.pdf"
+      ],
+      "ingest_report": "materials/processed/survey-of-algebra/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/survey-of-algebra/lecture-07.md",
+      "root_topic": "survey-of-algebra",
+      "source_pdf": "materials/archive/survey-of-algebra/local-pdfs/lecture-07.pdf",
+      "duplicate_equivalents": [
+        "lecture-07.pdf"
+      ],
+      "ingest_report": "materials/processed/survey-of-algebra/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/survey-of-algebra/lecture-08.md",
+      "root_topic": "survey-of-algebra",
+      "source_pdf": "materials/archive/survey-of-algebra/local-pdfs/lecture-08.pdf",
+      "duplicate_equivalents": [
+        "lecture-08.pdf"
+      ],
+      "ingest_report": "materials/processed/survey-of-algebra/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/survey-of-algebra/lecture-09.md",
+      "root_topic": "survey-of-algebra",
+      "source_pdf": "materials/archive/survey-of-algebra/local-pdfs/lecture-09.pdf",
+      "duplicate_equivalents": [
+        "lecture-09.pdf"
+      ],
+      "ingest_report": "materials/processed/survey-of-algebra/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/survey-of-algebra/lecture-10.md",
+      "root_topic": "survey-of-algebra",
+      "source_pdf": "materials/archive/survey-of-algebra/local-pdfs/lecture-10.pdf",
+      "duplicate_equivalents": [
+        "lecture-10.pdf"
+      ],
+      "ingest_report": "materials/processed/survey-of-algebra/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/survey-of-algebra/lecture-11-variant-1.md",
+      "root_topic": "survey-of-algebra",
+      "source_pdf": "materials/archive/survey-of-algebra/local-pdfs/lecture-11-variant-1.pdf",
+      "duplicate_equivalents": [
+        "lecture-11-variant-1.pdf"
+      ],
+      "ingest_report": "materials/processed/survey-of-algebra/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/survey-of-algebra/lecture-11.md",
+      "root_topic": "survey-of-algebra",
+      "source_pdf": "materials/archive/survey-of-algebra/local-pdfs/lecture-11.pdf",
+      "duplicate_equivalents": [
+        "lecture-11.pdf"
+      ],
+      "ingest_report": "materials/processed/survey-of-algebra/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/survey-of-algebra/lecture-12-variant-2.md",
+      "root_topic": "survey-of-algebra",
+      "source_pdf": "materials/archive/survey-of-algebra/local-pdfs/lecture-12-variant-2.pdf",
+      "duplicate_equivalents": [
+        "lecture-12-variant-2.pdf"
+      ],
+      "ingest_report": "materials/processed/survey-of-algebra/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/survey-of-algebra/lecture-12.md",
+      "root_topic": "survey-of-algebra",
+      "source_pdf": "materials/archive/survey-of-algebra/local-pdfs/lecture-12.pdf",
+      "duplicate_equivalents": [
+        "lecture-12.pdf"
+      ],
+      "ingest_report": "materials/processed/survey-of-algebra/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/survey-of-algebra/lecture-13-variant-1.md",
+      "root_topic": "survey-of-algebra",
+      "source_pdf": "materials/archive/survey-of-algebra/local-pdfs/lecture-13-variant-1.pdf",
+      "duplicate_equivalents": [
+        "lecture-13-variant-1.pdf"
+      ],
+      "ingest_report": "materials/processed/survey-of-algebra/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/survey-of-algebra/lecture-13.md",
+      "root_topic": "survey-of-algebra",
+      "source_pdf": "materials/archive/survey-of-algebra/local-pdfs/lecture-13.pdf",
+      "duplicate_equivalents": [
+        "lecture-13.pdf"
+      ],
+      "ingest_report": "materials/processed/survey-of-algebra/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/survey-of-algebra/lecture-14.md",
+      "root_topic": "survey-of-algebra",
+      "source_pdf": "materials/archive/survey-of-algebra/local-pdfs/lecture-14.pdf",
+      "duplicate_equivalents": [
+        "lecture-14.pdf"
+      ],
+      "ingest_report": "materials/processed/survey-of-algebra/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/survey-of-algebra/lecture-15.md",
+      "root_topic": "survey-of-algebra",
+      "source_pdf": "materials/archive/survey-of-algebra/local-pdfs/lecture-15.pdf",
+      "duplicate_equivalents": [
+        "lecture-15.pdf"
+      ],
+      "ingest_report": "materials/processed/survey-of-algebra/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/survey-of-algebra/lecture-16.md",
+      "root_topic": "survey-of-algebra",
+      "source_pdf": "materials/archive/survey-of-algebra/local-pdfs/lecture-16.pdf",
+      "duplicate_equivalents": [
+        "lecture-16.pdf"
+      ],
+      "ingest_report": "materials/processed/survey-of-algebra/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/survey-of-algebra/lecture-16a.md",
+      "root_topic": "survey-of-algebra",
+      "source_pdf": "materials/archive/survey-of-algebra/local-pdfs/lecture-16a.pdf",
+      "duplicate_equivalents": [
+        "lecture-16a.pdf"
+      ],
+      "ingest_report": "materials/processed/survey-of-algebra/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/survey-of-algebra/lecture-17-variant-1.md",
+      "root_topic": "survey-of-algebra",
+      "source_pdf": "materials/archive/survey-of-algebra/local-pdfs/lecture-17-variant-1.pdf",
+      "duplicate_equivalents": [
+        "lecture-17-variant-1.pdf"
+      ],
+      "ingest_report": "materials/processed/survey-of-algebra/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/survey-of-algebra/lecture-17.md",
+      "root_topic": "survey-of-algebra",
+      "source_pdf": "materials/archive/survey-of-algebra/local-pdfs/lecture-17.pdf",
+      "duplicate_equivalents": [
+        "lecture-17.pdf"
+      ],
+      "ingest_report": "materials/processed/survey-of-algebra/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/survey-of-algebra/lecture-18.md",
+      "root_topic": "survey-of-algebra",
+      "source_pdf": "materials/archive/survey-of-algebra/local-pdfs/lecture-18.pdf",
+      "duplicate_equivalents": [
+        "lecture-18.pdf"
+      ],
+      "ingest_report": "materials/processed/survey-of-algebra/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/survey-of-algebra/lecture-19.md",
+      "root_topic": "survey-of-algebra",
+      "source_pdf": "materials/archive/survey-of-algebra/local-pdfs/lecture-19.pdf",
+      "duplicate_equivalents": [
+        "lecture-19.pdf"
+      ],
+      "ingest_report": "materials/processed/survey-of-algebra/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/survey-of-algebra/lecture-20.md",
+      "root_topic": "survey-of-algebra",
+      "source_pdf": "materials/archive/survey-of-algebra/local-pdfs/lecture-20.pdf",
+      "duplicate_equivalents": [
+        "lecture-20.pdf"
+      ],
+      "ingest_report": "materials/processed/survey-of-algebra/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/survey-of-algebra/lecture-21.md",
+      "root_topic": "survey-of-algebra",
+      "source_pdf": "materials/archive/survey-of-algebra/local-pdfs/lecture-21.pdf",
+      "duplicate_equivalents": [
+        "lecture-21.pdf"
+      ],
+      "ingest_report": "materials/processed/survey-of-algebra/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/survey-of-algebra/lecture-22-part-1.md",
+      "root_topic": "survey-of-algebra",
+      "source_pdf": "materials/archive/survey-of-algebra/local-pdfs/lecture-22-part-1.pdf",
+      "duplicate_equivalents": [
+        "lecture-22-part-1.pdf"
+      ],
+      "ingest_report": "materials/processed/survey-of-algebra/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/survey-of-algebra/lecture-23.md",
+      "root_topic": "survey-of-algebra",
+      "source_pdf": "materials/archive/survey-of-algebra/local-pdfs/lecture-23.pdf",
+      "duplicate_equivalents": [
+        "lecture-23.pdf"
+      ],
+      "ingest_report": "materials/processed/survey-of-algebra/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/survey-of-algebra/lecture-24.md",
+      "root_topic": "survey-of-algebra",
+      "source_pdf": "materials/archive/survey-of-algebra/local-pdfs/lecture-24.pdf",
+      "duplicate_equivalents": [
+        "lecture-24.pdf"
+      ],
+      "ingest_report": "materials/processed/survey-of-algebra/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/survey-of-algebra/lecture-25.md",
+      "root_topic": "survey-of-algebra",
+      "source_pdf": "materials/archive/survey-of-algebra/local-pdfs/lecture-25.pdf",
+      "duplicate_equivalents": [
+        "lecture-25.pdf"
+      ],
+      "ingest_report": "materials/processed/survey-of-algebra/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/survey-of-algebra/lecture-26.md",
+      "root_topic": "survey-of-algebra",
+      "source_pdf": "materials/archive/survey-of-algebra/local-pdfs/lecture-26.pdf",
+      "duplicate_equivalents": [
+        "lecture-26.pdf"
+      ],
+      "ingest_report": "materials/processed/survey-of-algebra/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/survey-of-algebra/lecture-27.md",
+      "root_topic": "survey-of-algebra",
+      "source_pdf": "materials/archive/survey-of-algebra/local-pdfs/lecture-27.pdf",
+      "duplicate_equivalents": [
+        "lecture-27.pdf"
+      ],
+      "ingest_report": "materials/processed/survey-of-algebra/_INGEST_REPORT.md"
     }
   ],
   "unresolved_source_materials": []

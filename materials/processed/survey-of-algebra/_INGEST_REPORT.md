@@ -1,0 +1,40 @@
+# Survey Of Algebra Full-PDF Ingest Report
+
+Model: `gemini-3-flash-preview`
+Files: 33
+
+## Files
+
+- `lecture-01.pdf` -> `lecture-01.md` (finish: `STOP`)
+- `lecture-02-variant-1.pdf` -> `lecture-02-variant-1.md` (finish: `STOP`)
+- `lecture-02.pdf` -> `lecture-02.md` (finish: `STOP`)
+- `lecture-03.pdf` -> `lecture-03.md` (finish: `MAX_TOKENS`)
+- `lecture-04.pdf` -> `lecture-04.md` (finish: `STOP`)
+- `lecture-05.pdf` -> `lecture-05.md` (finish: `STOP`)
+- `lecture-06.pdf` -> `lecture-06.md` (finish: `STOP`)
+- `lecture-07.pdf` -> `lecture-07.md` (finish: `MAX_TOKENS`)
+- `lecture-08.pdf` -> `lecture-08.md` (finish: `STOP`)
+- `lecture-09.pdf` -> `lecture-09.md` (finish: `STOP`)
+- `lecture-10.pdf` -> `lecture-10.md` (finish: `STOP`)
+- `lecture-11-variant-1.pdf` -> `lecture-11-variant-1.md` (finish: `STOP`)
+- `lecture-11.pdf` -> `lecture-11.md` (finish: `STOP`)
+- `lecture-12-variant-2.pdf` -> `lecture-12-variant-2.md` (finish: `STOP`)
+- `lecture-12.pdf` -> `lecture-12.md` (finish: `STOP`)
+- `lecture-13-variant-1.pdf` -> `lecture-13-variant-1.md` (finish: `STOP`)
+- `lecture-13.pdf` -> `lecture-13.md` (finish: `MAX_TOKENS`)
+- `lecture-14.pdf` -> `lecture-14.md` (finish: `STOP`)
+- `lecture-15.pdf` -> `lecture-15.md` (finish: `STOP`)
+- `lecture-16.pdf` -> `lecture-16.md` (finish: `STOP`)
+- `lecture-16a.pdf` -> `lecture-16a.md` (finish: `STOP`)
+- `lecture-17-variant-1.pdf` -> `lecture-17-variant-1.md` (finish: `STOP`)
+- `lecture-17.pdf` -> `lecture-17.md` (finish: `STOP`)
+- `lecture-18.pdf` -> `lecture-18.md` (finish: `STOP`)
+- `lecture-19.pdf` -> `lecture-19.md` (finish: `STOP`)
+- `lecture-20.pdf` -> `lecture-20.md` (finish: `STOP`)
+- `lecture-21.pdf` -> `lecture-21.md` (finish: `STOP`)
+- `lecture-22-part-1.pdf` -> `lecture-22-part-1.md` (finish: `STOP`)
+- `lecture-23.pdf` -> `lecture-23.md` (finish: `STOP`)
+- `lecture-24.pdf` -> `lecture-24.md` (finish: `STOP`)
+- `lecture-25.pdf` -> `lecture-25.md` (finish: `STOP`)
+- `lecture-26.pdf` -> `lecture-26.md` (finish: `STOP`)
+- `lecture-27.pdf` -> `lecture-27.md` (finish: `STOP`)
