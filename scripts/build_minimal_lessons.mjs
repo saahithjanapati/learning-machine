@@ -17,6 +17,7 @@ import { visit } from "unist-util-visit"
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..")
 const contentDir = path.join(repoRoot, "web", "lessons", "content")
 const publicDir = path.join(repoRoot, "web", "lessons", "public")
+const faviconSourcePath = path.join(repoRoot, "web", "lessons", "assets", "favicon.svg")
 let markdownRelativeSet = new Set()
 
 function toPosix(filePath) {
@@ -81,6 +82,11 @@ function routeWithPrefix(urlPrefix, route) {
   }
 
   return prefix ? `${prefix}/${route}/` : `/${route}/`
+}
+
+function assetWithPrefix(urlPrefix, assetPath) {
+  const prefix = urlPrefix.replace(/\/$/, "")
+  return prefix ? `${prefix}/${assetPath}` : `/${assetPath}`
 }
 
 function markdownRelativeToRoute(markdownRelative) {
@@ -200,6 +206,7 @@ function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "" }
   const recentHref = routeWithPrefix(urlPrefix, "recent-lessons")
   const topicsHref = routeWithPrefix(urlPrefix, "topics")
   const quartzHref = markdownRelativeToQuartzUrl(sourceRelative)
+  const faviconHref = assetWithPrefix(urlPrefix, "favicon.svg")
   const copyContextButton = copyContext
     ? '<button class="copy-context-button" type="button" data-copy-context-button><span class="copy-context-label">Copy context for AI</span></button>'
     : ""
@@ -275,6 +282,7 @@ function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "" }
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>${escapeHtml(title)} - Minimal Lessons</title>
+  <link rel="icon" type="image/svg+xml" href="${faviconHref}" />
   <link rel="preconnect" href="https://cdn.jsdelivr.net" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" />
   <style>
@@ -689,6 +697,7 @@ async function cleanOutputRoot(outputRoot, preserveNames = new Set()) {
 
 async function renderTarget({ outputRoot, urlPrefix, preserveNames }) {
   await cleanOutputRoot(outputRoot, preserveNames)
+  await fs.copyFile(faviconSourcePath, path.join(outputRoot, "favicon.svg"))
 
   for (const markdownPath of markdownFiles) {
     const markdownRelative = toPosix(path.relative(contentDir, markdownPath))

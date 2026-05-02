@@ -8,6 +8,9 @@ const quartzSourcePath = path.join(repoRoot, "quartz")
 const targetPath = path.join(repoRoot, "node_modules", "@jackyzha0", "quartz", "quartz")
 const markerPath = path.join(quartzSourcePath, ".learning-machine-generated")
 const customStylePath = path.join(quartzSourcePath, "styles", "custom.scss")
+const quartzHeadPath = path.join(quartzSourcePath, "components", "Head.tsx")
+const faviconSvgPath = path.join(repoRoot, "web", "lessons", "assets", "favicon.svg")
+const quartzIconPath = path.join(quartzSourcePath, "static", "icon.png")
 
 try {
   await fs.access(targetPath, fsConstants.R_OK)
@@ -33,6 +36,16 @@ try {
 }
 
 await fs.cp(targetPath, quartzSourcePath, { recursive: true })
+const { default: sharp } = await import("sharp")
+await sharp(faviconSvgPath).resize(512, 512).png().toFile(quartzIconPath)
+const quartzHead = await fs.readFile(quartzHeadPath, "utf8")
+await fs.writeFile(
+  quartzHeadPath,
+  quartzHead.replace(
+    'const iconPath = joinSegments(baseDir, "static/icon.png")',
+    'const iconPath = joinSegments(baseDir, "favicon.ico")',
+  ),
+)
 await fs.appendFile(
   customStylePath,
   `
