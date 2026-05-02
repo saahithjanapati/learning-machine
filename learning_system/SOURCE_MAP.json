@@ -597,6 +597,13 @@
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
     {
+      "transcript_path": "materials/processed/ai/skillweaver-web-agents-can-self-improve-by-discovering-and-honing-skills.md",
+      "root_topic": "ai",
+      "source_pdf": "https://arxiv.org/abs/2504.07079",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
       "transcript_path": "materials/processed/ai/synthetic-computers-at-scale-for-long-horizon-productivity-simulation.md",
       "root_topic": "ai",
       "source_pdf": "https://arxiv.org/abs/2604.28181",
