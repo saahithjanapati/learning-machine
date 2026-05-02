@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_on": "2026-05-01",
+  "generated_on": "2026-05-02",
   "generated_by": "scripts/learning_cli.py source-map",
   "roots": [
     {
@@ -593,6 +593,13 @@
       "transcript_path": "materials/processed/ai/openai-stargate-where-the-us-sites-stand.md",
       "root_topic": "ai",
       "source_pdf": "https://epoch.ai/blog/openai-stargate-where-the-us-sites-stand",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/ai/synthetic-computers-at-scale-for-long-horizon-productivity-simulation.md",
+      "root_topic": "ai",
+      "source_pdf": "https://arxiv.org/abs/2604.28181",
       "duplicate_equivalents": [],
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
