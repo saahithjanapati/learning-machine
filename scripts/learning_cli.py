@@ -581,7 +581,7 @@ def _parse_transcript_header(transcript_path: Path) -> tuple[str | None, list[st
         return source_pdf, duplicate_equivalents
 
     for line in lines:
-        if line.startswith("Source: "):
+        if line.startswith(("Source: ", "Source paper: ", "PDF: ")) and source_pdf is None:
             m = re.search(r"`([^`]+)`", line)
             if m:
                 source_pdf = m.group(1)
@@ -601,7 +601,7 @@ def _discover_transcript_metadata() -> dict[str, dict]:
         ingest_report_rel = (
             ingest_report.relative_to(REPO_ROOT).as_posix() if ingest_report.exists() else None
         )
-        for transcript in sorted(class_dir.glob("*.md")):
+        for transcript in sorted(class_dir.rglob("*.md")):
             if transcript.name == "_INGEST_REPORT.md":
                 continue
             source_pdf, duplicate_equivalents = _parse_transcript_header(transcript)

@@ -4,8 +4,8 @@ import { fileURLToPath } from "node:url"
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..")
 const topicsDir = path.join(repoRoot, "topics")
+const processedDir = path.join(repoRoot, "materials", "processed")
 const contentDir = path.join(repoRoot, "web", "lessons", "content")
-const sourceMapPath = path.join(repoRoot, "learning_system", "SOURCE_MAP.json")
 const contentPathPattern = /(^|[/\\])lessons[/\\][^/\\]+\.md$/i
 const publishedProcessedRootTopics = new Map([["ai", "papers"]])
 
@@ -108,15 +108,15 @@ function splitHref(href) {
   }
 }
 
-async function walk(dir) {
+async function walk(dir, includeFile) {
   const entries = await fs.readdir(dir, { withFileTypes: true })
   const files = []
 
   for (const entry of entries) {
     const fullPath = path.join(dir, entry.name)
     if (entry.isDirectory()) {
-      files.push(...(await walk(fullPath)))
-    } else if (entry.isFile() && contentPathPattern.test(fullPath)) {
+      files.push(...(await walk(fullPath, includeFile)))
+    } else if (entry.isFile() && includeFile(fullPath, entry)) {
       files.push(fullPath)
     }
   }
@@ -124,11 +124,13 @@ async function walk(dir) {
   return files
 }
 
-async function publicProcessedSourceReadings() {
-  let sourceMap
+async function publicProcessedSourceReadings(rootTopic, publicCollection) {
+  const rootDir = path.join(processedDir, rootTopic)
+  const readings = []
+  const seen = new Set()
 
   try {
-    sourceMap = JSON.parse(await fs.readFile(sourceMapPath, "utf8"))
+    await fs.access(rootDir)
   } catch (error) {
     if (error.code === "ENOENT") {
       return []
@@ -137,40 +139,24 @@ async function publicProcessedSourceReadings() {
     throw error
   }
 
-  const readings = []
-  const seen = new Set()
+  const sourcePaths = await walk(rootDir, (filePath, entry) => {
+    return entry.name.endsWith(".md") && !entry.name.startsWith("_")
+  })
 
-  for (const entry of sourceMap.transcripts ?? []) {
-    const publicCollection = publishedProcessedRootTopics.get(entry.root_topic)
-    const transcriptPath = typeof entry.transcript_path === "string" ? toPosix(entry.transcript_path) : ""
-    const sourceUrl = typeof entry.source_pdf === "string" ? entry.source_pdf : ""
+  for (const sourcePath of sourcePaths) {
+    const repoRelative = toPosix(path.relative(repoRoot, sourcePath))
+    const processedRelative = toPosix(path.relative(rootDir, sourcePath))
 
-    if (!publicCollection || !transcriptPath.endsWith(".md") || !sourceUrl.startsWith("http")) {
-      continue
-    }
-    if (path.posix.basename(transcriptPath).startsWith("_") || seen.has(transcriptPath)) {
+    if (seen.has(repoRelative)) {
       continue
     }
 
-    const sourcePath = path.resolve(repoRoot, transcriptPath)
-    const stat = await fs.stat(sourcePath).catch((error) => {
-      if (error.code === "ENOENT") {
-        return null
-      }
-
-      throw error
-    })
-
-    if (!stat?.isFile()) {
-      continue
-    }
-
-    seen.add(transcriptPath)
+    seen.add(repoRelative)
     readings.push({
       sourcePath,
-      repoRelative: transcriptPath,
-      outputRelative: `topics/${entry.root_topic}/${publicCollection}/${path.posix.basename(transcriptPath)}`,
-      topicPath: `${entry.root_topic}/${publicCollection}`,
+      repoRelative,
+      outputRelative: toPosix(path.join("topics", rootTopic, publicCollection, processedRelative)),
+      topicPath: `${rootTopic}/${publicCollection}`,
     })
   }
 
@@ -267,7 +253,14 @@ function pluralize(count, singular, plural = `${singular}s`) {
   return `${count} ${count === 1 ? singular : plural}`
 }
 
-const lessonFiles = (await walk(topicsDir)).sort((a, b) => toPosix(a).localeCompare(toPosix(b)))
+const lessonFiles = (await walk(topicsDir, (filePath) => contentPathPattern.test(filePath))).sort((a, b) => toPosix(a).localeCompare(toPosix(b)))
+const processedReadings = (
+  await Promise.all(
+    [...publishedProcessedRootTopics.entries()].map(([rootTopic, publicCollection]) =>
+      publicProcessedSourceReadings(rootTopic, publicCollection),
+    ),
+  )
+).flat()
 const publicReadings = [
   ...lessonFiles.map((sourcePath) => {
     const repoRelative = path.relative(repoRoot, sourcePath)
@@ -283,7 +276,7 @@ const publicReadings = [
       collectionIndexRelative: toPosix(path.join("topics", ...relativeParts.slice(1, collectionIndex), "lessons", "index.md")),
     }
   }),
-  ...(await publicProcessedSourceReadings()),
+  ...processedReadings,
 ]
 
 await fs.rm(contentDir, { recursive: true, force: true })
