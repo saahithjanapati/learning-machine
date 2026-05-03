@@ -43,5 +43,5 @@ Hierarchical topic tree discovered from `topics/` paths.
 - Information Theory -> Intro Lesson: What information theory is all about
 - Art And Aesthetics -> Article Lesson: What Makes Art Great?
 - Learning And Study Skills -> Book Lesson: The Science of Rapid Skill Acquisition main ideas
+- AI / Collection -> Article Lesson: Thinking Machines Lab Tinker API
 - AI / Collection -> Article Lesson: Benjamin Todd on AI acceleration indicators
-- AI / Collection -> Paper Lesson: PostTrainBench LLM agents automate post-training

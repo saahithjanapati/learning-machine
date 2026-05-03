@@ -1604,6 +1604,13 @@
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
     {
+      "transcript_path": "materials/processed/ai/thinking-machines-lab-tinker-api.md",
+      "root_topic": "ai",
+      "source_pdf": "https://thinkingmachines.ai/blog/tinker/",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
       "transcript_path": "materials/processed/ai/towards-end-to-end-automation-of-ai-research.md",
       "root_topic": "ai",
       "source_pdf": null,
