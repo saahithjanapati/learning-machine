@@ -39,5 +39,6 @@ Policy:
 - [materials/processed/ai/learning-to-orchestrate-agents-in-natural-language-with-the-conductor.md](../../../materials/processed/ai/learning-to-orchestrate-agents-in-natural-language-with-the-conductor.md)
 - [materials/processed/ai/towards-end-to-end-automation-of-ai-research.md](../../../materials/processed/ai/towards-end-to-end-automation-of-ai-research.md)
 - [materials/processed/ai/digital-ecosystems-interactive-multi-agent-neural-cellular-automata.md](../../../materials/processed/ai/digital-ecosystems-interactive-multi-agent-neural-cellular-automata.md)
+- [materials/processed/ai/learning-a-generative-meta-model-of-llm-activations.md](../../../materials/processed/ai/learning-a-generative-meta-model-of-llm-activations.md)
 - [materials/processed/ai/scale-labs-papers-2025-2026/brief.md](../../../materials/processed/ai/scale-labs-papers-2025-2026/brief.md)
 - [materials/processed/ai/scale-labs-papers-2025-2026/paper_summaries.md](../../../materials/processed/ai/scale-labs-papers-2025-2026/paper_summaries.md)

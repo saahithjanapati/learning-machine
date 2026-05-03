@@ -1414,6 +1414,13 @@
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
     {
+      "transcript_path": "materials/processed/ai/learning-a-generative-meta-model-of-llm-activations.md",
+      "root_topic": "ai",
+      "source_pdf": null,
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
       "transcript_path": "materials/processed/ai/learning-to-orchestrate-agents-in-natural-language-with-the-conductor.md",
       "root_topic": "ai",
       "source_pdf": "https://arxiv.org/pdf/2512.04388",
