@@ -49,6 +49,7 @@ Use this skill when user asks:
 - for links/URLs:
   - keep the transcript `Source:` as the canonical URL
   - include site/title/publish metadata near the top of the processed markdown when available
+  - use ingestion date, not source publication date, for lesson filenames, `learning_system/LESSON_INDEX.md`, and public reader chronology
   - if a local snapshot is saved for debugging, keep it in local-only storage and do not require it for committed provenance
 
 4. Build curriculum and session plan using templates:

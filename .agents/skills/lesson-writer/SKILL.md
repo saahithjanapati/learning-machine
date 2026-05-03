@@ -29,7 +29,7 @@ The lesson must:
    - **Beginner lecture mode** when the learner says the material is dense, rusty, introductory, or should teach rather than review.
 4. Write the lesson as a markdown file under `topics/<root>/<topic>/lessons/YYYY-MM-DD-<slug>.md`.
 5. Add a concise source note near the top with the source title, authors/site when available, date when available, and link.
-6. Update `learning_system/LESSON_INDEX.md` with a concise row for the new lesson when the repo uses that registry.
+6. Update `learning_system/LESSON_INDEX.md` with a concise row for the new lesson when the repo uses that registry. Use the lesson ingestion date for the filename date and index `Date` column; keep the source's publication date only inside the source note/provenance text.
 7. Reindex after adding the lesson: `python scripts/learning_cli.py reindex --write-skill-tree`.
 8. If the Quartz lesson site exists, rebuild with `npm run lessons:build` before claiming the web view is updated.
 9. After a new lesson is successfully written and verified, push the in-scope lesson changes to GitHub by default unless the user explicitly asks not to. In a mixed worktree, stage only the lesson/source/index files that belong to the lesson work and leave unrelated local changes unstaged.

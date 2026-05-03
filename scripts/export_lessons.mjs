@@ -1,3 +1,4 @@
+import { execFileSync } from "node:child_process"
 import fs from "node:fs/promises"
 import path from "node:path"
 import { fileURLToPath } from "node:url"
@@ -5,9 +6,12 @@ import { fileURLToPath } from "node:url"
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..")
 const topicsDir = path.join(repoRoot, "topics")
 const processedDir = path.join(repoRoot, "materials", "processed")
+const lessonIndexPath = path.join(repoRoot, "learning_system", "LESSON_INDEX.md")
 const contentDir = path.join(repoRoot, "web", "lessons", "content")
 const contentPathPattern = /(^|[/\\])lessons[/\\][^/\\]+\.md$/i
 const publishedProcessedRootTopics = new Map([["ai", "papers"]])
+const gitAddedDateByRepoRelative = new Map()
+let ingestDatesByRepoRelative = new Map()
 
 function toPosix(filePath) {
   return filePath.split(path.sep).join("/")
@@ -69,7 +73,48 @@ function extractMetadataDate(markdown) {
   return markdown.match(/^(?:Published|Submitted|Date):\s*`?(\d{4}-\d{2}-\d{2})`?\s*$/im)?.[1] ?? null
 }
 
-function extractDate(repoRelative, stat, markdown = "") {
+function extractIngestedMetadataDate(markdown) {
+  return markdown.match(/^(?:Ingested|Ingested on|Ingest date|Date ingested):\s*`?(\d{4}-\d{2}-\d{2})`?\s*$/im)?.[1] ?? null
+}
+
+function gitAddedDate(repoRelative) {
+  if (gitAddedDateByRepoRelative.has(repoRelative)) {
+    return gitAddedDateByRepoRelative.get(repoRelative)
+  }
+
+  let addedDate = null
+
+  try {
+    const output = execFileSync(
+      "git",
+      ["log", "--diff-filter=A", "--follow", "--format=%cs", "--", repoRelative],
+      { cwd: repoRoot, encoding: "utf8", stdio: ["ignore", "pipe", "ignore"] },
+    )
+      .trim()
+      .split(/\r?\n/)
+      .filter(Boolean)
+
+    addedDate = output.at(-1) ?? null
+  } catch {
+    addedDate = null
+  }
+
+  gitAddedDateByRepoRelative.set(repoRelative, addedDate)
+  return addedDate
+}
+
+function extractDate(repoRelative, stat, markdown = "", { preferIngestDate = false } = {}) {
+  if (preferIngestDate) {
+    const ingestedDate =
+      extractIngestedMetadataDate(markdown) ??
+      ingestDatesByRepoRelative.get(repoRelative) ??
+      gitAddedDate(repoRelative)
+
+    if (ingestedDate) {
+      return ingestedDate
+    }
+  }
+
   const filenameDate = path.basename(repoRelative).match(/^(\d{4}-\d{2}-\d{2})-/)?.[1]
   if (filenameDate) {
     return filenameDate
@@ -81,6 +126,70 @@ function extractDate(repoRelative, stat, markdown = "") {
   }
 
   return new Date(stat.mtimeMs).toISOString().slice(0, 10)
+}
+
+async function lessonIndexIngestDates() {
+  const ingestDates = new Map()
+
+  let lessonIndex = ""
+  try {
+    lessonIndex = await fs.readFile(lessonIndexPath, "utf8")
+  } catch (error) {
+    if (error.code === "ENOENT") {
+      return ingestDates
+    }
+
+    throw error
+  }
+
+  for (const line of lessonIndex.split(/\r?\n/)) {
+    const trimmed = line.trim()
+
+    if (!trimmed.startsWith("|") || trimmed.startsWith("|---")) {
+      continue
+    }
+
+    const columns = trimmed
+      .replace(/^\|/, "")
+      .replace(/\|$/, "")
+      .split("|")
+      .map((column) => column.trim())
+
+    if (columns.length !== 6 || columns[0].toLowerCase() === "date") {
+      continue
+    }
+
+    const rowDate = columns[0]
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(rowDate)) {
+      continue
+    }
+
+    const fileRefs = columns[5]
+    const links = fileRefs.matchAll(/\[[^\]]*\]\(([^)\s]+)(?:\s+"[^"]*")?\)/g)
+
+    for (const [, href] of links) {
+      const { pathname } = splitHref(href)
+
+      if (!pathname.endsWith(".md") || isExternalHref(pathname)) {
+        continue
+      }
+
+      const repoRelative = pathname.startsWith("topics/") || pathname.startsWith("materials/")
+        ? path.posix.normalize(pathname)
+        : path.posix.normalize(path.posix.join("learning_system", pathname))
+
+      if (repoRelative.startsWith("..")) {
+        continue
+      }
+
+      const previousDate = ingestDates.get(repoRelative)
+      if (!previousDate || rowDate > previousDate) {
+        ingestDates.set(repoRelative, rowDate)
+      }
+    }
+  }
+
+  return ingestDates
 }
 
 function isLiveChat(repoRelative, markdown, title) {
@@ -157,6 +266,7 @@ async function publicProcessedSourceReadings(rootTopic, publicCollection) {
       repoRelative,
       outputRelative: toPosix(path.join("topics", rootTopic, publicCollection, processedRelative)),
       topicPath: `${rootTopic}/${publicCollection}`,
+      dateMode: "ingested",
     })
   }
 
@@ -253,6 +363,8 @@ function pluralize(count, singular, plural = `${singular}s`) {
   return `${count} ${count === 1 ? singular : plural}`
 }
 
+ingestDatesByRepoRelative = await lessonIndexIngestDates()
+
 const lessonFiles = (await walk(topicsDir, (filePath) => contentPathPattern.test(filePath))).sort((a, b) => toPosix(a).localeCompare(toPosix(b)))
 const processedReadings = (
   await Promise.all(
@@ -300,7 +412,9 @@ for (const reading of publicReadings) {
 
   const topicItems = itemsByTopic.get(topicPath) ?? { lessons: [] }
   const item = {
-    date: extractDate(repoRelativePosix, stat, sanitizedMarkdown),
+    date: extractDate(repoRelativePosix, stat, sanitizedMarkdown, {
+      preferIngestDate: reading.dateMode === "ingested",
+    }),
     title,
     href: toPosix(outputRelative),
     topicPath,
