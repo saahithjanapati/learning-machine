@@ -20,20 +20,65 @@
           ],
           "source_materials": [
             "materials/processed/advanced-machine-learning-10-715-cmu/_gradescope_dashboard.md",
-            "materials/processed/advanced-machine-learning-10-715-cmu/_piazza_resources_manifest.md"
+            "materials/processed/advanced-machine-learning-10-715-cmu/_piazza_resources_manifest.md",
+            "materials/processed/advanced-machine-learning-10-715-cmu/lecture-notes-01-Logistics.md",
+            "materials/processed/advanced-machine-learning-10-715-cmu/lecture-notes-02-intro to intro to ML.md",
+            "materials/processed/advanced-machine-learning-10-715-cmu/lecture-notes-03-perceptrons.md",
+            "materials/processed/advanced-machine-learning-10-715-cmu/lecture-notes-04-linear SVMs.md",
+            "materials/processed/advanced-machine-learning-10-715-cmu/lecture-notes-05-kernel methods.md",
+            "materials/processed/advanced-machine-learning-10-715-cmu/lecture-notes-06-neural networks 1.md",
+            "materials/processed/advanced-machine-learning-10-715-cmu/lecture-notes-07-proofs of representer and mercer theorems.md",
+            "materials/processed/advanced-machine-learning-10-715-cmu/lecture-notes-10-learning theory 1.md",
+            "materials/processed/advanced-machine-learning-10-715-cmu/lecture-notes-11-learning theory 2.md",
+            "materials/processed/advanced-machine-learning-10-715-cmu/lecture-notes-12-learning theory 3.md",
+            "materials/processed/advanced-machine-learning-10-715-cmu/lecture-notes-13-learning theory 4.md",
+            "materials/processed/advanced-machine-learning-10-715-cmu/lecture-notes-14-learning theory 5 and bias complexity.md",
+            "materials/processed/advanced-machine-learning-10-715-cmu/lecture-notes-15-NeuralNetworks.md",
+            "materials/processed/advanced-machine-learning-10-715-cmu/lecture-notes-16-MAB and RL.md",
+            "materials/processed/advanced-machine-learning-10-715-cmu/lecture-notes-17-RL2 and graphical models 1.md",
+            "materials/processed/advanced-machine-learning-10-715-cmu/lecture-notes-18-RL policy_gradient methods.md",
+            "materials/processed/advanced-machine-learning-10-715-cmu/lecture-notes-19-graphical models 2.md",
+            "materials/processed/advanced-machine-learning-10-715-cmu/lecture-notes-20-100_Intro_to_Denoising_Diffusion_1.md",
+            "materials/processed/advanced-machine-learning-10-715-cmu/lecture-notes-22-110_Ornstein-Uhlenbeck_process_1.md",
+            "materials/processed/advanced-machine-learning-10-715-cmu/lecture-notes-24-115_Reverse_diffusion_1.md",
+            "materials/processed/advanced-machine-learning-10-715-cmu/lecture-notes-26-130_ESM_DSM_2.md",
+            "materials/processed/advanced-machine-learning-10-715-cmu/lecture-notes-28-140_ScroreApprox_with_ReLU.md",
+            "materials/processed/advanced-machine-learning-10-715-cmu/lecture-notes-30-135_summary.md",
+            "materials/processed/advanced-machine-learning-10-715-cmu/lecture-notes-32-150_ScoreApprox_2_DistributionEstimation.md",
+            "materials/processed/advanced-machine-learning-10-715-cmu/recitations-01-Opti_Recitation.md",
+            "materials/processed/advanced-machine-learning-10-715-cmu/recitations-04-Recitation_3_Tail_Bounds.md"
           ],
           "source_pdfs": [
             "https://piazza.com/cmu/fall2025/10715/resources",
-            "https://www.gradescope.com/courses/1082583"
+            "https://www.gradescope.com/courses/1082583",
+            "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/lecture-notes-01-Logistics.pdf",
+            "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/lecture-notes-02-intro to intro to ML.pdf",
+            "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/lecture-notes-03-perceptrons.pdf",
+            "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/lecture-notes-04-linear SVMs.pdf",
+            "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/lecture-notes-05-kernel methods.pdf",
+            "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/lecture-notes-06-neural networks 1.pdf",
+            "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/lecture-notes-07-proofs of representer and mercer theorems.pdf",
+            "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/lecture-notes-10-learning theory 1.pdf",
+            "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/lecture-notes-11-learning theory 2.pdf",
+            "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/lecture-notes-12-learning theory 3.pdf",
+            "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/lecture-notes-13-learning theory 4.pdf",
+            "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/lecture-notes-14-learning theory 5 and bias complexity.pdf",
+            "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/lecture-notes-15-NeuralNetworks.pdf",
+            "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/lecture-notes-16-MAB and RL.pdf",
+            "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/lecture-notes-17-RL2 and graphical models 1.pdf",
+            "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/lecture-notes-18-RL policy_gradient methods.pdf",
+            "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/lecture-notes-19-graphical models 2.pdf",
+            "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/lecture-notes-20-100_Intro_to_Denoising_Diffusion_1.pdf",
+            "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/lecture-notes-22-110_Ornstein-Uhlenbeck_process_1.pdf",
+            "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/lecture-notes-24-115_Reverse_diffusion_1.pdf",
+            "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/lecture-notes-26-130_ESM_DSM_2.pdf",
+            "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/lecture-notes-28-140_ScroreApprox_with_ReLU.pdf",
+            "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/lecture-notes-30-135_summary.pdf",
+            "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/lecture-notes-32-150_ScoreApprox_2_DistributionEstimation.pdf",
+            "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/recitations-01-Opti_Recitation.pdf",
+            "materials/archive/advanced-machine-learning-10-715-cmu/piazza-resources/recitations-04-Recitation_3_Tail_Bounds.pdf"
           ],
-          "transcript_anchors": [
-            "Lecture notes: logistics, introductory ML, perceptrons, SVMs, kernels, neural networks, learning theory, MAB/RL, graphical models, and score-based diffusion.",
-            "Recitations: optimization, recitation 2 materials, tail bounds, MLE/MAP.",
-            "Homework: HW1, HW2, HW3, HW4, HW5, and HW7 handout PDFs extracted from ZIPs, plus HW1 solutions.",
-            "Gradescope: available graded copies for HW1-HW7 reports/code, the 10-715 midterm, and the final exam.",
-            "Exams: previous midterms and finals from 2020-2024, including solution files where posted, plus the Fall 2025 graded midterm/final copies.",
-            "Relevant papers: score matching, minimax diffusion estimation, classifier-free guidance theory, DDPM, and score-based SDEs."
-          ],
+          "transcript_anchors": [],
           "unresolved_source_materials": []
         }
       ]
@@ -621,16 +666,35 @@
           ],
           "source_materials": [
             "materials/processed/probability-and-statistics-36-700-cmu/_canvas_modules_manifest.md",
-            "materials/processed/probability-and-statistics-36-700-cmu/_gradescope_dashboard.md"
+            "materials/processed/probability-and-statistics-36-700-cmu/_gradescope_dashboard.md",
+            "materials/processed/probability-and-statistics-36-700-cmu/canvas-04-01-13080649-700_syllabus_Aug22_2025.md",
+            "materials/processed/probability-and-statistics-36-700-cmu/canvas-06-01-13085976-Chapter1.Prob.md",
+            "materials/processed/probability-and-statistics-36-700-cmu/canvas-07-01-13085977-Chapter2.RVs.md",
+            "materials/processed/probability-and-statistics-36-700-cmu/canvas-08-01-13128443-Chapter3.Expectations.md",
+            "materials/processed/probability-and-statistics-36-700-cmu/canvas-09-01-13173316-Chapter4.Inequalities.md",
+            "materials/processed/probability-and-statistics-36-700-cmu/canvas-10-02-13210493-Chapter5.cvg.md",
+            "materials/processed/probability-and-statistics-36-700-cmu/canvas-11-02-13254388-chapter6.inference.overview.md",
+            "materials/processed/probability-and-statistics-36-700-cmu/canvas-12-07-13301500-Chapter7.Estimation.md",
+            "materials/processed/probability-and-statistics-36-700-cmu/canvas-13-07-13454057-Chapter8.testing.md",
+            "materials/processed/probability-and-statistics-36-700-cmu/canvas-14-03-13601946-Chapter9.DensEst.md",
+            "materials/processed/probability-and-statistics-36-700-cmu/canvas-15-03-13632515-Chapter10.npreg.md"
           ],
           "source_pdfs": [
             "https://canvas.cmu.edu/courses/49720",
-            "https://www.gradescope.com/courses/1099981"
+            "https://www.gradescope.com/courses/1099981",
+            "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-04-01-13080649-700_syllabus_Aug22_2025.pdf",
+            "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-06-01-13085976-Chapter1.Prob.pdf",
+            "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-07-01-13085977-Chapter2.RVs.pdf",
+            "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-08-01-13128443-Chapter3.Expectations.pdf",
+            "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-09-01-13173316-Chapter4.Inequalities.pdf",
+            "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-10-02-13210493-Chapter5.cvg.pdf",
+            "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-11-02-13254388-chapter6.inference.overview.pdf",
+            "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-12-07-13301500-Chapter7.Estimation.pdf",
+            "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-13-07-13454057-Chapter8.testing.pdf",
+            "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-14-03-13601946-Chapter9.DensEst.pdf",
+            "materials/archive/probability-and-statistics-36-700-cmu/canvas-modules/canvas-15-03-13632515-Chapter10.npreg.pdf"
           ],
-          "transcript_anchors": [
-            "Canvas modules: final exam, midterms, syllabus, homework solutions, Chapters 1-10.",
-            "Gradescope: homework 1-10, midterm 1, midterm 2, final exam graded copies."
-          ],
+          "transcript_anchors": [],
           "unresolved_source_materials": []
         }
       ]

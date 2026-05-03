@@ -40,8 +40,8 @@ Hierarchical topic tree discovered from `topics/` paths.
 
 ## Recent Topics
 
-- Information Theory -> Intro Lesson: What information theory is all about
-- Art And Aesthetics -> Article Lesson: What Makes Art Great?
-- Learning And Study Skills -> Book Lesson: The Science of Rapid Skill Acquisition main ideas
-- AI / Collection -> Article Lesson: Thinking Machines Lab Tinker API
-- AI / Collection -> Article Lesson: Benjamin Todd on AI acceleration indicators
+- Probability and Statistics - 36-700 (CMU) -> Estimation and Testing Roadmap
+- Probability and Statistics - 36-700 (CMU) -> Probability Foundations and Random Variables
+- Probability and Statistics - 36-700 (CMU) -> Course Roadmap: probability into statistical inference
+- Advanced Machine Learning - 10-715 (CMU) -> Linear Classifiers, SVMs, and Kernels
+- Advanced Machine Learning - 10-715 (CMU) -> Supervised Learning, Loss, Risk, and ERM
