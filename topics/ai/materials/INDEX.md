@@ -45,5 +45,6 @@ Policy:
 - [materials/processed/ai/posttrainbench-can-llm-agents-automate-llm-post-training.md](../../../materials/processed/ai/posttrainbench-can-llm-agents-automate-llm-post-training.md)
 - [materials/processed/ai/are-the-last-3-months-the-start-of-an-ai-acceleration.md](../../../materials/processed/ai/are-the-last-3-months-the-start-of-an-ai-acceleration.md)
 - [materials/processed/ai/thinking-machines-lab-tinker-api.md](../../../materials/processed/ai/thinking-machines-lab-tinker-api.md)
+- [materials/processed/ai/live-music-models.md](../../../materials/processed/ai/live-music-models.md)
 - [materials/processed/ai/scale-labs-papers-2025-2026/brief.md](../../../materials/processed/ai/scale-labs-papers-2025-2026/brief.md)
 - [materials/processed/ai/scale-labs-papers-2025-2026/paper_summaries.md](../../../materials/processed/ai/scale-labs-papers-2025-2026/paper_summaries.md)

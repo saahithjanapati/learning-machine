@@ -1566,6 +1566,13 @@
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
     {
+      "transcript_path": "materials/processed/ai/live-music-models.md",
+      "root_topic": "ai",
+      "source_pdf": "https://arxiv.org/abs/2508.04651",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
       "transcript_path": "materials/processed/ai/machines-of-faithful-obedience.md",
       "root_topic": "ai",
       "source_pdf": "https://windowsontheory.org/2025/06/24/machines-of-faithful-obedience/",
