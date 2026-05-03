@@ -1338,6 +1338,13 @@
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
     {
+      "transcript_path": "materials/processed/ai/are-the-last-3-months-the-start-of-an-ai-acceleration.md",
+      "root_topic": "ai",
+      "source_pdf": "https://benjamintodd.substack.com/p/is-ai-accelerating",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
       "transcript_path": "materials/processed/ai/bloom-an-open-source-tool-for-automated-behavioral-evaluations.md",
       "root_topic": "ai",
       "source_pdf": "https://alignment.anthropic.com/2025/bloom-auto-evals/",

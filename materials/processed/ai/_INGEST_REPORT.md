@@ -1,7 +1,7 @@
 # AI Link Ingest Report
 
 Model: `direct web scrape + Gemini PDF conversion + manual repo ingest`
-Files: 35
+Files: 36
 
 ## Files
 
@@ -36,5 +36,6 @@ Files: 35
 - `https://arxiv.org/abs/2510.04374` -> `gdpval-evaluating-ai-model-performance-on-real-world-economically-valuable-tasks.md` (strategy: `canonical PDF extraction and beginner-oriented economic evaluation normalization`)
 - `https://arxiv.org/pdf/2601.19062` -> `whos-in-charge-disempowerment-patterns-real-world-llm-usage.md` (strategy: `Gemini PDF conversion and medium/full lesson normalization`)
 - `https://arxiv.org/pdf/2603.08640` -> `posttrainbench-can-llm-agents-automate-llm-post-training.md` (strategy: `Gemini PDF conversion and medium/full lesson normalization`)
+- `https://benjamintodd.substack.com/p/is-ai-accelerating` -> `are-the-last-3-months-the-start-of-an-ai-acceleration.md` (strategy: `direct article extraction and lesson normalization`)
 - `https://epoch.ai/blog/openai-stargate-where-the-us-sites-stand` -> `openai-stargate-where-the-us-sites-stand.md` (strategy: `canonical article extraction and collection-oriented normalization`)
 - `https://labs.scale.com/papers` -> `scale-labs-papers-2025-2026/brief.md` + `scale-labs-papers-2025-2026/paper_summaries.md` (strategy: `scale research collection normalization under AI`)
