@@ -59,6 +59,26 @@
       ]
     },
     {
+      "root_topic": "art-and-aesthetics",
+      "processed_material_dir": "materials/processed/art-and-aesthetics",
+      "materials_index_path": "topics/art-and-aesthetics/materials/INDEX.md",
+      "topic_count": 1,
+      "topics": [
+        {
+          "topic_path": "topics/art-and-aesthetics",
+          "root_topic": "art-and-aesthetics",
+          "topic_key": "art-and-aesthetics",
+          "readme_path": "topics/art-and-aesthetics/README.md",
+          "curriculum_path": null,
+          "curriculum_paths": [],
+          "source_materials": [],
+          "source_pdfs": [],
+          "transcript_anchors": [],
+          "unresolved_source_materials": []
+        }
+      ]
+    },
+    {
       "root_topic": "biology",
       "processed_material_dir": "materials/processed/biology",
       "materials_index_path": "topics/biology/materials/INDEX.md",
@@ -1615,6 +1635,13 @@
       "source_pdf": "https://alignment.openai.com/confessions/",
       "duplicate_equivalents": [],
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/art-and-aesthetics/what-makes-art-great.md",
+      "root_topic": "art-and-aesthetics",
+      "source_pdf": "https://nabeelqu.co/what-makes-art-great",
+      "duplicate_equivalents": [],
+      "ingest_report": null
     },
     {
       "transcript_path": "materials/processed/biology/college-board-course-framework-2025.md",

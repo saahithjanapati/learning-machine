@@ -7,6 +7,7 @@ Hierarchical topic tree discovered from `topics/` paths.
 ```text
 ├─ advanced-machine-learning-10-715-cmu
 ├─ ai
+├─ art-and-aesthetics
 ├─ biology
 │  └─ core
 ├─ interviews
@@ -38,8 +39,8 @@ Hierarchical topic tree discovered from `topics/` paths.
 
 ## Recent Topics
 
+- Art And Aesthetics -> Article Lesson: What Makes Art Great?
 - Learning And Study Skills -> Book Lesson: The Science of Rapid Skill Acquisition main ideas
 - AI / Collection -> Article Lesson: Benjamin Todd on AI acceleration indicators
 - AI / Collection -> Paper Lesson: PostTrainBench LLM agents automate post-training
 - AI / Collection -> Paper Lesson: Who's in Charge? disempowerment patterns in real-world LLM usage
-- AI / Collection -> Paper Lesson: GDPval real-world economically valuable tasks

@@ -6,6 +6,7 @@ Canonical topic paths and aliases used for matching new requests.
 |---|---|---|---|
 | advanced-machine-learning-10-715-cmu | advanced-machine-learning-10-715-cmu | `topics/advanced-machine-learning-10-715-cmu` |  |
 | ai | ai | `topics/ai` |  |
+| art-and-aesthetics | art-and-aesthetics | `topics/art-and-aesthetics` |  |
 | biology | biology | `topics/biology` |  |
 | core | biology | `topics/biology/core` |  |
 | interviews | interviews | `topics/interviews` |  |
