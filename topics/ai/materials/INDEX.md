@@ -47,5 +47,7 @@ Policy:
 - [materials/processed/ai/thinking-machines-lab-tinker-api.md](../../../materials/processed/ai/thinking-machines-lab-tinker-api.md)
 - [materials/processed/ai/live-music-models.md](../../../materials/processed/ai/live-music-models.md)
 - [materials/processed/ai/rishabh-agarwal-iclr-2026-scaling-rl-frontier-llms-periodic-labs-talk.md](../../../materials/processed/ai/rishabh-agarwal-iclr-2026-scaling-rl-frontier-llms-periodic-labs-talk.md)
+- [materials/processed/ai/scaling-laws-for-neural-language-models.md](../../../materials/processed/ai/scaling-laws-for-neural-language-models.md)
+- [materials/processed/ai/training-compute-optimal-large-language-models.md](../../../materials/processed/ai/training-compute-optimal-large-language-models.md)
 - [materials/processed/ai/scale-labs-papers-2025-2026/brief.md](../../../materials/processed/ai/scale-labs-papers-2025-2026/brief.md)
 - [materials/processed/ai/scale-labs-papers-2025-2026/paper_summaries.md](../../../materials/processed/ai/scale-labs-papers-2025-2026/paper_summaries.md)

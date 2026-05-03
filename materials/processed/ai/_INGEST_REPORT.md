@@ -1,7 +1,7 @@
 # AI Link Ingest Report
 
 Model: `direct web scrape + Gemini PDF conversion + manual repo ingest`
-Files: 38
+Files: 40
 
 ## Files
 
@@ -39,5 +39,7 @@ Files: 38
 - `https://benjamintodd.substack.com/p/is-ai-accelerating` -> `are-the-last-3-months-the-start-of-an-ai-acceleration.md` (strategy: `direct article extraction and lesson normalization`)
 - `https://thinkingmachines.ai/blog/tinker/` -> `thinking-machines-lab-tinker-api.md` (strategy: `official docs article extraction and developer-oriented lesson normalization`)
 - `https://arxiv.org/abs/2508.04651` -> `live-music-models.md` (strategy: `arXiv HTML extraction and medium/full paper lesson normalization`)
+- `https://arxiv.org/abs/2001.08361` -> `scaling-laws-for-neural-language-models.md` (strategy: `canonical PDF extraction and medium/full paper lesson normalization`)
+- `https://arxiv.org/abs/2203.15556` -> `training-compute-optimal-large-language-models.md` (strategy: `canonical PDF extraction and medium/full paper lesson normalization`)
 - `https://epoch.ai/blog/openai-stargate-where-the-us-sites-stand` -> `openai-stargate-where-the-us-sites-stand.md` (strategy: `canonical article extraction and collection-oriented normalization`)
 - `https://labs.scale.com/papers` -> `scale-labs-papers-2025-2026/brief.md` + `scale-labs-papers-2025-2026/paper_summaries.md` (strategy: `scale research collection normalization under AI`)

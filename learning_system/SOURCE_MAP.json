@@ -1631,6 +1631,13 @@
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
     {
+      "transcript_path": "materials/processed/ai/scaling-laws-for-neural-language-models.md",
+      "root_topic": "ai",
+      "source_pdf": "https://arxiv.org/abs/2001.08361",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
       "transcript_path": "materials/processed/ai/score-based-generative-modeling-through-stochastic-differential-equations.md",
       "root_topic": "ai",
       "source_pdf": "https://arxiv.org/abs/2011.13456",
@@ -1699,6 +1706,13 @@
       "transcript_path": "materials/processed/ai/trading-inference-time-compute-for-adversarial-robustness.md",
       "root_topic": "ai",
       "source_pdf": "https://arxiv.org/pdf/2501.18841",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/ai/training-compute-optimal-large-language-models.md",
+      "root_topic": "ai",
+      "source_pdf": "https://arxiv.org/abs/2203.15556",
       "duplicate_equivalents": [],
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },

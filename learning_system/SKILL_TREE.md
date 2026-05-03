@@ -40,8 +40,8 @@ Hierarchical topic tree discovered from `topics/` paths.
 
 ## Recent Topics
 
+- AI / Collection -> Paper Lesson: Training Compute-Optimal Large Language Models
+- AI / Collection -> Paper Lesson: Scaling Laws for Neural Language Models
 - AI / Collection -> Talk Lesson: Rishabh Agarwal on scaling RL at the frontier
 - AI / Collection -> Developer Lesson: OpenAI Agents SDK code-first agent apps
 - Probability and Statistics - 36-700 (CMU) -> Estimation and Testing Roadmap
-- Probability and Statistics - 36-700 (CMU) -> Probability Foundations and Random Variables
-- Probability and Statistics - 36-700 (CMU) -> Course Roadmap: probability into statistical inference
