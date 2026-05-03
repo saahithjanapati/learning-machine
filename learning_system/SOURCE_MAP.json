@@ -1538,6 +1538,13 @@
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
     {
+      "transcript_path": "materials/processed/ai/gemini-robotics-1-5-generalist-robots-embodied-reasoning-motion-transfer.md",
+      "root_topic": "ai",
+      "source_pdf": "https://arxiv.org/abs/2510.03342",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
       "transcript_path": "materials/processed/ai/group-level-data-selection-for-efficient-pretraining.md",
       "root_topic": "ai",
       "source_pdf": "https://arxiv.org/pdf/2502.14709",
