@@ -1,7 +1,7 @@
 # AI Link Ingest Report
 
 Model: `direct web scrape + manual repo ingest`
-Files: 32
+Files: 33
 
 ## Files
 
@@ -33,5 +33,6 @@ Files: 32
 - `https://www.nature.com/articles/s41586-026-10265-5` -> `towards-end-to-end-automation-of-ai-research.md` (strategy: `canonical Nature article extraction and beginner-oriented autonomous-science normalization`)
 - `https://pub.sakana.ai/digital-ecosystem/` -> `digital-ecosystems-interactive-multi-agent-neural-cellular-automata.md` (strategy: `canonical paper and interactive article extraction with beginner-oriented artificial-life normalization`)
 - `https://arxiv.org/pdf/2602.06964` -> `learning-a-generative-meta-model-of-llm-activations.md` (strategy: `canonical PDF extraction and beginner-oriented interpretability/meta-model normalization`)
+- `https://arxiv.org/abs/2510.04374` -> `gdpval-evaluating-ai-model-performance-on-real-world-economically-valuable-tasks.md` (strategy: `canonical PDF extraction and beginner-oriented economic evaluation normalization`)
 - `https://epoch.ai/blog/openai-stargate-where-the-us-sites-stand` -> `openai-stargate-where-the-us-sites-stand.md` (strategy: `canonical article extraction and collection-oriented normalization`)
 - `https://labs.scale.com/papers` -> `scale-labs-papers-2025-2026/brief.md` + `scale-labs-papers-2025-2026/paper_summaries.md` (strategy: `scale research collection normalization under AI`)

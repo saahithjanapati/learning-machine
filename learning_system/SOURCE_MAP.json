@@ -1400,6 +1400,13 @@
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
     {
+      "transcript_path": "materials/processed/ai/gdpval-evaluating-ai-model-performance-on-real-world-economically-valuable-tasks.md",
+      "root_topic": "ai",
+      "source_pdf": null,
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
       "transcript_path": "materials/processed/ai/group-level-data-selection-for-efficient-pretraining.md",
       "root_topic": "ai",
       "source_pdf": "https://arxiv.org/pdf/2502.14709",
