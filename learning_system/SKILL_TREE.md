@@ -11,6 +11,7 @@ Hierarchical topic tree discovered from `topics/` paths.
 │  └─ core
 ├─ interviews
 │  └─ ml-system-design
+├─ learning-and-study-skills
 ├─ optimization-for-ml
 │  ├─ convex-sets-and-functions
 │  ├─ course-catchup
@@ -37,8 +38,8 @@ Hierarchical topic tree discovered from `topics/` paths.
 
 ## Recent Topics
 
+- Learning And Study Skills -> Book Lesson: The Science of Rapid Skill Acquisition main ideas
 - AI / Collection -> Article Lesson: Benjamin Todd on AI acceleration indicators
 - AI / Collection -> Paper Lesson: PostTrainBench LLM agents automate post-training
 - AI / Collection -> Paper Lesson: Who's in Charge? disempowerment patterns in real-world LLM usage
 - AI / Collection -> Paper Lesson: GDPval real-world economically valuable tasks
-- AI / Collection -> Paper Lesson: Generative meta-models of LLM activations

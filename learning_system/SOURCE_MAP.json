@@ -113,6 +113,26 @@
       ]
     },
     {
+      "root_topic": "learning-and-study-skills",
+      "processed_material_dir": "materials/processed/learning-and-study-skills",
+      "materials_index_path": "topics/learning-and-study-skills/materials/INDEX.md",
+      "topic_count": 1,
+      "topics": [
+        {
+          "topic_path": "topics/learning-and-study-skills",
+          "root_topic": "learning-and-study-skills",
+          "topic_key": "learning-and-study-skills",
+          "readme_path": "topics/learning-and-study-skills/README.md",
+          "curriculum_path": null,
+          "curriculum_paths": [],
+          "source_materials": [],
+          "source_pdfs": [],
+          "transcript_anchors": [],
+          "unresolved_source_materials": []
+        }
+      ]
+    },
+    {
       "root_topic": "optimization-for-ml",
       "processed_material_dir": "materials/processed/optimization-for-ml",
       "materials_index_path": "topics/optimization-for-ml/materials/INDEX.md",
@@ -1623,6 +1643,13 @@
       "source_pdf": "materials/archive/system_design.txt",
       "duplicate_equivalents": [],
       "ingest_report": "materials/processed/interviews/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/learning-and-study-skills/the-science-of-rapid-skill-acquisition-book-overview.md",
+      "root_topic": "learning-and-study-skills",
+      "source_pdf": "The Science of Rapid Skill Acquisition: Advanced Methods to Learn, Remember, and Master New Skills and Information",
+      "duplicate_equivalents": [],
+      "ingest_report": null
     },
     {
       "transcript_path": "materials/processed/optimization-for-ml/April14_AvancedNeuralNetOptimization.md",

@@ -10,6 +10,7 @@ Canonical topic paths and aliases used for matching new requests.
 | core | biology | `topics/biology/core` |  |
 | interviews | interviews | `topics/interviews` |  |
 | ml-system-design | interviews | `topics/interviews/ml-system-design` |  |
+| learning-and-study-skills | learning-and-study-skills | `topics/learning-and-study-skills` |  |
 | optimization-for-ml | optimization-for-ml | `topics/optimization-for-ml` |  |
 | convex-sets-and-functions | optimization-for-ml | `topics/optimization-for-ml/convex-sets-and-functions` |  |
 | course-catchup | optimization-for-ml | `topics/optimization-for-ml/course-catchup` |  |
