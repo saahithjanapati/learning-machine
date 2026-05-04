@@ -8,7 +8,7 @@ Channel: `Y Combinator`
 Series context: `How to Build the Future`
 Published: `2026-04-29`
 Duration: `40:57`
-Ingested: `2026-05-04`
+Ingested: `2026-05-04T00:49:57Z`
 Extraction engine: `yt-dlp metadata + YouTube English auto-captions + manual cleanup into transcript digest`
 Local raw assets: `materials/inbox/youtube-JNyuX1zoOgU/` (ignored by git)
 

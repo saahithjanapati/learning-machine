@@ -70,8 +70,27 @@ function extractTitle(markdown, fallback) {
   return humanizeSlug(path.basename(fallback, ".md"))
 }
 
+function extractIngestedMetadataValue(markdown) {
+  return markdown.match(/^(?:Ingested|Ingested on|Ingest date|Date ingested):\s*`?([^`\n]+?)`?\s*$/im)?.[1]?.trim() ?? null
+}
+
 function extractIngestedMetadataDate(markdown) {
-  return markdown.match(/^(?:Ingested|Ingested on|Ingest date|Date ingested):\s*`?(\d{4}-\d{2}-\d{2})`?\s*$/im)?.[1] ?? null
+  return extractIngestedMetadataValue(markdown)?.match(/^(\d{4}-\d{2}-\d{2})/)?.[1] ?? null
+}
+
+function extractIngestedMetadataInstant(markdown) {
+  const value = extractIngestedMetadataValue(markdown)
+
+  if (!value || !/^\d{4}-\d{2}-\d{2}[T ][0-9]{2}:[0-9]{2}/.test(value)) {
+    return null
+  }
+
+  const normalized = value
+    .replace(" ", "T")
+    .replace(/^(\d{4}-\d{2}-\d{2}T[0-9]{2}:[0-9]{2})(Z|[+-][0-9]{2}:?[0-9]{2})$/, "$1:00$2")
+    .replace(/([+-][0-9]{2})([0-9]{2})$/, "$1:$2")
+
+  return Number.isNaN(Date.parse(normalized)) ? null : normalized
 }
 
 function gitAddedInstant(repoRelative) {
@@ -116,12 +135,28 @@ function extractIngestDate(repoRelative, stat, markdown = "") {
 
 function extractIngestSortKey(repoRelative, stat, markdown = "") {
   const date = extractIngestDate(repoRelative, stat, markdown)
-  const gitInstant = gitAddedInstant(repoRelative)
-  if (gitInstant) {
-    return `${date}T${gitInstant.slice(11)}`
+  const metadataInstant = extractIngestedMetadataInstant(markdown)
+
+  if (metadataInstant) {
+    return sortKeyForDateAndInstant(date, metadataInstant)
   }
 
-  return `${date}T00:00:00.000Z`
+  const gitInstant = gitAddedInstant(repoRelative)
+  if (gitInstant) {
+    return sortKeyForDateAndInstant(date, gitInstant)
+  }
+
+  return sortKeyForDateAndInstant(date, new Date(stat.mtimeMs).toISOString())
+}
+
+function sortKeyForDateAndInstant(date, instant) {
+  const parsed = new Date(instant)
+
+  if (Number.isNaN(parsed.getTime())) {
+    return `${date}T00:00:00.000Z`
+  }
+
+  return `${date}T${parsed.toISOString().slice(11)}`
 }
 
 async function lessonIndexIngestDates() {

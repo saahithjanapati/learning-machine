@@ -5,7 +5,7 @@ Site: `OpenAI Alignment Research Blog`
 Title: `Auto-review of agent actions without synchronous human oversight`
 Authors: `Maja Trebacz, Sam Arnesen, Ollie Matthews, Dylan Hurd, Won Park, Owen Lin, Joe Gershenson`
 Published: `2026-04-30`
-Ingested: `2026-05-04`
+Ingested: `2026-05-04T00:59:34Z`
 Extraction engine: `direct web scrape + manual structured ingest`
 Strategy: `canonical article extraction and collection-oriented normalization`
 

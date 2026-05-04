@@ -5,7 +5,7 @@ Site: `Windows On Theory`
 Title: `Machines of Faithful Obedience`
 Author: `Boaz Barak`
 Published: `2025-06-24`
-Ingested: `2026-05-04`
+Ingested: `2026-05-04T00:54:20Z`
 Extraction engine: `direct web scrape + manual structured ingest`
 Strategy: `canonical article extraction and collection-oriented normalization`
 

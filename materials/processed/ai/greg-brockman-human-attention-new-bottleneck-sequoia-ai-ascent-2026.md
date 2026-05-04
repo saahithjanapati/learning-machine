@@ -8,7 +8,7 @@ Channel: `Sequoia Capital`
 Event context: `AI Ascent 2026`
 Published: `2026-04-30`
 Duration: `28:26`
-Ingested: `2026-05-04`
+Ingested: `2026-05-04T00:36:07Z`
 Extraction engine: `yt-dlp metadata + YouTube English auto-captions + manual cleanup into transcript digest`
 Local raw assets: `materials/inbox/youtube-bBS93A0BeNI/` (ignored by git)
 
