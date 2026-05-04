@@ -55,5 +55,6 @@ Policy:
 - [materials/processed/ai/claudes-constitution.md](../../../materials/processed/ai/claudes-constitution.md)
 - [materials/processed/ai/why-tool-ais-want-to-be-agent-ais.md](../../../materials/processed/ai/why-tool-ais-want-to-be-agent-ais.md)
 - [materials/processed/ai/sft-rl-on-policy-distillation.md](../../../materials/processed/ai/sft-rl-on-policy-distillation.md)
+- [materials/processed/ai/prime-intellect-company-overview.md](../../../materials/processed/ai/prime-intellect-company-overview.md)
 - [materials/processed/ai/scale-labs-papers-2025-2026/brief.md](../../../materials/processed/ai/scale-labs-papers-2025-2026/brief.md)
 - [materials/processed/ai/scale-labs-papers-2025-2026/paper_summaries.md](../../../materials/processed/ai/scale-labs-papers-2025-2026/paper_summaries.md)

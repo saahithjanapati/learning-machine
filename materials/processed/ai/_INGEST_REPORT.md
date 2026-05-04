@@ -1,7 +1,7 @@
 # AI Link Ingest Report
 
 Model: `direct web scrape + Gemini PDF conversion + manual repo ingest`
-Files: 46
+Files: 47
 
 ## Files
 
@@ -47,5 +47,6 @@ Files: 46
 - `https://www.anthropic.com/constitution` -> `claudes-constitution.md` (strategy: `canonical article extraction and governance-oriented lesson normalization`)
 - `https://gwern.net/tool-ai` -> `why-tool-ais-want-to-be-agent-ais.md` (strategy: `canonical article extraction and AI-safety / AI-economics lesson normalization`)
 - `https://x.com/willccbb/status/2050038277454143918` -> `sft-rl-on-policy-distillation.md` (strategy: `X article extraction and post-training lesson normalization`)
+- `https://www.primeintellect.ai/` + official Prime Intellect blog/docs sources -> `prime-intellect-company-overview.md` (strategy: `multi-source company overview and recent-advancement lesson normalization`)
 - `https://epoch.ai/blog/openai-stargate-where-the-us-sites-stand` -> `openai-stargate-where-the-us-sites-stand.md` (strategy: `canonical article extraction and collection-oriented normalization`)
 - `https://labs.scale.com/papers` -> `scale-labs-papers-2025-2026/brief.md` + `scale-labs-papers-2025-2026/paper_summaries.md` (strategy: `scale research collection normalization under AI`)
