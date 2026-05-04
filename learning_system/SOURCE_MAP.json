@@ -1668,6 +1668,13 @@
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
     {
+      "transcript_path": "materials/processed/ai/sft-rl-on-policy-distillation.md",
+      "root_topic": "ai",
+      "source_pdf": "https://x.com/willccbb/status/2050038277454143918",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
       "transcript_path": "materials/processed/ai/skillweaver-web-agents-can-self-improve-by-discovering-and-honing-skills.md",
       "root_topic": "ai",
       "source_pdf": "https://arxiv.org/abs/2504.07079",
