@@ -61,3 +61,18 @@ For local testing with `npm run lessons:serve`, add:
 ```text
 http://localhost:8080/api/auth/callback/google
 ```
+
+## Tests
+
+Run the non-secret reader API smoke tests with:
+
+```sh
+npm run test:reader
+```
+
+To include the Neon-backed read/write round trip, make sure `.env.local`
+contains `DATABASE_URL`, then run:
+
+```sh
+RUN_READER_DB_TEST=1 npm run test:reader
+```

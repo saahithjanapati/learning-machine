@@ -12,7 +12,8 @@
     "lessons:clean": "node scripts/clean_lessons.mjs",
     "lessons:build": "npm run lessons:export && npm run lessons:native && npm run lessons:clean",
     "lessons:serve": "npm run lessons:build && node scripts/serve_static.mjs web/lessons/public 8080",
-    "lessons:dev": "npm run lessons:serve"
+    "lessons:dev": "npm run lessons:serve",
+    "test:reader": "node --test tests/reader-progress-api.test.mjs"
   },
   "dependencies": {
     "@neondatabase/serverless": "^1.1.0",
