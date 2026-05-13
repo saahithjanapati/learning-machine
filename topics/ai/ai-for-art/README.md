@@ -23,6 +23,7 @@ These existing AI collection notes fit the theme and can be moved here later if 
 - [AI Choreographer: AIST++ And Music-Conditioned 3D Dance Generation](../lessons/2026-05-05-ai-choreographer-music-conditioned-3d-dance-generation.md)
 - [Jukebox: Raw-Audio Music Generation With VQ-VAE Codes And Transformers](lessons/2026-05-05-jukebox-generative-model-for-music.md)
 - [Neural Discrete Representation Learning: VQ-VAE Foundations For Creative Media](lessons/2026-05-05-neural-discrete-representation-learning-vq-vae.md)
+- [Modifying LLM Post-Training For Diverse Creative Writing](lessons/2026-05-08-diverse-creative-writing-post-training.md)
 - [Live Music Models](../lessons/2026-05-03-live-music-models.md)
 - [Creative Limits Of Next-Token Prediction](../lessons/2026-05-03-creative-limits-next-token-prediction.md)
 

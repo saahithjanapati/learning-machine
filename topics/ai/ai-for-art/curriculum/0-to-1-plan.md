@@ -13,6 +13,7 @@ Topic Path: `topics/ai/ai-for-art`
 - `materials/processed/ai/live-music-models.md`
 - `materials/processed/ai/jukebox-a-generative-model-for-music.md`
 - `materials/processed/ai/neural-discrete-representation-learning.md`
+- `materials/processed/ai/modifying-large-language-model-post-training-for-diverse-creative-writing.md`
 
 ## Transcript Anchors
 
@@ -21,6 +22,7 @@ Topic Path: `topics/ai/ai-for-art`
 - raw-audio music generation
 - discrete latent representations and VQ-VAE foundations
 - creative evaluation and taste
+- creative-writing diversity and post-training tradeoffs
 
 ## Outcome
 

@@ -1,7 +1,7 @@
 # AI Link Ingest Report
 
 Model: `direct web scrape + Gemini PDF conversion + manual repo ingest`
-Files: 66
+Files: 96
 
 ## Files
 
@@ -83,3 +83,22 @@ Files: 66
 - `https://neosigma.com/` + public company materials -> `neosigma-self-improving-agentic-systems.md` (strategy: `multi-source company overview and self-improving-agent lesson normalization`)
 - `https://www.dyna.co/` + public company materials -> `dyna-robotics-dyna-1-overview.md` (strategy: `multi-source robotics company overview and lesson normalization`)
 - `link-ingestion chat topic: kv streams / cross-turn continuity for chat models` -> `kv-streams-cross-turn-continuity-chat-models.md` (strategy: `topic-request research synthesis and systems-concept lesson normalization`)
+- `https://openreview.net/forum?id=fz969ahcvJ` -> `aidanbench-evaluating-novel-idea-generation-on-open-ended-questions.md` (strategy: `OpenReview PDF conversion and medium/full AI paper lesson normalization`)
+- `https://arxiv.org/abs/2602.10067` -> `features-as-rewards-scalable-supervision-open-ended-tasks-interpretability.md` (strategy: `canonical PDF extraction and medium/full AI paper lesson normalization`)
+- `https://www.browserbase.com/blog/autobrowse` -> `autobrowse-mythos-moment-browser-agents.md` (strategy: `canonical article extraction and browser-agent systems lesson normalization`)
+- `https://kalomaze.bearblog.dev/rl-for-knowledge-awareness/` -> `reinforcement-learning-for-knowledge-awareness.md` (strategy: `canonical blog extraction and post-training / interpretability research-prep normalization`)
+- `https://arxiv.org/abs/2507.17746` -> `rubrics-as-rewards-reinforcement-learning-beyond-verifiable-domains.md` (strategy: `canonical PDF extraction and medium/full AI paper lesson normalization`)
+- `https://arxiv.org/abs/2502.00873` -> `language-models-use-trigonometry-to-do-addition.md` (strategy: `canonical PDF extraction and medium/full AI paper lesson normalization`)
+- `https://arxiv.org/abs/2503.17126` -> `modifying-large-language-model-post-training-for-diverse-creative-writing.md` (strategy: `canonical PDF extraction, AI-for-art lesson normalization, and Scale AI prep cross-filing`)
+- `https://x.com/appliedcompute/status/2052826576723841292` -> `memory-in-the-wild-context-engine-acl-wiki.md` (strategy: `X Article extraction, AI systems lesson normalization, and Scale AI prep cross-filing`)
+- `https://transformer-circuits.pub/2026/nla/index.html` -> `natural-language-autoencoders-produce-unsupervised-explanations-llm-activations.md` (strategy: `Transformer Circuits article extraction, interpretability lesson normalization, and Scale AI prep cross-filing`)
+- `https://arxiv.org/abs/2408.05147` -> `gemma-scope-open-sparse-autoencoders-everywhere-all-at-once-gemma-2.md` (strategy: `canonical arXiv extraction, medium/full AI paper lesson normalization, and Scale AI prep cross-filing`)
+- `https://www.isca-archive.org/interspeech_2012/vinyals12_interspeech.pdf` -> `are-sparse-representations-rich-enough-for-acoustic-modeling.md` (strategy: `canonical PDF extraction, sparse-representation lesson normalization, and Scale AI prep cross-filing`)
+- `https://www.sciencedirect.com/science/article/pii/S0042698997001697` -> `sparse-coding-overcomplete-basis-set-strategy-employed-by-v1.md` (strategy: `ScienceDirect metadata plus canonical PDF extraction, foundational sparse-coding lesson normalization, and Scale AI prep cross-filing`)
+- `https://www.lesswrong.com/posts/dfoty34sT7CSKeJNn/the-persona-selection-model` -> `the-persona-selection-model.md` (strategy: `LessWrong / Anthropic article extraction, post-training persona-theory lesson normalization, and Scale AI prep cross-filing`)
+- `https://www.lesswrong.com/posts/iocPzHRsH9JWtwHHG/split-personality-training-revealing-latent-knowledge` -> `split-personality-training-revealing-latent-knowledge.md` (strategy: `LessWrong article extraction, ELK / scalable-oversight proposal lesson normalization, and Scale AI prep cross-filing`)
+- `https://arxiv.org/pdf/2510.16380` + `https://labs.scale.com/papers/morebench` -> `morebench-evaluating-procedural-pluralistic-moral-reasoning.md` (strategy: `Scale Labs page plus arXiv PDF extraction, medium/full paper lesson normalization, and Scale AI prep cross-filing`)
+- `https://arxiv.org/pdf/2503.17547` -> `learning-multi-level-features-matryoshka-sparse-autoencoders.md` (strategy: `canonical PDF extraction, medium/full interpretability paper lesson normalization, and Scale AI prep cross-filing`)
+- `https://x.com/askalphaxiv/status/2054283127137378391` + `https://arxiv.org/pdf/2605.09969` -> `the-truth-lies-somewhere-in-the-middle-generated-tokens.md` (strategy: `alphaXiv tweet resolution to arXiv PDF, generated-token embedding lesson normalization, and Scale AI prep cross-filing`)
+- `https://arxiv.org/pdf/2510.07364` -> `base-models-know-how-to-reason-thinking-models-learn-when.md` (strategy: `canonical PDF extraction, medium/full post-training interpretability lesson normalization, and Scale AI prep cross-filing`)
+- `https://arxiv.org/pdf/2605.10310` -> `positive-alignment-artificial-intelligence-for-human-flourishing.md` (strategy: `canonical PDF extraction, medium/full positive-alignment lesson normalization, and Scale AI prep cross-filing`)

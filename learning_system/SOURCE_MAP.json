@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_on": "2026-05-06",
+  "generated_on": "2026-05-12",
   "generated_by": "scripts/learning_cli.py source-map",
   "roots": [
     {
@@ -87,7 +87,7 @@
       "root_topic": "ai",
       "processed_material_dir": "materials/processed/ai",
       "materials_index_path": "topics/ai/materials/INDEX.md",
-      "topic_count": 3,
+      "topic_count": 4,
       "topics": [
         {
           "topic_path": "topics/ai",
@@ -114,12 +114,14 @@
             "materials/processed/ai/ai-choreographer-music-conditioned-3d-dance-generation-with-aist-plus-plus.md",
             "materials/processed/ai/jukebox-a-generative-model-for-music.md",
             "materials/processed/ai/live-music-models.md",
+            "materials/processed/ai/modifying-large-language-model-post-training-for-diverse-creative-writing.md",
             "materials/processed/ai/neural-discrete-representation-learning.md"
           ],
           "source_pdfs": [
             "https://arxiv.org/abs/1711.00937",
             "https://arxiv.org/abs/2005.00341",
             "https://arxiv.org/abs/2101.08779",
+            "https://arxiv.org/abs/2503.17126",
             "https://arxiv.org/abs/2508.04651"
           ],
           "transcript_anchors": [
@@ -127,7 +129,39 @@
             "live controllable music models",
             "raw-audio music generation",
             "discrete latent representations and VQ-VAE foundations",
-            "creative evaluation and taste"
+            "creative evaluation and taste",
+            "creative-writing diversity and post-training tradeoffs"
+          ],
+          "unresolved_source_materials": []
+        },
+        {
+          "topic_path": "topics/ai/scale-ai-research-internship-prep",
+          "root_topic": "ai",
+          "topic_key": "scale-ai-research-internship-prep",
+          "readme_path": "topics/ai/scale-ai-research-internship-prep/README.md",
+          "curriculum_path": "topics/ai/scale-ai-research-internship-prep/curriculum/0-to-1-plan.md",
+          "curriculum_paths": [
+            "topics/ai/scale-ai-research-internship-prep/curriculum/0-to-1-plan.md"
+          ],
+          "source_materials": [],
+          "source_pdfs": [],
+          "transcript_anchors": [
+            "Post-training needs reward signals that are useful beyond exact math/code verifiers.",
+            "Open-ended post-training can improve quality while accidentally collapsing valid response diversity.",
+            "Embedding spaces can turn semantic similarity, style distance, retrieval neighborhoods, and representation geometry into measurable signals for evaluation or post-training.",
+            "Generated-token embeddings suggest that autoregressive generation can be a representation-forming trajectory, not only an output string.",
+            "Natural-language activation explanations can turn hidden-state evidence into audit hypotheses, but must be corroborated before they become reward or monitor signals.",
+            "Sparse feature spaces can provide candidate internal monitors or rewards, but reconstruction quality is not the same as robust interpretability.",
+            "Matryoshka SAEs make the reconstruction-vs-feature-quality trade-off explicit by preserving high-level concepts that standard large dictionaries can absorb or split.",
+            "Overcomplete sparse coding is the historical bridge from natural-signal statistics to interpretable-looking learned feature dictionaries.",
+            "Thinking-model post-training may teach when to deploy latent reasoning mechanisms rather than building every mechanism from scratch.",
+            "Post-training examples can act as evidence about the Assistant persona, so local reward design can have broad character-level generalization effects.",
+            "A hidden same-model audit continuation is a proposed way to elicit latent knowledge, but it must beat separate evaluators on failures not visible in output text.",
+            "MoReBench shows how expert rubrics can evaluate pluralistic moral reasoning as a process rather than reducing ambiguous dilemmas to answer keys.",
+            "Positive alignment reframes evaluation around long-term human flourishing, autonomy support, and pluralistic value governance rather than only harm avoidance.",
+            "Production traces can become external agent memory, but memory systems need benchmarks that test both useful retrieval and distracting retrieval.",
+            "Interpretability can sometimes turn latent representations into monitors or rewards.",
+            "Scale-style evaluation work often tries to make open-ended or long-horizon behavior measurable enough to improve."
           ],
           "unresolved_source_materials": []
         },
@@ -1512,9 +1546,23 @@
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
     {
+      "transcript_path": "materials/processed/ai/aidanbench-evaluating-novel-idea-generation-on-open-ended-questions.md",
+      "root_topic": "ai",
+      "source_pdf": "materials/archive/aidanbench-evaluating-novel-idea-generation-on-open-ended-questions.pdf",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
       "transcript_path": "materials/processed/ai/andrej-karpathy-vibe-coding-agentic-engineering-sequoia-ai-ascent-2026.md",
       "root_topic": "ai",
       "source_pdf": "https://www.youtube.com/watch?v=96jN2OCOfLs",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/ai/are-sparse-representations-rich-enough-for-acoustic-modeling.md",
+      "root_topic": "ai",
+      "source_pdf": "https://www.isca-archive.org/interspeech_2012/vinyals12_interspeech.pdf",
       "duplicate_equivalents": [],
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
@@ -1529,6 +1577,20 @@
       "transcript_path": "materials/processed/ai/auto-review-of-agent-actions-without-synchronous-human-oversight.md",
       "root_topic": "ai",
       "source_pdf": "https://alignment.openai.com/auto-review",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/ai/autobrowse-mythos-moment-browser-agents.md",
+      "root_topic": "ai",
+      "source_pdf": "https://www.browserbase.com/blog/autobrowse",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/ai/base-models-know-how-to-reason-thinking-models-learn-when.md",
+      "root_topic": "ai",
+      "source_pdf": null,
       "duplicate_equivalents": [],
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
@@ -1658,6 +1720,13 @@
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
     {
+      "transcript_path": "materials/processed/ai/features-as-rewards-scalable-supervision-open-ended-tasks-interpretability.md",
+      "root_topic": "ai",
+      "source_pdf": "https://arxiv.org/abs/2602.10067",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
       "transcript_path": "materials/processed/ai/from-entropy-to-epiplexity-rethinking-information-for-computationally-bounded-intelligence.md",
       "root_topic": "ai",
       "source_pdf": "https://arxiv.org/abs/2601.03220",
@@ -1675,6 +1744,13 @@
       "transcript_path": "materials/processed/ai/gemini-robotics-1-5-generalist-robots-embodied-reasoning-motion-transfer.md",
       "root_topic": "ai",
       "source_pdf": "https://arxiv.org/abs/2510.03342",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/ai/gemma-scope-open-sparse-autoencoders-everywhere-all-at-once-gemma-2.md",
+      "root_topic": "ai",
+      "source_pdf": "https://arxiv.org/abs/2408.05147",
       "duplicate_equivalents": [],
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
@@ -1728,7 +1804,21 @@
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
     {
+      "transcript_path": "materials/processed/ai/language-models-use-trigonometry-to-do-addition.md",
+      "root_topic": "ai",
+      "source_pdf": "https://arxiv.org/abs/2502.00873",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
       "transcript_path": "materials/processed/ai/learning-a-generative-meta-model-of-llm-activations.md",
+      "root_topic": "ai",
+      "source_pdf": null,
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/ai/learning-multi-level-features-matryoshka-sparse-autoencoders.md",
       "root_topic": "ai",
       "source_pdf": null,
       "duplicate_equivalents": [],
@@ -1770,6 +1860,13 @@
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
     {
+      "transcript_path": "materials/processed/ai/memory-in-the-wild-context-engine-acl-wiki.md",
+      "root_topic": "ai",
+      "source_pdf": "https://x.com/appliedcompute/status/2052826576723841292",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
       "transcript_path": "materials/processed/ai/memorybench-benchmark-for-memory-and-continual-learning-in-llm-systems.md",
       "root_topic": "ai",
       "source_pdf": "https://arxiv.org/pdf/2510.17281",
@@ -1780,6 +1877,27 @@
       "transcript_path": "materials/processed/ai/model-spec-midtraining-improving-how-alignment-training-generalizes.md",
       "root_topic": "ai",
       "source_pdf": "https://arxiv.org/abs/2605.02087",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/ai/modifying-large-language-model-post-training-for-diverse-creative-writing.md",
+      "root_topic": "ai",
+      "source_pdf": "https://arxiv.org/abs/2503.17126",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/ai/morebench-evaluating-procedural-pluralistic-moral-reasoning.md",
+      "root_topic": "ai",
+      "source_pdf": null,
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/ai/natural-language-autoencoders-produce-unsupervised-explanations-llm-activations.md",
+      "root_topic": "ai",
+      "source_pdf": "https://transformer-circuits.pub/2026/nla/index.html",
       "duplicate_equivalents": [],
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
@@ -1815,6 +1933,13 @@
       "transcript_path": "materials/processed/ai/pipelinerl.md",
       "root_topic": "ai",
       "source_pdf": "https://huggingface.co/blog/ServiceNow/pipelinerl",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/ai/positive-alignment-artificial-intelligence-for-human-flourishing.md",
+      "root_topic": "ai",
+      "source_pdf": null,
       "duplicate_equivalents": [],
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
@@ -1863,6 +1988,13 @@
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
     {
+      "transcript_path": "materials/processed/ai/reinforcement-learning-for-knowledge-awareness.md",
+      "root_topic": "ai",
+      "source_pdf": "https://kalomaze.bearblog.dev/rl-for-knowledge-awareness/",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
       "transcript_path": "materials/processed/ai/rethinking-the-trust-region-in-llm-reinforcement-learning.md",
       "root_topic": "ai",
       "source_pdf": "https://arxiv.org/abs/2602.04879",
@@ -1880,6 +2012,13 @@
       "transcript_path": "materials/processed/ai/roll-the-dice-look-before-you-leap-creative-limits-next-token-prediction.md",
       "root_topic": "ai",
       "source_pdf": "https://arxiv.org/abs/2504.15266",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/ai/rubrics-as-rewards-reinforcement-learning-beyond-verifiable-domains.md",
+      "root_topic": "ai",
+      "source_pdf": "https://labs.scale.com/papers/rubrics_as_rewards",
       "duplicate_equivalents": [],
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
@@ -1928,6 +2067,20 @@
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
     {
+      "transcript_path": "materials/processed/ai/sparse-coding-overcomplete-basis-set-strategy-employed-by-v1.md",
+      "root_topic": "ai",
+      "source_pdf": "https://www.sciencedirect.com/science/article/pii/S0042698997001697",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/ai/split-personality-training-revealing-latent-knowledge.md",
+      "root_topic": "ai",
+      "source_pdf": null,
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
       "transcript_path": "materials/processed/ai/state-space-duality-mamba-2-part-i-the-model.md",
       "root_topic": "ai",
       "source_pdf": "https://goombalab.github.io/blog/2024/mamba2-part1-model/",
@@ -1959,6 +2112,20 @@
       "transcript_path": "materials/processed/ai/the-last-human-written-paper-agent-native-research-artifacts.md",
       "root_topic": "ai",
       "source_pdf": "https://arxiv.org/pdf/2604.24658",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/ai/the-persona-selection-model.md",
+      "root_topic": "ai",
+      "source_pdf": null,
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/ai/the-truth-lies-somewhere-in-the-middle-generated-tokens.md",
+      "root_topic": "ai",
+      "source_pdf": null,
       "duplicate_equivalents": [],
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },

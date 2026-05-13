@@ -75,3 +75,26 @@ Policy:
 - [materials/processed/ai/neosigma-self-improving-agentic-systems.md](../../../materials/processed/ai/neosigma-self-improving-agentic-systems.md)
 - [materials/processed/ai/dyna-robotics-dyna-1-overview.md](../../../materials/processed/ai/dyna-robotics-dyna-1-overview.md)
 - [materials/processed/ai/kv-streams-cross-turn-continuity-chat-models.md](../../../materials/processed/ai/kv-streams-cross-turn-continuity-chat-models.md)
+- [materials/processed/ai/aidanbench-evaluating-novel-idea-generation-on-open-ended-questions.md](../../../materials/processed/ai/aidanbench-evaluating-novel-idea-generation-on-open-ended-questions.md)
+- [materials/processed/ai/features-as-rewards-scalable-supervision-open-ended-tasks-interpretability.md](../../../materials/processed/ai/features-as-rewards-scalable-supervision-open-ended-tasks-interpretability.md)
+- [materials/processed/ai/autobrowse-mythos-moment-browser-agents.md](../../../materials/processed/ai/autobrowse-mythos-moment-browser-agents.md)
+- [materials/processed/ai/reinforcement-learning-for-knowledge-awareness.md](../../../materials/processed/ai/reinforcement-learning-for-knowledge-awareness.md)
+- [materials/processed/ai/rubrics-as-rewards-reinforcement-learning-beyond-verifiable-domains.md](../../../materials/processed/ai/rubrics-as-rewards-reinforcement-learning-beyond-verifiable-domains.md)
+- [materials/processed/ai/language-models-use-trigonometry-to-do-addition.md](../../../materials/processed/ai/language-models-use-trigonometry-to-do-addition.md)
+- [materials/processed/ai/modifying-large-language-model-post-training-for-diverse-creative-writing.md](../../../materials/processed/ai/modifying-large-language-model-post-training-for-diverse-creative-writing.md)
+- [materials/processed/ai/memory-in-the-wild-context-engine-acl-wiki.md](../../../materials/processed/ai/memory-in-the-wild-context-engine-acl-wiki.md)
+- [materials/processed/ai/natural-language-autoencoders-produce-unsupervised-explanations-llm-activations.md](../../../materials/processed/ai/natural-language-autoencoders-produce-unsupervised-explanations-llm-activations.md)
+- [materials/processed/ai/gemma-scope-open-sparse-autoencoders-everywhere-all-at-once-gemma-2.md](../../../materials/processed/ai/gemma-scope-open-sparse-autoencoders-everywhere-all-at-once-gemma-2.md)
+- [materials/processed/ai/are-sparse-representations-rich-enough-for-acoustic-modeling.md](../../../materials/processed/ai/are-sparse-representations-rich-enough-for-acoustic-modeling.md)
+- [materials/processed/ai/sparse-coding-overcomplete-basis-set-strategy-employed-by-v1.md](../../../materials/processed/ai/sparse-coding-overcomplete-basis-set-strategy-employed-by-v1.md)
+- [materials/processed/ai/the-persona-selection-model.md](../../../materials/processed/ai/the-persona-selection-model.md)
+- [materials/processed/ai/split-personality-training-revealing-latent-knowledge.md](../../../materials/processed/ai/split-personality-training-revealing-latent-knowledge.md)
+- [materials/processed/ai/morebench-evaluating-procedural-pluralistic-moral-reasoning.md](../../../materials/processed/ai/morebench-evaluating-procedural-pluralistic-moral-reasoning.md)
+- [materials/processed/ai/learning-multi-level-features-matryoshka-sparse-autoencoders.md](../../../materials/processed/ai/learning-multi-level-features-matryoshka-sparse-autoencoders.md)
+- [materials/processed/ai/the-truth-lies-somewhere-in-the-middle-generated-tokens.md](../../../materials/processed/ai/the-truth-lies-somewhere-in-the-middle-generated-tokens.md)
+- [materials/processed/ai/base-models-know-how-to-reason-thinking-models-learn-when.md](../../../materials/processed/ai/base-models-know-how-to-reason-thinking-models-learn-when.md)
+- [materials/processed/ai/positive-alignment-artificial-intelligence-for-human-flourishing.md](../../../materials/processed/ai/positive-alignment-artificial-intelligence-for-human-flourishing.md)
+
+## Cross-Filing Collections
+
+- [Scale AI research internship prep](../scale-ai-research-internship-prep/README.md): post-training, interpretability, and post-training x interpretability reading queue.

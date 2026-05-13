@@ -14,12 +14,14 @@ Path: `topics/ai`
 - Treat `topics/ai` primarily as a holding area for ingested materials and lightweight notes.
 - Use `topics/ai/ai-for-art/` for AI systems centered on artistic or creative media: image, video, music, dance, design, and co-creative tools.
 - Use `topics/ai/transformers/` for focused transformer architecture topics.
+- Use `topics/ai/scale-ai-research-internship-prep/` as a cross-filing prep index for papers relevant to Scale AI internship preparation, especially post-training, interpretability, and their overlap. Keep primary files in their normal locations and link them from the prep index.
 - Curriculum and lesson artifacts are optional here and should only be added when they are clearly useful.
 - Iterative categorization can happen later once enough materials accumulate.
 
 ## Core Files
 
 - Materials index: [topics/ai/materials/INDEX.md](materials/INDEX.md)
+- Scale AI research internship prep: [topics/ai/scale-ai-research-internship-prep](scale-ai-research-internship-prep/README.md)
 - Processed sources: `materials/processed/ai/`
 - AI for art subtopic: [topics/ai/ai-for-art](ai-for-art/README.md)
 - Transformer architecture subtopic: [topics/ai/transformers](transformers/README.md)

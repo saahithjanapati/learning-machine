@@ -7,6 +7,7 @@ Canonical topic paths and aliases used for matching new requests.
 | advanced-machine-learning-10-715-cmu | advanced-machine-learning-10-715-cmu | `topics/advanced-machine-learning-10-715-cmu` |  |
 | ai | ai | `topics/ai` |  |
 | ai-for-art | ai | `topics/ai/ai-for-art` | AI art, artificial intelligence art, generative art, creative AI, AI music, AI dance, AI image generation |
+| scale-ai-research-internship-prep | ai | `topics/ai/scale-ai-research-internship-prep` | Scale AI internship prep, Scale AI research internship, post-training, post training, interpretability, feature rewards, reward modeling, RLHF, RLVR |
 | kv-caching | ai | `topics/ai/transformers/kv-caching` | key-value cache, key value caching, transformer cache |
 | art-and-aesthetics | art-and-aesthetics | `topics/art-and-aesthetics` |  |
 | biology | biology | `topics/biology` |  |

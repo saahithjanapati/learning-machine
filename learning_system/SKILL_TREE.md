@@ -1,6 +1,6 @@
 # Skill Tree
 
-Last generated: 2026-05-06
+Last generated: 2026-05-12
 
 Hierarchical topic tree discovered from `topics/` paths.
 
@@ -8,6 +8,7 @@ Hierarchical topic tree discovered from `topics/` paths.
 ├─ advanced-machine-learning-10-715-cmu
 ├─ ai
 │  ├─ ai-for-art
+│  ├─ scale-ai-research-internship-prep
 │  └─ transformers
 │     └─ kv-caching
 ├─ art-and-aesthetics
@@ -41,8 +42,8 @@ Hierarchical topic tree discovered from `topics/` paths.
 
 ## Recent Topics
 
-- AI / AI For Art -> Paper Lesson: Neural Discrete Representation Learning and VQ-VAE foundations
-- AI / AI For Art -> Paper Lesson: Jukebox raw-audio music generation
-- AI / Collection -> Foundation Lesson: LLM inference frameworks, SGLang, and vLLM
-- AI / Collection -> Paper Lesson: abstraction induces brain alignment in language and speech models
-- AI / Collection -> Paper Lesson: fMRI evidence for two-phase abstraction in language models
+- AI / Collection + Scale AI Prep -> Paper Lesson: Positive Alignment
+- AI / Collection + Scale AI Prep -> Paper Lesson: Base Models Know How To Reason
+- AI / Collection + Scale AI Prep -> Paper Lesson: Generated-Token Embeddings
+- AI / Collection + Scale AI Prep -> Paper Lesson: Matryoshka Sparse Autoencoders
+- AI / Collection + Scale AI Prep -> Paper Lesson: MoReBench moral reasoning
