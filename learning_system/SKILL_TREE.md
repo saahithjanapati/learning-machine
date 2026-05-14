@@ -12,6 +12,8 @@ Hierarchical topic tree discovered from `topics/` paths.
 │  └─ transformers
 │     └─ kv-caching
 ├─ art-and-aesthetics
+├─ bhagavadgita
+│  └─ core
 ├─ biology
 │  └─ core
 ├─ information-theory
@@ -42,8 +44,8 @@ Hierarchical topic tree discovered from `topics/` paths.
 
 ## Recent Topics
 
-- AI / Collection + Scale AI Prep -> Paper Lesson: Natural Emergent Misalignment
-- AI / Collection + Scale AI Prep -> Paper Lesson: Positive Alignment
-- AI / Collection + Scale AI Prep -> Paper Lesson: Base Models Know How To Reason
-- AI / Collection + Scale AI Prep -> Paper Lesson: Generated-Token Embeddings
-- AI / Collection + Scale AI Prep -> Paper Lesson: Matryoshka Sparse Autoencoders
+- Bhagavad Gita / Core -> Chapters 16-18: Character, faith, surrender, and the final teaching
+- Bhagavad Gita / Core -> Chapters 13-15: Body, field, gunas, and the cosmic tree
+- Bhagavad Gita / Core -> Chapters 10-12: Divine glories, universal form, and bhakti
+- Bhagavad Gita / Core -> Chapters 7-9: Devotion, divine reality, and the hidden center
+- Bhagavad Gita / Core -> Chapters 4-6: Wisdom, renunciation, and meditation

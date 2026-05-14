@@ -202,6 +202,28 @@
       ]
     },
     {
+      "root_topic": "bhagavadgita",
+      "processed_material_dir": null,
+      "materials_index_path": null,
+      "topic_count": 1,
+      "topics": [
+        {
+          "topic_path": "topics/bhagavadgita/core",
+          "root_topic": "bhagavadgita",
+          "topic_key": "core",
+          "readme_path": "topics/bhagavadgita/core/README.md",
+          "curriculum_path": "topics/bhagavadgita/core/curriculum/0-to-1-plan.md",
+          "curriculum_paths": [
+            "topics/bhagavadgita/core/curriculum/0-to-1-plan.md"
+          ],
+          "source_materials": [],
+          "source_pdfs": [],
+          "transcript_anchors": [],
+          "unresolved_source_materials": []
+        }
+      ]
+    },
+    {
       "root_topic": "biology",
       "processed_material_dir": "materials/processed/biology",
       "materials_index_path": "topics/biology/materials/INDEX.md",
