@@ -2015,6 +2015,13 @@
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
     {
+      "transcript_path": "materials/processed/ai/on-neural-scaling-and-the-quanta-hypothesis.md",
+      "root_topic": "ai",
+      "source_pdf": "https://ericjmichaud.com/quanta/",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
       "transcript_path": "materials/processed/ai/online-rubrics-elicitation-from-pairwise-comparisons.md",
       "root_topic": "ai",
       "source_pdf": "https://arxiv.org/abs/2510.07284",
@@ -2232,6 +2239,13 @@
       "transcript_path": "materials/processed/ai/the-persona-selection-model.md",
       "root_topic": "ai",
       "source_pdf": null,
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/ai/the-quantization-model-of-neural-scaling.md",
+      "root_topic": "ai",
+      "source_pdf": "https://arxiv.org/pdf/2303.13506",
       "duplicate_equivalents": [],
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },

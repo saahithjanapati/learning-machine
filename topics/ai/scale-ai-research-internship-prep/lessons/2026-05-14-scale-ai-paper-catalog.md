@@ -40,6 +40,8 @@ Items can naturally touch several themes. Each paper is listed once under the br
 
 - [Features as Rewards](../../lessons/2026-05-06-features-as-rewards.md): interpretability probes as scalable reward functions.
 - [Reinforcement Learning for Knowledge Awareness](../../lessons/2026-05-07-rl-for-knowledge-awareness.md): activation readouts as rewards for epistemic behavior.
+- [The Quantization Model Of Neural Scaling](../../lessons/2026-05-14-quantization-model-neural-scaling.md): original quanta paper connecting scaling laws, emergent abilities, and gradient-discovered candidate mechanisms.
+- [On Neural Scaling And The Quanta Hypothesis](../../lessons/2026-05-14-on-neural-scaling-and-the-quanta-hypothesis.md): scaling theory as a bridge between smooth loss laws, discrete mechanisms, sparse features, and interpretability limits.
 - [Qwen-Scope](../../lessons/2026-05-04-qwen-scope.md): sparse features as development tools for large language models.
 - [Gemma Scope](../../lessons/2026-05-12-gemma-scope-sparse-autoencoders.md): open sparse-autoencoder infrastructure for Gemma 2.
 - [Matryoshka Sparse Autoencoders](../../lessons/2026-05-12-matryoshka-sparse-autoencoders.md): nested SAE dictionaries for broad and specific concepts.
