@@ -665,6 +665,8 @@ function renderPage({
           <button class="reader-notes-tool" type="button" data-reader-notes-format="numbered" title="Numbered list">1.</button>
           <button class="reader-notes-tool" type="button" data-reader-notes-format="quote" title="Quote">“</button>
           <button class="reader-notes-tool" type="button" data-reader-notes-format="code" title="Inline code">&lt;/&gt;</button>
+          <button class="reader-notes-tool" type="button" data-reader-notes-format="math-inline" title="Inline math">$x$</button>
+          <button class="reader-notes-tool" type="button" data-reader-notes-format="math-block" title="Math block">$$</button>
         </div>
         <label class="reader-notes-editor" data-reader-notes-editor>
           <span>Markdown notes</span>
@@ -725,12 +727,52 @@ function renderPage({
           .replace(/'/g, "&#039;")
       }
 
+      function renderMathExpression(expression, displayMode = false) {
+        const source = String(expression || "").trim()
+
+        if (!source) {
+          return displayMode ? "" : "$$"
+        }
+
+        if (window.katex?.renderToString) {
+          try {
+            return window.katex.renderToString(source, {
+              displayMode,
+              throwOnError: false,
+              strict: "warn",
+              trust: false,
+            })
+          } catch (error) {
+            console.error(error)
+          }
+        }
+
+        const delimiter = displayMode ? "$$" : "$"
+        return escapeHtml(delimiter + source + delimiter)
+      }
+
       function renderInline(markdown) {
         const tick = String.fromCharCode(96)
-        return escapeHtml(markdown)
-          .replace(new RegExp(tick + "([^" + tick + "]+)" + tick, "g"), "<code>$1</code>")
+        const protectedSegments = []
+        const placeholderPrefix = "\\uE000NOTE"
+        const placeholderSuffix = "NOTE\\uE001"
+        const protect = (html) => {
+          const token = placeholderPrefix + protectedSegments.length + placeholderSuffix
+          protectedSegments.push(html)
+          return token
+        }
+        let rendered = String(markdown || "").replace(new RegExp(tick + "([^" + tick + "]+)" + tick, "g"), (_, code) =>
+          protect("<code>" + escapeHtml(code) + "</code>"),
+        )
+
+        rendered = rendered.replace(/\\$([^$\\n]+)\\$/g, (_, expression) => protect(renderMathExpression(expression, false)))
+        rendered = escapeHtml(rendered)
           .replace(/\\*\\*([^*]+)\\*\\*/g, "<strong>$1</strong>")
           .replace(/(^|\\W)\\*([^*]+)\\*/g, "$1<em>$2</em>")
+
+        return rendered.replace(new RegExp(placeholderPrefix + "(\\\\d+)" + placeholderSuffix, "g"), (_, index) =>
+          protectedSegments[Number(index)] || "",
+        )
       }
 
       function markdownToHtml(markdown) {
@@ -770,12 +812,44 @@ function renderPage({
           }
         }
 
-        for (const line of lines) {
+        for (let lineIndex = 0; lineIndex < lines.length; lineIndex += 1) {
+          const line = lines[lineIndex]
           const trimmed = line.trim()
 
           if (!trimmed) {
             closeParagraph()
             closeList()
+            continue
+          }
+
+          if (trimmed.startsWith("$$")) {
+            closeParagraph()
+            closeList()
+
+            let expression = trimmed.slice(2).trim()
+
+            if (expression.endsWith("$$")) {
+              expression = expression.slice(0, -2).trim()
+            } else {
+              const blockLines = expression ? [expression] : []
+
+              while (lineIndex + 1 < lines.length) {
+                lineIndex += 1
+                const mathLine = lines[lineIndex]
+                const endIndex = mathLine.indexOf("$$")
+
+                if (endIndex === -1) {
+                  blockLines.push(mathLine)
+                } else {
+                  blockLines.push(mathLine.slice(0, endIndex))
+                  break
+                }
+              }
+
+              expression = blockLines.join("\\n").trim()
+            }
+
+            html.push('<div class="reader-notes-math">' + renderMathExpression(expression, true) + "</div>")
             continue
           }
 
@@ -906,6 +980,10 @@ function renderPage({
         } else if (kind === "code") {
           const tick = String.fromCharCode(96)
           wrapSelection(tick, tick, "code")
+        } else if (kind === "math-inline") {
+          wrapSelection("$", "$", "x^2")
+        } else if (kind === "math-block") {
+          wrapSelection("$$\\n", "\\n$$", "x^2")
         }
 
         markDirty()
@@ -1377,12 +1455,52 @@ function renderPage({
           .replace(/'/g, "&#039;")
       }
 
+      function renderMathExpression(expression, displayMode = false) {
+        const source = String(expression || "").trim()
+
+        if (!source) {
+          return displayMode ? "" : "$$"
+        }
+
+        if (window.katex?.renderToString) {
+          try {
+            return window.katex.renderToString(source, {
+              displayMode,
+              throwOnError: false,
+              strict: "warn",
+              trust: false,
+            })
+          } catch (error) {
+            console.error(error)
+          }
+        }
+
+        const delimiter = displayMode ? "$$" : "$"
+        return escapeHtml(delimiter + source + delimiter)
+      }
+
       function renderInline(markdown) {
         const tick = String.fromCharCode(96)
-        return escapeHtml(markdown)
-          .replace(new RegExp(tick + "([^" + tick + "]+)" + tick, "g"), "<code>$1</code>")
+        const protectedSegments = []
+        const placeholderPrefix = "\\uE000NOTE"
+        const placeholderSuffix = "NOTE\\uE001"
+        const protect = (html) => {
+          const token = placeholderPrefix + protectedSegments.length + placeholderSuffix
+          protectedSegments.push(html)
+          return token
+        }
+        let rendered = String(markdown || "").replace(new RegExp(tick + "([^" + tick + "]+)" + tick, "g"), (_, code) =>
+          protect("<code>" + escapeHtml(code) + "</code>"),
+        )
+
+        rendered = rendered.replace(/\\$([^$\\n]+)\\$/g, (_, expression) => protect(renderMathExpression(expression, false)))
+        rendered = escapeHtml(rendered)
           .replace(/\\*\\*([^*]+)\\*\\*/g, "<strong>$1</strong>")
           .replace(/(^|\\W)\\*([^*]+)\\*/g, "$1<em>$2</em>")
+
+        return rendered.replace(new RegExp(placeholderPrefix + "(\\\\d+)" + placeholderSuffix, "g"), (_, index) =>
+          protectedSegments[Number(index)] || "",
+        )
       }
 
       function markdownToHtml(markdown) {
@@ -1422,12 +1540,44 @@ function renderPage({
           }
         }
 
-        for (const line of lines) {
+        for (let lineIndex = 0; lineIndex < lines.length; lineIndex += 1) {
+          const line = lines[lineIndex]
           const trimmed = line.trim()
 
           if (!trimmed) {
             closeParagraph()
             closeList()
+            continue
+          }
+
+          if (trimmed.startsWith("$$")) {
+            closeParagraph()
+            closeList()
+
+            let expression = trimmed.slice(2).trim()
+
+            if (expression.endsWith("$$")) {
+              expression = expression.slice(0, -2).trim()
+            } else {
+              const blockLines = expression ? [expression] : []
+
+              while (lineIndex + 1 < lines.length) {
+                lineIndex += 1
+                const mathLine = lines[lineIndex]
+                const endIndex = mathLine.indexOf("$$")
+
+                if (endIndex === -1) {
+                  blockLines.push(mathLine)
+                } else {
+                  blockLines.push(mathLine.slice(0, endIndex))
+                  break
+                }
+              }
+
+              expression = blockLines.join("\\n").trim()
+            }
+
+            html.push('<div class="reader-notes-math">' + renderMathExpression(expression, true) + "</div>")
             continue
           }
 
@@ -1668,6 +1818,7 @@ function renderPage({
   <link rel="icon" type="image/svg+xml" href="${faviconHref}" />
   <link rel="preconnect" href="https://cdn.jsdelivr.net" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
   <style>
     :root {
       color-scheme: dark;
@@ -2489,6 +2640,11 @@ function renderPage({
       color: var(--heading-soft);
       font-family: var(--mono-font);
       font-size: 0.9em;
+    }
+
+    .reader-notes-math {
+      margin: 0.8rem 0;
+      overflow-x: auto;
     }
 
     .reader-notes-empty {
