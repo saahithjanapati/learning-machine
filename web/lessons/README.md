@@ -34,20 +34,29 @@ The repo-level `vercel.json` is configured for Vercel:
 - Output directory: `web/lessons/public`
 - Clean URLs: enabled
 
-## Reader auth and progress API
+## Reader auth, notes, and progress API
 
-The reader uses Google sign-in. The progress API and data model still exist for
-backend use, but the static reader UI does not currently render read/unread
-controls. The API routes create these Neon Postgres tables on first
-authenticated use:
+The reader uses Google sign-in. Each lesson page can save per-user markdown notes
+and a `Save for review` flag, and `/review/` lists saved lessons for later
+review. Lesson pages also expose a `Mark read` control that increments the
+per-user read counter for that lesson. The API routes create these Neon Postgres
+tables on first authenticated use:
 
 - `reader_users`
 - `reader_sessions`
 - `reader_lesson_progress`
+- `reader_lesson_notes`
 
 Vercel Routing Middleware gates lesson pages before static HTML is served.
 Signed-out page requests redirect to Google sign-in, while `/api/*` remains
-available for OAuth callbacks, session checks, logout, and progress writes.
+available for OAuth callbacks, session checks, logout, progress/read-count
+writes, and lesson-note writes.
+
+Individual lesson pages include two clipboard buttons in the sticky header:
+
+- `Copy summary`: copies an existing summary section when the markdown has one,
+  preferring the `Medium-Length Version` section used by paper lessons.
+- `Copy full text`: copies the full markdown body rendered by the reader.
 
 Required Vercel environment variables:
 

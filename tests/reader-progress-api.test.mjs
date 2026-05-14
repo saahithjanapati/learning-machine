@@ -8,6 +8,7 @@ import { ensureReaderSchema, getSql } from "../api/_lib/db.js"
 import { sanitizeNextPath } from "../api/_lib/http.js"
 import googleAuthHandler from "../api/auth/google.js"
 import meHandler from "../api/auth/me.js"
+import lessonNotesHandler from "../api/lesson-notes.js"
 import lessonProgressHandler from "../api/lesson-progress.js"
 import middleware from "../middleware.js"
 
@@ -189,8 +190,17 @@ test("lesson progress requires a signed-in session", async () => {
   assert.deepEqual(parseJson(response), { error: "Sign in required" })
 })
 
+test("lesson notes require a signed-in session", async () => {
+  const response = createResponse()
+
+  await lessonNotesHandler(createRequest({ url: "/api/lesson-notes" }), response)
+
+  assert.equal(response.statusCode, 401)
+  assert.deepEqual(parseJson(response), { error: "Sign in required" })
+})
+
 test(
-  "live database progress round-trip",
+  "live database progress and notes round-trip",
   {
     skip:
       process.env.RUN_READER_DB_TEST === "1" && process.env.DATABASE_URL
@@ -204,6 +214,7 @@ test(
     const userId = crypto.randomUUID()
     const testSuffix = crypto.randomUUID()
     const lessonId = `test/reader-progress/${testSuffix}`
+    const noteMarkdown = `## Keep in review\n\n- revisit ${testSuffix}`
     const sessionResponse = createResponse()
     const sessionRequest = createRequest()
 
@@ -241,6 +252,7 @@ test(
           body: JSON.stringify({
             lessonId,
             isRead: true,
+            incrementReadCount: true,
           }),
         }),
         updateResponse,
@@ -249,7 +261,28 @@ test(
       assert.equal(updateResponse.statusCode, 200)
       assert.equal(parseJson(updateResponse).progress.lessonId, lessonId)
       assert.equal(parseJson(updateResponse).progress.isRead, true)
+      assert.equal(parseJson(updateResponse).progress.readCount, 1)
       assert.ok(parseJson(updateResponse).progress.readAt)
+
+      const secondUpdateResponse = createResponse()
+      await lessonProgressHandler(
+        createRequest({
+          method: "PUT",
+          url: "/api/lesson-progress",
+          headers: {
+            cookie: cookieHeader,
+          },
+          body: JSON.stringify({
+            lessonId,
+            isRead: true,
+            incrementReadCount: true,
+          }),
+        }),
+        secondUpdateResponse,
+      )
+
+      assert.equal(secondUpdateResponse.statusCode, 200)
+      assert.equal(parseJson(secondUpdateResponse).progress.readCount, 2)
 
       const listResponse = createResponse()
       await lessonProgressHandler(
@@ -263,7 +296,54 @@ test(
       )
 
       assert.equal(listResponse.statusCode, 200)
-      assert.ok(parseJson(listResponse).progress.some((row) => row.lessonId === lessonId && row.isRead))
+      assert.ok(
+        parseJson(listResponse).progress.some(
+          (row) => row.lessonId === lessonId && row.isRead && row.readCount === 2,
+        ),
+      )
+
+      const noteUpdateResponse = createResponse()
+      await lessonNotesHandler(
+        createRequest({
+          method: "PUT",
+          url: "/api/lesson-notes",
+          headers: {
+            cookie: cookieHeader,
+          },
+          body: JSON.stringify({
+            lessonId,
+            lessonTitle: "Reader Notes Test",
+            lessonUrl: `/${lessonId}/`,
+            noteMarkdown,
+            reviewSaved: true,
+          }),
+        }),
+        noteUpdateResponse,
+      )
+
+      assert.equal(noteUpdateResponse.statusCode, 200)
+      assert.equal(parseJson(noteUpdateResponse).note.lessonId, lessonId)
+      assert.equal(parseJson(noteUpdateResponse).note.noteMarkdown, noteMarkdown)
+      assert.equal(parseJson(noteUpdateResponse).note.reviewSaved, true)
+      assert.ok(parseJson(noteUpdateResponse).note.reviewSavedAt)
+
+      const noteListResponse = createResponse()
+      await lessonNotesHandler(
+        createRequest({
+          url: "/api/lesson-notes",
+          headers: {
+            cookie: cookieHeader,
+          },
+        }),
+        noteListResponse,
+      )
+
+      assert.equal(noteListResponse.statusCode, 200)
+      assert.ok(
+        parseJson(noteListResponse).notes.some(
+          (note) => note.lessonId === lessonId && note.noteMarkdown === noteMarkdown && note.reviewSaved,
+        ),
+      )
     } finally {
       await sql`
         DELETE FROM reader_users

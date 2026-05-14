@@ -197,10 +197,110 @@ function buildCopyContext(markdown, title) {
   return /^#\s+/.test(body.trimStart()) ? body : `# ${trimmedTitle}\n\n${body}`
 }
 
-function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "", enableLessonNavigator = false }) {
+function normalizedHeadingText(value) {
+  return value
+    .replace(/[`*_]/g, "")
+    .replace(/\s+/g, " ")
+    .trim()
+    .toLowerCase()
+}
+
+function findMarkdownSection(markdown, headingMatcher) {
+  const lines = stripFrontmatter(markdown).trim().split(/\r?\n/)
+  let start = -1
+  let startLevel = 0
+
+  for (let index = 0; index < lines.length; index += 1) {
+    const match = lines[index].match(/^(#{2,4})\s+(.+?)\s*#*\s*$/)
+
+    if (!match) {
+      continue
+    }
+
+    if (headingMatcher(normalizedHeadingText(match[2]))) {
+      start = index
+      startLevel = match[1].length
+      break
+    }
+  }
+
+  if (start === -1) {
+    return ""
+  }
+
+  let end = lines.length
+
+  for (let index = start + 1; index < lines.length; index += 1) {
+    const match = lines[index].match(/^(#{2,4})\s+/)
+
+    if (match && match[1].length <= startLevel) {
+      end = index
+      break
+    }
+  }
+
+  return lines.slice(start, end).join("\n").trim()
+}
+
+function buildSummaryContext(markdown, title) {
+  const summarySection = findMarkdownSection(markdown, (heading) =>
+    [
+      "medium-length version",
+      "medium length version",
+      "summary",
+      "executive summary",
+      "short version",
+      "overview",
+      "main ideas",
+      "tl;dr",
+      "tldr",
+      "abstract",
+    ].includes(heading),
+  )
+
+  if (summarySection) {
+    return `# ${title.trim()}\n\n${summarySection}`
+  }
+
+  const body = stripFrontmatter(markdown)
+    .trim()
+    .replace(/^#\s+.+(?:\r?\n)+/, "")
+    .replace(/^Source note:\s+.+(?:\r?\n)+/i, "")
+  const withoutToc = body.replace(/##\s+Table of Contents[\s\S]*?(?=\n##\s+|\s*$)/i, "")
+  const paragraphs = withoutToc
+    .split(/\n{2,}/)
+    .map((paragraph) => paragraph.trim())
+    .filter((paragraph) => paragraph && !paragraph.startsWith("#") && !paragraph.startsWith("- ["))
+  const summary = []
+  let totalLength = 0
+
+  for (const paragraph of paragraphs) {
+    if (summary.length >= 8 || totalLength + paragraph.length > 3200) {
+      break
+    }
+
+    summary.push(paragraph)
+    totalLength += paragraph.length
+  }
+
+  return `# ${title.trim()}\n\n${summary.join("\n\n") || body.slice(0, 3200).trim()}`
+}
+
+function renderPage({
+  title,
+  body,
+  sourceRelative,
+  urlPrefix,
+  copyContext = "",
+  copySummary = "",
+  enableLessonNavigator = false,
+  lessonData = null,
+  enableReviewPage = false,
+}) {
   const homeHref = routeWithPrefix(urlPrefix, "")
   const recentHref = routeWithPrefix(urlPrefix, "recent-lessons")
   const topicsHref = routeWithPrefix(urlPrefix, "topics")
+  const reviewHref = routeWithPrefix(urlPrefix, "review")
   const faviconHref = assetWithPrefix(urlPrefix, "favicon.svg")
   const lessonNavigatorControls = enableLessonNavigator
     ? '<button class="lesson-navigator-button" type="button" data-lesson-navigator-open><span>Sections</span></button>'
@@ -455,23 +555,31 @@ function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "", 
     })()
   </script>`
     : ""
-  const copyContextButton = copyContext
-    ? '<button class="copy-context-button" type="button" data-copy-context-button><span class="copy-context-label">Copy context for AI</span></button>'
+  const copyContextButtons = copyContext
+    ? `<button class="copy-context-button" type="button" data-copy-summary-button><span class="copy-context-label">Copy summary</span></button>
+          <button class="copy-context-button" type="button" data-copy-full-button><span class="copy-context-label">Copy full text</span></button>`
     : ""
   const copyContextScript = copyContext
     ? `
-  <script type="application/json" id="lesson-copy-context">${escapeScriptJson(JSON.stringify(copyContext))}</script>
+  <script type="application/json" id="lesson-copy-context">${escapeScriptJson(
+    JSON.stringify({
+      summary: copySummary || copyContext,
+      fullText: copyContext,
+    }),
+  )}</script>
   <script>
     (() => {
-      const button = document.querySelector("[data-copy-context-button]")
       const source = document.getElementById("lesson-copy-context")
+      const buttons = [
+        { button: document.querySelector("[data-copy-summary-button]"), key: "summary" },
+        { button: document.querySelector("[data-copy-full-button]"), key: "fullText" },
+      ].filter((entry) => entry.button)
 
-      if (!button || !source) {
+      if (!source || buttons.length === 0) {
         return
       }
 
-      const label = button.querySelector(".copy-context-label")
-      const defaultLabel = label?.textContent || "Copy context for AI"
+      const copyPayload = JSON.parse(source.textContent || "{}")
 
       function fallbackCopy(text) {
         return new Promise((resolve, reject) => {
@@ -494,7 +602,10 @@ function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "", 
         })
       }
 
-      function setTemporaryLabel(text) {
+      function setTemporaryLabel(button, text) {
+        const label = button.querySelector(".copy-context-label")
+        const defaultLabel = button.dataset.defaultLabel || label?.textContent || "Copy"
+
         if (!label) {
           return
         }
@@ -505,23 +616,427 @@ function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "", 
         }, 1800)
       }
 
-      button.addEventListener("click", async () => {
-        try {
-          const text = JSON.parse(source.textContent || '""')
-          if (navigator.clipboard?.writeText) {
-            await navigator.clipboard.writeText(text)
-          } else {
-            await fallbackCopy(text)
+      for (const { button, key } of buttons) {
+        const label = button.querySelector(".copy-context-label")
+        button.dataset.defaultLabel = label?.textContent || "Copy"
+
+        button.addEventListener("click", async () => {
+          try {
+            const text = copyPayload[key] || ""
+
+            if (navigator.clipboard?.writeText) {
+              await navigator.clipboard.writeText(text)
+            } else {
+              await fallbackCopy(text)
+            }
+
+            button.blur()
+            setTemporaryLabel(button, "Copied")
+          } catch (error) {
+            console.error(error)
+            setTemporaryLabel(button, "Copy failed")
           }
-          button.blur()
-          setTemporaryLabel("Copied")
-        } catch (error) {
-          console.error(error)
-          setTemporaryLabel("Copy failed")
-        }
-      })
+        })
+      }
     })()
 	  </script>`
+    : ""
+  const lessonNotesMarkup = lessonData
+    ? `
+      <section class="reader-notes-panel" data-reader-notes aria-labelledby="reader-notes-title">
+        <div class="reader-notes-header">
+          <div>
+            <p class="reader-notes-kicker">Review</p>
+            <h2 id="reader-notes-title">Lesson Notes</h2>
+          </div>
+          <label class="reader-review-toggle">
+            <input type="checkbox" data-reader-review-saved />
+            <span>Save for review</span>
+          </label>
+        </div>
+        <label class="reader-notes-editor">
+          <span>Markdown notes</span>
+          <textarea data-reader-notes-input rows="9" placeholder="Questions, takeaways, examples to revisit..."></textarea>
+        </label>
+        <div class="reader-notes-footer">
+          <button class="reader-notes-save" type="button" data-reader-notes-save>Save notes</button>
+          <p class="reader-notes-status" data-reader-notes-status>Loading notes...</p>
+        </div>
+      </section>`
+    : ""
+  const lessonNotesScript = lessonData
+    ? `
+  <script type="application/json" id="lesson-notes-data">${escapeScriptJson(JSON.stringify(lessonData))}</script>
+  <script>
+    (() => {
+      const panel = document.querySelector("[data-reader-notes]")
+      const source = document.getElementById("lesson-notes-data")
+      const input = document.querySelector("[data-reader-notes-input]")
+      const reviewSaved = document.querySelector("[data-reader-review-saved]")
+      const saveButton = document.querySelector("[data-reader-notes-save]")
+      const status = document.querySelector("[data-reader-notes-status]")
+
+      if (!panel || !source || !input || !reviewSaved || !saveButton || !status) {
+        return
+      }
+
+      const lesson = JSON.parse(source.textContent || "{}")
+
+      function setStatus(text, state = "") {
+        status.textContent = text
+        status.dataset.state = state
+      }
+
+      function setControlsDisabled(disabled) {
+        input.disabled = disabled
+        reviewSaved.disabled = disabled
+        saveButton.disabled = disabled
+      }
+
+      function formatTimestamp(value) {
+        if (!value) {
+          return ""
+        }
+
+        const date = new Date(value)
+
+        if (Number.isNaN(date.getTime())) {
+          return ""
+        }
+
+        return date.toLocaleString(undefined, {
+          month: "short",
+          day: "numeric",
+          hour: "numeric",
+          minute: "2-digit",
+        })
+      }
+
+      async function requestJson(url, options = {}) {
+        const headers = {
+          Accept: "application/json",
+          ...(options.body ? { "Content-Type": "application/json" } : {}),
+          ...(options.headers || {}),
+        }
+
+        const response = await fetch(url, {
+          ...options,
+          credentials: "same-origin",
+          headers,
+        })
+
+        if (response.status === 401) {
+          return { unauthorized: true }
+        }
+
+        const data = await response.json().catch(() => ({}))
+
+        if (!response.ok) {
+          throw new Error(data.error || "Request failed")
+        }
+
+        return data
+      }
+
+      async function loadNote() {
+        setControlsDisabled(true)
+        setStatus("Loading notes...")
+
+        const data = await requestJson("/api/lesson-notes?lessonId=" + encodeURIComponent(lesson.lessonId || ""))
+
+        if (data.unauthorized) {
+          setStatus("Sign in to save notes.", "error")
+          return
+        }
+
+        if (data.note) {
+          input.value = data.note.noteMarkdown || ""
+          reviewSaved.checked = Boolean(data.note.reviewSaved)
+          const savedAt = formatTimestamp(data.note.updatedAt)
+          setStatus(savedAt ? "Saved " + savedAt : "Saved")
+        } else {
+          setStatus("No notes saved yet")
+        }
+
+        setControlsDisabled(false)
+      }
+
+      async function saveNote({ quiet = false } = {}) {
+        setControlsDisabled(true)
+
+        if (!quiet) {
+          setStatus("Saving...")
+        }
+
+        try {
+          const data = await requestJson("/api/lesson-notes", {
+            method: "PUT",
+            body: JSON.stringify({
+              lessonId: lesson.lessonId,
+              lessonTitle: lesson.lessonTitle,
+              lessonUrl: lesson.lessonUrl,
+              noteMarkdown: input.value,
+              reviewSaved: reviewSaved.checked,
+            }),
+          })
+
+          if (data.unauthorized) {
+            setStatus("Sign in to save notes.", "error")
+            return
+          }
+
+          const savedAt = formatTimestamp(data.note?.updatedAt)
+          setStatus(savedAt ? "Saved " + savedAt : "Saved")
+        } catch (error) {
+          console.error(error)
+          setStatus(error.message || "Could not save notes", "error")
+        } finally {
+          setControlsDisabled(false)
+        }
+      }
+
+      input.addEventListener("input", () => {
+        setStatus("Unsaved changes", "dirty")
+      })
+      input.addEventListener("keydown", (event) => {
+        if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "s") {
+          event.preventDefault()
+          saveNote()
+        }
+      })
+      reviewSaved.addEventListener("change", () => {
+        saveNote({ quiet: true })
+      })
+      saveButton.addEventListener("click", () => {
+        saveNote()
+      })
+
+      loadNote().catch((error) => {
+        console.error(error)
+        setStatus("Could not load notes", "error")
+        setControlsDisabled(false)
+      })
+    })()
+  </script>`
+    : ""
+  const lessonProgressControls = lessonData
+    ? `<div class="reader-progress" data-reader-progress>
+            <button class="reader-progress-button" type="button" data-reader-mark-read>Mark read</button>
+            <span class="reader-progress-count" data-reader-read-count>Read 0 times</span>
+          </div>`
+    : ""
+  const lessonProgressScript = lessonData
+    ? `
+  <script>
+    (() => {
+      const source = document.getElementById("lesson-notes-data")
+      const button = document.querySelector("[data-reader-mark-read]")
+      const count = document.querySelector("[data-reader-read-count]")
+
+      if (!source || !button || !count) {
+        return
+      }
+
+      const lesson = JSON.parse(source.textContent || "{}")
+
+      function countLabel(value) {
+        const readCount = Math.max(0, Number(value) || 0)
+        return "Read " + readCount + " " + (readCount === 1 ? "time" : "times")
+      }
+
+      function applyProgress(progress) {
+        const readCount = progress?.readCount || 0
+        count.textContent = countLabel(readCount)
+        button.textContent = progress?.isRead ? "Mark read again" : "Mark read"
+      }
+
+      async function requestJson(url, options = {}) {
+        const headers = {
+          Accept: "application/json",
+          ...(options.body ? { "Content-Type": "application/json" } : {}),
+          ...(options.headers || {}),
+        }
+
+        const response = await fetch(url, {
+          ...options,
+          credentials: "same-origin",
+          headers,
+        })
+
+        if (response.status === 401) {
+          return { unauthorized: true }
+        }
+
+        const data = await response.json().catch(() => ({}))
+
+        if (!response.ok) {
+          throw new Error(data.error || "Request failed")
+        }
+
+        return data
+      }
+
+      async function loadProgress() {
+        const data = await requestJson("/api/lesson-progress?lessonId=" + encodeURIComponent(lesson.lessonId || ""))
+
+        if (data.unauthorized) {
+          button.disabled = true
+          count.textContent = "Sign in to track reads"
+          return
+        }
+
+        applyProgress(data.progress)
+      }
+
+      button.addEventListener("click", async () => {
+        button.disabled = true
+
+        try {
+          const data = await requestJson("/api/lesson-progress", {
+            method: "PUT",
+            body: JSON.stringify({
+              lessonId: lesson.lessonId,
+              isRead: true,
+              incrementReadCount: true,
+            }),
+          })
+
+          if (data.unauthorized) {
+            count.textContent = "Sign in to track reads"
+            return
+          }
+
+          applyProgress(data.progress)
+        } catch (error) {
+          console.error(error)
+          count.textContent = "Could not update reads"
+        } finally {
+          button.disabled = false
+        }
+      })
+
+      loadProgress().catch((error) => {
+        console.error(error)
+        count.textContent = "Could not load reads"
+      })
+    })()
+  </script>`
+    : ""
+  const reviewPageScript = enableReviewPage
+    ? `
+  <script>
+    (() => {
+      const list = document.querySelector("[data-reader-review-list]")
+
+      if (!list) {
+        return
+      }
+
+      async function requestJson(url, options = {}) {
+        const response = await fetch(url, {
+          ...options,
+          credentials: "same-origin",
+          headers: {
+            Accept: "application/json",
+            ...(options.headers || {}),
+          },
+        })
+
+        if (response.status === 401) {
+          return { unauthorized: true }
+        }
+
+        const data = await response.json().catch(() => ({}))
+
+        if (!response.ok) {
+          throw new Error(data.error || "Request failed")
+        }
+
+        return data
+      }
+
+      function formatTimestamp(value) {
+        if (!value) {
+          return ""
+        }
+
+        const date = new Date(value)
+
+        if (Number.isNaN(date.getTime())) {
+          return ""
+        }
+
+        return date.toLocaleString(undefined, {
+          month: "short",
+          day: "numeric",
+          hour: "numeric",
+          minute: "2-digit",
+        })
+      }
+
+      function renderEmpty(text) {
+        const message = document.createElement("p")
+        message.className = "reader-review-empty"
+        message.textContent = text
+        list.replaceChildren(message)
+      }
+
+      function renderNotes(notes) {
+        const savedNotes = notes.filter((note) => note.reviewSaved)
+
+        if (savedNotes.length === 0) {
+          renderEmpty("No lessons saved for review yet.")
+          return
+        }
+
+        const rows = document.createElement("ol")
+        rows.className = "reader-review-list"
+
+        for (const note of savedNotes) {
+          const item = document.createElement("li")
+          item.className = "reader-review-item"
+
+          const link = document.createElement("a")
+          link.href = note.lessonUrl || "/" + note.lessonId + "/"
+          link.textContent = note.lessonTitle || note.lessonId
+          item.append(link)
+
+          const meta = document.createElement("p")
+          meta.className = "reader-review-meta"
+          const timestamp = formatTimestamp(note.reviewSavedAt || note.updatedAt)
+          meta.textContent = timestamp ? "Saved " + timestamp : "Saved for review"
+          item.append(meta)
+
+          const markdown = String(note.noteMarkdown || "").trim()
+
+          if (markdown) {
+            const pre = document.createElement("pre")
+            pre.className = "reader-review-note"
+            pre.textContent = markdown
+            item.append(pre)
+          }
+
+          rows.append(item)
+        }
+
+        list.replaceChildren(rows)
+      }
+
+      requestJson("/api/lesson-notes")
+        .then((data) => {
+          if (data.unauthorized) {
+            renderEmpty("Sign in to view saved lessons.")
+            return
+          }
+
+          renderNotes(data.notes || [])
+        })
+        .catch((error) => {
+          console.error(error)
+          renderEmpty("Could not load saved lessons.")
+        })
+    })()
+  </script>`
     : ""
   const readerAuthControls = `
           <div class="reader-auth" data-reader-auth>
@@ -789,7 +1304,9 @@ function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "", 
 
     .copy-context-button,
     .reader-auth-link,
-    .reader-auth-button {
+    .reader-auth-button,
+    .reader-progress-button,
+    .reader-notes-save {
       min-height: 32px;
       padding: 0.34rem 0.7rem;
       border: 1px solid var(--line-strong);
@@ -808,6 +1325,18 @@ function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "", 
       gap: 8px;
     }
 
+    .reader-progress {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 32px;
+      color: var(--muted);
+      font-family: var(--sans-font);
+      font-size: 13px;
+      line-height: 1.2;
+      white-space: nowrap;
+    }
+
     .reader-auth [hidden] {
       display: none;
     }
@@ -818,7 +1347,9 @@ function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "", 
       text-decoration: none;
     }
 
-    .reader-auth-button:disabled {
+    .reader-auth-button:disabled,
+    .reader-progress-button:disabled,
+    .reader-notes-save:disabled {
       cursor: wait;
       opacity: 0.72;
     }
@@ -844,6 +1375,10 @@ function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "", 
     .reader-auth-link:focus-visible,
     .reader-auth-button:hover,
     .reader-auth-button:focus-visible,
+    .reader-progress-button:hover,
+    .reader-progress-button:focus-visible,
+    .reader-notes-save:hover,
+    .reader-notes-save:focus-visible,
     .lesson-navigator-button:hover,
     .lesson-navigator-button:focus-visible,
     .lesson-navigator-toggle:hover,
@@ -1239,6 +1774,173 @@ function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "", 
       color: var(--text);
     }
 
+    .reader-notes-panel {
+      margin-top: 3.2rem;
+      padding: 1.05rem;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+      font-family: var(--sans-font);
+    }
+
+    .reader-notes-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 1rem;
+    }
+
+    .reader-notes-kicker {
+      margin: 0 0 0.26rem;
+      color: var(--muted);
+      font-size: 0.75rem;
+      line-height: 1.2;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .reader-notes-panel h2 {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      color: var(--heading-strong);
+      font-family: var(--serif-font);
+      font-size: 1.25rem;
+      line-height: 1.2;
+    }
+
+    .reader-review-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      min-height: 32px;
+      color: var(--text);
+      font-size: 0.84rem;
+      line-height: 1.2;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .reader-review-toggle input {
+      width: 1rem;
+      height: 1rem;
+      accent-color: var(--accent);
+    }
+
+    .reader-notes-editor {
+      display: block;
+      color: var(--muted);
+      font-size: 0.84rem;
+      line-height: 1.3;
+    }
+
+    .reader-notes-editor span {
+      display: block;
+      margin-bottom: 0.45rem;
+    }
+
+    .reader-notes-editor textarea {
+      width: 100%;
+      min-height: 12rem;
+      resize: vertical;
+      border: 1px solid var(--line-strong);
+      border-radius: 4px;
+      background: var(--bg);
+      color: var(--text);
+      padding: 0.72rem 0.78rem;
+      font-family: var(--mono-font);
+      font-size: 0.92rem;
+      line-height: 1.55;
+    }
+
+    .reader-notes-editor textarea:focus {
+      border-color: var(--accent);
+      outline: none;
+    }
+
+    .reader-notes-editor textarea:disabled,
+    .reader-review-toggle input:disabled {
+      cursor: wait;
+      opacity: 0.72;
+    }
+
+    .reader-notes-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 0.8rem;
+    }
+
+    .reader-notes-status {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.82rem;
+      line-height: 1.3;
+      text-align: right;
+    }
+
+    .reader-notes-status[data-state="dirty"] {
+      color: var(--heading-soft);
+    }
+
+    .reader-notes-status[data-state="error"] {
+      color: #ffb4b4;
+    }
+
+    .reader-review-page {
+      font-family: var(--sans-font);
+    }
+
+    .reader-review-page h1 {
+      font-family: var(--serif-font);
+    }
+
+    .reader-review-intro,
+    .reader-review-empty {
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .reader-review-list {
+      list-style: none;
+      margin: 1.5rem 0 0;
+      padding: 0;
+    }
+
+    .reader-review-item {
+      margin: 0;
+      padding: 1rem 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .reader-review-item > a {
+      color: var(--heading-strong);
+      font-family: var(--serif-font);
+      font-size: 1.18rem;
+      line-height: 1.3;
+      text-decoration: none;
+    }
+
+    .reader-review-item > a:hover,
+    .reader-review-item > a:focus-visible {
+      color: var(--accent);
+      outline: none;
+    }
+
+    .reader-review-meta {
+      margin: 0.2rem 0 0;
+      color: var(--muted);
+      font-size: 0.8rem;
+      line-height: 1.3;
+    }
+
+    .reader-review-note {
+      margin: 0.75rem 0 0;
+      white-space: pre-wrap;
+    }
+
     @media (min-width: 1100px) {
       .shell.has-lesson-navigator {
         width: min(100% - 48px, 1180px);
@@ -1333,6 +2035,16 @@ function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "", 
         justify-content: flex-start;
       }
 
+      .reader-notes-header,
+      .reader-notes-footer {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .reader-notes-status {
+        text-align: left;
+      }
+
       .lesson-navigator-panel {
         border-left: 0;
         border-right: 0;
@@ -1412,19 +2124,25 @@ ${lessonNavigatorSidebar}
         <div class="reader-actions">
           <nav aria-label="Reader navigation">
             <a href="${recentHref}">Recent</a>
+            <a href="${reviewHref}">Review</a>
             <a href="${topicsHref}">Topics</a>
           </nav>
-          ${copyContextButton}
+          ${lessonProgressControls}
+          ${copyContextButtons}
           ${readerAuthControls}
         </div>
       </header>
       <article>
 ${body}
       </article>
+${lessonNotesMarkup}
     </div>
   </main>
 ${lessonNavigatorMarkup}
 ${copyContextScript}
+${lessonNotesScript}
+${lessonProgressScript}
+${reviewPageScript}
 ${lessonNavigatorScript}
 ${readerChromeScript}
 ${readerAuthScript}
@@ -1456,7 +2174,9 @@ async function renderTarget({ outputRoot, urlPrefix, preserveNames }) {
     const markdown = await fs.readFile(markdownPath, "utf8")
     const title = extractTitle(markdown, markdownRelative)
     const isReading = isIndividualReading(markdownRelative)
+    const lessonRoute = markdownRelativeToRoute(markdownRelative)
     const copyContext = isReading ? buildCopyContext(markdown, title) : ""
+    const copySummary = isReading ? buildSummaryContext(markdown, title) : ""
     const body = String(
       await unified()
         .use(remarkParse)
@@ -1483,10 +2203,37 @@ async function renderTarget({ outputRoot, urlPrefix, preserveNames }) {
         sourceRelative: markdownRelative,
         urlPrefix,
         copyContext,
+        copySummary,
         enableLessonNavigator: isReading,
+        lessonData: isReading
+          ? {
+              lessonId: lessonRoute,
+              lessonTitle: title,
+              lessonUrl: routeWithPrefix(urlPrefix, lessonRoute),
+            }
+          : null,
       }),
     )
   }
+
+  const reviewOutputPath = path.join(outputRoot, "review", "index.html")
+  await fs.mkdir(path.dirname(reviewOutputPath), { recursive: true })
+  await fs.writeFile(
+    reviewOutputPath,
+    renderPage({
+      title: "Review Queue",
+      body: `<section class="reader-review-page">
+<h1>Review Queue</h1>
+<p class="reader-review-intro">Saved lessons and your markdown notes appear here.</p>
+<div data-reader-review-list>
+  <p class="reader-review-empty">Loading saved lessons...</p>
+</div>
+</section>`,
+      sourceRelative: "review/index.md",
+      urlPrefix,
+      enableReviewPage: true,
+    }),
+  )
 
   await fs.writeFile(
     path.join(outputRoot, "404.html"),

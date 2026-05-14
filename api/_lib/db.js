@@ -69,9 +69,48 @@ async function migrateReaderSchema() {
       user_id text NOT NULL REFERENCES reader_users(id) ON DELETE CASCADE,
       lesson_id text NOT NULL,
       is_read boolean NOT NULL DEFAULT true,
+      read_count integer NOT NULL DEFAULT 0,
       read_at timestamptz,
       updated_at timestamptz NOT NULL DEFAULT now(),
       PRIMARY KEY (user_id, lesson_id)
     )
+  `
+
+  await sql`
+    ALTER TABLE reader_lesson_progress
+    ADD COLUMN IF NOT EXISTS read_count integer NOT NULL DEFAULT 0
+  `
+
+  await sql`
+    UPDATE reader_lesson_progress
+    SET read_count = 1
+    WHERE is_read
+      AND read_count = 0
+  `
+
+  await sql`
+    CREATE TABLE IF NOT EXISTS reader_lesson_notes (
+      user_id text NOT NULL REFERENCES reader_users(id) ON DELETE CASCADE,
+      lesson_id text NOT NULL,
+      lesson_title text NOT NULL,
+      lesson_url text NOT NULL,
+      note_markdown text NOT NULL DEFAULT '',
+      review_saved boolean NOT NULL DEFAULT false,
+      review_saved_at timestamptz,
+      created_at timestamptz NOT NULL DEFAULT now(),
+      updated_at timestamptz NOT NULL DEFAULT now(),
+      PRIMARY KEY (user_id, lesson_id)
+    )
+  `
+
+  await sql`
+    CREATE INDEX IF NOT EXISTS reader_lesson_notes_user_updated_idx
+      ON reader_lesson_notes (user_id, updated_at DESC)
+  `
+
+  await sql`
+    CREATE INDEX IF NOT EXISTS reader_lesson_notes_user_review_idx
+      ON reader_lesson_notes (user_id, review_saved_at DESC)
+      WHERE review_saved
   `
 }
