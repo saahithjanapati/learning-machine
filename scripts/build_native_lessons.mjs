@@ -654,10 +654,25 @@ function renderPage({
             <span>Save for review</span>
           </label>
         </div>
-        <label class="reader-notes-editor">
+        <div class="reader-notes-mode" role="group" aria-label="Notes mode">
+          <button class="reader-notes-mode-button" type="button" data-reader-notes-mode="edit" aria-pressed="true">Edit</button>
+          <button class="reader-notes-mode-button" type="button" data-reader-notes-mode="preview" aria-pressed="false">Preview</button>
+        </div>
+        <div class="reader-notes-toolbar" aria-label="Markdown formatting">
+          <button class="reader-notes-tool" type="button" data-reader-notes-format="bold" title="Bold"><strong>B</strong></button>
+          <button class="reader-notes-tool" type="button" data-reader-notes-format="italic" title="Italic"><em>I</em></button>
+          <button class="reader-notes-tool" type="button" data-reader-notes-format="bullet" title="Bulleted list">•</button>
+          <button class="reader-notes-tool" type="button" data-reader-notes-format="numbered" title="Numbered list">1.</button>
+          <button class="reader-notes-tool" type="button" data-reader-notes-format="quote" title="Quote">“</button>
+          <button class="reader-notes-tool" type="button" data-reader-notes-format="code" title="Inline code">&lt;/&gt;</button>
+        </div>
+        <label class="reader-notes-editor" data-reader-notes-editor>
           <span>Markdown notes</span>
           <textarea data-reader-notes-input rows="9" placeholder="Questions, takeaways, examples to revisit..."></textarea>
         </label>
+        <div class="reader-notes-preview" data-reader-notes-preview hidden>
+          <p class="reader-notes-empty">No notes to preview yet.</p>
+        </div>
         <div class="reader-notes-footer">
           <button class="reader-notes-save" type="button" data-reader-notes-save>Save notes</button>
           <p class="reader-notes-status" data-reader-notes-status>Loading notes...</p>
@@ -671,16 +686,21 @@ function renderPage({
     (() => {
       const panel = document.querySelector("[data-reader-notes]")
       const source = document.getElementById("lesson-notes-data")
+      const editor = document.querySelector("[data-reader-notes-editor]")
       const input = document.querySelector("[data-reader-notes-input]")
+      const preview = document.querySelector("[data-reader-notes-preview]")
       const reviewSaved = document.querySelector("[data-reader-review-saved]")
       const saveButton = document.querySelector("[data-reader-notes-save]")
       const status = document.querySelector("[data-reader-notes-status]")
+      const modeButtons = Array.from(document.querySelectorAll("[data-reader-notes-mode]"))
+      const formatButtons = Array.from(document.querySelectorAll("[data-reader-notes-format]"))
 
-      if (!panel || !source || !input || !reviewSaved || !saveButton || !status) {
+      if (!panel || !source || !editor || !input || !preview || !reviewSaved || !saveButton || !status) {
         return
       }
 
       const lesson = JSON.parse(source.textContent || "{}")
+      let mode = "edit"
 
       function setStatus(text, state = "") {
         status.textContent = text
@@ -691,6 +711,204 @@ function renderPage({
         input.disabled = disabled
         reviewSaved.disabled = disabled
         saveButton.disabled = disabled
+        for (const button of formatButtons) {
+          button.disabled = disabled
+        }
+      }
+
+      function escapeHtml(value) {
+        return String(value)
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#039;")
+      }
+
+      function renderInline(markdown) {
+        const tick = String.fromCharCode(96)
+        return escapeHtml(markdown)
+          .replace(new RegExp(tick + "([^" + tick + "]+)" + tick, "g"), "<code>$1</code>")
+          .replace(/\\*\\*([^*]+)\\*\\*/g, "<strong>$1</strong>")
+          .replace(/(^|\\W)\\*([^*]+)\\*/g, "$1<em>$2</em>")
+      }
+
+      function markdownToHtml(markdown) {
+        const lines = String(markdown || "").replace(/\\r\\n/g, "\\n").split("\\n")
+        const html = []
+        let paragraph = []
+        let listType = ""
+
+        function closeParagraph() {
+          if (paragraph.length === 0) {
+            return
+          }
+
+          html.push("<p>" + renderInline(paragraph.join(" ")) + "</p>")
+          paragraph = []
+        }
+
+        function closeList() {
+          if (!listType) {
+            return
+          }
+
+          html.push("</" + listType + ">")
+          listType = ""
+        }
+
+        function openList(type) {
+          closeParagraph()
+
+          if (listType && listType !== type) {
+            closeList()
+          }
+
+          if (!listType) {
+            html.push("<" + type + ">")
+            listType = type
+          }
+        }
+
+        for (const line of lines) {
+          const trimmed = line.trim()
+
+          if (!trimmed) {
+            closeParagraph()
+            closeList()
+            continue
+          }
+
+          const heading = trimmed.match(/^(#{1,3})\\s+(.+)$/)
+
+          if (heading) {
+            closeParagraph()
+            closeList()
+            const level = heading[1].length + 2
+            html.push("<h" + level + ">" + renderInline(heading[2]) + "</h" + level + ">")
+            continue
+          }
+
+          const bullet = trimmed.match(/^[-*]\\s+(.+)$/)
+
+          if (bullet) {
+            openList("ul")
+            html.push("<li>" + renderInline(bullet[1]) + "</li>")
+            continue
+          }
+
+          const numbered = trimmed.match(/^\\d+[.)]\\s+(.+)$/)
+
+          if (numbered) {
+            openList("ol")
+            html.push("<li>" + renderInline(numbered[1]) + "</li>")
+            continue
+          }
+
+          const quote = trimmed.match(/^>\\s?(.+)$/)
+
+          if (quote) {
+            closeParagraph()
+            closeList()
+            html.push("<blockquote><p>" + renderInline(quote[1]) + "</p></blockquote>")
+            continue
+          }
+
+          closeList()
+          paragraph.push(trimmed)
+        }
+
+        closeParagraph()
+        closeList()
+
+        return html.join("\\n") || '<p class="reader-notes-empty">No notes to preview yet.</p>'
+      }
+
+      function renderPreview() {
+        preview.innerHTML = markdownToHtml(input.value)
+      }
+
+      function setMode(nextMode) {
+        mode = nextMode === "preview" ? "preview" : "edit"
+        editor.hidden = mode !== "edit"
+        preview.hidden = mode !== "preview"
+
+        for (const button of modeButtons) {
+          const isActive = button.dataset.readerNotesMode === mode
+          button.setAttribute("aria-pressed", isActive ? "true" : "false")
+        }
+
+        if (mode === "preview") {
+          renderPreview()
+        } else {
+          input.focus()
+        }
+      }
+
+      function linePrefix(prefix) {
+        const start = input.selectionStart
+        const end = input.selectionEnd
+        const value = input.value
+        const lineStart = value.lastIndexOf("\\n", Math.max(0, start - 1)) + 1
+        const lineEnd = value.indexOf("\\n", end)
+        const selectionEnd = lineEnd === -1 ? value.length : lineEnd
+        const block = value.slice(lineStart, selectionEnd)
+        const emptyPrefix = typeof prefix === "function" ? prefix(0, "") : prefix
+
+        if (!block.trim()) {
+          input.setRangeText(emptyPrefix, lineStart, selectionEnd, "end")
+          return
+        }
+
+        const lines = block.split("\\n")
+        const nextBlock = lines.map((line, index) => {
+          if (!line.trim()) {
+            return line
+          }
+
+          return typeof prefix === "function" ? prefix(index, line) : prefix + line
+        }).join("\\n")
+
+        input.setRangeText(nextBlock, lineStart, selectionEnd, "select")
+      }
+
+      function wrapSelection(before, after = before, placeholder = "text") {
+        const start = input.selectionStart
+        const end = input.selectionEnd
+        const selected = input.value.slice(start, end) || placeholder
+        input.setRangeText(before + selected + after, start, end, "select")
+      }
+
+      function markDirty() {
+        setStatus("Unsaved changes", "dirty")
+        if (mode === "preview") {
+          renderPreview()
+        }
+      }
+
+      function applyFormat(kind) {
+        if (mode !== "edit") {
+          setMode("edit")
+        }
+
+        input.focus()
+
+        if (kind === "bold") {
+          wrapSelection("**", "**", "bold text")
+        } else if (kind === "italic") {
+          wrapSelection("*", "*", "italic text")
+        } else if (kind === "bullet") {
+          linePrefix("- ")
+        } else if (kind === "numbered") {
+          linePrefix((index, line) => String(index + 1) + ". " + line)
+        } else if (kind === "quote") {
+          linePrefix("> ")
+        } else if (kind === "code") {
+          const tick = String.fromCharCode(96)
+          wrapSelection(tick, tick, "code")
+        }
+
+        markDirty()
       }
 
       function formatTimestamp(value) {
@@ -752,9 +970,11 @@ function renderPage({
         if (data.note) {
           input.value = data.note.noteMarkdown || ""
           reviewSaved.checked = Boolean(data.note.reviewSaved)
+          renderPreview()
           const savedAt = formatTimestamp(data.note.updatedAt)
           setStatus(savedAt ? "Saved " + savedAt : "Saved")
         } else {
+          renderPreview()
           setStatus("No notes saved yet")
         }
 
@@ -786,6 +1006,7 @@ function renderPage({
           }
 
           const savedAt = formatTimestamp(data.note?.updatedAt)
+          renderPreview()
           setStatus(savedAt ? "Saved " + savedAt : "Saved")
         } catch (error) {
           console.error(error)
@@ -796,7 +1017,7 @@ function renderPage({
       }
 
       input.addEventListener("input", () => {
-        setStatus("Unsaved changes", "dirty")
+        markDirty()
       })
       input.addEventListener("keydown", (event) => {
         if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "s") {
@@ -810,6 +1031,16 @@ function renderPage({
       saveButton.addEventListener("click", () => {
         saveNote()
       })
+      for (const button of modeButtons) {
+        button.addEventListener("click", () => {
+          setMode(button.dataset.readerNotesMode)
+        })
+      }
+      for (const button of formatButtons) {
+        button.addEventListener("click", () => {
+          applyFormat(button.dataset.readerNotesFormat)
+        })
+      }
 
       loadNote().catch((error) => {
         console.error(error)
@@ -1137,6 +1368,114 @@ function renderPage({
         list.replaceChildren(message)
       }
 
+      function escapeHtml(value) {
+        return String(value)
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#039;")
+      }
+
+      function renderInline(markdown) {
+        const tick = String.fromCharCode(96)
+        return escapeHtml(markdown)
+          .replace(new RegExp(tick + "([^" + tick + "]+)" + tick, "g"), "<code>$1</code>")
+          .replace(/\\*\\*([^*]+)\\*\\*/g, "<strong>$1</strong>")
+          .replace(/(^|\\W)\\*([^*]+)\\*/g, "$1<em>$2</em>")
+      }
+
+      function markdownToHtml(markdown) {
+        const lines = String(markdown || "").replace(/\\r\\n/g, "\\n").split("\\n")
+        const html = []
+        let paragraph = []
+        let listType = ""
+
+        function closeParagraph() {
+          if (paragraph.length === 0) {
+            return
+          }
+
+          html.push("<p>" + renderInline(paragraph.join(" ")) + "</p>")
+          paragraph = []
+        }
+
+        function closeList() {
+          if (!listType) {
+            return
+          }
+
+          html.push("</" + listType + ">")
+          listType = ""
+        }
+
+        function openList(type) {
+          closeParagraph()
+
+          if (listType && listType !== type) {
+            closeList()
+          }
+
+          if (!listType) {
+            html.push("<" + type + ">")
+            listType = type
+          }
+        }
+
+        for (const line of lines) {
+          const trimmed = line.trim()
+
+          if (!trimmed) {
+            closeParagraph()
+            closeList()
+            continue
+          }
+
+          const heading = trimmed.match(/^(#{1,3})\\s+(.+)$/)
+
+          if (heading) {
+            closeParagraph()
+            closeList()
+            const level = heading[1].length + 2
+            html.push("<h" + level + ">" + renderInline(heading[2]) + "</h" + level + ">")
+            continue
+          }
+
+          const bullet = trimmed.match(/^[-*]\\s+(.+)$/)
+
+          if (bullet) {
+            openList("ul")
+            html.push("<li>" + renderInline(bullet[1]) + "</li>")
+            continue
+          }
+
+          const numbered = trimmed.match(/^\\d+[.)]\\s+(.+)$/)
+
+          if (numbered) {
+            openList("ol")
+            html.push("<li>" + renderInline(numbered[1]) + "</li>")
+            continue
+          }
+
+          const quote = trimmed.match(/^>\\s?(.+)$/)
+
+          if (quote) {
+            closeParagraph()
+            closeList()
+            html.push("<blockquote><p>" + renderInline(quote[1]) + "</p></blockquote>")
+            continue
+          }
+
+          closeList()
+          paragraph.push(trimmed)
+        }
+
+        closeParagraph()
+        closeList()
+
+        return html.join("\\n") || '<p class="reader-notes-empty">No notes saved.</p>'
+      }
+
       function renderNotes(notes) {
         const savedNotes = notes.filter((note) => note.reviewSaved)
 
@@ -1166,10 +1505,10 @@ function renderPage({
           const markdown = String(note.noteMarkdown || "").trim()
 
           if (markdown) {
-            const pre = document.createElement("pre")
-            pre.className = "reader-review-note"
-            pre.textContent = markdown
-            item.append(pre)
+            const notePreview = document.createElement("div")
+            notePreview.className = "reader-review-note markdown-note-view"
+            notePreview.innerHTML = markdownToHtml(markdown)
+            item.append(notePreview)
           }
 
           rows.append(item)
@@ -1462,6 +1801,8 @@ function renderPage({
     .reader-auth-link,
     .reader-auth-button,
     .reader-progress-button,
+    .reader-notes-mode-button,
+    .reader-notes-tool,
     .reader-notes-save {
       min-height: 32px;
       padding: 0.34rem 0.7rem;
@@ -1522,6 +1863,7 @@ function renderPage({
 
     .reader-auth-button:disabled,
     .reader-progress-button:disabled,
+    .reader-notes-tool:disabled,
     .reader-notes-save:disabled {
       cursor: wait;
       opacity: 0.72;
@@ -1550,6 +1892,10 @@ function renderPage({
     .reader-auth-button:focus-visible,
     .reader-progress-button:hover,
     .reader-progress-button:focus-visible,
+    .reader-notes-mode-button:hover,
+    .reader-notes-mode-button:focus-visible,
+    .reader-notes-tool:hover,
+    .reader-notes-tool:focus-visible,
     .reader-notes-save:hover,
     .reader-notes-save:focus-visible,
     .lesson-navigator-button:hover,
@@ -1561,6 +1907,12 @@ function renderPage({
       border-color: var(--accent);
       color: var(--accent);
       outline: none;
+    }
+
+    .reader-notes-mode-button[aria-pressed="true"] {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: rgb(134 173 243 / 0.1);
     }
 
     .lesson-navigator-sidebar {
@@ -2001,6 +2353,34 @@ function renderPage({
       accent-color: var(--accent);
     }
 
+    .reader-notes-mode,
+    .reader-notes-toolbar {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 0.75rem;
+    }
+
+    .reader-notes-mode {
+      gap: 6px;
+    }
+
+    .reader-notes-toolbar {
+      padding: 0.42rem;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: rgb(255 255 255 / 0.025);
+    }
+
+    .reader-notes-tool {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 34px;
+      padding-inline: 0.5rem;
+    }
+
     .reader-notes-editor {
       display: block;
       color: var(--muted);
@@ -2036,6 +2416,84 @@ function renderPage({
     .reader-review-toggle input:disabled {
       cursor: wait;
       opacity: 0.72;
+    }
+
+    .reader-notes-preview,
+    .markdown-note-view {
+      border: 1px solid var(--line-strong);
+      border-radius: 4px;
+      background: var(--bg);
+      color: var(--text);
+      padding: 0.72rem 0.78rem;
+      font-family: var(--sans-font);
+      font-size: 0.94rem;
+      line-height: 1.55;
+    }
+
+    .reader-notes-preview {
+      min-height: 12rem;
+    }
+
+    .reader-notes-preview :first-child,
+    .markdown-note-view :first-child {
+      margin-top: 0;
+    }
+
+    .reader-notes-preview :last-child,
+    .markdown-note-view :last-child {
+      margin-bottom: 0;
+    }
+
+    .reader-notes-preview h3,
+    .reader-notes-preview h4,
+    .reader-notes-preview h5,
+    .markdown-note-view h3,
+    .markdown-note-view h4,
+    .markdown-note-view h5 {
+      margin: 1rem 0 0.42rem;
+      padding: 0;
+      border: 0;
+      color: var(--heading-strong);
+      font-family: var(--sans-font);
+      font-size: 1rem;
+      line-height: 1.25;
+    }
+
+    .reader-notes-preview p,
+    .markdown-note-view p {
+      margin: 0.55rem 0;
+    }
+
+    .reader-notes-preview ul,
+    .reader-notes-preview ol,
+    .markdown-note-view ul,
+    .markdown-note-view ol {
+      margin: 0.55rem 0;
+      padding-left: 1.25rem;
+    }
+
+    .reader-notes-preview blockquote,
+    .markdown-note-view blockquote {
+      margin: 0.7rem 0;
+      padding-left: 0.8rem;
+      border-left: 2px solid var(--accent);
+      color: var(--muted);
+    }
+
+    .reader-notes-preview code,
+    .markdown-note-view code {
+      padding: 0.08rem 0.24rem;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      background: var(--surface);
+      color: var(--heading-soft);
+      font-family: var(--mono-font);
+      font-size: 0.9em;
+    }
+
+    .reader-notes-empty {
+      margin: 0;
+      color: var(--muted);
     }
 
     .reader-notes-footer {
