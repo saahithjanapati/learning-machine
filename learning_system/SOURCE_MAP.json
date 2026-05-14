@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_on": "2026-05-12",
+  "generated_on": "2026-05-13",
   "generated_by": "scripts/learning_cli.py source-map",
   "roots": [
     {
@@ -1891,6 +1891,13 @@
       "transcript_path": "materials/processed/ai/morebench-evaluating-procedural-pluralistic-moral-reasoning.md",
       "root_topic": "ai",
       "source_pdf": null,
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/ai/natural-emergent-misalignment-from-reward-hacking-in-production-rl.md",
+      "root_topic": "ai",
+      "source_pdf": "https://www-cdn.anthropic.com/daad4360a8bdc707f8b22e3e745796ba27e57fb3.pdf",
       "duplicate_equivalents": [],
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
