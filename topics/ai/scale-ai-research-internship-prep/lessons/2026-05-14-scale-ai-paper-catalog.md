@@ -39,6 +39,8 @@ Items can naturally touch several themes. Each paper is listed once under the br
 ## Interpretability And Representation Tools
 
 - [Features as Rewards](../../lessons/2026-05-06-features-as-rewards.md): interpretability probes as scalable reward functions.
+- [SparseRM](../../lessons/2026-05-15-sparserm-lightweight-preference-modeling-sparse-autoencoder.md): sparse-autoencoder preference directions as a lightweight reward model and online DPO filter.
+- [Interpretable Reward Model Via Sparse Autoencoder](../../lessons/2026-05-15-interpretable-reward-model-via-sparse-autoencoder.md): SAE features as the reward basis, with feature-level attribution and preference manipulation.
 - [Reinforcement Learning for Knowledge Awareness](../../lessons/2026-05-07-rl-for-knowledge-awareness.md): activation readouts as rewards for epistemic behavior.
 - [The Quantization Model Of Neural Scaling](../../lessons/2026-05-14-quantization-model-neural-scaling.md): original quanta paper connecting scaling laws, emergent abilities, and gradient-discovered candidate mechanisms.
 - [On Neural Scaling And The Quanta Hypothesis](../../lessons/2026-05-14-on-neural-scaling-and-the-quanta-hypothesis.md): scaling theory as a bridge between smooth loss laws, discrete mechanisms, sparse features, and interpretability limits.

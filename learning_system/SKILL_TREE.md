@@ -44,8 +44,8 @@ Hierarchical topic tree discovered from `topics/` paths.
 
 ## Recent Topics
 
+- AI / Collection + Scale AI Prep -> Paper Lesson: Interpretable Reward Model Via Sparse Autoencoder
+- AI / Collection + Scale AI Prep -> Paper Lesson: SparseRM Lightweight Preference Modeling With Sparse Autoencoders
 - AI / Collection + Scale AI Prep -> Paper Lesson: The Quantization Model Of Neural Scaling
 - AI / Collection + Scale AI Prep -> Article Lesson: On Neural Scaling And The Quanta Hypothesis
 - AI / Collection + Scale AI Prep -> Paper Lesson: RubricEM: Meta-RL with Rubric-guided Policy Decomposition beyo
-- AI / Collection + Scale AI Prep -> Paper Lesson: Automated alignment is harder than you think
-- AI / Collection + Scale AI Prep -> Paper Lesson: The Quest for the Right Mediator: Surveying Mechanistic Interp

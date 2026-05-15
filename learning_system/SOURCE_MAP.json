@@ -1875,6 +1875,13 @@
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
     {
+      "transcript_path": "materials/processed/ai/interpretable-reward-model-via-sparse-autoencoder.md",
+      "root_topic": "ai",
+      "source_pdf": "https://arxiv.org/pdf/2508.08746",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
       "transcript_path": "materials/processed/ai/jukebox-a-generative-model-for-music.md",
       "root_topic": "ai",
       "source_pdf": "https://arxiv.org/abs/2005.00341",
@@ -2190,6 +2197,13 @@
       "transcript_path": "materials/processed/ai/sparse-coding-overcomplete-basis-set-strategy-employed-by-v1.md",
       "root_topic": "ai",
       "source_pdf": "https://www.sciencedirect.com/science/article/pii/S0042698997001697",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/ai/sparserm-lightweight-preference-modeling-with-sparse-autoencoder.md",
+      "root_topic": "ai",
+      "source_pdf": "https://arxiv.org/pdf/2511.07896",
       "duplicate_equivalents": [],
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
