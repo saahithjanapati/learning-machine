@@ -107,6 +107,7 @@ Policy:
 - [materials/processed/ai/co-rewarding-stable-self-supervised-rl-reasoning.md](../../../materials/processed/ai/co-rewarding-stable-self-supervised-rl-reasoning.md)
 - [materials/processed/ai/adasearch-balancing-parametric-knowledge-search.md](../../../materials/processed/ai/adasearch-balancing-parametric-knowledge-search.md)
 - [materials/processed/ai/can-revealed-preferences-clarify-llm-alignment-steering.md](../../../materials/processed/ai/can-revealed-preferences-clarify-llm-alignment-steering.md)
+- [materials/processed/ai/lora-without-regret.md](../../../materials/processed/ai/lora-without-regret.md)
 
 ## Cross-Filing Collections
 

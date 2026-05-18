@@ -37,6 +37,7 @@ Items can naturally touch several themes. Each paper is listed once under the br
 - [RubricEM](../../lessons/2026-05-14-rubricem-meta-rl-with-rubric-guided-policy-decomposition-beyond-verifiab.md): rubric-guided meta-RL for long-horizon research agents.
 - [Beyond Correctness](../../lessons/2026-05-18-beyond-correctness-confidence-aware-reward-modeling.md): confidence-aware reward modeling for reasoning quality beyond final-answer correctness.
 - [Co-rewarding](../../lessons/2026-05-18-co-rewarding-stable-self-supervised-rl-reasoning.md): self-supervised RL stabilized with complementary reward views.
+- [LoRA Without Regret](../../lessons/2026-05-18-lora-without-regret.md): Thinking Machines' empirical case that LoRA can match FullFT across many post-training settings when capacity and layer coverage are right.
 
 ## Interpretability And Representation Tools
 

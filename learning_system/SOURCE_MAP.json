@@ -1987,6 +1987,13 @@
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
     {
+      "transcript_path": "materials/processed/ai/lora-without-regret.md",
+      "root_topic": "ai",
+      "source_pdf": "https://thinkingmachines.ai/blog/lora/",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
       "transcript_path": "materials/processed/ai/machines-of-faithful-obedience.md",
       "root_topic": "ai",
       "source_pdf": "https://windowsontheory.org/2025/06/24/machines-of-faithful-obedience/",

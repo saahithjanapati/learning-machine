@@ -116,6 +116,7 @@ Files: 96
 - `https://arxiv.org/abs/2508.00410` -> `co-rewarding-stable-self-supervised-rl-reasoning.md` (strategy: `individual self-supervised RL paper normalization and medium/full lesson`)
 - `https://arxiv.org/abs/2512.16883` -> `adasearch-balancing-parametric-knowledge-search.md` (strategy: `individual agentic search paper normalization and medium/full lesson`)
 - `https://arxiv.org/abs/2605.08556` -> `can-revealed-preferences-clarify-llm-alignment-steering.md` (strategy: `individual revealed-preference alignment paper normalization and medium/full lesson`)
+- `https://thinkingmachines.ai/blog/lora/` -> `lora-without-regret.md` (strategy: `direct article extraction, post-training / LoRA lesson normalization, and Scale AI prep cross-filing`)
 
 ## 2026-05-14 Tweet Paper Batch
 

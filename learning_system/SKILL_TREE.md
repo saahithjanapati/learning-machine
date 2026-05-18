@@ -44,8 +44,8 @@ Hierarchical topic tree discovered from `topics/` paths.
 
 ## Recent Topics
 
+- AI / Collection + Scale AI Prep -> Article Lesson: LoRA Without Regret
 - AI / Collection + Scale AI Prep -> Paper Lesson: Can Revealed Preferences Clarify LLM Alignment And Steering
 - AI / Collection + Scale AI Prep -> Paper Lesson: AdaSearch
 - AI / Collection + Scale AI Prep -> Paper Lesson: Co-rewarding
 - AI / Collection + Scale AI Prep -> Paper Lesson: Beyond Correctness
-- AI / Collection + Scale AI Prep -> Paper Lesson: Reasoning About Uncertainty
