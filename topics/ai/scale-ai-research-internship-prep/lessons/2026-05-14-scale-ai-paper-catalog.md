@@ -23,6 +23,7 @@ Items can naturally touch several themes. Each paper is listed once under the br
 ## Post-Training And Reward Signals
 
 - [PostTrainBench](../../lessons/2026-05-03-posttrainbench-llm-agents-automate-post-training.md): whether LLM agents can automate post-training workflows.
+- [Distilled Pretraining](../../lessons/2026-05-18-distilled-pretraining-test-time-scaling-icl.md): soft-label pretraining improves pass@k diversity for verifier-driven inference while exposing a tradeoff with exact in-context copying.
 - [SFT, RL, and On-Policy Distillation](../../lessons/2026-05-03-sft-rl-on-policy-distillation.md): conceptual map of SFT, RL, OPD, teachers, and gradient shape.
 - [What We Learned From Letting AI Posttrain AI](../../lessons/2026-05-04-letting-ai-posttrain-ai.md): agent-assisted post-training as a research process.
 - [PipelineRL](../../lessons/2026-05-05-pipelinerl.md): infrastructure and pipeline details for scalable RL post-training.

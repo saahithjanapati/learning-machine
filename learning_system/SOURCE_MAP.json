@@ -1796,6 +1796,13 @@
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
     {
+      "transcript_path": "materials/processed/ai/distilled-pretraining-data-in-context-learning-test-time-scaling.md",
+      "root_topic": "ai",
+      "source_pdf": "https://arxiv.org/pdf/2509.01649",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
       "transcript_path": "materials/processed/ai/dive-into-claude-code-design-space-of-ai-agent-systems.md",
       "root_topic": "ai",
       "source_pdf": "https://arxiv.org/abs/2604.14228",
