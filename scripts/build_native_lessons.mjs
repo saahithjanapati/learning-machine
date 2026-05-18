@@ -1131,7 +1131,9 @@ function renderPage({
   const lessonProgressControls = lessonData
     ? `<div class="reader-progress" data-reader-progress>
             <button class="reader-progress-button" type="button" data-reader-mark-read>Mark read</button>
+            <button class="reader-progress-button reader-priority-button" type="button" data-reader-toggle-priority>Deprioritize</button>
             <span class="reader-progress-count" data-reader-read-count>Read 0 times</span>
+            <span class="reader-priority-status" data-reader-priority-status>Normal priority</span>
           </div>`
     : ""
   const lessonProgressScript = lessonData
@@ -1139,10 +1141,12 @@ function renderPage({
   <script>
     (() => {
       const source = document.getElementById("lesson-notes-data")
-      const button = document.querySelector("[data-reader-mark-read]")
+      const readButton = document.querySelector("[data-reader-mark-read]")
+      const priorityButton = document.querySelector("[data-reader-toggle-priority]")
       const count = document.querySelector("[data-reader-read-count]")
+      const priorityStatus = document.querySelector("[data-reader-priority-status]")
 
-      if (!source || !button || !count) {
+      if (!source || !readButton || !priorityButton || !count || !priorityStatus) {
         return
       }
 
@@ -1155,13 +1159,20 @@ function renderPage({
 
       function applyProgress(progress) {
         const readCount = progress?.readCount || 0
+        const priorityState = progress?.priorityState === "deprioritized" ? "deprioritized" : "normal"
+        const isDeprioritized = priorityState === "deprioritized"
         count.textContent = countLabel(readCount)
         count.classList.toggle("is-read", readCount > 0)
-        button.textContent = progress?.isRead ? "Mark read again" : "Mark read"
+        priorityStatus.textContent = isDeprioritized ? "Deprioritized" : "Normal priority"
+        priorityStatus.classList.toggle("is-deprioritized", isDeprioritized)
+        readButton.textContent = progress?.isRead ? "Mark read again" : "Mark read"
+        priorityButton.textContent = isDeprioritized ? "Reprioritize" : "Deprioritize"
+        priorityButton.classList.toggle("is-deprioritized", isDeprioritized)
         document.dispatchEvent(new CustomEvent("reader-progress-updated", {
           detail: {
             lessonId: lesson.lessonId,
             readCount,
+            priorityState,
           },
         }))
       }
@@ -1196,16 +1207,18 @@ function renderPage({
         const data = await requestJson("/api/lesson-progress?lessonId=" + encodeURIComponent(lesson.lessonId || ""))
 
         if (data.unauthorized) {
-          button.disabled = true
+          readButton.disabled = true
+          priorityButton.disabled = true
           count.textContent = "Sign in to track reads"
+          priorityStatus.textContent = "Sign in to prioritize"
           return
         }
 
         applyProgress(data.progress)
       }
 
-      button.addEventListener("click", async () => {
-        button.disabled = true
+      readButton.addEventListener("click", async () => {
+        readButton.disabled = true
 
         try {
           const data = await requestJson("/api/lesson-progress", {
@@ -1227,7 +1240,37 @@ function renderPage({
           console.error(error)
           count.textContent = "Could not update reads"
         } finally {
-          button.disabled = false
+          readButton.disabled = false
+        }
+      })
+
+      priorityButton.addEventListener("click", async () => {
+        priorityButton.disabled = true
+
+        const nextPriorityState = priorityButton.classList.contains("is-deprioritized")
+          ? "normal"
+          : "deprioritized"
+
+        try {
+          const data = await requestJson("/api/lesson-progress", {
+            method: "PUT",
+            body: JSON.stringify({
+              lessonId: lesson.lessonId,
+              priorityState: nextPriorityState,
+            }),
+          })
+
+          if (data.unauthorized) {
+            priorityStatus.textContent = "Sign in to prioritize"
+            return
+          }
+
+          applyProgress(data.progress)
+        } catch (error) {
+          console.error(error)
+          priorityStatus.textContent = "Could not update priority"
+        } finally {
+          priorityButton.disabled = false
         }
       })
 
@@ -1282,6 +1325,13 @@ function renderPage({
         return readCount + " " + (readCount === 1 ? "read" : "reads")
       }
 
+      function lessonProgress(lessonId) {
+        return progressByLessonId.get(lessonId) || {
+          readCount: 0,
+          priorityState: "normal",
+        }
+      }
+
       function ensureBadge(target, lessonId) {
         let badge = target.querySelector(":scope > [data-reader-title-read-count]")
 
@@ -1297,11 +1347,14 @@ function renderPage({
       }
 
       function updateBadge(target, lessonId) {
-        const readCount = progressByLessonId.get(lessonId) || 0
+        const progress = lessonProgress(lessonId)
+        const readCount = progress.readCount || 0
+        const isDeprioritized = progress.priorityState === "deprioritized"
         const badge = ensureBadge(target, lessonId)
-        badge.textContent = readCountLabel(readCount)
+        badge.textContent = isDeprioritized ? readCountLabel(readCount) + " · deprioritized" : readCountLabel(readCount)
         badge.classList.toggle("is-read", readCount > 0)
         badge.classList.toggle("is-unread", readCount === 0)
+        badge.classList.toggle("is-deprioritized", isDeprioritized)
       }
 
       function firstLessonLink(container) {
@@ -1336,11 +1389,14 @@ function renderPage({
               lessonListOrder.set(row, index)
             }
 
-            const readCount = progressByLessonId.get(lessonLink.lessonId) || 0
+            const progress = lessonProgress(lessonLink.lessonId)
+            const readCount = progress.readCount || 0
+            const isDeprioritized = progress.priorityState === "deprioritized"
             row.classList.toggle("reader-progress-list-item", true)
             row.classList.toggle("is-read", readCount > 0)
             row.classList.toggle("is-unread", readCount === 0)
-            lessonRows.push({ row, readCount, originalIndex: lessonListOrder.get(row) ?? index })
+            row.classList.toggle("is-deprioritized", isDeprioritized)
+            lessonRows.push({ row, readCount, isDeprioritized, originalIndex: lessonListOrder.get(row) ?? index })
           })
 
           if (lessonRows.length < 2 || lessonRows.length !== rows.length) {
@@ -1348,8 +1404,9 @@ function renderPage({
           }
 
           const sortedRows = [...lessonRows].sort((a, b) => {
+            const priorityBucket = Number(a.isDeprioritized) - Number(b.isDeprioritized)
             const readBucket = Number(a.readCount > 0) - Number(b.readCount > 0)
-            return readBucket || a.originalIndex - b.originalIndex
+            return priorityBucket || readBucket || a.originalIndex - b.originalIndex
           })
 
           sortedRows.forEach(({ row }) => {
@@ -1426,7 +1483,10 @@ function renderPage({
 
           for (const row of progressRows) {
             if (row.lessonId) {
-              progressByLessonId.set(row.lessonId, Math.max(0, Number(row.readCount) || 0))
+              progressByLessonId.set(row.lessonId, {
+                readCount: Math.max(0, Number(row.readCount) || 0),
+                priorityState: row.priorityState === "deprioritized" ? "deprioritized" : "normal",
+              })
             }
           }
 
@@ -1443,7 +1503,10 @@ function renderPage({
           return
         }
 
-        progressByLessonId.set(lessonId, Math.max(0, Number(event.detail?.readCount) || 0))
+        progressByLessonId.set(lessonId, {
+          readCount: Math.max(0, Number(event.detail?.readCount) || 0),
+          priorityState: event.detail?.priorityState === "deprioritized" ? "deprioritized" : "normal",
+        })
         annotatePage()
       })
     })()
@@ -2072,7 +2135,17 @@ function renderPage({
       color: #ffe08a;
     }
 
-    .reader-progress-count {
+    .reader-progress-list-item.is-deprioritized > a {
+      color: #9ca3af;
+    }
+
+    .reader-progress-list-item.is-deprioritized > a:hover,
+    .reader-progress-list-item.is-deprioritized > a:focus-visible {
+      color: #d1d5db;
+    }
+
+    .reader-progress-count,
+    .reader-priority-status {
       display: inline-flex;
       align-items: center;
       padding: 0.18rem 0.48rem;
@@ -2099,6 +2172,19 @@ function renderPage({
       border-color: rgba(250, 204, 21, 0.5);
       color: #fde68a;
       background: rgba(113, 63, 18, 0.55);
+    }
+
+    .reader-title-read-count.is-deprioritized,
+    .reader-priority-status.is-deprioritized {
+      border-color: rgba(148, 163, 184, 0.45);
+      color: #cbd5e1;
+      background: rgba(51, 65, 85, 0.62);
+    }
+
+    .reader-priority-button.is-deprioritized {
+      border-color: rgba(148, 163, 184, 0.45);
+      color: #d1d5db;
+      background: rgba(51, 65, 85, 0.54);
     }
 
     .reader-auth [hidden] {

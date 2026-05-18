@@ -262,6 +262,8 @@ test(
       assert.equal(parseJson(updateResponse).progress.lessonId, lessonId)
       assert.equal(parseJson(updateResponse).progress.isRead, true)
       assert.equal(parseJson(updateResponse).progress.readCount, 1)
+      assert.equal(parseJson(updateResponse).progress.priorityState, "normal")
+      assert.equal(parseJson(updateResponse).progress.isDeprioritized, false)
       assert.ok(parseJson(updateResponse).progress.readAt)
 
       const secondUpdateResponse = createResponse()
@@ -284,6 +286,49 @@ test(
       assert.equal(secondUpdateResponse.statusCode, 200)
       assert.equal(parseJson(secondUpdateResponse).progress.readCount, 2)
 
+      const deprioritizeResponse = createResponse()
+      await lessonProgressHandler(
+        createRequest({
+          method: "PUT",
+          url: "/api/lesson-progress",
+          headers: {
+            cookie: cookieHeader,
+          },
+          body: JSON.stringify({
+            lessonId,
+            priorityState: "deprioritized",
+          }),
+        }),
+        deprioritizeResponse,
+      )
+
+      assert.equal(deprioritizeResponse.statusCode, 200)
+      assert.equal(parseJson(deprioritizeResponse).progress.readCount, 2)
+      assert.equal(parseJson(deprioritizeResponse).progress.priorityState, "deprioritized")
+      assert.equal(parseJson(deprioritizeResponse).progress.isDeprioritized, true)
+      assert.ok(parseJson(deprioritizeResponse).progress.priorityUpdatedAt)
+
+      const reprioritizeResponse = createResponse()
+      await lessonProgressHandler(
+        createRequest({
+          method: "PUT",
+          url: "/api/lesson-progress",
+          headers: {
+            cookie: cookieHeader,
+          },
+          body: JSON.stringify({
+            lessonId,
+            priorityState: "normal",
+          }),
+        }),
+        reprioritizeResponse,
+      )
+
+      assert.equal(reprioritizeResponse.statusCode, 200)
+      assert.equal(parseJson(reprioritizeResponse).progress.readCount, 2)
+      assert.equal(parseJson(reprioritizeResponse).progress.priorityState, "normal")
+      assert.equal(parseJson(reprioritizeResponse).progress.isDeprioritized, false)
+
       const listResponse = createResponse()
       await lessonProgressHandler(
         createRequest({
@@ -298,7 +343,11 @@ test(
       assert.equal(listResponse.statusCode, 200)
       assert.ok(
         parseJson(listResponse).progress.some(
-          (row) => row.lessonId === lessonId && row.isRead && row.readCount === 2,
+          (row) =>
+            row.lessonId === lessonId &&
+            row.isRead &&
+            row.readCount === 2 &&
+            row.priorityState === "normal",
         ),
       )
 

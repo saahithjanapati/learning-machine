@@ -71,6 +71,8 @@ async function migrateReaderSchema() {
       is_read boolean NOT NULL DEFAULT true,
       read_count integer NOT NULL DEFAULT 0,
       read_at timestamptz,
+      priority_state text NOT NULL DEFAULT 'normal',
+      priority_updated_at timestamptz,
       updated_at timestamptz NOT NULL DEFAULT now(),
       PRIMARY KEY (user_id, lesson_id)
     )
@@ -79,6 +81,16 @@ async function migrateReaderSchema() {
   await sql`
     ALTER TABLE reader_lesson_progress
     ADD COLUMN IF NOT EXISTS read_count integer NOT NULL DEFAULT 0
+  `
+
+  await sql`
+    ALTER TABLE reader_lesson_progress
+    ADD COLUMN IF NOT EXISTS priority_state text NOT NULL DEFAULT 'normal'
+  `
+
+  await sql`
+    ALTER TABLE reader_lesson_progress
+    ADD COLUMN IF NOT EXISTS priority_updated_at timestamptz
   `
 
   await sql`
