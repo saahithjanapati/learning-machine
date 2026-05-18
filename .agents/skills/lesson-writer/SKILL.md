@@ -22,6 +22,7 @@ The lesson must:
 
 1. Identify the target topic path. If unclear, infer the closest existing topic under `topics/`; create a new topic only when the material does not fit any existing topic.
 2. Read the source material directly. For URLs or papers, fetch the page/PDF/source; for local files, inspect the artifact itself.
+   - If the user gives a tweet, social post, AlphaXiv page, project page, benchmark page, lab page, blog announcement, or website that is about a paper, resolve and read the actual paper whenever available. Prefer the canonical arXiv/ACL/NeurIPS/ICLR/OpenReview/DOI/conference PDF or official HTML paper source for the processed note and lesson. Keep the tweet/page as discovery provenance, not as a substitute for the paper.
 3. Decide the lesson mode:
    - **Paper mode** for research papers, arXiv links, conference papers, or technical reports.
    - **Article mode** for blog posts, web pages, essays, documentation, or news-like sources.
@@ -31,7 +32,7 @@ The lesson must:
 5. Add a concise source note near the top with the source title, authors/site when available, date when available, and link.
    - If the lesson is based on a research paper, make sure the companion `materials/processed/<root>/<source-name>.md` file is a detailed processed-source study note, not only a short summary. It should preserve the paper's motivation, method, objective/training details, experiments, results, limitations, caveats, important equations, and study questions in structured prose.
    - Do not store raw verbatim paper text as the processed note. Store a thorough, source-backed extraction and analysis instead, using only short compliant quotes when needed.
-   - If only metadata/abstract access was available, explicitly label the processed note as `Limited extraction` and avoid claiming full-paper coverage.
+   - If only metadata/abstract/accessory-page access was available, explicitly label the processed note as `Limited extraction` and avoid claiming full-paper coverage.
 6. Update `learning_system/LESSON_INDEX.md` with a concise row for the new lesson when the repo uses that registry. Use the lesson ingestion date for the filename date and index `Date` column; keep the source's publication date only inside the source note/provenance text.
 7. Reindex after adding the lesson: `python scripts/learning_cli.py reindex --write-skill-tree`.
 8. If the Quartz lesson site exists, rebuild with `npm run lessons:build` before claiming the web view is updated.

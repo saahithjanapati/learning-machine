@@ -32,6 +32,11 @@ Use this skill when user asks:
     - do not dump the raw paper verbatim; use structured extraction, close paraphrase, and short compliant quotations only when needed
     - if the full PDF/source cannot be accessed and only metadata or an abstract was available, mark the note as `Limited extraction` and do not present it as a full-paper ingest
 - for websites/articles/URLs:
+  - if the user provides a tweet, social post, AlphaXiv page, project page, blog announcement, lab page, benchmark page, or website that points to a research paper, treat it as discovery provenance and resolve the actual canonical paper before ingesting:
+    - prefer arXiv/ACL/NeurIPS/ICLR/OpenReview/DOI/conference PDF or official HTML paper pages as the processed source
+    - preserve the original tweet/page URL in provenance as `Discovery source:` or `Paper website:` when useful
+    - do not ingest only the tweet/page summary when the full paper is available
+    - if no full paper can be found or accessed, mark the processed note as `Limited extraction` and explain which source was available
   - fetch the canonical page content directly,
   - scrape only the content needed for learning use,
   - preserve provenance with the canonical URL, title, and publish date when available,
