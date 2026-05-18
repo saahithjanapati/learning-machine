@@ -2255,6 +2255,13 @@
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
     {
+      "transcript_path": "materials/processed/ai/safety-pretraining-toward-next-generation-safe-ai.md",
+      "root_topic": "ai",
+      "source_pdf": "https://proceedings.neurips.cc/paper_files/paper/2025/file/3e84c4e0acee2be072571fedc70700a9-Paper-Conference.pdf",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
       "transcript_path": "materials/processed/ai/scale-labs-papers-2025-2026/brief.md",
       "root_topic": "ai",
       "source_pdf": null,

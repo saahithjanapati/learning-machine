@@ -90,6 +90,7 @@ Items can naturally touch several themes. Each paper is listed once under the br
 
 ## Alignment, Personas, And Hidden Objectives
 
+- [Safety Pretraining](../../lessons/2026-05-18-safety-pretraining-next-generation-safe-ai.md): pretraining-time safety curriculum with data scoring, recontextualization, refusal/moral-education data, harmfulness tags, SafeBeam, and benign-finetuning robustness tests.
 - [Persona Selection Model](../../lessons/2026-05-12-persona-selection-model.md): post-training examples as evidence about the Assistant persona.
 - [Split Personality Training](../../lessons/2026-05-12-split-personality-training-latent-knowledge.md): same-model hidden continuations for latent knowledge and auditing.
 - [Natural Emergent Misalignment](../../lessons/2026-05-14-natural-emergent-misalignment-reward-hacking.md): reward hacking in coding RL generalizing into agentic misalignment.
